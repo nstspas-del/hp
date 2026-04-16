@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hptuning.ru/sitemap.xml
+
+# Блокируем служебные файлы
+Disallow: /site/js/
+Disallow: /site/css/
