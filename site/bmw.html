@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Автосервис BMW в Санкт-Петербурге — ТО, ремонт, чип-тюнинг | HP Тюнинг</title>
+  <meta name="description" content="Специализированный сервис BMW в СПб. Диагностика BMW ISTA+, ТО F/G-кузовов, M-серии. Устранение масложора N20/B48, замена цепи N47/N57, ремонт АКПП ZF 8HP. Чип-тюнинг Stage 1–3 от 6 500 ₽. Порошкино, Богородская 3Б." />
+  <meta name="keywords" content="автосервис BMW СПб, ремонт BMW Санкт-Петербург, ТО BMW, масложор N20 N47, цепь ГРМ N47 N57, АКПП ZF 8HP, чип-тюнинг BMW, B48 Stage 1, HP Тюнинг" />
+  <link rel="canonical" href="https://hp-tuning.ru/bmw" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="geo.region" content="RU-SPE" />
+  <meta property="og:title" content="Автосервис BMW в СПб | HP Тюнинг" />
+  <meta property="og:description" content="ТО BMW, ремонт, диагностика ISTA+. Масложор N20/B48, цепь N47/N57, ZF 8HP. Чип-тюнинг Stage 1–3. Порошкино, СПб." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hp-tuning.ru/bmw" />
+  <meta property="og:image" content="https://hp-tuning.ru/og-image.jpg" />
+  <meta property="og:locale" content="ru_RU" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://hp-tuning.ru/"},{"@type":"ListItem","position":2,"name":"Марки","item":"https://hp-tuning.ru/#brands"},{"@type":"ListItem","position":3,"name":"BMW","item":"https://hp-tuning.ru/bmw"}]}
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏎</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    /* ══ BRAND PAGE LAYOUT ══ */
+    .brand-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 0;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 70px;
+      min-height: 100vh;
+    }
+
+    /* ── LEFT SIDEBAR ── */
+    .brand-sidebar {
+      position: sticky;
+      top: 70px;
+      height: calc(100vh - 70px);
+      overflow-y: auto;
+      background: #0d0d0f;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0 40px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(57,255,20,0.2) transparent;
+    }
+    .brand-sidebar::-webkit-scrollbar { width: 4px; }
+    .brand-sidebar::-webkit-scrollbar-thumb { background: rgba(57,255,20,0.2); border-radius: 4px; }
+
+    .brand-sidebar-logo {
+      display: flex; align-items: center; gap: 14px;
+      padding: 0 24px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 12px;
+    }
+    .brand-sidebar-logo img { width: 48px; height: 48px; object-fit: contain; }
+    .brand-sidebar-logo-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px; color: #f4f4f5; line-height: 1;
+    }
+    .brand-sidebar-logo-sub { font-size: 11px; color: #52525b; }
+
+    .brand-nav-group { padding: 0 12px; margin-bottom: 4px; }
+    .brand-nav-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #3f3f46;
+      padding: 8px 12px 4px;
+    }
+    .brand-nav-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px; border-radius: 10px;
+      font-size: 13px; font-weight: 500; color: #71717a;
+      cursor: pointer; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .brand-nav-item:hover { color: #f4f4f5; background: rgba(255,255,255,0.04); }
+    .brand-nav-item.active { color: #39FF14; background: rgba(57,255,20,0.08); font-weight: 700; }
+    .brand-nav-item .nav-ico { font-size: 16px; flex-shrink: 0; }
+    .brand-nav-count {
+      margin-left: auto;
+      font-size: 10px; font-weight: 700;
+      background: rgba(57,255,20,0.1); color: #39FF14;
+      padding: 2px 7px; border-radius: 50px;
+    }
+
+    .brand-sidebar-cta {
+      margin: 16px 12px 0;
+      background: #39FF14; color: #000;
+      border: none; border-radius: 12px;
+      width: calc(100% - 24px); padding: 13px;
+      font-size: 13px; font-weight: 800;
+      cursor: pointer; font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+    }
+    .brand-sidebar-cta:hover { background: #fff; box-shadow: 0 0 24px rgba(57,255,20,0.3); }
+
+    /* ── RIGHT CONTENT ── */
+    .brand-content {
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .brand-hero-new {
+      background: 
+        radial-gradient(ellipse 100% 80% at 60% -20%, rgba(57,255,20,0.06) 0%, transparent 60%),
+        #09090b;
+      padding: 56px 48px 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .brand-hero-breadcrumb {
+      display: flex; gap: 8px; align-items: center;
+      font-size: 12px; color: #52525b; margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .brand-hero-breadcrumb a { color: #71717a; }
+    .brand-hero-breadcrumb a:hover { color: #39FF14; }
+    .brand-hero-title-block { margin-bottom: 20px; }
+    .brand-hero-eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #39FF14; margin-bottom: 10px;
+    }
+    .brand-hero-h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 5.5vw, 80px);
+      line-height: 0.95; color: #f4f4f5;
+    }
+    .brand-hero-h1 span { color: #39FF14; }
+    .brand-hero-sub {
+      font-size: 16px; color: #71717a; line-height: 1.65; margin-bottom: 24px;
+      max-width: 580px;
+    }
+    .brand-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .brand-tag {
+      background: rgba(57,255,20,0.06);
+      border: 1px solid rgba(57,255,20,0.15);
+      border-radius: 50px; padding: 5px 14px;
+      font-size: 12px; font-weight: 600; color: #71717a;
+    }
+    .brand-hero-stats {
+      display: flex; gap: 40px; flex-wrap: wrap;
+      padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .brand-hero-stat-num {
+      font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: #39FF14; line-height: 1;
+    }
+    .brand-hero-stat-label { font-size: 12px; color: #71717a; }
+
+    /* ── SECTION COMMON ── */
+    .brand-section {
+      padding: 56px 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .brand-section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px; color: #f4f4f5; margin-bottom: 8px;
+    }
+    .brand-section-title span { color: #39FF14; }
+    .brand-section-sub {
+      font-size: 14px; color: #71717a; margin-bottom: 28px; line-height: 1.6; max-width: 620px;
+    }
+
+    /* ── PROBLEMS ── */
+    .problems-grid-new {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+    .problem-card-new {
+      background: #111113;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px; padding: 22px 24px;
+      transition: border-color 0.2s;
+    }
+    .problem-card-new:hover { border-color: rgba(57,255,20,0.2); }
+    .problem-card-new h3 {
+      font-size: 15px; font-weight: 800; color: #f4f4f5; margin-bottom: 8px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .problem-card-new h3::before {
+      content: '⚠';
+      color: #f59e0b; font-size: 13px; flex-shrink: 0;
+    }
+    .problem-card-new p { font-size: 13px; color: #71717a; line-height: 1.65; }
+    .problem-severity {
+      display: inline-block; margin-top: 10px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 50px;
+    }
+    .sev-high { background: rgba(239,68,68,0.1); color: #ef4444; }
+    .sev-medium { background: rgba(245,158,11,0.1); color: #f59e0b; }
+    .sev-low { background: rgba(57,255,20,0.08); color: #39FF14; }
+
+    /* ── SERVICES SLIDER ── */
+    .services-slider-wrap { position: relative; }
+    .services-slider {
+      display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px;
+      scroll-behavior: smooth; scrollbar-width: none;
+    }
+    .services-slider::-webkit-scrollbar { display: none; }
+    .service-slide {
+      flex-shrink: 0; width: 260px;
+      background: #111113;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px; padding: 22px;
+      transition: border-color 0.2s, transform 0.2s;
+      cursor: default;
+    }
+    .service-slide:hover { border-color: rgba(57,255,20,0.25); transform: translateY(-3px); }
+    .service-slide-icon { font-size: 28px; margin-bottom: 12px; }
+    .service-slide h3 { font-size: 14px; font-weight: 800; color: #f4f4f5; margin-bottom: 8px; }
+    .service-slide p { font-size: 12px; color: #71717a; line-height: 1.6; margin-bottom: 14px; }
+    .service-slide-price { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: #39FF14; }
+    .slider-nav {
+      display: flex; gap: 8px; margin-top: 16px;
+    }
+    .slider-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #111113; border: 1px solid rgba(255,255,255,0.1);
+      color: #71717a; font-size: 16px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .slider-btn:hover { border-color: #39FF14; color: #39FF14; }
+
+    /* ── PROMO / АКЦИИ ── */
+    .promos-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+    }
+    .promo-card {
+      border-radius: 16px; padding: 22px 24px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .promo-card.green { background: rgba(57,255,20,0.05); border: 1px solid rgba(57,255,20,0.15); }
+    .promo-card.purple { background: rgba(168,85,247,0.05); border: 1px solid rgba(168,85,247,0.15); }
+    .promo-label {
+      font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .promo-label.g { color: #39FF14; }
+    .promo-label.p { color: #a855f7; }
+    .promo-card h3 { font-size: 15px; font-weight: 800; color: #f4f4f5; margin: 0; }
+    .promo-card p { font-size: 13px; color: #71717a; margin: 0; line-height: 1.6; }
+    .promo-price { font-family: 'Bebas Neue', sans-serif; font-size: 28px; }
+    .promo-price.g { color: #39FF14; }
+    .promo-price.p { color: #a855f7; }
+
+    /* ── ARTICLE ── */
+    .brand-article {
+      background: #0d0d0f;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px; padding: 32px 36px;
+    }
+    .brand-article h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px; color: #f4f4f5; margin-bottom: 16px;
+    }
+    .brand-article p { font-size: 14px; color: #a1a1aa; line-height: 1.75; margin-bottom: 14px; }
+    .brand-article p:last-child { margin-bottom: 0; }
+    .brand-article strong { color: #f4f4f5; }
+    .brand-article em { color: #39FF14; font-style: normal; font-weight: 700; }
+
+    /* ── CTA ── */
+    .brand-cta {
+      background: linear-gradient(135deg, rgba(57,255,20,0.04) 0%, rgba(168,85,247,0.04) 100%);
+      border: 1px solid rgba(57,255,20,0.12);
+      border-radius: 24px; padding: 44px 48px; text-align: center;
+    }
+    .brand-cta h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px; color: #f4f4f5; margin-bottom: 12px;
+    }
+    .brand-cta h2 span { color: #39FF14; }
+    .brand-cta p { font-size: 15px; color: #71717a; margin-bottom: 28px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .brand-layout { grid-template-columns: 200px 1fr; }
+      .brand-hero-new, .brand-section { padding-left: 28px; padding-right: 28px; }
+    }
+    @media (max-width: 768px) {
+      .brand-layout { grid-template-columns: 1fr; }
+      .brand-sidebar {
+        position: static; height: auto;
+        border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07);
+        padding: 20px 0 16px;
+        display: flex; overflow-x: auto; overflow-y: hidden; gap: 4px;
+      }
+      .brand-sidebar-logo { display: none; }
+      .brand-nav-group { display: flex; gap: 4px; padding: 0 8px; }
+      .brand-nav-label { display: none; }
+      .brand-nav-item { white-space: nowrap; flex-shrink: 0; padding: 8px 14px; }
+      .brand-hero-new, .brand-section { padding: 32px 20px; }
+      .problems-grid-new { grid-template-columns: 1fr; }
+      .promos-grid { grid-template-columns: 1fr; }
+      .brand-cta { padding: 32px 20px; }
+      .brand-sidebar-cta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><img src="images/logo-real.webp" alt="HP Тюнинг логотип" width="120" height="50" /></a>
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="tuning.html" class="nav-link">Тюнинг</a>
+      <a href="index.html#autoservice" class="nav-link">Автосервис</a>
+      <a href="detailing.html" class="nav-link">Детейлинг</a>
+      <a href="blog.html" class="nav-link">Блог</a>
+      <a href="index.html#portfolio" class="nav-link">Портфолио</a>
+      <a href="index.html#contacts" class="nav-link">Контакты</a>
+    </nav>
+    <div class="header-right">
+      <a href="tel:+79818428151" class="header-phone">+7 (981) 842-81-51</a>
+      <button class="btn-booking" onclick="openBooking()">Записаться</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="brand-layout">
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="brand-sidebar" aria-label="Навигация по странице BMW">
+    <div class="brand-sidebar-logo">
+      <img src="https://www.carlogos.org/car-logos/bmw-logo-2020-gray-white-dark-background-1500x1500.png" alt="BMW логотип" />
+      <div>
+        <div class="brand-sidebar-logo-name">BMW</div>
+        <div class="brand-sidebar-logo-sub">Автосервис · СПб</div>
+      </div>
+    </div>
+
+    <div class="brand-nav-group">
+      <div class="brand-nav-label">Разделы</div>
+      <a href="#overview" class="brand-nav-item active" onclick="setActive(this)">
+        <span class="nav-ico">🏠</span> О марке
+      </a>
+      <a href="#problems" class="brand-nav-item" onclick="setActive(this)">
+        <span class="nav-ico">⚠️</span> Болячки
+        <span class="brand-nav-count">8</span>
+      </a>
+      <a href="#services" class="brand-nav-item" onclick="setActive(this)">
+        <span class="nav-ico">🔧</span> Услуги
+      </a>
+      <a href="#tuning" class="brand-nav-item" onclick="setActive(this)">
+        <span class="nav-ico">⚡</span> Тюнинг
+      </a>
+      <a href="#promos" class="brand-nav-item" onclick="setActive(this)">
+        <span class="nav-ico">🎁</span> Акции
+      </a>
+      <a href="#article" class="brand-nav-item" onclick="setActive(this)">
+        <span class="nav-ico">📋</span> Статья
+      </a>
+    </div>
+
+    <div class="brand-nav-group" style="margin-top: 12px;">
+      <div class="brand-nav-label">Другие марки</div>
+      <a href="mercedes.html" class="brand-nav-item"><span class="nav-ico">⭐</span> Mercedes</a>
+      <a href="porsche.html" class="brand-nav-item"><span class="nav-ico">🐎</span> Porsche</a>
+      <a href="audi.html" class="brand-nav-item"><span class="nav-ico">⭕</span> Audi</a>
+      <a href="lexus.html" class="brand-nav-item"><span class="nav-ico">💎</span> Lexus</a>
+    </div>
+
+    <button class="brand-sidebar-cta" onclick="openBooking()">
+      🗓️ Записать BMW
+    </button>
+  </aside>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <main class="brand-content">
+
+    <!-- HERO -->
+    <section class="brand-hero-new" id="overview" aria-label="О сервисе BMW">
+      <nav class="brand-hero-breadcrumb" aria-label="Хлебные крошки">
+        <a href="index.html">Главная</a> › <a href="index.html#brands">Марки</a> › <span style="color:#39FF14;">BMW</span>
+      </nav>
+      <div class="brand-hero-eyebrow">Специализированный сервис</div>
+      <div class="brand-hero-title-block">
+        <h1 class="brand-hero-h1">Сервис <span>BMW</span><br/>в Санкт-Петербурге</h1>
+      </div>
+      <p class="brand-hero-sub">Freude am Fahren — и мы знаем, как её усилить и сохранить. Диагностика ISTA+, оригинальные расходники, прошивки всех блоков BMW.</p>
+      <div class="brand-tags">
+        <span class="brand-tag">F- и G-кузова</span>
+        <span class="brand-tag">M-серия (S58/S55)</span>
+        <span class="brand-tag">iX / i-серия</span>
+        <span class="brand-tag">xDrive 4WD</span>
+        <span class="brand-tag">N/B/S-моторы</span>
+        <span class="brand-tag">ISTA+ диагностика</span>
+        <span class="brand-tag">ZF 8HP АКПП</span>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px;">
+        <button class="btn-primary" onclick="openBooking()">Записать BMW</button>
+        <a href="tel:+79818428151" class="btn-secondary">+7 (981) 842-81-51</a>
+        <a href="https://t.me/hptuningspb" class="btn-secondary" target="_blank" rel="noopener">✈️ Telegram</a>
+      </div>
+      <div class="brand-hero-stats">
+        <div>
+          <div class="brand-hero-stat-num">8+</div>
+          <div class="brand-hero-stat-label">лет с BMW</div>
+        </div>
+        <div>
+          <div class="brand-hero-stat-num">300+</div>
+          <div class="brand-hero-stat-label">BMW обслужено</div>
+        </div>
+        <div>
+          <div class="brand-hero-stat-num">ISTA+</div>
+          <div class="brand-hero-stat-label">официальная диагностика</div>
+        </div>
+        <div>
+          <div class="brand-hero-stat-num">от 1 700 ₽</div>
+          <div class="brand-hero-stat-label">диагностика</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- БОЛЯЧКИ -->
+    <section class="brand-section" id="problems" aria-label="Типичные проблемы BMW">
+      <h2 class="brand-section-title">БОЛЯЧКИ <span>BMW</span></h2>
+      <p class="brand-section-sub">За 8+ лет работы с BMW накопили исчерпывающую базу по всем двигателям и агрегатам. Диагностируем точно, устраняем надёжно — без лишних деталей.</p>
+      <div class="problems-grid-new">
+        <article class="problem-card-new">
+          <h3>Масложор N20 и B48 (2.0T)</h3>
+          <p>Расход масла 0.5–1.5 л на 1000 км. Причины: износ маслосъёмных колец, PCV-клапан, турбина. Диагностируем причину — от прочистки вентиляции картера до замены поршневой.</p>
+          <span class="problem-severity sev-high">Часто встречается</span>
+        </article>
+        <article class="problem-card-new">
+          <h3>Цепь ГРМ N47 / N57 (дизель)</h3>
+          <p>Растяжение и обрыв цепи на дизелях 2007–2014 г.в. Цепь сзади двигателя. Заменяем комплект ГРМ профилактически — до катастрофического обрыва.</p>
+          <span class="problem-severity sev-high">Критично</span>
+        </article>
+        <article class="problem-card-new">
+          <h3>АКПП ZF 8HP — пинки и задержки</h3>
+          <p>Накопление стружки, отсутствие замены масла → пинки, задержки переключений, рывки. Полная замена масла с прочисткой гидроблока и адаптацией через ISTA+.</p>
+          <span class="problem-severity sev-medium">Требует внимания</span>
+        </article>
+        <article class="problem-card-new">
+          <h3>Термостат и система охлаждения</h3>
+          <p>Пластиковый термостат на N52/N54/N55/B48 отказывает → перегрев → прогар прокладки ГБЦ. Профилактически меняем термостат, помпу и расширительный бачок.</p>
+          <span class="problem-severity sev-high">Критично</span>
+        </article>
+        <article class="problem-card-new">
+          <h3>Утечки масла (прокладки, сальники)</h3>
+          <p>Прокладки крышки клапанов, сальники распредвала, маслоотделитель — типичные места на N52/N55/B58. Масло на катушках → пропуски воспламенения.</p>
+          <span class="problem-severity sev-medium">Требует внимания</span>
+        </article>
+        <article class="problem-card-new">
+          <h3>ТНВД и форсунки N54 / N63</h3>
+          <p>Проблемы с HPFP и форсунками: плохой холодный пуск, неровная работа, повышенный расход. Диагностика на стенде, ультразвуковая чистка или замена.</p>
+          <span class="problem-severity sev-medium">Часто встречается</span>
+        </article>
+        <article class="problem-card-new">
+          <h3>Электрика iDrive и блок CAS</h3>
+          <p>Блок CAS на E/F-серях — проблемы с запуском, блокировка двигателя, ошибки ключа. Программируем, синхронизируем, при необходимости заменяем с кодированием.</p>
+          <span class="problem-severity sev-low">Умеренно</span>
+        </article>
+        <article class="problem-card-new">
+          <h3>Вибрации и стуки M-серии (S55/S58)</h3>
+          <p>На M3/M4 F/G характерны вибрации подвески, стуки рычагов, гул ступичных подшипников. Компьютерная диагностика ходовой + развал-схождение.</p>
+          <span class="problem-severity sev-low">Умеренно</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- УСЛУГИ (СЛАЙДЕР) -->
+    <section class="brand-section" id="services" aria-label="Услуги для BMW">
+      <h2 class="brand-section-title">УСЛУГИ ДЛЯ <span>BMW</span></h2>
+      <p class="brand-section-sub">Прокрутите вправо → Все услуги специализированного BMW-сервиса в одном месте</p>
+      <div class="services-slider-wrap">
+        <div class="services-slider" id="bmw-slider">
+          <div class="service-slide">
+            <div class="service-slide-icon">🔬</div>
+            <h3>Диагностика ISTA+</h3>
+            <p>Полное сканирование всех систем. Расшифровка ошибок, адаптация блоков, программирование через официальную систему BMW ISTA+.</p>
+            <div class="service-slide-price">1 700 ₽</div>
+          </div>
+          <div class="service-slide">
+            <div class="service-slide-icon">🔧</div>
+            <h3>ТО BMW (F/G/E-серий)</h3>
+            <p>Регламентное ТО с оригинальным маслом BMW Longlife, фильтрами, сброс сервисного интервала. Проверка 50 параметров.</p>
+            <div class="service-slide-price">от 7 000 ₽</div>
+          </div>
+          <div class="service-slide">
+            <div class="service-slide-icon">⚙️</div>
+            <h3>Замена масла АКПП ZF 8HP</h3>
+            <p>Полная замена масла ZF LifeguardFluid 8, прочистка поддона, замена фильтра-сетки, адаптация через ISTA+.</p>
+            <div class="service-slide-price">20 000 ₽</div>
+          </div>
+          <div class="service-slide">
+            <div class="service-slide-icon">⛓️</div>
+            <h3>Замена цепи ГРМ N47/N57</h3>
+            <p>Полный комплект ГРМ: цепь, натяжитель, успокоитель, звёздочки. По технологии BMW, гарантия 12 мес.</p>
+            <div class="service-slide-price">от 35 000 ₽</div>
+          </div>
+          <div class="service-slide">
+            <div class="service-slide-icon">🛢️</div>
+            <h3>Устранение масложора N20/B48</h3>
+            <p>Диагностика: кольца, турбина, PCV-клапан, сальники. Ремонт с результатом — расход до нормы 250 мл/1000 км.</p>
+            <div class="service-slide-price">от 25 000 ₽</div>
+          </div>
+          <div class="service-slide">
+            <div class="service-slide-icon">💻</div>
+            <h3>Кодирование BMW</h3>
+            <p>Активация скрытых функций: видео в движении, Auto H/S, Sport Display, Cornering Light, Fold Mirror Lock и другое.</p>
+            <div class="service-slide-price">от 1 500 ₽</div>
+          </div>
+          <div class="service-slide">
+            <div class="service-slide-icon">🌡️</div>
+            <h3>Термостат и помпа</h3>
+            <p>Профилактическая замена пластикового термостата, электрической помпы и расширительного бачка на N52/N54/N55/B48.</p>
+            <div class="service-slide-price">от 12 000 ₽</div>
+          </div>
+          <div class="service-slide">
+            <div class="service-slide-icon">🔩</div>
+            <h3>Ремонт ходовой части</h3>
+            <p>Рычаги, сайлентблоки, ступичные подшипники, ШРУС. Оригинальные детали и OEM-аналоги. Развал-схождение 3D.</p>
+            <div class="service-slide-price">от 4 000 ₽</div>
+          </div>
+        </div>
+        <div class="slider-nav">
+          <button class="slider-btn" onclick="scrollSlider('bmw-slider', -300)" aria-label="Назад">‹</button>
+          <button class="slider-btn" onclick="scrollSlider('bmw-slider', 300)" aria-label="Вперёд">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ТЮНИНГ -->
+    <section class="brand-section" id="tuning" style="background:#0d0d0f;" aria-label="Чип-тюнинг BMW">
+      <h2 class="brand-section-title">ЧИП-ТЮНИНГ <span>BMW</span></h2>
+      <p class="brand-section-sub">Прошиваем все современные BMW: N/B/S серии через OBD или снятие блока (BDM/JTAG). Оборудование: MAGIC Motorsport, Alientech KESSv3, CMD Flash.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px;">
+        <div style="background:#111113;border:1px solid rgba(57,255,20,0.2);border-radius:14px;padding:20px;">
+          <div style="font-size:11px;font-weight:700;color:#39FF14;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;">Stage 1 — ECU</div>
+          <div style="font-size:13px;color:#71717a;line-height:1.6;margin-bottom:12px;">Прошивка без аппаратных изменений. Прирост +25–45 л.с. Безопасно для стока.</div>
+          <div style="font-size:20px;font-weight:800;color:#39FF14;">от 6 500 ₽</div>
+        </div>
+        <div style="background:#111113;border:1px solid rgba(57,255,20,0.2);border-radius:14px;padding:20px;">
+          <div style="font-size:11px;font-weight:700;color:#39FF14;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;">Stage 2 — ECU + даунпайп</div>
+          <div style="font-size:13px;color:#71717a;line-height:1.6;margin-bottom:12px;">Прошивка + даунпайп. Прирост +50–80 л.с.</div>
+          <div style="font-size:20px;font-weight:800;color:#39FF14;">от 14 000 ₽</div>
+        </div>
+        <div style="background:#111113;border:1px solid rgba(168,85,247,0.2);border-radius:14px;padding:20px;">
+          <div style="font-size:11px;font-weight:700;color:#a855f7;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;">Stage 3 — M-серия</div>
+          <div style="font-size:13px;color:#71717a;line-height:1.6;margin-bottom:12px;">Полный апгрейд S58/S55: турбина, intercooler, топливо.</div>
+          <div style="font-size:20px;font-weight:800;color:#a855f7;">по запросу</div>
+        </div>
+      </div>
+      <div style="background:#111113;border:1px solid rgba(57,255,20,0.1);border-radius:16px;padding:24px;">
+        <h3 style="font-size:15px;font-weight:700;margin-bottom:14px;">Популярные конфигурации:</h3>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;font-size:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:#0d0d0f;border-radius:9px;">
+            <span style="color:#a1a1aa;">BMW 320i B48 (184→250 л.с.)</span>
+            <span style="color:#39FF14;font-weight:700;white-space:nowrap;">6 500 ₽</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:#0d0d0f;border-radius:9px;">
+            <span style="color:#a1a1aa;">BMW 530d B57 (265→330 л.с.)</span>
+            <span style="color:#39FF14;font-weight:700;white-space:nowrap;">8 000 ₽</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:#0d0d0f;border-radius:9px;">
+            <span style="color:#a1a1aa;">BMW 540i B58 (340→420 л.с.)</span>
+            <span style="color:#39FF14;font-weight:700;white-space:nowrap;">9 000 ₽</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:#0d0d0f;border-radius:9px;">
+            <span style="color:#a1a1aa;">BMW M5 Competition (625→720 л.с.)</span>
+            <span style="color:#39FF14;font-weight:700;white-space:nowrap;">18 000 ₽</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:#0d0d0f;border-radius:9px;">
+            <span style="color:#a1a1aa;">BMW M3/M4 S58 (510→600 л.с.)</span>
+            <span style="color:#39FF14;font-weight:700;white-space:nowrap;">14 000 ₽</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:#0d0d0f;border-radius:9px;">
+            <span style="color:#a1a1aa;">BMW X5 M50i N63 (530→630 л.с.)</span>
+            <span style="color:#39FF14;font-weight:700;white-space:nowrap;">16 000 ₽</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- АКЦИИ -->
+    <section class="brand-section" id="promos" aria-label="Акции и бонусы для BMW">
+      <h2 class="brand-section-title">АКЦИИ ДЛЯ <span>BMW</span></h2>
+      <p class="brand-section-sub">Специальные предложения для владельцев BMW в HP Тюнинг</p>
+      <div class="promos-grid">
+        <div class="promo-card green">
+          <div class="promo-label g">🔥 Горячее предложение</div>
+          <h3>ТО + диагностика BMW</h3>
+          <p>При заказе ТО — диагностика ISTA+ в подарок. Проверим все системы, сбросим сервисный интервал, дадим рекомендации.</p>
+          <div class="promo-price g">от 7 000 ₽</div>
+        </div>
+        <div class="promo-card purple">
+          <div class="promo-label p">💎 Пакет выгоды</div>
+          <h3>Чип-тюнинг + кодирование</h3>
+          <p>Stage 1 + активация скрытых функций (видео в движении, Sport Display и ещё 10+ функций). Скидка 15% на кодирование.</p>
+          <div class="promo-price p">от 7 500 ₽</div>
+        </div>
+        <div class="promo-card green">
+          <div class="promo-label g">🛡️ Безопасность</div>
+          <h3>Замена цепи ГРМ N47/N57</h3>
+          <p>Профилактическая замена до обрыва. Комплект + работа. Рекомендуется всем BMW с дизелем 2007–2014 г.в.</p>
+          <div class="promo-price g">от 35 000 ₽</div>
+        </div>
+        <div class="promo-card purple">
+          <div class="promo-label p">⚡ M-серия</div>
+          <h3>Тюнинг M3/M4 под ключ</h3>
+          <p>Stage 1 (ECU) + адаптация коробки DSG + файн-тюнинг + тест-драйв с оборудованием. Результат от +90 л.с.</p>
+          <div class="promo-price p">от 28 000 ₽</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- СТАТЬЯ -->
+    <section class="brand-section" id="article" aria-label="Статья о BMW">
+      <h2 class="brand-section-title">О ВЛАДЕНИИ <span>BMW</span></h2>
+      <div class="brand-article">
+        <h3>Почему BMW требует специализированного сервиса?</h3>
+        <p>BMW — это не просто автомобиль, это <strong>инженерное произведение</strong>, требующее точного подхода. Особенно это касается современных F- и G-поколений с их сложными многоступенчатыми коробками ZF 8HP, двигателями серии B48/B58 с прямым впрыском и наддувом, а также цифровой архитектурой iDrive 7/8.</p>
+        <p>Одна из главных особенностей BMW — <em>высокая чувствительность к качеству обслуживания</em>. Использование не того масла (например, масло без одобрения BMW Longlife-04 в B48/B58) приводит к ускоренному износу поршневых колец и усилению масложора. Именно поэтому в HP Тюнинг мы используем только официально одобренные расходники.</p>
+        <p>Другая тема — <strong>прошивки ECU</strong>. BMW активно использует «мягкие» настройки двигателя с завода, оставляя большой потенциал для Stage 1. В нашей практике B48 в 320i легко выходит на 250+ л.с. без каких-либо аппаратных изменений — просто правильная прошивка, правильные специалисты.</p>
+        <p>Для владельцев дизельных BMW N47/N57 у нас есть однозначная рекомендация: <em>меняйте цепь ГРМ профилактически</em> при пробеге 100–120 тыс. км. Стоимость замены — 35 000+ ₽. Стоимость восстановительного ремонта после обрыва — от 150 000 ₽. Выбор очевиден.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="brand-section" aria-label="Запись на сервис BMW">
+      <div class="brand-cta">
+        <h2>ВАШ BMW ЗАСЛУЖИВАЕТ <span>ЛУЧШЕГО</span></h2>
+        <p>Запишитесь на бесплатную диагностику — определим состояние и составим план обслуживания</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <button class="btn-primary" onclick="openBooking()">🗓️ Онлайн-запись</button>
+          <a href="tel:+79818428151" class="btn-secondary">📞 +7 (981) 842-81-51</a>
+          <a href="https://t.me/hptuningspb" class="btn-secondary" target="_blank" rel="noopener">✈️ Telegram</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner container">
+    <div class="footer-brand">
+      <a href="index.html"><img src="images/logo-real.webp" alt="HP Тюнинг" width="100" height="42" loading="lazy" /></a>
+      <p class="footer-desc">Тюнинг-ателье и автосервис в Санкт-Петербурге с 2015 года</p>
+    </div>
+    <nav class="footer-nav"><h3 class="footer-nav-title">BMW</h3><a href="bmw.html">Сервис BMW</a><a href="tuning.html">Чип-тюнинг BMW</a><a href="detailing.html">Детейлинг BMW</a></nav>
+    <nav class="footer-nav"><h3 class="footer-nav-title">Марки</h3><a href="mercedes.html">Mercedes</a><a href="porsche.html">Porsche</a><a href="audi.html">Audi</a><a href="lexus.html">Lexus</a></nav>
+    <div class="footer-contacts"><h3 class="footer-nav-title">Контакты</h3><a href="tel:+79818428151">+7 (981) 842-81-51</a><p>Богородская 3Б, Порошкино, СПб</p><p>Ежедневно 10:00–20:00</p></div>
+  </div>
+  <div class="footer-bottom container">
+    <p>© 2015–2026 HP Тюнинг. Все права защищены.</p>
+    <p>Автосервис BMW в Санкт-Петербурге</p>
+  </div>
+</footer>
+
+<div class="mobile-actions">
+  <a href="tel:+79818428151" class="mobile-btn phone" aria-label="Позвонить"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.9a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.9a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 18.2v1.4z"/></svg>Позвонить</a>
+  <a href="https://t.me/hptuningspb" target="_blank" rel="noopener" class="mobile-btn telegram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.199l-2.02 9.52c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.883.701z"/></svg>Telegram</a>
+</div>
+
+<script type="text/javascript">
+  (function(){
+    function Build(name){return function(){window.autodealerasync.push(name, arguments);}}
+    if(typeof autodealer==='undefined'){
+      var s=document.createElement('script');s.charset='utf-8';s.type='text/javascript';s.src='https://online.autodealer.ru/widget/app.js';
+      var x=document.getElementsByTagName('head')[0];x.appendChild(s);window.autodealer={};window.autodealerasync=[];autodealer.settings={};
+      var m=['init','open'];for(var i=0;i<m.length;i++)autodealer[m[i]]=Build(m[i]);
+    }
+  })();
+  autodealer.init('107eb24c04be7f0ef6676d5aa84dc46132fb7e6bdb6ac10b8adcf74e6e8633dd');
+</script>
+<script src="js/main.js"></script>
+<script>
+function setActive(el) {
+  document.querySelectorAll('.brand-nav-item').forEach(function(i){ i.classList.remove('active'); });
+  el.classList.add('active');
+}
+function scrollSlider(id, amount) {
+  var slider = document.getElementById(id);
+  if (slider) slider.scrollLeft += amount;
+}
+// Scroll spy
+window.addEventListener('scroll', function() {
+  var sections = ['overview','problems','services','tuning','promos','article'];
+  var scrollPos = window.scrollY + 100;
+  sections.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var top = el.getBoundingClientRect().top + window.scrollY;
+    var bot = top + el.offsetHeight;
+    if (scrollPos >= top && scrollPos < bot) {
+      document.querySelectorAll('.brand-nav-item').forEach(function(n){ n.classList.remove('active'); });
+      var navItem = document.querySelector('.brand-nav-item[href="#' + id + '"]');
+      if (navItem) navItem.classList.add('active');
+    }
+  });
+}, { passive: true });
+</script>
+</body>
+</html>

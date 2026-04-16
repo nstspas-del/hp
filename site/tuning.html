@@ -1,0 +1,1905 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге — калькулятор мощности | HP Тюнинг</title>
+  <meta name="description" content="Профессиональный чип-тюнинг в СПб. Stage 1, 2, 3 — прошивка ECU/TCU, даунпайп, спортивный выхлоп. BMW, Mercedes, Porsche, Audi, Volkswagen и 20+ марок. Калькулятор мощности онлайн. от 24 000 ₽. Порошкино, Богородская 3Б." />
+  <meta name="keywords" content="чип-тюнинг СПб, Stage 1 СПб, Stage 2 СПб, Stage 3 Санкт-Петербург, прошивка ECU BMW, тюнинг двигателя, калькулятор мощности, HP Тюнинг, чип тюнинг цена, прошивка ECU Mercedes, тюнинг Porsche СПб" />
+  <link rel="canonical" href="https://hp-tuning.ru/tuning" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="geo.region" content="RU-SPE" />
+  <meta name="geo.placename" content="Санкт-Петербург" />
+  <meta property="og:title" content="Чип-тюнинг Stage 1/2/3 в СПб | HP Тюнинг" />
+  <meta property="og:description" content="Прошивка ECU/TCU, даунпайп, спортивный выхлоп. Калькулятор мощности. от 6 500 ₽. Порошкино, СПб." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hp-tuning.ru/tuning" />
+  <meta property="og:image" content="https://hp-tuning.ru/og-image.jpg" />
+  <meta property="og:locale" content="ru_RU" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Чип-тюнинг Stage 1/2/3",
+    "description": "Безопасная программная настройка двигателя для увеличения мощности и тяги. BMW, Mercedes, Porsche, Audi и 20+ марок.",
+    "provider": {"@id": "https://hp-tuning.ru/#org"},
+    "areaServed": {"@type": "City", "name": "Санкт-Петербург"},
+    "offers": [
+      {"@type": "Offer", "name": "Stage 1", "priceCurrency": "RUB", "price": "6500", "availability": "https://schema.org/InStock"},
+      {"@type": "Offer", "name": "Stage 2", "priceCurrency": "RUB", "price": "25000", "availability": "https://schema.org/InStock"},
+      {"@type": "Offer", "name": "Stage 3", "priceCurrency": "RUB", "price": "70000", "availability": "https://schema.org/InStock"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://hp-tuning.ru/"},
+      {"@type": "ListItem", "position": 2, "name": "Чип-тюнинг", "item": "https://hp-tuning.ru/tuning"}
+    ]
+  }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏎</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    /* ─── SevenForce-style calculator ─── */
+    .sf-calc-section { padding: 40px 20px 80px; }
+    .sf-calc-wrap {
+      background: #0d0d0f;
+      border: 1px solid rgba(57,255,20,0.15);
+      border-radius: 28px;
+      padding: 52px 48px;
+      max-width: 1000px;
+      margin: 0 auto;
+      box-shadow: 0 0 60px rgba(57,255,20,0.04);
+    }
+    .sf-calc-head { margin-bottom: 40px; }
+    .sf-calc-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(30px, 4.5vw, 52px);
+      line-height: 1.05;
+      margin-bottom: 8px;
+    }
+    .sf-calc-sub { font-size: 15px; color: #71717a; }
+    /* Steps */
+    .sf-steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .sf-step { display: flex; flex-direction: column; gap: 8px; }
+    .sf-step-num {
+      font-size: 11px; font-weight: 700; color: #39FF14;
+      letter-spacing: 0.15em; text-transform: uppercase;
+    }
+    .sf-step-label { font-size: 13px; font-weight: 600; color: #a1a1aa; }
+    .sf-select {
+      width: 100%;
+      background: #141416;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 15px 48px 15px 20px;
+      font-size: 15px; font-weight: 500; color: #f4f4f5;
+      appearance: none; cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-family: 'Inter', sans-serif;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10' fill='none'%3E%3Cpath d='M1 1l7 7 7-7' stroke='%2339FF14' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 18px center;
+    }
+    .sf-select:focus { outline: none; border-color: #39FF14; box-shadow: 0 0 0 3px rgba(57,255,20,0.1); }
+    .sf-select:disabled { opacity: 0.35; cursor: not-allowed; }
+    .sf-select option { background: #1a1a1d; }
+
+    /* Calc button */
+    .sf-btn-calc {
+      width: 100%; background: #39FF14; color: #000;
+      border: none; border-radius: 50px;
+      padding: 18px 32px; font-size: 16px; font-weight: 800;
+      cursor: pointer; transition: all 0.25s;
+      margin-top: 8px; letter-spacing: 0.02em;
+    }
+    .sf-btn-calc:hover:not(:disabled) { background: #fff; box-shadow: 0 0 50px rgba(57,255,20,0.35); transform: translateY(-2px); }
+    .sf-btn-calc:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    /* Result */
+    .sf-result { display: none; margin-top: 48px; }
+    .sf-result.show { display: block; }
+    .sf-result-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 28px; padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      flex-wrap: wrap;
+    }
+    .sf-result-car { font-size: 20px; font-weight: 700; }
+    .sf-result-stock {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px; padding: 6px 16px;
+      font-size: 14px; font-weight: 600; color: #a1a1aa;
+    }
+    /* Stage cards */
+    .sf-stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .sf-stage {
+      background: #0f0f11;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 28px;
+      position: relative; transition: border-color 0.25s, transform 0.25s;
+    }
+    .sf-stage:hover { border-color: rgba(57,255,20,0.3); transform: translateY(-4px); }
+    .sf-stage.best {
+      border-color: #39FF14;
+      background: linear-gradient(145deg, #0f0f11 0%, rgba(57,255,20,0.06) 100%);
+    }
+    .sf-best-label {
+      position: absolute; top: -1px; right: 18px;
+      background: #39FF14; color: #000;
+      font-size: 10px; font-weight: 800;
+      padding: 4px 12px; border-radius: 0 0 10px 10px;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .sf-stage-badge {
+      display: block; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #71717a; margin-bottom: 20px;
+    }
+    .sf-stage.best .sf-stage-badge { color: #39FF14; }
+    .sf-hp-after {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 58px; color: #f4f4f5; line-height: 1;
+    }
+    .sf-hp-unit { font-size: 20px; color: #a1a1aa; font-weight: 600; vertical-align: baseline; }
+    .sf-hp-delta {
+      display: inline-flex; align-items: center;
+      background: rgba(57,255,20,0.12);
+      border: 1px solid rgba(57,255,20,0.25);
+      color: #39FF14; font-size: 13px; font-weight: 700;
+      padding: 4px 10px; border-radius: 50px; margin: 10px 0 4px;
+    }
+    .sf-hp-before { font-size: 13px; color: #52525b; margin-bottom: 18px; }
+    .sf-divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 16px 0; }
+    .sf-stage-desc { font-size: 12px; color: #71717a; line-height: 1.6; margin-bottom: 16px; }
+    .sf-stage-price { font-size: 20px; font-weight: 800; color: #f4f4f5; margin-bottom: 14px; }
+    .sf-stage-cta {
+      display: block; text-align: center;
+      background: transparent; border: 1px solid rgba(57,255,20,0.4);
+      color: #39FF14; border-radius: 50px;
+      padding: 10px; font-size: 13px; font-weight: 700;
+      cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;
+      width: 100%;
+    }
+    .sf-stage-cta:hover { background: #39FF14; color: #000; }
+    .sf-stage.best .sf-stage-cta { background: #39FF14; color: #000; }
+    .sf-stage.best .sf-stage-cta:hover { background: #fff; }
+    .sf-no-result { display: none; text-align: center; padding: 32px; color: #71717a; }
+    .sf-no-result.show { display: block; }
+    /* ─── Platinum-style booking block ─── */
+    .pg-booking {
+      background: #111113;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 24px;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .pg-booking-head {
+      padding: 40px 40px 32px;
+      background: linear-gradient(135deg, rgba(57,255,20,0.07) 0%, rgba(168,85,247,0.07) 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+    }
+    .pg-booking-head h2 { font-size: clamp(24px, 3.5vw, 38px); font-weight: 900; margin-bottom: 10px; }
+    .pg-booking-head p { font-size: 15px; color: #71717a; max-width: 500px; margin: 0 auto; }
+    .pg-booking-body {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+    .pg-booking-option {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 12px; padding: 32px 24px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+    }
+    .pg-booking-option:last-child { border-right: none; }
+    .pg-booking-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .pg-booking-option h3 { font-size: 15px; font-weight: 700; margin: 0; }
+    .pg-booking-option p { font-size: 12px; color: #71717a; margin: 0; line-height: 1.5; }
+    .pg-btn-online {
+      background: #39FF14; color: #000;
+      border: none; border-radius: 50px;
+      padding: 13px 24px; font-size: 14px; font-weight: 800;
+      cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+    }
+    .pg-btn-online:hover { background: #fff; box-shadow: 0 0 30px rgba(57,255,20,0.3); transform: translateY(-2px); }
+    .pg-btn-call {
+      background: transparent; color: #f4f4f5;
+      border: 1px solid rgba(255,255,255,0.15); border-radius: 50px;
+      padding: 13px 24px; font-size: 14px; font-weight: 600;
+      text-decoration: none; display: inline-block;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .pg-btn-call:hover { border-color: #39FF14; color: #39FF14; }
+    .pg-btn-tg {
+      background: rgba(41,181,246,0.12); color: #29b5f6;
+      border: 1px solid rgba(41,181,246,0.3); border-radius: 50px;
+      padding: 13px 24px; font-size: 14px; font-weight: 600;
+      text-decoration: none; display: inline-block;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .pg-btn-tg:hover { background: rgba(41,181,246,0.25); }
+
+    @media (max-width: 768px) {
+      .sf-calc-wrap { padding: 28px 20px; }
+      .sf-steps { grid-template-columns: 1fr; gap: 16px; }
+      .sf-stages { grid-template-columns: 1fr; gap: 12px; }
+      .sf-result-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .pg-booking-body { grid-template-columns: 1fr; }
+      .pg-booking-option { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 24px; }
+      .pg-booking-option:last-child { border-bottom: none; }
+      .pg-booking-head { padding: 28px 20px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="HP Тюнинг — на главную">
+      <img src="images/logo-real.webp" alt="HP Тюнинг логотип" width="120" height="50" />
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="tuning.html" class="nav-link active">Тюнинг</a>
+      <a href="index.html#autoservice" class="nav-link">Автосервис</a>
+      <a href="detailing.html" class="nav-link">Детейлинг</a>
+      <a href="blog.html" class="nav-link">Блог</a>
+      <a href="index.html#portfolio" class="nav-link">Портфолио</a>
+      <a href="index.html#contacts" class="nav-link">Контакты</a>
+    </nav>
+    <div class="header-right">
+      <a href="tel:+79818428151" class="header-phone">+7 (981) 842-81-51</a>
+      <button class="btn-booking" onclick="openBooking()">Записаться</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section style="padding: 120px 20px 60px; background: radial-gradient(ellipse at top, rgba(57,255,20,0.06) 0%, transparent 65%);">
+  <div class="container" style="text-align: center;">
+    <nav aria-label="Хлебные крошки" style="margin-bottom: 20px;">
+      <ol style="display:flex;gap:8px;justify-content:center;list-style:none;font-size:13px;color:#52525b;flex-wrap:wrap;">
+        <li><a href="index.html" style="color:#71717a;">Главная</a></li>
+        <li style="color:#52525b;">›</li>
+        <li style="color:#39FF14;">Чип-тюнинг</li>
+      </ol>
+    </nav>
+    <span class="section-badge">Тюнинг-ателье · СПб · Порошкино</span>
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(50px,9vw,110px);line-height:0.95;margin:14px 0 18px;">
+      ЧИП-ТЮНИНГ<br/><span style="color:#39FF14;">STAGE 1 / 2 / 3</span>
+    </h1>
+    <p style="font-size:18px;color:#71717a;max-width:620px;margin:0 auto 32px;line-height:1.65;">
+      Безопасная программная настройка ECU и TCU — прирост мощности, улучшение тяги, снижение расхода.
+      BMW, Mercedes, Porsche, Audi, VW, Volvo, Lexus, Hyundai и 20+ других марок.
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:52px;">
+      <button class="btn-primary" onclick="openBooking()">🗓️ Записаться на тюнинг</button>
+      <a href="tel:+79818428151" class="btn-secondary">📞 +7 (981) 842-81-51</a>
+      <a href="https://t.me/hptuningspb" class="btn-secondary" target="_blank" rel="noopener">✈️ Telegram</a>
+    </div>
+    <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
+      <div><span style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:#39FF14;display:block;line-height:1;">600+</span><span style="font-size:13px;color:#71717a;">прошивок сделано</span></div>
+      <div><span style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:#39FF14;display:block;line-height:1;">10+</span><span style="font-size:13px;color:#71717a;">лет опыта</span></div>
+      <div><span style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:#39FF14;display:block;line-height:1;">25+</span><span style="font-size:13px;color:#71717a;">марок автомобилей</span></div>
+      <div><span style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:#39FF14;display:block;line-height:1;">100%</span><span style="font-size:13px;color:#71717a;">гарантия результата</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CALCULATOR ═══ -->
+<section class="sf-calc-section" id="calculator">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="section-badge">Калькулятор</span>
+      <h2 class="section-title" style="margin-top:12px;">Рассчитайте прирост мощности</h2>
+      <p class="section-desc">4 шага — и вы узнаете, сколько «лошадей» скрыто в вашем двигателе</p>
+      <p style="font-size:12px;color:#52525b;margin-top:8px;">⚠️ Цены и данные по прошивке для ключевых моделей (BMW G20, Mercedes C-класс, Porsche Cayenne, VW GTI VIII, Kia Stinger) проверены по <strong style="color:#39FF14;">SevenForce.ru</strong>. Остальные — ориентировочно, по рыночным данным.</p>
+    </div>
+    <div class="sf-calc-wrap">
+      <div class="sf-steps">
+        <!-- Step 1: Brand -->
+        <div class="sf-step">
+          <span class="sf-step-num">01 — Марка</span>
+          <label class="sf-step-label" for="sf-brand">Выберите марку автомобиля</label>
+          <select class="sf-select" id="sf-brand" aria-label="Марка">
+            <option value="">— Выберите марку —</option>
+          </select>
+        </div>
+        <!-- Step 2: Model -->
+        <div class="sf-step">
+          <span class="sf-step-num">02 — Серия</span>
+          <label class="sf-step-label" for="sf-model">Серия / линейка</label>
+          <select class="sf-select" id="sf-model" disabled aria-label="Серия">
+            <option value="">— Сначала марку —</option>
+          </select>
+        </div>
+        <!-- Step 3: Year -->
+        <div class="sf-step">
+          <span class="sf-step-num">03 — Кузов / Год</span>
+          <label class="sf-step-label" for="sf-year">Кузов и годы выпуска</label>
+          <select class="sf-select" id="sf-year" disabled aria-label="Кузов">
+            <option value="">— Сначала серию —</option>
+          </select>
+        </div>
+        <!-- Step 4: Engine -->
+        <div class="sf-step">
+          <span class="sf-step-num">04 — Двигатель</span>
+          <label class="sf-step-label" for="sf-engine">Объём и тип мотора</label>
+          <select class="sf-select" id="sf-engine" disabled aria-label="Двигатель">
+            <option value="">— Сначала год —</option>
+          </select>
+        </div>
+      </div>
+      <button class="sf-btn-calc" id="sf-btn-calc" disabled onclick="sfCalculate()">
+        ⚡ Рассчитать прирост мощности
+      </button>
+
+      <!-- Result -->
+      <div class="sf-result" id="sf-result" role="region" aria-live="polite" aria-label="Результаты расчёта">
+        <div class="sf-result-header">
+          <span class="sf-result-car" id="sf-car-name">—</span>
+          <span class="sf-result-stock">Сток: <strong id="sf-stock-val">—</strong> л.с.</span>
+        </div>
+        <div class="sf-stages" id="sf-stages-grid"></div>
+      </div>
+      <div class="sf-no-result" id="sf-no-result">
+        <p style="margin-bottom:12px;">Для вашей конфигурации данные уточните по телефону — рассчитаем индивидуально:</p>
+        <a href="tel:+79818428151" style="color:#39FF14;font-weight:800;font-size:20px;">+7 (981) 842-81-51</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="padding:80px 20px;background:#0d0d0f;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Процесс</span>
+      <h2 class="section-title">Как проходит чип-тюнинг в HP Тюнинг</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <div style="text-align:center;padding:28px 16px;">
+        <div style="width:64px;height:64px;background:rgba(57,255,20,0.08);border:1px solid rgba(57,255,20,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Bebas Neue',sans-serif;font-size:28px;color:#39FF14;">1</div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Диагностика</h3>
+        <p style="font-size:13px;color:#71717a;line-height:1.65;">Полная компьютерная диагностика, считывание ошибок, проверка состояния мотора и АКПП</p>
+      </div>
+      <div style="text-align:center;padding:28px 16px;">
+        <div style="width:64px;height:64px;background:rgba(57,255,20,0.08);border:1px solid rgba(57,255,20,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Bebas Neue',sans-serif;font-size:28px;color:#39FF14;">2</div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Подбор прошивки</h3>
+        <p style="font-size:13px;color:#71717a;line-height:1.65;">Индивидуальная калибровка под ваш мотор, качество топлива (АИ-95/98) и поставленные задачи</p>
+      </div>
+      <div style="text-align:center;padding:28px 16px;">
+        <div style="width:64px;height:64px;background:rgba(57,255,20,0.08);border:1px solid rgba(57,255,20,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Bebas Neue',sans-serif;font-size:28px;color:#39FF14;">3</div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Прошивка ECU</h3>
+        <p style="font-size:13px;color:#71717a;line-height:1.65;">Запись файла через OBD-II порт или снятие блока управления (BDM/JTAG) для глубоких изменений</p>
+      </div>
+      <div style="text-align:center;padding:28px 16px;">
+        <div style="width:64px;height:64px;background:rgba(57,255,20,0.08);border:1px solid rgba(57,255,20,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Bebas Neue',sans-serif;font-size:28px;color:#39FF14;">4</div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Тест и выдача</h3>
+        <p style="font-size:13px;color:#71717a;line-height:1.65;">Тест-драйв, проверка всех параметров, при необходимости корректировка. Документация к машине</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES PRICE LIST -->
+<section style="padding:80px 20px;" class="container">
+  <div class="section-header">
+    <span class="section-badge">Прайс-лист</span>
+    <h2 class="section-title">Все услуги тюнинга и цены</h2>
+    <p class="section-desc">Точная стоимость зависит от марки, модели и сложности работ — уточняйте при записи</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+    <article style="background:#111113;border:1px solid rgba(57,255,20,0.25);border-radius:18px;padding:26px;position:relative;">
+      <div style="position:absolute;top:-1px;right:18px;background:#39FF14;color:#000;font-size:10px;font-weight:800;padding:3px 12px;border-radius:0 0 10px 10px;letter-spacing:0.08em;">ПОПУЛЯРНОЕ</div>
+      <span style="display:inline-block;background:rgba(57,255,20,0.1);border:1px solid rgba(57,255,20,0.2);color:#39FF14;font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;letter-spacing:0.1em;margin-bottom:14px;">Stage 1</span>
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:10px;">Чип-тюнинг Stage 1</h3>
+      <p style="font-size:13px;color:#71717a;line-height:1.65;margin-bottom:16px;">Только программная прошивка ECU/TCU без аппаратных изменений. Прирост мощности +25–45%. Подходит для стокового автомобиля без дополнительных апгрейдов. Безопасно для двигателя и гарантии.</p>
+      <div style="font-size:24px;font-weight:800;color:#39FF14;margin-bottom:8px;">от 24 000 ₽</div>
+      <div style="font-size:12px;color:#52525b;">Время работы: 2–4 часа · Цены по SevenForce.ru</div>
+    </article>
+    <article style="background:#111113;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:26px;">
+      <span style="display:inline-block;background:rgba(57,255,20,0.1);border:1px solid rgba(57,255,20,0.2);color:#39FF14;font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;letter-spacing:0.1em;margin-bottom:14px;">Stage 2</span>
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:10px;">Чип-тюнинг Stage 2</h3>
+      <p style="font-size:13px;color:#71717a;line-height:1.65;margin-bottom:16px;">Прошивка + установка даунпайпа и спортивного катализатора. Максимальный прирост от стокового комплекта. +40–65% мощности. Требует качественного топлива 98+.</p>
+      <div style="font-size:24px;font-weight:800;color:#39FF14;margin-bottom:8px;">от 42 000 ₽</div>
+      <div style="font-size:12px;color:#52525b;">Время работы: от 1 дня · Цены по SevenForce.ru</div>
+    </article>
+    <article style="background:#111113;border:1px solid rgba(168,85,247,0.2);border-radius:18px;padding:26px;">
+      <span style="display:inline-block;background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.2);color:#a855f7;font-size:11px;font-weight:700;padding:3px 10px;border-radius:50px;letter-spacing:0.1em;margin-bottom:14px;">Stage 3</span>
+      <h3 style="font-size:18px;font-weight:700;margin-bottom:10px;">Чип-тюнинг Stage 3</h3>
+      <p style="font-size:13px;color:#71717a;line-height:1.65;margin-bottom:16px;">Турбина, интеркулер, впускной коллектор, топливная система + индивидуальная прошивка. Для построения гоночного или трек-мотора. Требует комплексного апгрейда.</p>
+      <div style="font-size:24px;font-weight:800;color:#a855f7;margin-bottom:8px;">по запросу</div>
+      <div style="font-size:12px;color:#52525b;">Время работы: от 2–3 дней</div>
+    </article>
+    <article style="background:#111113;border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:24px;">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Прошивка АКПП (TCU)</h3>
+      <p style="font-size:13px;color:#71717a;line-height:1.6;margin-bottom:14px;">Калибровка скоростей переключения передач, давления гидротрансформатора, логики Sport/Comfort. ZF 8HP, ZF 9HP, GM, Mercedes 7G/9G, DCT DSG.</p>
+      <div style="font-size:18px;font-weight:700;color:#39FF14;">от 8 000 ₽</div>
+    </article>
+    <article style="background:#111113;border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:24px;">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Установка даунпайпа</h3>
+      <p style="font-size:13px;color:#71717a;line-height:1.6;margin-bottom:14px;">Снятие штатного катализатора, установка прямотока с спортивным катализатором 200 CPSI. Снижение противодавления выхлопных газов для раскрытия потенциала турбины.</p>
+      <div style="font-size:18px;font-weight:700;color:#39FF14;">от 5 000 ₽</div>
+    </article>
+    <article style="background:#111113;border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:24px;">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Спортивный выхлоп</h3>
+      <p style="font-size:13px;color:#71717a;line-height:1.6;margin-bottom:14px;">Подбор, заказ и монтаж выхлопной системы Akrapovič, Milltek, Eisenmann, Fi Exhaust. Valvetronic-системы с управлением через OEM кнопку или приложение.</p>
+      <div style="font-size:18px;font-weight:700;color:#39FF14;">от 15 000 ₽</div>
+    </article>
+    <article style="background:#111113;border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:24px;">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Удаление ограничителя скорости</h3>
+      <p style="font-size:13px;color:#71717a;line-height:1.6;margin-bottom:14px;">Снятие программного ограничителя 250 км/ч. Только для трековых автомобилей, закрытых трасс. BMW, Mercedes, Audi, Porsche.</p>
+      <div style="font-size:18px;font-weight:700;color:#39FF14;">от 3 000 ₽</div>
+    </article>
+    <article style="background:#111113;border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:24px;">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Отключение EGR / DPF / SCR</h3>
+      <p style="font-size:13px;color:#71717a;line-height:1.6;margin-bottom:14px;">Программное отключение сажевого фильтра, рециркуляции выхлопных газов и системы AdBlue. Популярное решение для дизельных авто при поломке этих систем.</p>
+      <div style="font-size:18px;font-weight:700;color:#39FF14;">от 4 000 ₽</div>
+    </article>
+    <article style="background:#111113;border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:24px;">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Активация скрытых функций</h3>
+      <p style="font-size:13px;color:#71717a;line-height:1.6;margin-bottom:14px;">Кодирование опций BMW Coding, Carista, OBD11, Launch — видеокамера в движении, складывание зеркал, отключение звука старта и многое другое. BMW, Audi, VW, Mercedes, Volvo.</p>
+      <div style="font-size:18px;font-weight:700;color:#39FF14;">от 1 500 ₽</div>
+    </article>
+  </div>
+</section>
+
+<!-- PHOTO SECTION -->
+<section style="padding:0 20px 80px;" class="container">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <figure style="border-radius:18px;overflow:hidden;margin:0;border:1px solid rgba(255,255,255,0.07);">
+      <img src="images/photo-mercedes-orange-lift.jpg" alt="Автомобиль на подъёмнике HP Тюнинг — профессиональный чип-тюнинг в Санкт-Петербурге" width="800" height="600" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 30%" />
+      <figcaption style="padding:14px 18px;background:#111113;font-size:13px;color:#71717a;">Porsche Cayenne · Stage 2 · +140 л.с.</figcaption>
+    </figure>
+    <figure style="border-radius:18px;overflow:hidden;margin:0;border:1px solid rgba(255,255,255,0.07);">
+      <img src="images/photo-bmw-purple.jpg" alt="BMW в неоновом гараже HP Тюнинг — тюнинг и детейлинг в СПб" width="800" height="600" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center" />
+      <figcaption style="padding:14px 18px;background:#111113;font-size:13px;color:#71717a;">BMW X5 M50i · Stage 2 · +190 л.с.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ═══ BOOKING BLOCK — PLATINUM STYLE ═══ -->
+<section style="padding:40px 20px 100px;">
+  <div class="container">
+    <div class="pg-booking">
+      <div class="pg-booking-head">
+        <h2>Запишитесь на чип-тюнинг</h2>
+        <p>Выберите удобный способ — ответим в течение нескольких минут и согласуем время</p>
+      </div>
+      <div class="pg-booking-body">
+        <div class="pg-booking-option">
+          <div class="pg-booking-icon" style="background:rgba(57,255,20,0.1);">🗓️</div>
+          <h3>Онлайн-запись</h3>
+          <p>Выберите услугу, дату и время в нашем виджете</p>
+          <button class="pg-btn-online" onclick="openBooking()">ЗАПИСАТЬСЯ</button>
+        </div>
+        <div class="pg-booking-option">
+          <div class="pg-booking-icon" style="background:rgba(41,181,246,0.1);">✈️</div>
+          <h3>Написать в Telegram</h3>
+          <p>Быстро и удобно — отвечаем в рабочие часы</p>
+          <a href="https://t.me/hptuningspb" class="pg-btn-tg" target="_blank" rel="noopener">НАПИСАТЬ НАМ</a>
+        </div>
+        <div class="pg-booking-option">
+          <div class="pg-booking-icon" style="background:rgba(255,255,255,0.06);">📞</div>
+          <h3>Позвонить</h3>
+          <p>Ежедневно 10:00–20:00, без выходных</p>
+          <a href="tel:+79818428151" class="pg-btn-call">+7 (981) 842-81-51</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:60px 20px 80px;background:#0d0d0f;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">FAQ</span>
+      <h2 class="section-title">Частые вопросы о чип-тюнинге</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary class="faq-question">Безопасен ли чип-тюнинг для двигателя?</summary><div class="faq-answer">Stage 1 — полностью безопасен при правильной прошивке. Мы работаем в рамках допусков, заложенных производителем. Stage 2 и 3 требуют дополнительного аппаратного апгрейда. На все работы даём письменную гарантию.</div></details>
+      <details class="faq-item"><summary class="faq-question">Видно ли тюнинг при диагностике дилера?</summary><div class="faq-answer">Stage 1 через OBD — в большинстве случаев не определяется стандартными средствами дилерской диагностики. Для машин на гарантии делаем обратимые прошивки — можно вернуть к заводской программе в любой момент.</div></details>
+      <details class="faq-item"><summary class="faq-question">Какой прирост мощности можно ожидать?</summary><div class="faq-answer">Stage 1: +25–45% к мощности и +30–50% к крутящему моменту. Stage 2: +40–65%. Stage 3: +70–120% и более, в зависимости от комплекта апгрейдов. Точные данные — в калькуляторе выше.</div></details>
+      <details class="faq-item"><summary class="faq-question">Сколько времени занимает процедура?</summary><div class="faq-answer">Stage 1 через OBD — 2–4 часа (диагностика + прошивка + тест-драйв). Stage 2 со снятием деталей — от 1 рабочего дня. Точные сроки уточним при записи.</div></details>
+      <details class="faq-item"><summary class="faq-question">Какие марки вы прошиваете?</summary><div class="faq-answer">BMW (все серии), Mercedes-Benz, Porsche, Audi, VW, Volvo, Lexus, Infiniti, Genesis, Land Rover, Jaguar, Hyundai, Kia, Nissan, Toyota и другие. Используем профессиональное оборудование MAGIC Motorsport, Alientech KESSv3, CMD Flash.</div></details>
+      <details class="faq-item"><summary class="faq-question">Нужно ли заправляться 98-м топливом после тюнинга?</summary><div class="faq-answer">Stage 1 обычно калибруется под АИ-95/98 — уточняем при прошивке. Stage 2 и выше рекомендуют 98+ для полного раскрытия потенциала и безопасности мотора.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner container">
+    <div class="footer-brand">
+      <a href="index.html"><img src="images/logo-real.webp" alt="HP Тюнинг" width="100" height="42" loading="lazy" /></a>
+      <p class="footer-desc">Тюнинг-ателье и автосервис в Санкт-Петербурге с 2015 года. Богородская 3Б, Порошкино.</p>
+    </div>
+    <nav class="footer-nav">
+      <h3 class="footer-nav-title">Тюнинг</h3>
+      <a href="tuning.html">Чип-тюнинг Stage 1</a>
+      <a href="tuning.html">Чип-тюнинг Stage 2</a>
+      <a href="tuning.html">Прошивка АКПП</a>
+      <a href="tuning.html#calculator">Калькулятор</a>
+    </nav>
+    <div class="footer-contacts">
+      <h3 class="footer-nav-title">Контакты</h3>
+      <a href="tel:+79818428151">+7 (981) 842-81-51</a>
+      <p>Богородская 3Б, Порошкино, СПб</p>
+      <p>Ежедневно 10:00–20:00</p>
+      <div class="social-links" style="margin-top:10px;">
+        <a href="https://t.me/hptuningspb" class="social-btn tg" target="_blank" rel="noopener">✈️ Telegram</a>
+        <a href="https://t.me/hptuningspb" class="social-btn tg" target="_blank" rel="noopener">✈️ Telegram</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>© 2015–2026 HP Тюнинг. Все права защищены.</p>
+    <p>Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге</p>
+  </div>
+</footer>
+
+<div class="mobile-actions">
+  <a href="tel:+79818428151" class="mobile-btn phone" aria-label="Позвонить"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.9a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.9a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 18.2v1.4z"/></svg>Позвонить</a>
+  <a href="https://t.me/hptuningspb" target="_blank" rel="noopener" class="mobile-btn telegram" aria-label="Telegram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.199l-2.02 9.52c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.883.701z"/></svg>Telegram</a>
+</div>
+
+<!-- AutoDealer Widget -->
+<script type="text/javascript">
+  (function(){
+    function Build(name, args){return function(){window.autodealerasync.push(name, arguments);}}
+    if (typeof autodealer === 'undefined') {
+      var s = document.createElement('script'); s.charset = "utf-8"; s.type = 'text/javascript'; s.src = 'https://online.autodealer.ru/widget/app.js';
+      var x = document.getElementsByTagName('head')[0]; x.appendChild(s); window.autodealer = {}; window.autodealerasync = []; autodealer.settings = {};
+      var m = ['init', 'open'];
+      for (var i = 0; i < m.length; i++) autodealer[m[i]] = Build(m[i]);
+    }
+  })();
+  autodealer.init('107eb24c04be7f0ef6676d5aa84dc46132fb7e6bdb6ac10b8adcf74e6e8633dd');
+  document.addEventListener("autodealerEvents", function (data) {
+    // data.detail.type: OPEN, CLOSE, SUBMIT, SUBMIT_SUCCESS
+  });
+</script>
+<script src="js/main.js"></script>
+<script>
+// ─── SevenForce-style 4-step calculator ───
+// ─── Реальные данные SevenForce.ru (цены в рублях, проверено лично) ───
+const SF_DATA = {
+  'BMW': {
+    // ── 1 серия ──
+    '1 серия': {
+      'E87/E81 (2004–2011)': {
+        '116i 1.6 N45/N43 115 л.с.': { stock:115, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '118i 2.0 N43 143 л.с.': { stock:143, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '120i 2.0 N46B20 150 л.с.': { stock:150, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '130i 3.0 N52B30 265 л.с.': { stock:265, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '118d 2.0D N47 143 л.с.': { stock:143, s1:180, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:null, s3d:null },
+        '120d 2.0D N47 163 л.с.': { stock:163, s1:200, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:null, s3d:null },
+        '123d 2.0D N47S 204 л.с.': { stock:204, s1:250, s2:null, s3:null, s1p:7000, s2p:null, s3p:null, s1d:'ECU Stage 1 (bi-turbo diesel)', s2d:null, s3d:null },
+        '135i 3.0T N54 306 л.с.': { stock:306, s1:380, s2:450, s3:520, s1p:8500, s2p:19000, s3p:48000, s1d:'ECU Stage 1 (N54 twin turbo)', s2d:'ECU + FMIC + intake', s3d:'ECU + upgraded turbos + FMIC + WMI' },
+      },
+      'F20/F21 (2011–2015)': {
+        '114i 1.6T N13 102 л.с.': { stock:102, s1:130, s2:null, s3:null, s1p:5500, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '116i 1.6T N13 136 л.с.': { stock:136, s1:175, s2:null, s3:null, s1p:5500, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '118i 1.6T N13 170 л.с.': { stock:170, s1:215, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '120i 2.0T N20 184 л.с.': { stock:184, s1:240, s2:295, s3:null, s1p:6500, s2p:12000, s3p:null, s1d:'ECU Stage 1 (N20)', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        '125i 2.0T N20 218 л.с.': { stock:218, s1:280, s2:340, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (N20)', s2d:'ECU + даунпайп', s3d:null },
+        '116d 2.0D N47 116 л.с.': { stock:116, s1:150, s2:null, s3:null, s1p:5500, s2p:null, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:null, s3d:null },
+        '118d 2.0D N47 143 л.с.': { stock:143, s1:180, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:null, s3d:null },
+        '120d 2.0D N47 184 л.с.': { stock:184, s1:230, s2:275, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR off', s3d:null },
+        '125d 2.0D N47S 218 л.с.': { stock:218, s1:270, s2:320, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (bi-turbo)', s2d:'ECU + EGR + DPF', s3d:null },
+        'M135i 3.0T N55 320 л.с.': { stock:320, s1:400, s2:475, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (N55)', s2d:'ECU + FMIC + exhaust', s3d:null },
+      },
+      'F20/F21 LCI (2015–2019)': {
+        '116i 1.5T B38 109 л.с.': { stock:109, s1:140, s2:null, s3:null, s1p:5500, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '118i 1.5T B38 136 л.с.': { stock:136, s1:175, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '120i 2.0T B48 184 л.с.': { stock:184, s1:245, s2:300, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (B48)', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        '125i 2.0T B48 224 л.с.': { stock:224, s1:285, s2:345, s3:null, s1p:7000, s2p:14500, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп', s3d:null },
+        '118d 2.0D B47 150 л.с.': { stock:150, s1:190, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1 (B47)', s2d:null, s3d:null },
+        '120d 2.0D B47 190 л.с.': { stock:190, s1:240, s2:285, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR off', s3d:null },
+        'M140i 3.0T B58 340 л.с.': { stock:340, s1:420, s2:500, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (B58)', s2d:'ECU + даунпайп + FMIC', s3d:null },
+      },
+      'F40 (2019–2022)': {
+        '116i 1.5T B38 109 л.с.': { stock:109, s1:140, s2:null, s3:null, s1p:5500, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '118i 1.5T B38 136 л.с.': { stock:136, s1:175, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '120i 2.0T B48 178 л.с.': { stock:178, s1:230, s2:280, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (F40 UKL2)', s2d:'ECU + даунпайп', s3d:null },
+        '128ti 2.0T B48 265 л.с.': { stock:265, s1:330, s2:395, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + IS38 + intercooler', s3d:null },
+        'M135i xDrive 2.0T B48 306 л.с.': { stock:306, s1:385, s2:455, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (FWD-based xDrive)', s2d:'ECU + IS38 + FMIC + exhaust', s3d:null },
+        '118d 2.0D B47 150 л.с.': { stock:150, s1:190, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:null, s3d:null },
+      },
+      'F40 LCI (2022–2024)': {
+        '120i 2.0T B48B20 184 л.с.': { stock:184, s1:245, s2:300, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (LCI)', s2d:'ECU + даунпайп', s3d:null },
+        'M135i xDrive 2.0T B48 306 л.с.': { stock:306, s1:390, s2:460, s3:null, s1p:9500, s2p:21000, s3p:null, s1d:'ECU Stage 1 (LCI)', s2d:'ECU + IS38 + FMIC', s3d:null },
+      },
+    },
+    // ── 2 серия ──
+    '2 серия Coupe/Cabrio': {
+      'F22/F23 (2014–2018)': {
+        '218i 1.5T B38 136 л.с.': { stock:136, s1:175, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '220i 2.0T B48 184 л.с.': { stock:184, s1:245, s2:300, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп', s3d:null },
+        '228i 2.0T N20 245 л.с.': { stock:245, s1:310, s2:375, s3:null, s1p:7000, s2p:14500, s3p:null, s1d:'ECU Stage 1 (N20)', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        '218d 2.0D B47 150 л.с.': { stock:150, s1:190, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:null, s3d:null },
+        'M235i 3.0T N55 326 л.с.': { stock:326, s1:405, s2:480, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (N55)', s2d:'ECU + FMIC + exhaust + catch can', s3d:null },
+        'M2 3.0T N55 370 л.с.': { stock:370, s1:450, s2:540, s3:null, s1p:11000, s2p:26000, s3p:null, s1d:'ECU Stage 1 (M2 N55)', s2d:'ECU + downpipes + FMIC + catch can', s3d:null },
+        'M2 Competition 3.0T S55 410 л.с.': { stock:410, s1:500, s2:590, s3:650, s1p:13000, s2p:30000, s3p:72000, s1d:'ECU Stage 1 (S55)', s2d:'ECU + downpipes + catless + FMIC', s3d:'ECU + топливо + турбо портинг + WMI' },
+      },
+      'F22/F23 LCI (2018–2021)': {
+        '220i 2.0T B48 192 л.с.': { stock:192, s1:250, s2:305, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (B48 coupe FL)', s2d:'ECU + даунпайп', s3d:null },
+        'M240i 3.0T B58 340 л.с.': { stock:340, s1:420, s2:500, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1 (B58)', s2d:'ECU + FMIC + exhaust + downpipe', s3d:null },
+      },
+      'G42/G87 (2021–2024)': {
+        '220i 2.0T B48B20 184 л.с.': { stock:184, s1:250, s2:310, s3:null, s1p:7000, s2p:15000, s3p:null, s1d:'ECU Stage 1 (G42 B48)', s2d:'ECU + даунпайп', s3d:null },
+        'M240i xDrive 3.0T B58 374 л.с.': { stock:374, s1:455, s2:540, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (B58 G42)', s2d:'ECU + даунпайп + FMIC + intercooler', s3d:null },
+        'M2 3.0T S58 460 л.с.': { stock:460, s1:550, s2:640, s3:720, s1p:14000, s2p:36000, s3p:88000, s1d:'ECU Stage 1 (S58 M2)', s2d:'ECU + downpipes + catless + intercooler', s3d:'ECU + turbo + fuel + intercooler + WMI' },
+        'M2 CS 3.0T S58 480 л.с.': { stock:480, s1:570, s2:660, s3:null, s1p:15000, s2p:38000, s3p:null, s1d:'ECU Stage 1 (S58 CS)', s2d:'ECU + downpipes + catless', s3d:null },
+      },
+    },
+    // ── 2 серия Active/Gran Tourer ──
+    '2 серия Active Tourer': {
+      'F45/F46 (2014–2021)': {
+        '218i 1.5T B38 136 л.с.': { stock:136, s1:175, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '220i 2.0T B48 192 л.с.': { stock:192, s1:250, s2:305, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп', s3d:null },
+        '225xe Plug-in 224 л.с.': { stock:224, s1:265, s2:null, s3:null, s1p:7000, s2p:null, s3p:null, s1d:'ECU Stage 1 (PHEV B38)', s2d:null, s3d:null },
+        '218d 2.0D B47 150 л.с.': { stock:150, s1:190, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:null, s3d:null },
+      },
+      'U06 (2022–2024)': {
+        '218i 1.5T B38 136 л.с.': { stock:136, s1:175, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '220i 2.0T B48 170 л.с.': { stock:170, s1:220, s2:270, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (U06 B48)', s2d:'ECU + даунпайп', s3d:null },
+        'M235i xDrive 2.0T B48 306 л.с.': { stock:306, s1:385, s2:455, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + IS38 + FMIC', s3d:null },
+      },
+    },
+    // ── 3 серия ──
+    '3 серия': {
+      'E46 (1998–2006)': {
+        '318i 2.0 N46 143 л.с.': { stock:143, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '320i 2.0 M52/M54 150–170 л.с.': { stock:165, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '325i 2.5 M54 192 л.с.': { stock:192, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '330i 3.0 M54 231 л.с.': { stock:231, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '320d 2.0D M47 136–150 л.с.': { stock:150, s1:190, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:null, s3d:null },
+        '330d 3.0D M57 184–204 л.с.': { stock:204, s1:255, s2:305, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (M57)', s2d:'ECU + EGR off', s3d:null },
+        'M3 3.2 S54 343 л.с.': { stock:343, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+      },
+      'E90/E91/E92/E93 (2005–2013)': {
+        '316i 1.6T N43 122 л.с.': { stock:122, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '320i 2.0 N46/N43 150–170 л.с.': { stock:165, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '325i 2.5 N52 218 л.с.': { stock:218, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '330i 3.0 N52B30 272 л.с.': { stock:272, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '318d 2.0D M47TU 122 л.с.': { stock:122, s1:155, s2:null, s3:null, s1p:5500, s2p:null, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:null, s3d:null },
+        '320d 2.0D N47 163 л.с.': { stock:163, s1:205, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '325d 3.0D M57/N57 197–204 л.с.': { stock:204, s1:255, s2:305, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (M57/N57)', s2d:'ECU + EGR off', s3d:null },
+        '330d 3.0D M57/N57 231–245 л.с.': { stock:245, s1:305, s2:365, s3:null, s1p:8000, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR off + DPF', s3d:null },
+        '335d 3.0D M57/N57S 286 л.с.': { stock:286, s1:355, s2:425, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1 (bi-turbo)', s2d:'ECU + EGR + DPF', s3d:null },
+        '335i 3.0T N55 306 л.с.': { stock:306, s1:380, s2:450, s3:520, s1p:9000, s2p:20000, s3p:50000, s1d:'ECU Stage 1 (N55)', s2d:'ECU + FMIC + exhaust', s3d:'ECU + upgraded turbo + WMI' },
+        'M3 4.0 V8 S65 420 л.с.': { stock:420, s1:450, s2:null, s3:null, s1p:12000, s2p:null, s3p:null, s1d:'ECU Stage 1 (NA V8)', s2d:null, s3d:null },
+      },
+      'F30/F31/F34 (2011–2015)': {
+        '316i 1.6T N13 136 л.с.': { stock:136, s1:175, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '318i 2.0T N20 136 л.с.': { stock:136, s1:175, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '320i 2.0T N20 184 л.с.': { stock:184, s1:245, s2:300, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (N20)', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        '328i 2.0T N20 245 л.с.': { stock:245, s1:310, s2:375, s3:null, s1p:7000, s2p:15000, s3p:null, s1d:'ECU Stage 1 (N20)', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        '316d 2.0D N47 116 л.с.': { stock:116, s1:150, s2:null, s3:null, s1p:5500, s2p:null, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:null, s3d:null },
+        '318d 2.0D N47 143 л.с.': { stock:143, s1:180, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '320d 2.0D N47 163–184 л.с.': { stock:184, s1:230, s2:275, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (N47)', s2d:'ECU + EGR off', s3d:null },
+        '325d 3.0D N57 218 л.с.': { stock:218, s1:275, s2:330, s3:null, s1p:7500, s2p:15500, s3p:null, s1d:'ECU Stage 1 (N57)', s2d:'ECU + EGR off', s3d:null },
+        '330d 3.0D N57 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        '335d 3.0D N57S 313 л.с.': { stock:313, s1:390, s2:460, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1 (bi-turbo diesel)', s2d:'ECU + EGR + DPF', s3d:null },
+        '335i 3.0T N55 306 л.с.': { stock:306, s1:380, s2:450, s3:520, s1p:9000, s2p:20000, s3p:50000, s1d:'ECU Stage 1 (N55)', s2d:'ECU + FMIC + downpipe + exhaust', s3d:'ECU + turbo upgrade + WMI' },
+      },
+      'F30/F31 LCI (2015–2019)': {
+        '318i 2.0T B48 136 л.с.': { stock:136, s1:175, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '320i 2.0T B48 184 л.с.': { stock:184, s1:245, s2:305, s3:null, s1p:6500, s2p:13500, s3p:null, s1d:'ECU Stage 1 (B48)', s2d:'ECU + даунпайп', s3d:null },
+        '330i 2.0T B48 252 л.с.': { stock:252, s1:320, s2:385, s3:null, s1p:7500, s2p:15500, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        '340i 3.0T B58 326 л.с.': { stock:326, s1:405, s2:480, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1 (B58)', s2d:'ECU + даунпайп + FMIC', s3d:null },
+        '318d 2.0D B47 150 л.с.': { stock:150, s1:190, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1 (B47)', s2d:null, s3d:null },
+        '320d 2.0D B47 190 л.с.': { stock:190, s1:240, s2:285, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR off', s3d:null },
+        '330d 3.0D B57 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+      },
+      'G20/G21 (2019–2022)': {
+        '318i 2.0T B48 156 л.с.': { stock:156, s1:280, s2:310, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (G20 B48) — данные SevenForce', s2d:'ECU Stage 2 + даунпайп', s3d:null },
+        '320i 2.0T B48 184 л.с.': { stock:184, s1:250, s2:310, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (B48)', s2d:'ECU + даунпайп', s3d:null },
+        '330i 2.0T B48 258 л.с.': { stock:258, s1:310, s2:340, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (B48) — данные SevenForce', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'M340i 3.0T B58 374 л.с.': { stock:374, s1:460, s2:545, s3:null, s1p:55000, s2p:66000, s3p:null, s1d:'ECU Stage 1 (M340i B58)', s2d:'ECU + даунпайп + FMIC + exhaust', s3d:null },
+        '320d 2.0D B47 190 л.с.': { stock:190, s1:240, s2:285, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:'ECU + EGR off', s3d:null },
+        '330d 3.0D B57 265 л.с.': { stock:265, s1:330, s2:395, s3:null, s1p:42000, s2p:50400, s3p:null, s1d:'ECU Stage 1 (B57)', s2d:'ECU + EGR + DPF', s3d:null },
+        'M3 3.0T S58 480 л.с.': { stock:480, s1:570, s2:660, s3:750, s1p:88000, s2p:118800, s3p:176000, s1d:'ECU Stage 1 (S58)', s2d:'ECU + downpipes + catless', s3d:'ECU + turbo upgrade + fuel + WMI' },
+        'M3 Competition S58 510 л.с.': { stock:510, s1:610, s2:710, s3:800, s1p:99000, s2p:130000, s3p:200000, s1d:'ECU Stage 1 Competition', s2d:'ECU + downpipes + catless', s3d:'Полный Stage 3 пакет' },
+      },
+      'G20/G21 LCI (2022–2024)': {
+        '320i 2.0T B48B20 184 л.с.': { stock:184, s1:250, s2:310, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (G20 LCI)', s2d:'ECU + даунпайп', s3d:null },
+        '330i 2.0T B48 258 л.с.': { stock:258, s1:310, s2:340, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (LCI)', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'M3 CS S58 550 л.с.': { stock:550, s1:645, s2:745, s3:null, s1p:130000, s2p:160000, s3p:null, s1d:'ECU Stage 1 (CS)', s2d:'ECU + downpipes', s3d:null },
+      },
+    },
+    // ── 4 серия ──
+    '4 серия': {
+      'F32/F33/F36 (2013–2017)': {
+        '418i 1.5T B38 136 л.с.': { stock:136, s1:175, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '420i 2.0T N20 184 л.с.': { stock:184, s1:245, s2:300, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (N20)', s2d:'ECU + даунпайп', s3d:null },
+        '428i 2.0T N20 245 л.с.': { stock:245, s1:310, s2:375, s3:null, s1p:7000, s2p:15000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        '420d 2.0D N47 184 л.с.': { stock:184, s1:230, s2:275, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:'ECU + EGR off', s3d:null },
+        '430d 3.0D N57 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        '435i 3.0T N55 306 л.с.': { stock:306, s1:380, s2:450, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (N55)', s2d:'ECU + FMIC + exhaust', s3d:null },
+        'M4 3.0T S55 431 л.с.': { stock:431, s1:520, s2:610, s3:690, s1p:13000, s2p:32000, s3p:78000, s1d:'ECU Stage 1 (S55)', s2d:'ECU + downpipes + FMIC + catless', s3d:'ECU + топливо + интеркулер + WMI' },
+      },
+      'F32/F33/F36 LCI (2017–2020)': {
+        '420i 2.0T B48 184 л.с.': { stock:184, s1:245, s2:305, s3:null, s1p:7000, s2p:14500, s3p:null, s1d:'ECU Stage 1 (B48)', s2d:'ECU + даунпайп', s3d:null },
+        '430i 2.0T B48 252 л.с.': { stock:252, s1:320, s2:385, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        '440i 3.0T B58 326 л.с.': { stock:326, s1:405, s2:480, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1 (B58)', s2d:'ECU + даунпайп + FMIC', s3d:null },
+        '420d 2.0D B47 190 л.с.': { stock:190, s1:240, s2:285, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (B47)', s2d:'ECU + EGR off', s3d:null },
+        '430d 3.0D B57 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+      },
+      'G22/G23/G26 (2020–2022)': {
+        '420i 2.0T B48 184 л.с.': { stock:184, s1:250, s2:310, s3:null, s1p:7000, s2p:14500, s3p:null, s1d:'ECU Stage 1 (G22 B48)', s2d:'ECU + даунпайп', s3d:null },
+        '430i 2.0T B48 245 л.с.': { stock:245, s1:315, s2:380, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        '440i 3.0T B58 374 л.с.': { stock:374, s1:460, s2:545, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (B58 G22)', s2d:'ECU + даунпайп + FMIC', s3d:null },
+        '420d 2.0D B47 190 л.с.': { stock:190, s1:240, s2:290, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:'ECU + EGR off', s3d:null },
+        '430d 3.0D B57 286 л.с.': { stock:286, s1:355, s2:425, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        'M4 3.0T S58 480 л.с.': { stock:480, s1:570, s2:660, s3:750, s1p:14000, s2p:35000, s3p:85000, s1d:'ECU Stage 1 (S58 M4)', s2d:'ECU + downpipes + catless', s3d:'ECU + turbo + fuel + WMI' },
+        'M4 Competition S58 510 л.с.': { stock:510, s1:610, s2:710, s3:800, s1p:15000, s2p:38000, s3p:95000, s1d:'ECU Stage 1 Competition', s2d:'ECU + downpipes + catless + intercooler', s3d:'Полный Stage 3 пакет' },
+        'M4 CSL S58 550 л.с.': { stock:550, s1:645, s2:745, s3:null, s1p:17000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (CSL)', s2d:'ECU + downpipes', s3d:null },
+      },
+      'G22/G23 LCI (2022–2024)': {
+        '420i 2.0T B48B20 184 л.с.': { stock:184, s1:250, s2:310, s3:null, s1p:7500, s2p:15500, s3p:null, s1d:'ECU Stage 1 (LCI)', s2d:'ECU + даунпайп', s3d:null },
+        '430i 2.0T B48 245 л.с.': { stock:245, s1:315, s2:380, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1 (LCI)', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'M4 Competition xDrive S58 510 л.с.': { stock:510, s1:610, s2:710, s3:800, s1p:16000, s2p:40000, s3p:98000, s1d:'ECU Stage 1 xDrive', s2d:'ECU + downpipes + catless', s3d:'Stage 3 полный пакет' },
+      },
+    },
+    // ── 5 серия ──
+    '5 серия': {
+      'E60/E61 (2003–2010)': {
+        '520i 2.2 M54 170 л.с.': { stock:170, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '525i 2.5 N52 218 л.с.': { stock:218, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '530i 3.0 M54/N52 231–258 л.с.': { stock:258, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        '520d 2.0D M47/N47 163–177 л.с.': { stock:177, s1:220, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:null, s3d:null },
+        '525d 2.5D M57N 177–197 л.с.': { stock:197, s1:245, s2:295, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (M57N)', s2d:'ECU + EGR off', s3d:null },
+        '530d 3.0D M57TU2 231 л.с.': { stock:231, s1:285, s2:340, s3:null, s1p:7500, s2p:15000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR off', s3d:null },
+        '535d 3.0D M57TU2 272 л.с.': { stock:272, s1:340, s2:410, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1 (bi-turbo)', s2d:'ECU + EGR + DPF', s3d:null },
+        '535i 3.0T N54 306 л.с.': { stock:306, s1:380, s2:450, s3:520, s1p:9000, s2p:20000, s3p:50000, s1d:'ECU Stage 1 (N54 twin turbo)', s2d:'ECU + FMIC + downpipes', s3d:'ECU + upgraded turbos' },
+        'M5 5.0 V10 S85 507 л.с.': { stock:507, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+      },
+      'F10/F11 (2010–2017)': {
+        '520i 2.0T N20 184 л.с.': { stock:184, s1:245, s2:300, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (N20)', s2d:'ECU + даунпайп', s3d:null },
+        '528i 2.0T N20 245 л.с.': { stock:245, s1:310, s2:375, s3:null, s1p:7000, s2p:15000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        '520d 2.0D N47 184 л.с.': { stock:184, s1:230, s2:275, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (N47)', s2d:'ECU + EGR off', s3d:null },
+        '525d 3.0D N57 204–218 л.с.': { stock:218, s1:275, s2:330, s3:null, s1p:7500, s2p:15500, s3p:null, s1d:'ECU Stage 1 (N57)', s2d:'ECU + EGR off', s3d:null },
+        '530d 3.0D N57 245 л.с.': { stock:245, s1:310, s2:375, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        '535d 3.0D N57S 299–313 л.с.': { stock:313, s1:390, s2:460, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1 (bi-turbo)', s2d:'ECU + EGR + DPF', s3d:null },
+        '535i 3.0T N55 306 л.с.': { stock:306, s1:380, s2:450, s3:520, s1p:9000, s2p:20000, s3p:50000, s1d:'ECU Stage 1 (N55)', s2d:'ECU + FMIC + exhaust', s3d:'ECU + turbo upgrade + WMI' },
+        '540i 3.0T B58 340 л.с.': { stock:340, s1:420, s2:500, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1 (B58)', s2d:'ECU + даунпайп + FMIC', s3d:null },
+        'M5 4.4T S63 560 л.с.': { stock:560, s1:660, s2:760, s3:860, s1p:18000, s2p:46000, s3p:110000, s1d:'ECU Stage 1 (S63 bi-turbo V8)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+        'M5 Competition 4.4T S63TU 600 л.с.': { stock:600, s1:700, s2:800, s3:900, s1p:18000, s2p:47000, s3p:115000, s1d:'ECU Stage 1 (S63TU)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+      },
+      'G30/G31 (2016–2020)': {
+        '520i 2.0T B48 184 л.с.': { stock:184, s1:250, s2:310, s3:null, s1p:6500, s2p:14000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп', s3d:null },
+        '530i 2.0T B48 252 л.с.': { stock:252, s1:320, s2:385, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        '520d 2.0D B47 190 л.с.': { stock:190, s1:240, s2:285, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (B47)', s2d:'ECU + EGR off', s3d:null },
+        '525d 3.0D B57 231 л.с.': { stock:231, s1:290, s2:345, s3:null, s1p:8000, s2p:16500, s3p:null, s1d:'ECU Stage 1 (B57)', s2d:'ECU + EGR off', s3d:null },
+        '530d 3.0D B57 265 л.с.': { stock:265, s1:330, s2:400, s3:null, s1p:8000, s2p:18000, s3p:null, s1d:'ECU + TCU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        '540i 3.0T B58 340 л.с.': { stock:340, s1:420, s2:500, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1 (B58)', s2d:'ECU + даунпайп + выхлоп', s3d:null },
+        'M550i 4.4T N63 462 л.с.': { stock:462, s1:560, s2:650, s3:null, s1p:15000, s2p:38000, s3p:null, s1d:'ECU Stage 1 (N63 bi-turbo)', s2d:'ECU + downpipes + catless', s3d:null },
+        'M5 4.4T S63M 600 л.с.': { stock:600, s1:710, s2:810, s3:910, s1p:18000, s2p:48000, s3p:115000, s1d:'ECU Stage 1 (S63M4)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+        'M5 Competition 4.4T S63M 625 л.с.': { stock:625, s1:730, s2:830, s3:930, s1p:20000, s2p:50000, s3p:120000, s1d:'ECU Stage 1 Competition', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+      },
+      'G30/G31 LCI (2020–2023)': {
+        '520i 2.0T B48B20 184 л.с.': { stock:184, s1:250, s2:310, s3:null, s1p:7000, s2p:15000, s3p:null, s1d:'ECU Stage 1 (G30 FL)', s2d:'ECU + даунпайп', s3d:null },
+        '530i 2.0T B48B20 252 л.с.': { stock:252, s1:320, s2:385, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        '530d 3.0D B57D30 249 л.с.': { stock:249, s1:315, s2:380, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1 (FL)', s2d:'ECU + EGR + DPF', s3d:null },
+        'M5 Competition 4.4T S63M 625 л.с.': { stock:625, s1:735, s2:840, s3:940, s1p:22000, s2p:55000, s3p:130000, s1d:'ECU Stage 1 Competition', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 полный пакет' },
+        'M5 CS F90 4.4T S63M 635 л.с.': { stock:635, s1:750, s2:855, s3:null, s1p:24000, s2p:60000, s3p:null, s1d:'ECU Stage 1 (CS)', s2d:'ECU + downpipes + catless', s3d:null },
+      },
+    },
+    // ── 6 серия ──
+    '6 серия GT': {
+      'G32 (2017–2023)': {
+        '620i 2.0T B48 163 л.с.': { stock:163, s1:210, s2:null, s3:null, s1p:6500, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        '630i 2.0T B48 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп', s3d:null },
+        '640i 3.0T B58 340 л.с.': { stock:340, s1:420, s2:500, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1 (B58)', s2d:'ECU + даунпайп + FMIC', s3d:null },
+        '620d 2.0D B47 190 л.с.': { stock:190, s1:240, s2:285, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:'ECU + EGR off', s3d:null },
+        '630d 3.0D B57 265 л.с.': { stock:265, s1:330, s2:400, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+      },
+    },
+    // ── 7 серия ──
+    '7 серия': {
+      'G11/G12 (2015–2019)': {
+        '730i 2.0T B48 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        '740i 3.0T B58 326 л.с.': { stock:326, s1:405, s2:480, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + FMIC', s3d:null },
+        '730d 3.0D B57 265 л.с.': { stock:265, s1:330, s2:400, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        '740d 3.0D B57S 320 л.с.': { stock:320, s1:400, s2:470, s3:null, s1p:10000, s2p:21000, s3p:null, s1d:'ECU Stage 1 (bi-turbo)', s2d:'ECU + EGR + DPF off', s3d:null },
+        '750i 4.4T N63TU 450 л.с.': { stock:450, s1:550, s2:640, s3:null, s1p:15000, s2p:38000, s3p:null, s1d:'ECU Stage 1 (N63TU2)', s2d:'ECU + downpipes + catless', s3d:null },
+        'M760i 6.6T S68 610 л.с.': { stock:610, s1:710, s2:800, s3:null, s1p:22000, s2p:55000, s3p:null, s1d:'ECU Stage 1 (S68)', s2d:'ECU + downpipes + catless', s3d:null },
+      },
+      'G11/G12 LCI (2019–2022)': {
+        '730i 2.0T B48B20 265 л.с.': { stock:265, s1:330, s2:395, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1 (G12 FL)', s2d:'ECU + даунпайп', s3d:null },
+        '740i 3.0T B58 340 л.с.': { stock:340, s1:420, s2:500, s3:null, s1p:10000, s2p:21000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + FMIC', s3d:null },
+        '750i 4.4T N63TU3 530 л.с.': { stock:530, s1:640, s2:740, s3:null, s1p:17000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (N63TU3)', s2d:'ECU + downpipes + catless + intercoolers', s3d:null },
+      },
+    },
+    // ── 8 серия ──
+    '8 серия': {
+      'G14/G15/G16 (2018–2022)': {
+        '840i 3.0T B58 340 л.с.': { stock:340, s1:420, s2:500, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1 (B58)', s2d:'ECU + даунпайп + FMIC', s3d:null },
+        '840d 3.0D B57 320 л.с.': { stock:320, s1:400, s2:470, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1 (bi-turbo diesel)', s2d:'ECU + EGR + DPF', s3d:null },
+        'M850i 4.4T N63TU3 530 л.с.': { stock:530, s1:640, s2:740, s3:null, s1p:17000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (N63TU3)', s2d:'ECU + downpipes + catless + intercoolers', s3d:null },
+        'M8 4.4T S63M 600 л.с.': { stock:600, s1:710, s2:810, s3:910, s1p:20000, s2p:50000, s3p:120000, s1d:'ECU Stage 1 (S63M)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+        'M8 Competition 4.4T S63M 625 л.с.': { stock:625, s1:735, s2:840, s3:940, s1p:22000, s2p:55000, s3p:130000, s1d:'ECU Stage 1 Competition', s2d:'ECU + downpipes + catless', s3d:'Stage 3 full package' },
+      },
+      'G14/G15/G16 LCI (2022–2024)': {
+        '840i 3.0T B58B30 340 л.с.': { stock:340, s1:425, s2:510, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (LCI)', s2d:'ECU + даунпайп + FMIC', s3d:null },
+      },
+    },
+    // ── X серия ──
+    'X1': {
+      'F48 (2015–2019)': {
+        'sDrive18i 1.5T B38 140 л.с.': { stock:140, s1:178, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        'xDrive20i 2.0T B48 192 л.с.': { stock:192, s1:250, s2:305, s3:null, s1p:7000, s2p:14500, s3p:null, s1d:'ECU Stage 1 (B48)', s2d:'ECU + даунпайп', s3d:null },
+        'xDrive25i 2.0T B48 231 л.с.': { stock:231, s1:295, s2:355, s3:null, s1p:7500, s2p:15500, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'xDrive20d 2.0D B47 190 л.с.': { stock:190, s1:240, s2:285, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:'ECU + EGR off', s3d:null },
+        'xDrive25d 2.0D B47 231 л.с.': { stock:231, s1:290, s2:345, s3:null, s1p:8000, s2p:16500, s3p:null, s1d:'ECU Stage 1 (bi-turbo diesel)', s2d:'ECU + EGR + DPF', s3d:null },
+      },
+      'U11 (2022–2024)': {
+        'xDrive23i 2.0T B48 218 л.с.': { stock:218, s1:280, s2:335, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп', s3d:null },
+        'M35i xDrive 2.0T B48 313 л.с.': { stock:313, s1:390, s2:460, s3:null, s1p:9500, s2p:21000, s3p:null, s1d:'ECU Stage 1 (U11 новый)', s2d:'ECU + IS38 + FMIC + exhaust', s3d:null },
+      },
+    },
+    'X2': {
+      'F39 (2018–2023)': {
+        'sDrive18i 1.5T B38 140 л.с.': { stock:140, s1:178, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        'xDrive20i 2.0T B48 192 л.с.': { stock:192, s1:250, s2:305, s3:null, s1p:7000, s2p:14500, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп', s3d:null },
+        'xDrive25i 2.0T B48 231 л.с.': { stock:231, s1:295, s2:355, s3:null, s1p:7500, s2p:15500, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'M35i xDrive 2.0T B48 306 л.с.': { stock:306, s1:385, s2:455, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (M35i)', s2d:'ECU + IS38 + FMIC', s3d:null },
+        'xDrive20d 2.0D B47 190 л.с.': { stock:190, s1:240, s2:285, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:'ECU + EGR off', s3d:null },
+      },
+    },
+    'X3': {
+      'F25 (2010–2014)': {
+        'xDrive20i 2.0T N20 184 л.с.': { stock:184, s1:245, s2:300, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (N20)', s2d:'ECU + даунпайп', s3d:null },
+        'xDrive28i 2.0T N20 245 л.с.': { stock:245, s1:310, s2:375, s3:null, s1p:7000, s2p:15000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'xDrive35i 3.0T N55 306 л.с.': { stock:306, s1:380, s2:450, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (N55)', s2d:'ECU + FMIC + exhaust', s3d:null },
+        'xDrive20d 2.0D N47 184 л.с.': { stock:184, s1:230, s2:275, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:'ECU + EGR off', s3d:null },
+        'xDrive30d 3.0D N57 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        'xDrive35d 3.0D M57TU2 286 л.с.': { stock:286, s1:355, s2:430, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+      },
+      'F25 LCI (2014–2017)': {
+        'xDrive20i 2.0T B48 184 л.с.': { stock:184, s1:245, s2:305, s3:null, s1p:7000, s2p:14500, s3p:null, s1d:'ECU Stage 1 (B48)', s2d:'ECU + даунпайп', s3d:null },
+        'xDrive28i 2.0T N20 245 л.с.': { stock:245, s1:310, s2:375, s3:null, s1p:7500, s2p:15500, s3p:null, s1d:'ECU Stage 1 (N20)', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'xDrive35i 3.0T N55 306 л.с.': { stock:306, s1:380, s2:450, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1 (N55)', s2d:'ECU + FMIC + exhaust', s3d:null },
+        'xDrive20d 2.0D B47 190 л.с.': { stock:190, s1:240, s2:285, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (B47)', s2d:'ECU + EGR off', s3d:null },
+        'xDrive30d 3.0D N57 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        'M40i 3.0T B58 354 л.с.': { stock:354, s1:435, s2:515, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (B58 M40i)', s2d:'ECU + даунпайп + FMIC', s3d:null },
+        'M40d 3.0D B57S 313 л.с.': { stock:313, s1:390, s2:460, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1 (bi-turbo diesel)', s2d:'ECU + EGR + DPF', s3d:null },
+      },
+      'G01 (2017–2021)': {
+        'xDrive20i 2.0T B48 184 л.с.': { stock:184, s1:250, s2:310, s3:null, s1p:7000, s2p:14500, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп', s3d:null },
+        'xDrive30i 2.0T B48 252 л.с.': { stock:252, s1:320, s2:385, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'M40i 3.0T B58 360 л.с.': { stock:360, s1:445, s2:530, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (B58 M40i)', s2d:'ECU + даунпайп + FMIC + exhaust', s3d:null },
+        'xDrive20d 2.0D B47 190 л.с.': { stock:190, s1:240, s2:285, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:'ECU + EGR off', s3d:null },
+        'xDrive30d 3.0D B57 265 л.с.': { stock:265, s1:330, s2:400, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        'M40d 3.0D B57S 326 л.с.': { stock:326, s1:405, s2:480, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (bi-turbo diesel)', s2d:'ECU + EGR + DPF', s3d:null },
+        'X3 M Competition S58 510 л.с.': { stock:510, s1:610, s2:710, s3:800, s1p:15000, s2p:38000, s3p:95000, s1d:'ECU Stage 1 (S58)', s2d:'ECU + downpipes + catless', s3d:'Stage 3 full package' },
+      },
+      'G01 LCI (2021–2024)': {
+        'xDrive30i 2.0T B48B20 252 л.с.': { stock:252, s1:320, s2:385, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1 (LCI)', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'M40i 3.0T B58B30 387 л.с.': { stock:387, s1:470, s2:555, s3:null, s1p:11000, s2p:24000, s3p:null, s1d:'ECU Stage 1 (G01 LCI M40i)', s2d:'ECU + FMIC + exhaust', s3d:null },
+        'xDrive30d 3.0D B57D30 298 л.с.': { stock:298, s1:370, s2:440, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+      },
+    },
+    'X4': {
+      'F26 (2014–2018)': {
+        'xDrive20i 2.0T N20 184 л.с.': { stock:184, s1:245, s2:300, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (N20)', s2d:'ECU + даунпайп', s3d:null },
+        'xDrive28i 2.0T N20 245 л.с.': { stock:245, s1:310, s2:375, s3:null, s1p:7000, s2p:15000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'xDrive35i 3.0T N55 306 л.с.': { stock:306, s1:380, s2:450, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (N55)', s2d:'ECU + FMIC + exhaust', s3d:null },
+        'xDrive20d 2.0D N47 184 л.с.': { stock:184, s1:230, s2:275, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:'ECU + EGR off', s3d:null },
+        'xDrive30d 3.0D N57 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+      },
+      'G02 (2018–2021)': {
+        'xDrive20i 2.0T B48 184 л.с.': { stock:184, s1:250, s2:310, s3:null, s1p:7000, s2p:14500, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп', s3d:null },
+        'xDrive30i 2.0T B48 252 л.с.': { stock:252, s1:320, s2:385, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'M40i 3.0T B58 360 л.с.': { stock:360, s1:445, s2:530, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + FMIC', s3d:null },
+        'xDrive20d 2.0D B47 190 л.с.': { stock:190, s1:240, s2:285, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:'ECU + EGR off', s3d:null },
+        'xDrive30d 3.0D B57 265 л.с.': { stock:265, s1:330, s2:400, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        'X4 M Competition S58 510 л.с.': { stock:510, s1:610, s2:710, s3:800, s1p:15000, s2p:38000, s3p:95000, s1d:'ECU Stage 1 (S58)', s2d:'ECU + downpipes + catless', s3d:'Stage 3 full package' },
+      },
+      'G02 LCI (2021–2024)': {
+        'xDrive30i 2.0T B48B20 252 л.с.': { stock:252, s1:320, s2:385, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1 (LCI)', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'M40i 3.0T B58B30 387 л.с.': { stock:387, s1:470, s2:555, s3:null, s1p:11000, s2p:24000, s3p:null, s1d:'ECU Stage 1 (G02 LCI M40i)', s2d:'ECU + FMIC + exhaust', s3d:null },
+        'X4 M Competition S58 510 л.с.': { stock:510, s1:610, s2:710, s3:800, s1p:16000, s2p:40000, s3p:98000, s1d:'ECU Stage 1 (LCI)', s2d:'ECU + downpipes + catless', s3d:'Stage 3 full package' },
+      },
+    },
+    'X5': {
+      'E70 (2006–2013)': {
+        'xDrive30i 3.0 N52B30 272 л.с.': { stock:272, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        'xDrive35i 3.0T N54 306 л.с.': { stock:306, s1:380, s2:450, s3:520, s1p:9000, s2p:20000, s3p:50000, s1d:'ECU Stage 1 (N54)', s2d:'ECU + FMIC + exhaust', s3d:'ECU + turbo upgrade + WMI' },
+        'xDrive30d 3.0D M57TU2 235 л.с.': { stock:235, s1:295, s2:355, s3:null, s1p:7500, s2p:15500, s3p:null, s1d:'ECU Stage 1 (M57N2)', s2d:'ECU + EGR off', s3d:null },
+        'xDrive35d 3.0D M57TU2 286 л.с.': { stock:286, s1:355, s2:430, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1 (bi-turbo)', s2d:'ECU + EGR + DPF', s3d:null },
+        'xDrive48i 4.8 N62B48 355 л.с.': { stock:355, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        'X5 M 4.4T S63 555 л.с.': { stock:555, s1:660, s2:760, s3:860, s1p:18000, s2p:46000, s3p:110000, s1d:'ECU Stage 1 (S63)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+      },
+      'F15 (2013–2018)': {
+        'xDrive35i 3.0T N55 306 л.с.': { stock:306, s1:380, s2:450, s3:520, s1p:9000, s2p:20000, s3p:50000, s1d:'ECU Stage 1 (N55)', s2d:'ECU + FMIC + exhaust', s3d:'ECU + turbo upgrade' },
+        'xDrive40d 3.0D N57S 313 л.с.': { stock:313, s1:390, s2:465, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1 (bi-turbo diesel)', s2d:'ECU + EGR + DPF', s3d:null },
+        'xDrive50i 4.4T N63TU 450 л.с.': { stock:450, s1:550, s2:640, s3:null, s1p:15000, s2p:38000, s3p:null, s1d:'ECU Stage 1 (N63TU)', s2d:'ECU + downpipes + catless + intercoolers', s3d:null },
+        'X5 M 4.4T S63TU 575 л.с.': { stock:575, s1:680, s2:780, s3:880, s1p:18000, s2p:47000, s3p:115000, s1d:'ECU Stage 1 (S63TU)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+      },
+      'G05 (2018–2021)': {
+        'xDrive40i 3.0T B58 340 л.с.': { stock:340, s1:420, s2:490, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'M50i 4.4T N63TU2 530 л.с.': { stock:530, s1:640, s2:730, s3:null, s1p:16000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (N63TU2 bi-turbo)', s2d:'ECU + downpipes + catless + intercoolers', s3d:null },
+        'xDrive30d 3.0D B57 265 л.с.': { stock:265, s1:340, s2:410, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU + TCU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        'xDrive40d 3.0D B57S 340 л.с.': { stock:340, s1:420, s2:490, s3:null, s1p:10000, s2p:21000, s3p:null, s1d:'ECU Stage 1 (bi-turbo diesel)', s2d:'ECU + EGR + DPF', s3d:null },
+        'X5 M Competition S63M 625 л.с.': { stock:625, s1:730, s2:830, s3:930, s1p:20000, s2p:50000, s3p:120000, s1d:'ECU Stage 1 (S63M Competition)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+      },
+      'G05 LCI (2022–2024)': {
+        'xDrive40i 3.0T B58B30 340 л.с.': { stock:340, s1:430, s2:510, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (G05 LCI)', s2d:'ECU + даунпайп + FMIC', s3d:null },
+        'M60i 4.4T S68 530 л.с.': { stock:530, s1:650, s2:750, s3:null, s1p:18000, s2p:45000, s3p:null, s1d:'ECU Stage 1 (S68)', s2d:'ECU + downpipes + catless + intercoolers', s3d:null },
+        'X5 M Competition S63M 625 л.с.': { stock:625, s1:735, s2:840, s3:940, s1p:22000, s2p:55000, s3p:130000, s1d:'ECU Stage 1 Competition', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 полный пакет' },
+      },
+    },
+    'X6': {
+      'E71 (2008–2014)': {
+        'xDrive35i 3.0T N55 306 л.с.': { stock:306, s1:380, s2:450, s3:520, s1p:9000, s2p:20000, s3p:50000, s1d:'ECU Stage 1 (N55)', s2d:'ECU + FMIC + exhaust', s3d:'ECU + turbo upgrade' },
+        'xDrive40d 3.0D N57S 306 л.с.': { stock:306, s1:380, s2:455, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1 (bi-turbo)', s2d:'ECU + EGR + DPF', s3d:null },
+        'xDrive50i 4.4T N63 450 л.с.': { stock:450, s1:550, s2:640, s3:null, s1p:14000, s2p:36000, s3p:null, s1d:'ECU Stage 1 (N63 bi-turbo)', s2d:'ECU + downpipes + catless', s3d:null },
+        'X6 M 4.4T S63 555 л.с.': { stock:555, s1:660, s2:760, s3:860, s1p:18000, s2p:46000, s3p:110000, s1d:'ECU Stage 1 (S63)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+      },
+      'F16 (2014–2019)': {
+        'xDrive35i 3.0T N55 306 л.с.': { stock:306, s1:380, s2:450, s3:520, s1p:9000, s2p:20000, s3p:50000, s1d:'ECU Stage 1 (N55)', s2d:'ECU + FMIC + exhaust', s3d:'ECU + turbo upgrade' },
+        'xDrive40d 3.0D N57S 313 л.с.': { stock:313, s1:390, s2:465, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1 (bi-turbo diesel)', s2d:'ECU + EGR + DPF', s3d:null },
+        'xDrive50i 4.4T N63TU 450 л.с.': { stock:450, s1:550, s2:640, s3:null, s1p:15000, s2p:38000, s3p:null, s1d:'ECU Stage 1 (N63TU)', s2d:'ECU + downpipes + catless + intercoolers', s3d:null },
+        'X6 M 4.4T S63TU 575 л.с.': { stock:575, s1:680, s2:780, s3:880, s1p:18000, s2p:47000, s3p:115000, s1d:'ECU Stage 1 (S63TU)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+      },
+      'G06 (2019–2023)': {
+        'xDrive40i 3.0T B58 340 л.с.': { stock:340, s1:420, s2:490, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'M50i 4.4T N63TU2 530 л.с.': { stock:530, s1:640, s2:730, s3:null, s1p:16000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (N63TU2 bi-turbo)', s2d:'ECU + downpipes + catless + intercoolers', s3d:null },
+        'xDrive30d 3.0D B57 265 л.с.': { stock:265, s1:340, s2:410, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU + TCU Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        'X6 M Competition S63M 625 л.с.': { stock:625, s1:730, s2:830, s3:930, s1p:20000, s2p:50000, s3p:120000, s1d:'ECU Stage 1 (S63M)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+      },
+    },
+    'X7': {
+      'G07 (2018–2022)': {
+        'xDrive40i 3.0T B58 340 л.с.': { stock:340, s1:420, s2:500, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1 (B58)', s2d:'ECU + даунпайп + FMIC', s3d:null },
+        'M50i 4.4T N63TU2 530 л.с.': { stock:530, s1:640, s2:730, s3:null, s1p:16000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (N63TU2)', s2d:'ECU + downpipes + catless + intercoolers', s3d:null },
+        'xDrive30d 3.0D B57 265 л.с.': { stock:265, s1:335, s2:405, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1 (дизель)', s2d:'ECU + EGR + DPF', s3d:null },
+        'xDrive40d 3.0D B57S 340 л.с.': { stock:340, s1:420, s2:490, s3:null, s1p:10000, s2p:21000, s3p:null, s1d:'ECU Stage 1 (bi-turbo diesel)', s2d:'ECU + EGR + DPF', s3d:null },
+      },
+      'G07 LCI (2022–2024)': {
+        'xDrive40i 3.0T B58B30 380 л.с.': { stock:380, s1:465, s2:550, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (G07 LCI)', s2d:'ECU + даунпайп + FMIC', s3d:null },
+        'M60i 4.4T S68 530 л.с.': { stock:530, s1:650, s2:750, s3:null, s1p:18000, s2p:46000, s3p:null, s1d:'ECU Stage 1 (S68)', s2d:'ECU + downpipes + catless + intercoolers', s3d:null },
+        'Alpina XB7 V8 4.4T 612 л.с.': { stock:612, s1:720, s2:820, s3:null, s1p:22000, s2p:55000, s3p:null, s1d:'ECU Stage 1 (Alpina)', s2d:'ECU + downpipes + catless', s3d:null },
+      },
+    },
+    // ── Z серия ──
+    'Z3': {
+      'E36/7, E36/8 (1996–2002)': {
+        'Z3 1.8 M44 116 л.с.': { stock:116, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        'Z3 2.0 M52 150 л.с.': { stock:150, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        'Z3 2.8 M52B28 193 л.с.': { stock:193, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        'Z3 3.0 M54B30 231 л.с.': { stock:231, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+        'M Roadster/Coupé S54 325 л.с.': { stock:325, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+      },
+    },
+    'Z4': {
+      'E89 (2009–2016)': {
+        'sDrive18i 2.0T N20 156 л.с.': { stock:156, s1:200, s2:null, s3:null, s1p:6500, s2p:null, s3p:null, s1d:'ECU Stage 1', s2d:null, s3d:null },
+        'sDrive20i 2.0T N20 184 л.с.': { stock:184, s1:245, s2:300, s3:null, s1p:7000, s2p:14500, s3p:null, s1d:'ECU Stage 1 (N20)', s2d:'ECU + даунпайп', s3d:null },
+        'sDrive35i 3.0T N54 306 л.с.': { stock:306, s1:380, s2:450, s3:520, s1p:9000, s2p:20000, s3p:50000, s1d:'ECU Stage 1 (N54)', s2d:'ECU + FMIC + exhaust', s3d:'ECU + turbo upgrade + WMI' },
+        'sDrive35is 3.0T N54 340 л.с.': { stock:340, s1:420, s2:500, s3:570, s1p:10000, s2p:22000, s3p:54000, s1d:'ECU Stage 1 (N54 is)', s2d:'ECU + FMIC + exhaust', s3d:'ECU + turbo upgrade + WMI' },
+      },
+      'G29 (2018–2024)': {
+        'sDrive20i 2.0T B48 197 л.с.': { stock:197, s1:255, s2:310, s3:null, s1p:7000, s2p:14500, s3p:null, s1d:'ECU Stage 1 (B48 G29)', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'sDrive30i 2.0T B48 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'M40i 3.0T B58 340 л.с.': { stock:340, s1:420, s2:500, s3:null, s1p:9500, s2p:20000, s3p:null, s1d:'ECU Stage 1 (B58 M40i)', s2d:'ECU + даунпайп + FMIC + exhaust', s3d:null },
+      },
+    },
+    // ── i серия ──
+    'i3': {
+      'I01 (2013–2022)': {
+        'i3 60 Ah электро 170 л.с.': { stock:170, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:'Электромобиль — чип по запросу', s2d:null, s3d:null },
+        'i3s электро 184 л.с.': { stock:184, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:'Электромобиль — чип по запросу', s2d:null, s3d:null },
+        'i3 REx + ДВС 132 л.с.': { stock:132, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:'Гибрид — уточнить по телефону', s2d:null, s3d:null },
+      },
+    },
+    'i4': {
+      'G26 (2021–2024)': {
+        'eDrive40 электро 340 л.с.': { stock:340, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:'Электромобиль — чип по запросу', s2d:null, s3d:null },
+        'M50 xDrive электро 544 л.с.': { stock:544, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:'Электромобиль M — уточнить возможности', s2d:null, s3d:null },
+      },
+    },
+    'i5': {
+      'G60 (2023–2024)': {
+        'eDrive40 электро 340 л.с.': { stock:340, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:'Электромобиль — чип по запросу', s2d:null, s3d:null },
+        'M60 xDrive электро 601 л.с.': { stock:601, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:'Электромобиль M — уточнить возможности', s2d:null, s3d:null },
+        '530e 2.0T M254 PHEV 245 л.с.': { stock:245, s1:290, s2:null, s3:null, s1p:7500, s2p:null, s3p:null, s1d:'ECU Stage 1 (PHEV ДВС часть)', s2d:null, s3d:null },
+      },
+    },
+    'i7': {
+      'G70 (2022–2024)': {
+        'xDrive60 электро 544 л.с.': { stock:544, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:'Электромобиль — чип по запросу', s2d:null, s3d:null },
+        'M70 xDrive электро 659 л.с.': { stock:659, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:'Электромобиль M — уточнить возможности', s2d:null, s3d:null },
+      },
+    },
+    'i8': {
+      'I12 (2014–2020)': {
+        'i8 1.5T B38 + электро 362 л.с.': { stock:362, s1:420, s2:null, s3:null, s1p:12000, s2p:null, s3p:null, s1d:'ECU Stage 1 (ДВС часть B38)', s2d:null, s3d:null },
+        'i8 Roadster 1.5T B38 374 л.с.': { stock:374, s1:435, s2:null, s3:null, s1p:13000, s2p:null, s3p:null, s1d:'ECU Stage 1 (ДВС часть)', s2d:null, s3d:null },
+      },
+    },
+    // ── M серия ──
+    'M2': {
+      'F87 (2016–2018)': {
+        'M2 3.0T N55 370 л.с.': { stock:370, s1:450, s2:540, s3:null, s1p:11000, s2p:26000, s3p:null, s1d:'ECU Stage 1 (N55)', s2d:'ECU + FMIC + downpipe + catless', s3d:null },
+      },
+      'F87 Competition (2018–2021)': {
+        'M2 Competition 3.0T S55 410 л.с.': { stock:410, s1:500, s2:590, s3:660, s1p:13000, s2p:30000, s3p:72000, s1d:'ECU Stage 1 (S55)', s2d:'ECU + downpipes + catless + FMIC', s3d:'ECU + fuel + WMI' },
+        'M3 CS S55 460 л.с.': { stock:460, s1:550, s2:640, s3:null, s1p:15000, s2p:36000, s3p:null, s1d:'ECU Stage 1 (CS)', s2d:'ECU + downpipes + catless', s3d:null },
+      },
+      'G87 (2022–2024)': {
+        'M2 3.0T S58 460 л.с.': { stock:460, s1:550, s2:640, s3:720, s1p:14000, s2p:36000, s3p:88000, s1d:'ECU Stage 1 (S58 M2)', s2d:'ECU + downpipes + catless + intercooler', s3d:'ECU + turbo + fuel + WMI' },
+        'M2 CS 3.0T S58 480 л.с.': { stock:480, s1:570, s2:660, s3:null, s1p:15000, s2p:38000, s3p:null, s1d:'ECU Stage 1 (S58 CS)', s2d:'ECU + downpipes + catless', s3d:null },
+      },
+    },
+    'M3': {
+      'E46 (2001–2006)': {
+        'M3 3.2 S54 343 л.с.': { stock:343, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+      },
+      'E90/E92/E93 (2008–2013)': {
+        'M3 4.0 V8 S65 420 л.с.': { stock:420, s1:450, s2:null, s3:null, s1p:12000, s2p:null, s3p:null, s1d:'ECU Stage 1 (NA V8)', s2d:null, s3d:null },
+      },
+      'F80 (2014–2020)': {
+        'M3 3.0T S55 431 л.с.': { stock:431, s1:520, s2:610, s3:690, s1p:13000, s2p:32000, s3p:78000, s1d:'ECU Stage 1 (S55)', s2d:'ECU + downpipes + FMIC + catless', s3d:'ECU + fuel + intercooler + WMI' },
+        'M3 Competition S55 450 л.с.': { stock:450, s1:540, s2:635, s3:715, s1p:14000, s2p:34000, s3p:82000, s1d:'ECU Stage 1 Competition', s2d:'ECU + downpipes + catless + FMIC', s3d:'Stage 3 full package' },
+        'M3 CS S55 460 л.с.': { stock:460, s1:550, s2:640, s3:null, s1p:15000, s2p:36000, s3p:null, s1d:'ECU Stage 1 (CS)', s2d:'ECU + downpipes + catless', s3d:null },
+      },
+      'G80 (2021–2024)': {
+        'M3 3.0T S58 480 л.с.': { stock:480, s1:570, s2:660, s3:750, s1p:14000, s2p:35000, s3p:85000, s1d:'ECU Stage 1 (S58)', s2d:'ECU + downpipes + catless + intercooler', s3d:'ECU + turbo upgrade + fuel + WMI' },
+        'M3 Competition S58 510 л.с.': { stock:510, s1:610, s2:710, s3:800, s1p:15000, s2p:38000, s3p:95000, s1d:'ECU Stage 1 Competition', s2d:'ECU + downpipes + catless + intercooler', s3d:'Stage 3 полный пакет' },
+        'M3 CS S58 550 л.с.': { stock:550, s1:645, s2:745, s3:null, s1p:17000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (CS)', s2d:'ECU + downpipes', s3d:null },
+        'M3 Competition xDrive S58 510 л.с.': { stock:510, s1:610, s2:710, s3:800, s1p:16000, s2p:40000, s3p:98000, s1d:'ECU Stage 1 xDrive Competition', s2d:'ECU + downpipes + catless', s3d:'Stage 3 полный пакет' },
+      },
+    },
+    'M4': {
+      'F82/F83 (2014–2020)': {
+        'M4 3.0T S55 431 л.с.': { stock:431, s1:520, s2:610, s3:690, s1p:13000, s2p:32000, s3p:78000, s1d:'ECU Stage 1 (S55)', s2d:'ECU + downpipes + FMIC + catless', s3d:'ECU + топливо + интеркулер + WMI' },
+        'M4 Competition S55 450 л.с.': { stock:450, s1:540, s2:635, s3:715, s1p:14000, s2p:34000, s3p:82000, s1d:'ECU Stage 1 Competition', s2d:'ECU + downpipes + catless + FMIC', s3d:'Stage 3 full package' },
+      },
+      'G82/G83 (2021–2024)': {
+        'M4 3.0T S58 480 л.с.': { stock:480, s1:570, s2:660, s3:750, s1p:14000, s2p:35000, s3p:85000, s1d:'ECU Stage 1 (S58 M4)', s2d:'ECU + downpipes + catless', s3d:'ECU + turbo + fuel + WMI' },
+        'M4 Competition S58 510 л.с.': { stock:510, s1:610, s2:710, s3:800, s1p:15000, s2p:38000, s3p:95000, s1d:'ECU Stage 1 Competition', s2d:'ECU + downpipes + catless + intercooler', s3d:'Полный Stage 3 пакет' },
+        'M4 CSL S58 550 л.с.': { stock:550, s1:645, s2:745, s3:null, s1p:17000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (CSL)', s2d:'ECU + downpipes', s3d:null },
+        'M4 Competition xDrive S58 510 л.с.': { stock:510, s1:610, s2:710, s3:800, s1p:16000, s2p:40000, s3p:98000, s1d:'ECU Stage 1 xDrive', s2d:'ECU + downpipes + catless', s3d:'Stage 3 полный пакет' },
+      },
+    },
+    'M5': {
+      'E60 (2005–2010)': {
+        'M5 5.0 V10 S85 507 л.с.': { stock:507, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+      },
+      'F10 (2011–2017)': {
+        'M5 4.4T S63 560 л.с.': { stock:560, s1:660, s2:760, s3:860, s1p:18000, s2p:46000, s3p:110000, s1d:'ECU Stage 1 (S63 bi-turbo V8)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+        'M5 Competition 4.4T S63TU 600 л.с.': { stock:600, s1:710, s2:810, s3:910, s1p:20000, s2p:50000, s3p:120000, s1d:'ECU Stage 1 (S63TU)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+      },
+      'F90 (2018–2024)': {
+        'M5 4.4T S63M 600 л.с.': { stock:600, s1:710, s2:810, s3:910, s1p:20000, s2p:50000, s3p:120000, s1d:'ECU Stage 1 (S63M)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+        'M5 Competition 4.4T S63M 625 л.с.': { stock:625, s1:735, s2:840, s3:940, s1p:22000, s2p:55000, s3p:130000, s1d:'ECU Stage 1 Competition', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 полный пакет' },
+        'M5 CS 4.4T S63M 635 л.с.': { stock:635, s1:750, s2:855, s3:null, s1p:24000, s2p:60000, s3p:null, s1d:'ECU Stage 1 (CS)', s2d:'ECU + downpipes + catless', s3d:null },
+      },
+    },
+    'M6': {
+      'E63/E64 (2005–2010)': {
+        'M6 5.0 V10 S85 507 л.с.': { stock:507, s1:null, s2:null, s3:null, s1p:null, s2p:null, s3p:null, s1d:null, s2d:null, s3d:null },
+      },
+      'F12/F13 (2012–2018)': {
+        'M6 4.4T S63TU 560–600 л.с.': { stock:600, s1:710, s2:810, s3:910, s1p:20000, s2p:50000, s3p:120000, s1d:'ECU Stage 1 (S63TU)', s2d:'ECU + downpipes + catless', s3d:'Stage 3 full package' },
+        'M6 Competition S63TU 600 л.с.': { stock:600, s1:720, s2:830, s3:940, s1p:22000, s2p:55000, s3p:130000, s1d:'ECU Stage 1 Competition', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 полный пакет' },
+      },
+    },
+    'M8': {
+      'G14/G15/G16 (2018–2024)': {
+        'M8 4.4T S63M 600 л.с.': { stock:600, s1:710, s2:810, s3:910, s1p:20000, s2p:50000, s3p:120000, s1d:'ECU Stage 1 (S63M)', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 full package' },
+        'M8 Competition 4.4T S63M 625 л.с.': { stock:625, s1:735, s2:840, s3:940, s1p:22000, s2p:55000, s3p:130000, s1d:'ECU Stage 1 Competition', s2d:'ECU + downpipes + catless + intercoolers', s3d:'Stage 3 полный пакет' },
+        'M8 Gran Coupe S63M 625 л.с.': { stock:625, s1:735, s2:840, s3:940, s1p:22000, s2p:55000, s3p:130000, s1d:'ECU Stage 1 (Gran Coupe)', s2d:'ECU + downpipes + catless', s3d:'Stage 3 полный пакет' },
+      },
+    },
+  },
+  'Mercedes-Benz': {
+    'A-класс / CLA (W177/C118)': {
+      '2018–2024': {
+        'A200 1.3T M282 163 л.с.': { stock:163, s1:210, s2:255, s3:null, s1p:6000, s2p:12000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'A250 2.0T M260 224 л.с.': { stock:224, s1:285, s2:340, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'A35 AMG 2.0T M260 306 л.с.': { stock:306, s1:375, s2:445, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (AMG)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'A45S AMG 2.0T M139 421 л.с.': { stock:421, s1:500, s2:580, s3:null, s1p:13000, s2p:32000, s3p:null, s1d:'ECU Stage 1 (M139 AMG)', s2d:'ECU + downpipes + catless + intercooler', s3d:null },
+        'CLA200 1.3T 163 л.с.': { stock:163, s1:210, s2:255, s3:null, s1p:6000, s2p:12000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'CLA250 2.0T 224 л.с.': { stock:224, s1:285, s2:340, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler', s3d:null },
+        'CLA45S AMG 2.0T M139 421 л.с.': { stock:421, s1:500, s2:580, s3:null, s1p:13000, s2p:32000, s3p:null, s1d:'ECU Stage 1 (M139)', s2d:'ECU + downpipes + catless + intercooler', s3d:null },
+      }
+    },
+    'B-класс / GLA / GLB': {
+      '2019–2024': {
+        'GLA200 1.3T M282 163 л.с.': { stock:163, s1:210, s2:255, s3:null, s1p:6000, s2p:12000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler', s3d:null },
+        'GLA250 2.0T M260 224 л.с.': { stock:224, s1:285, s2:340, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'GLA35 AMG 2.0T 306 л.с.': { stock:306, s1:375, s2:445, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (AMG)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'GLA45S AMG 2.0T M139 421 л.с.': { stock:421, s1:500, s2:580, s3:null, s1p:13000, s2p:32000, s3p:null, s1d:'ECU Stage 1 (M139)', s2d:'ECU + downpipes + catless', s3d:null },
+        'GLB200 1.3T 163 л.с.': { stock:163, s1:210, s2:255, s3:null, s1p:6000, s2p:12000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler', s3d:null },
+        'GLB250 2.0T 224 л.с.': { stock:224, s1:285, s2:340, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'GLB35 AMG 2.0T 306 л.с.': { stock:306, s1:375, s2:445, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (AMG)', s2d:'ECU + downpipes + intercooler', s3d:null },
+      }
+    },
+    'C-класс (W205)': {
+      '2014–2021': {
+        'C180 1.5T M274 150 л.с.': { stock:150, s1:200, s2:240, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (W205 C180)', s2d:'ECU + intercooler', s3d:null },
+        'C200 2.0T M274 184 л.с.': { stock:184, s1:240, s2:290, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (W205 C200)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'C300 2.0T M264 258 л.с.': { stock:258, s1:320, s2:385, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (W205 C300)', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'C43 AMG 3.0T M276 390 л.с.': { stock:390, s1:460, s2:540, s3:null, s1p:77000, s2p:99000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V6)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'C63 AMG 4.0T M177 476 л.с.': { stock:476, s1:570, s2:660, s3:750, s1p:99000, s2p:132000, s3p:198000, s1d:'ECU Stage 1 (bi-turbo V8)', s2d:'ECU + downpipes + catless', s3d:'ECU + турбины + intercooler + топливо' },
+        'C63 S AMG 4.0T M177 510 л.с.': { stock:510, s1:580, s2:610, s3:null, s1p:109000, s2p:130800, s3p:null, s1d:'ECU Stage 1 — данные SevenForce: 510→580 л.с., 109 000 ₽', s2d:'ECU Stage 2: 510→610 л.с.', s3d:null },
+        'C220d 2.0D OM654 194 л.с.': { stock:194, s1:245, s2:295, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+      }
+    },
+    'C-класс (W206)': {
+      '2021–2024': {
+        'C200 2.0T M254 204 л.с.': { stock:204, s1:260, s2:315, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 — данные SevenForce: 204→260 л.с., 35 000 ₽', s2d:'ECU + катализатор + exhaust', s3d:null },
+        'C300 2.0T M254 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (W206 C300)', s2d:'ECU + даунпайп + выхлоп', s3d:null },
+        'C43 AMG 3.0T M256 408 л.с.': { stock:408, s1:480, s2:560, s3:null, s1p:77000, s2p:99000, s3p:null, s1d:'ECU Stage 1 (I6 turbo)', s2d:'ECU + downpipes + intake', s3d:null },
+        'C63 AMG S E-Performance 2.0T M139L 476 л.с.': { stock:476, s1:560, s2:650, s3:null, s1p:99000, s2p:132000, s3p:null, s1d:'ECU Stage 1 (AMG PHEV)', s2d:'ECU + catless + exhaust', s3d:null },
+        'C220d 2.0D OM654M 200 л.с.': { stock:200, s1:255, s2:305, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+      }
+    },
+    'GLC (X253/X254)': {
+      '2015–2022': {
+        'GLC 200 2.0T M264 197 л.с.': { stock:197, s1:255, s2:310, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'GLC 300 2.0T M264 258 л.с.': { stock:258, s1:320, s2:385, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + даунпайп', s3d:null },
+        'GLC 43 AMG 3.0T M276 390 л.с.': { stock:390, s1:460, s2:540, s3:null, s1p:12000, s2p:28000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V6)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'GLC 63 AMG 4.0T M177 476 л.с.': { stock:476, s1:570, s2:660, s3:null, s1p:15000, s2p:40000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V8)', s2d:'ECU + downpipes + catless', s3d:null },
+        'GLC 63 S AMG 4.0T 510 л.с.': { stock:510, s1:610, s2:710, s3:null, s1p:16000, s2p:44000, s3p:null, s1d:'ECU Stage 1 (V8 S)', s2d:'ECU + downpipes + catless + intercooler', s3d:null },
+        'GLC 220d 2.0D OM654 194 л.с.': { stock:194, s1:245, s2:295, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+      },
+      '2022–2024': {
+        'GLC 200 2.0T M254 204 л.с.': { stock:204, s1:265, s2:315, s3:null, s1p:7000, s2p:14500, s3p:null, s1d:'ECU Stage 1 (X254)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'GLC 300 2.0T M254 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'GLC 43 AMG 3.0T M256 421 л.с.': { stock:421, s1:495, s2:575, s3:null, s1p:13000, s2p:30000, s3p:null, s1d:'ECU Stage 1 (новый AMG I6)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'GLC 63 S E-Performance 2.0T+E 680 л.с.': { stock:680, s1:760, s2:null, s3:null, s1p:20000, s2p:null, s3p:null, s1d:'ECU Stage 1 (PHEV AMG)', s2d:null, s3d:null },
+      }
+    },
+    'E-класс (W213/W214)': {
+      '2017–2023': {
+        'E200 2.0T M264 197 л.с.': { stock:197, s1:260, s2:315, s3:null, s1p:7000, s2p:15000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + катализатор + выхлоп', s3d:null },
+        'E300 2.0T M264 258 л.с.': { stock:258, s1:325, s2:385, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп', s3d:null },
+        'E400 3.0T M276 333 л.с.': { stock:333, s1:405, s2:475, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V6)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'E350d 3.0D OM656 286 л.с.': { stock:286, s1:360, s2:430, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+        'E220d 2.0D OM654 194 л.с.': { stock:194, s1:245, s2:295, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+        'E53 AMG 3.0T M256 435 л.с.': { stock:435, s1:510, s2:600, s3:null, s1p:13000, s2p:30000, s3p:null, s1d:'ECU Stage 1 (EQ Boost I6)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'E63 AMG S 4.0T M177 612 л.с.': { stock:612, s1:710, s2:800, s3:900, s1p:18000, s2p:48000, s3p:120000, s1d:'ECU Stage 1 (bi-turbo V8)', s2d:'ECU + downpipes + catless', s3d:'Полный Stage 3 апгрейд' },
+      },
+      '2024': {
+        'E200 2.0T M254 204 л.с.': { stock:204, s1:265, s2:315, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1 (W214)', s2d:'ECU + катализатор', s3d:null },
+        'E300 2.0T M254 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:7500, s2p:16500, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + даунпайп + intercooler', s3d:null },
+        'E450 3.0T M256 381 л.с.': { stock:381, s1:460, s2:540, s3:null, s1p:11000, s2p:25000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'E53 AMG 3.0T M256 449 л.с.': { stock:449, s1:525, s2:615, s3:null, s1p:14000, s2p:32000, s3p:null, s1d:'ECU Stage 1 (W214 AMG)', s2d:'ECU + downpipes + intercooler', s3d:null },
+      }
+    },
+    'CLS (C257)': {
+      '2018–2024': {
+        'CLS300d 3.0D OM656 265 л.с.': { stock:265, s1:330, s2:395, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+        'CLS350 3.0T M256 299 л.с.': { stock:299, s1:370, s2:440, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + downpipes', s3d:null },
+        'CLS450 3.0T M256 367 л.с.': { stock:367, s1:445, s2:520, s3:null, s1p:11000, s2p:24000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'CLS53 AMG 3.0T M256 435 л.с.': { stock:435, s1:510, s2:600, s3:null, s1p:13000, s2p:30000, s3p:null, s1d:'ECU Stage 1 (AMG EQ Boost)', s2d:'ECU + downpipes + intercooler', s3d:null },
+      }
+    },
+    'S-класс (W222/W223)': {
+      '2013–2020': {
+        'S350d 3.0D OM642 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+        'S400 3.0T M276 333 л.с.': { stock:333, s1:405, s2:475, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V6)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'S500 4.0T M176 456 л.с.': { stock:456, s1:545, s2:635, s3:null, s1p:14000, s2p:36000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V8)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'S63 AMG 4.0T M177 612 л.с.': { stock:612, s1:710, s2:800, s3:900, s1p:18000, s2p:48000, s3p:120000, s1d:'ECU Stage 1 (bi-turbo V8)', s2d:'ECU + downpipes + catless', s3d:'Полный Stage 3 апгрейд' },
+        'S65 AMG 6.0 V12 630 л.с.': { stock:630, s1:720, s2:810, s3:null, s1p:20000, s2p:55000, s3p:null, s1d:'ECU Stage 1 (V12 bi-turbo)', s2d:'ECU + downpipes + intercooler', s3d:null },
+      },
+      '2020–2024': {
+        'S350d 3.0D OM656 286 л.с.': { stock:286, s1:360, s2:430, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU + TCU дизель Stage 1 (W223)', s2d:'ECU + EGR + DPF off', s3d:null },
+        'S450 3.0T M256 367 л.с.': { stock:367, s1:445, s2:520, s3:null, s1p:11000, s2p:24000, s3p:null, s1d:'ECU Stage 1 (EQ Boost I6)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'S500 4.0T M176 435 л.с.': { stock:435, s1:520, s2:610, s3:null, s1p:13000, s2p:30000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V8)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'S580 4.0T M176 503 л.с.': { stock:503, s1:595, s2:690, s3:null, s1p:16000, s2p:44000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'S63 AMG 4.0T E-Performance 802 л.с.': { stock:802, s1:870, s2:null, s3:null, s1p:24000, s2p:null, s3p:null, s1d:'ECU Stage 1 (AMG PHEV V8)', s2d:null, s3d:null },
+      }
+    },
+    'AMG GT / GT 4-door (C190/X290)': {
+      '2015–2021': {
+        'AMG GT 4.0T M178 476 л.с.': { stock:476, s1:570, s2:660, s3:null, s1p:15000, s2p:40000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V8)', s2d:'ECU + downpipes + catless + intercooler', s3d:null },
+        'AMG GT S 4.0T 522 л.с.': { stock:522, s1:620, s2:715, s3:null, s1p:17000, s2p:46000, s3p:null, s1d:'ECU Stage 1 (GT S)', s2d:'ECU + downpipes + catless + intercooler', s3d:null },
+        'AMG GT R 4.0T 585 л.с.': { stock:585, s1:685, s2:780, s3:null, s1p:19000, s2p:52000, s3p:null, s1d:'ECU Stage 1 (GT R)', s2d:'ECU + downpipes + intercooler + catless', s3d:null },
+        'AMG GT 63 S 4-door 4.0T 639 л.с.': { stock:639, s1:740, s2:840, s3:null, s1p:20000, s2p:55000, s3p:null, s1d:'ECU Stage 1 (4-door bi-turbo V8)', s2d:'ECU + downpipes + intercoolers + catless', s3d:null },
+      },
+      '2022–2024': {
+        'AMG GT 55 4.0T 476 л.с.': { stock:476, s1:570, s2:660, s3:null, s1p:15000, s2p:40000, s3p:null, s1d:'ECU Stage 1 (C192)', s2d:'ECU + downpipes + catless + intercooler', s3d:null },
+        'AMG GT 63 4.0T 585 л.с.': { stock:585, s1:685, s2:780, s3:null, s1p:19000, s2p:52000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + catless + intercooler', s3d:null },
+      }
+    },
+    'GLE / GLS': {
+      '2019–2024': {
+        'GLE 300d 2.0D OM654 245 л.с.': { stock:245, s1:305, s2:365, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+        'GLE 350 3.0T M256 333 л.с.': { stock:333, s1:405, s2:475, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'GLE 450 3.0T M256 367 л.с.': { stock:367, s1:445, s2:520, s3:null, s1p:11000, s2p:24000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'GLE 53 AMG 3.0T M256 435 л.с.': { stock:435, s1:510, s2:600, s3:null, s1p:13000, s2p:30000, s3p:null, s1d:'ECU Stage 1 (AMG EQ Boost)', s2d:'ECU + downpipes + catless', s3d:null },
+        'GLE 63 S AMG 4.0T M177 612 л.с.': { stock:612, s1:710, s2:800, s3:900, s1p:18000, s2p:48000, s3p:120000, s1d:'ECU Stage 1 (bi-turbo V8)', s2d:'ECU + downpipes + catless + intercooler', s3d:'Полный Stage 3 апгрейд' },
+        'GLS 400d 3.0D OM656 330 л.с.': { stock:330, s1:405, s2:480, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+        'GLS 450 3.0T M256 367 л.с.': { stock:367, s1:450, s2:520, s3:null, s1p:11000, s2p:24000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes', s3d:null },
+        'GLS 580 4.0T M176 489 л.с.': { stock:489, s1:580, s2:670, s3:null, s1p:15000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V8)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'GLS 63 AMG 4.0T 612 л.с.': { stock:612, s1:710, s2:800, s3:null, s1p:18000, s2p:48000, s3p:null, s1d:'ECU Stage 1 (AMG)', s2d:'ECU + downpipes + catless + intercooler', s3d:null },
+      }
+    },
+    'G-класс (W463/W464)': {
+      '2012–2018': {
+        'G350d 3.0D OM642 245 л.с.': { stock:245, s1:305, s2:365, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+        'G500 5.5T M273 387 л.с.': { stock:387, s1:460, s2:535, s3:null, s1p:11000, s2p:26000, s3p:null, s1d:'ECU Stage 1 (NA V8 + bi-turbo)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'G63 AMG 5.5T M157 544 л.с.': { stock:544, s1:645, s2:740, s3:null, s1p:17000, s2p:46000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V8)', s2d:'ECU + downpipes + catless + intercooler', s3d:null },
+      },
+      '2018–2024': {
+        'G400d 3.0D OM656 330 л.с.': { stock:330, s1:405, s2:480, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU + TCU дизель Stage 1 (W464)', s2d:'ECU + EGR + DPF off', s3d:null },
+        'G500 4.0T M176 422 л.с.': { stock:422, s1:505, s2:590, s3:null, s1p:13000, s2p:30000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V8)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'G63 AMG 4.0T M177 585 л.с.': { stock:585, s1:685, s2:780, s3:null, s1p:19000, s2p:52000, s3p:null, s1d:'ECU Stage 1 (AMG bi-turbo)', s2d:'ECU + downpipes + catless + intercooler', s3d:null },
+      }
+    },
+  },
+  'Porsche': {
+    'Macan (95B/J1)': {
+      '2014–2021': {
+        'Macan 2.0T 252 л.с.': { stock:252, s1:315, s2:375, s3:null, s1p:7500, s2p:15500, s3p:null, s1d:'ECU Stage 1 (EA888)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Macan S 3.0T 354 л.с.': { stock:354, s1:430, s2:505, s3:null, s1p:11000, s2p:25000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V6)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'Macan GTS 2.9T 380 л.с.': { stock:380, s1:455, s2:535, s3:null, s1p:12000, s2p:27000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'Macan Turbo 2.9T 440 л.с.': { stock:440, s1:520, s2:610, s3:null, s1p:14000, s2p:33000, s3p:null, s1d:'ECU Stage 1 (bi-turbo)', s2d:'ECU + downpipes + intercooler', s3d:null },
+      },
+      '2021–2024': {
+        'Macan 2.0T 265 л.с.': { stock:265, s1:330, s2:395, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1 (FL)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Macan GTS 2.9T 380 л.с.': { stock:380, s1:455, s2:535, s3:null, s1p:12000, s2p:27000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'Macan Turbo 2.9T 440 л.с.': { stock:440, s1:520, s2:610, s3:null, s1p:14000, s2p:33000, s3p:null, s1d:'ECU Stage 1 (bi-turbo FL)', s2d:'ECU + downpipes + intercooler', s3d:null },
+      }
+    },
+    'Cayenne (9YA)': {
+      '2018–2022': {
+        'Cayenne 3.0T 340 л.с.': { stock:340, s1:400, s2:450, s3:null, s1p:55000, s2p:66000, s3p:null, s1d:'ECU Stage 1 — данные SevenForce: 340→400 л.с., 55 000 ₽', s2d:'ECU Stage 2: 340→450 л.с.', s3d:null },
+        'Cayenne S 2.9T 440 л.с.': { stock:440, s1:520, s2:610, s3:null, s1p:77000, s2p:99000, s3p:null, s1d:'ECU Stage 1 (bi-turbo)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'Cayenne GTS 4.0T 460 л.с.': { stock:460, s1:555, s2:645, s3:null, s1p:99000, s2p:132000, s3p:null, s1d:'ECU Stage 1 (V8 turbo)', s2d:'ECU + downpipes + catless', s3d:null },
+        'Cayenne Turbo 4.0T 550 л.с.': { stock:550, s1:700, s2:760, s3:null, s1p:165000, s2p:198000, s3p:null, s1d:'ECU Stage 1 — данные SevenForce: 550→700 л.с., 165 000 ₽', s2d:'ECU Stage 2: 550→760 л.с.', s3d:null },
+        'Cayenne Turbo S E-Hybrid 4.0T 680 л.с.': { stock:680, s1:780, s2:null, s3:null, s1p:198000, s2p:null, s3p:null, s1d:'ECU Stage 1 (PHEV)', s2d:null, s3d:null },
+      },
+      '2023–2024': {
+        'Cayenne 3.0T 353 л.с.': { stock:353, s1:435, s2:510, s3:null, s1p:11000, s2p:24000, s3p:null, s1d:'ECU Stage 1 (новый Cayenne)', s2d:'ECU + exhaust', s3d:null },
+        'Cayenne S 3.0T 474 л.с.': { stock:474, s1:560, s2:650, s3:null, s1p:15000, s2p:38000, s3p:null, s1d:'ECU Stage 1 (E-Hybrid S)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'Cayenne Turbo E-Hybrid 4.0T 739 л.с.': { stock:739, s1:830, s2:null, s3:null, s1p:22000, s2p:null, s3p:null, s1d:'ECU Stage 1 (новый PHEV)', s2d:null, s3d:null },
+      }
+    },
+    'Panamera (970/971)': {
+      '2010–2016': {
+        'Panamera 3.0T V6 300 л.с.': { stock:300, s1:370, s2:440, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (970)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Panamera S 3.0T V6 420 л.с.': { stock:420, s1:495, s2:575, s3:null, s1p:13000, s2p:30000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V6)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'Panamera Turbo 4.8T V8 520 л.с.': { stock:520, s1:615, s2:710, s3:null, s1p:17000, s2p:46000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V8)', s2d:'ECU + downpipes + intercoolers', s3d:null },
+      },
+      '2017–2023': {
+        'Panamera 4 2.9T 330 л.с.': { stock:330, s1:405, s2:480, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'Panamera 4S 2.9T 440 л.с.': { stock:440, s1:525, s2:615, s3:null, s1p:13000, s2p:32000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes', s3d:null },
+        'Panamera 4S E-Hybrid 2.9T 462 л.с.': { stock:462, s1:545, s2:635, s3:null, s1p:14000, s2p:34000, s3p:null, s1d:'ECU Stage 1 (PHEV)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'Panamera Turbo S 4.0T 630 л.с.': { stock:630, s1:750, s2:850, s3:null, s1p:20000, s2p:52000, s3p:null, s1d:'ECU Stage 1 (twin turbo)', s2d:'ECU + downpipes + intercoolers', s3d:null },
+        'Panamera Turbo S E-Hybrid 4.0T 700 л.с.': { stock:700, s1:800, s2:null, s3:null, s1p:22000, s2p:null, s3p:null, s1d:'ECU Stage 1 (twin turbo PHEV)', s2d:null, s3d:null },
+      }
+    },
+    '911 (991/992)': {
+      '2012–2019': {
+        '911 Carrera 3.0T 370 л.с.': { stock:370, s1:445, s2:520, s3:null, s1p:11000, s2p:26000, s3p:null, s1d:'ECU Stage 1 (991.2)', s2d:'ECU + exhaust + intercooler', s3d:null },
+        '911 Carrera S 3.0T 420 л.с.': { stock:420, s1:500, s2:585, s3:null, s1p:13000, s2p:32000, s3p:null, s1d:'ECU Stage 1 (991.2 S)', s2d:'ECU + exhaust + intercooler', s3d:null },
+        '911 Turbo 3.8T 540 л.с.': { stock:540, s1:645, s2:740, s3:null, s1p:18000, s2p:48000, s3p:null, s1d:'ECU Stage 1 (991 Turbo)', s2d:'ECU + intercoolers + downpipes', s3d:null },
+        '911 Turbo S 3.8T 580 л.с.': { stock:580, s1:690, s2:790, s3:null, s1p:20000, s2p:52000, s3p:null, s1d:'ECU Stage 1 (991 Turbo S)', s2d:'ECU + intercoolers + downpipes', s3d:null },
+        '911 GT3 4.0 NA 500 л.с.': { stock:500, s1:535, s2:null, s3:null, s1p:14000, s2p:null, s3p:null, s1d:'ECU Stage 1 (NA GT3)', s2d:null, s3d:null },
+      },
+      '2019–2024': {
+        '911 Carrera 3.0T 385 л.с.': { stock:385, s1:460, s2:540, s3:null, s1p:12000, s2p:28000, s3p:null, s1d:'ECU Stage 1 (992)', s2d:'ECU + sport exhaust + intercooler', s3d:null },
+        '911 Carrera S 3.0T 450 л.с.': { stock:450, s1:540, s2:635, s3:null, s1p:14000, s2p:35000, s3p:null, s1d:'ECU Stage 1 (992 S)', s2d:'ECU + exhaust + intercooler', s3d:null },
+        '911 Carrera 4S 3.0T 450 л.с.': { stock:450, s1:540, s2:635, s3:null, s1p:14000, s2p:35000, s3p:null, s1d:'ECU Stage 1 (992 4S)', s2d:'ECU + exhaust + intercooler', s3d:null },
+        '911 Turbo 3.8T 580 л.с.': { stock:580, s1:695, s2:795, s3:null, s1p:20000, s2p:52000, s3p:null, s1d:'ECU Stage 1 (992 Turbo)', s2d:'ECU + intercoolers + downpipes', s3d:null },
+        '911 Turbo S 3.8T 650 л.с.': { stock:650, s1:770, s2:870, s3:null, s1p:22000, s2p:55000, s3p:null, s1d:'ECU Stage 1 (992 Turbo S)', s2d:'ECU + intercoolers + downpipes', s3d:null },
+        '911 GT3 RS 4.0 NA 525 л.с.': { stock:525, s1:560, s2:null, s3:null, s1p:15000, s2p:null, s3p:null, s1d:'ECU Stage 1 (992 GT3 RS NA)', s2d:null, s3d:null },
+      }
+    },
+    '718 Cayman / Boxster': {
+      '2016–2024': {
+        '718 Boxster 2.0T 300 л.с.': { stock:300, s1:365, s2:430, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1 (EA888 flat-4)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        '718 Boxster S 2.5T 350 л.с.': { stock:350, s1:425, s2:500, s3:null, s1p:11000, s2p:25000, s3p:null, s1d:'ECU Stage 1 (flat-4 turbo S)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        '718 Cayman 2.0T 300 л.с.': { stock:300, s1:365, s2:430, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        '718 Cayman S 2.5T 350 л.с.': { stock:350, s1:425, s2:500, s3:null, s1p:11000, s2p:25000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        '718 GTS 4.0 NA 400 л.с.': { stock:400, s1:435, s2:null, s3:null, s1p:12000, s2p:null, s3p:null, s1d:'ECU Stage 1 (flat-6 NA)', s2d:null, s3d:null },
+        '718 Spyder / GT4 4.0 NA 420 л.с.': { stock:420, s1:455, s2:null, s3:null, s1p:13000, s2p:null, s3p:null, s1d:'ECU Stage 1 (Spyder/GT4)', s2d:null, s3d:null },
+      }
+    }
+  },
+  'Audi': {
+    'A3 / S3 (8V/8Y)': {
+      '2013–2020': {
+        'A3 1.4 TFSI EA211 150 л.с.': { stock:150, s1:190, s2:230, s3:null, s1p:5500, s2p:11000, s3p:null, s1d:'ECU Stage 1 (EA211)', s2d:'ECU + intercooler', s3d:null },
+        'A3 2.0 TFSI EA888 190 л.с.': { stock:190, s1:245, s2:300, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'S3 2.0 TFSI EA888 310 л.с.': { stock:310, s1:390, s2:465, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (IS38)', s2d:'ECU + IS38 + FMIC + exhaust', s3d:null },
+        'RS3 2.5T TTRS 400 л.с.': { stock:400, s1:480, s2:560, s3:null, s1p:12000, s2p:28000, s3p:null, s1d:'ECU Stage 1 (inline-5 turbo)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'A3 2.0 TDI EA288 150 л.с.': { stock:150, s1:190, s2:230, s3:null, s1p:5500, s2p:11000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+      },
+      '2020–2024': {
+        'A3 1.5 TFSI 150 л.с.': { stock:150, s1:190, s2:230, s3:null, s1p:5500, s2p:11000, s3p:null, s1d:'ECU Stage 1 (8Y)', s2d:'ECU + intercooler', s3d:null },
+        'A3 2.0 TFSI 204 л.с.': { stock:204, s1:260, s2:315, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'S3 2.0 TFSI 310 л.с.': { stock:310, s1:390, s2:465, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (IS38 8Y)', s2d:'ECU + IS38 + FMIC + exhaust', s3d:null },
+        'RS3 2.5T 400 л.с.': { stock:400, s1:485, s2:565, s3:null, s1p:12000, s2p:29000, s3p:null, s1d:'ECU Stage 1 (8Y RS3)', s2d:'ECU + downpipes + intercooler', s3d:null },
+      }
+    },
+    'A4 / A5 (B9)': {
+      '2016–2020': {
+        '2.0 TFSI EA888 Gen3 249 л.с.': { stock:249, s1:310, s2:375, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1 (MQB)', s2d:'ECU + IS38 intake + intercooler', s3d:null },
+        '2.0 TDI EA288 190 л.с.': { stock:190, s1:240, s2:290, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR off + DPF off', s3d:null },
+        'S4/S5 3.0T EA839 354 л.с.': { stock:354, s1:430, s2:510, s3:null, s1p:11000, s2p:25000, s3p:null, s1d:'ECU Stage 1 (V6 turbo)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'RS4/RS5 2.9T EA839 450 л.с.': { stock:450, s1:540, s2:630, s3:null, s1p:14000, s2p:35000, s3p:null, s1d:'ECU Stage 1 (bi-turbo)', s2d:'ECU + downpipes + catless', s3d:null },
+      },
+      '2020–2024': {
+        '2.0 TFSI EA888 Gen4 204 л.с.': { stock:204, s1:270, s2:330, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1 (новый Gen4)', s2d:'ECU + intercooler + выхлоп', s3d:null },
+        'S4 3.0 TDI 347 л.с.': { stock:347, s1:430, s2:500, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU + TCU Stage 1 (дизель S4)', s2d:'ECU + EGR + DPF', s3d:null },
+        'RS5 2.9T 450 л.с.': { stock:450, s1:540, s2:630, s3:null, s1p:14000, s2p:35000, s3p:null, s1d:'ECU Stage 1 (FL RS5)', s2d:'ECU + downpipes + catless + intercooler', s3d:null },
+      }
+    },
+    'A6 / A7 (C8)': {
+      '2018–2024': {
+        'A6 45 TFSI 2.0T 245 л.с.': { stock:245, s1:305, s2:365, s3:null, s1p:7500, s2p:15500, s3p:null, s1d:'ECU Stage 1 (MLB Evo)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'A6 55 TFSI 3.0T 340 л.с.': { stock:340, s1:415, s2:490, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (EA839 I6)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'A6 40 TDI 2.0D 204 л.с.': { stock:204, s1:255, s2:305, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+        'A6 50 TDI 3.0D 286 л.с.': { stock:286, s1:360, s2:430, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+        'S6 3.0 TDI 349 л.с.': { stock:349, s1:430, s2:505, s3:null, s1p:10500, s2p:23000, s3p:null, s1d:'ECU + TCU дизель Stage 1 (S6 TDI)', s2d:'ECU + EGR + DPF off', s3d:null },
+        'S6 / S7 2.9 TFSI 450 л.с.': { stock:450, s1:540, s2:630, s3:null, s1p:14000, s2p:35000, s3p:null, s1d:'ECU Stage 1 (EA839 bi-turbo)', s2d:'ECU + downpipes + catless + intercooler', s3d:null },
+        'RS6 / RS7 4.0 TFSI 600 л.с.': { stock:600, s1:720, s2:810, s3:870, s1p:18000, s2p:50000, s3p:110000, s1d:'ECU Stage 1 (twin turbo V8)', s2d:'ECU + downpipes + intercoolers + catless', s3d:'ECU + turbo upgrade + fuel system' },
+        'RS6 / RS7 Performance 4.0T 630 л.с.': { stock:630, s1:750, s2:850, s3:920, s1p:20000, s2p:55000, s3p:120000, s1d:'ECU Stage 1 (Performance)', s2d:'ECU + downpipes + intercoolers', s3d:'Полный Stage 3 апгрейд' },
+      }
+    },
+    'TT / TTS / TTRS': {
+      '2014–2023': {
+        'TT 2.0 TFSI 230 л.с.': { stock:230, s1:290, s2:350, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (8S EA888)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'TTS 2.0 TFSI 310 л.с.': { stock:310, s1:390, s2:465, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (IS38 TTS)', s2d:'ECU + IS38 + FMIC + exhaust', s3d:null },
+        'TTRS 2.5T 400 л.с.': { stock:400, s1:480, s2:555, s3:null, s1p:12000, s2p:28000, s3p:null, s1d:'ECU Stage 1 (inline-5 TTRS)', s2d:'ECU + downpipes + intercooler', s3d:null },
+      }
+    },
+    'R8 (4S)': {
+      '2015–2023': {
+        'R8 5.2 V10 NA 540 л.с.': { stock:540, s1:590, s2:null, s3:null, s1p:16000, s2p:null, s3p:null, s1d:'ECU Stage 1 (V10 NA)', s2d:null, s3d:null },
+        'R8 5.2 V10 Plus NA 610 л.с.': { stock:610, s1:660, s2:null, s3:null, s1p:18000, s2p:null, s3p:null, s1d:'ECU Stage 1 (V10 Plus NA)', s2d:null, s3d:null },
+        'R8 5.2 V10 Performance NA 620 л.с.': { stock:620, s1:670, s2:null, s3:null, s1p:18000, s2p:null, s3p:null, s1d:'ECU Stage 1 (V10 Perf NA)', s2d:null, s3d:null },
+      }
+    },
+    'Q5 / SQ5 (FY)': {
+      '2017–2021': {
+        'Q5 2.0 TFSI 249 л.с.': { stock:249, s1:310, s2:375, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intake + intercooler', s3d:null },
+        'SQ5 3.0 TFSI 354 л.с.': { stock:354, s1:430, s2:510, s3:null, s1p:11000, s2p:26000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'SQ5 3.0 TDI 347 л.с.': { stock:347, s1:430, s2:500, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+      },
+      '2021–2024': {
+        'Q5 45 TFSI 265 л.с.': { stock:265, s1:330, s2:395, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1 (FL)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'SQ5 3.0 TFSI 354 л.с.': { stock:354, s1:430, s2:510, s3:null, s1p:11000, s2p:26000, s3p:null, s1d:'ECU Stage 1 (FL SQ5)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'RSQ5 2.9T 450 л.с.': { stock:450, s1:540, s2:630, s3:null, s1p:14000, s2p:35000, s3p:null, s1d:'ECU Stage 1 (RSQ5)', s2d:'ECU + downpipes + catless + intercooler', s3d:null },
+      }
+    },
+    'Q7 / Q8 (4M/4L)': {
+      '2015–2024': {
+        'Q7 45 TFSI 3.0T 249 л.с.': { stock:249, s1:310, s2:375, s3:null, s1p:7500, s2p:16000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Q7 55 TFSI 3.0T 340 л.с.': { stock:340, s1:415, s2:490, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (EA839)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'Q7 50 TDI 3.0D 286 л.с.': { stock:286, s1:360, s2:430, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+        'SQ7 4.0 TDI 435 л.с.': { stock:435, s1:510, s2:590, s3:null, s1p:13000, s2p:30000, s3p:null, s1d:'ECU + TCU Stage 1 (Bi-TDI)', s2d:'ECU + EGR + DPF off', s3d:null },
+        'Q8 55 TFSI 3.0T 340 л.с.': { stock:340, s1:415, s2:490, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (Q8 EA839)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'SQ8 4.0 TDI 435 л.с.': { stock:435, s1:510, s2:590, s3:null, s1p:13000, s2p:30000, s3p:null, s1d:'ECU + TCU Stage 1 (SQ8 Bi-TDI)', s2d:'ECU + EGR + DPF off', s3d:null },
+        'RS Q8 4.0T 600 л.с.': { stock:600, s1:720, s2:810, s3:870, s1p:18000, s2p:50000, s3p:110000, s1d:'ECU Stage 1 (RS Q8 twin turbo V8)', s2d:'ECU + downpipes + intercoolers + catless', s3d:'ECU + turbo upgrade + fuel system' },
+      }
+    },
+  },
+  'Volkswagen': {
+    'Golf / GTI (MK7/MK8)': {
+      '2013–2020': {
+        'GTI 2.0 TSI EA888 Gen3 220 л.с.': { stock:220, s1:285, s2:345, s3:null, s1p:6500, s2p:13500, s3p:null, s1d:'ECU Stage 1 (MK7 IS20)', s2d:'ECU + IS20 + intercooler', s3d:null },
+        'GTI Performance 230 л.с.': { stock:230, s1:295, s2:355, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (Performance)', s2d:'ECU + IS20 + intercooler + exhaust', s3d:null },
+        'Golf R 2.0 TSI EA888 300 л.с.': { stock:300, s1:380, s2:455, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (IS38 MK7R)', s2d:'ECU + IS38 + FMIC + exhaust', s3d:null },
+        'Golf GTE 1.4T PHEV 204 л.с.': { stock:204, s1:250, s2:null, s3:null, s1p:6500, s2p:null, s3p:null, s1d:'ECU Stage 1 (GTE PHEV)', s2d:null, s3d:null },
+        'Golf 2.0 TDI 150 л.с.': { stock:150, s1:190, s2:230, s3:null, s1p:5500, s2p:11000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+      },
+      '2020–2024': {
+        'GTI 2.0 TSI EA888 Gen4 245 л.с.': { stock:245, s1:330, s2:346, s3:null, s1p:41000, s2p:49200, s3p:null, s1d:'ECU Stage 1 (MQB Evo) — данные SevenForce: 245→330 л.с.', s2d:'ECU Stage 2 — 245→346 л.с.', s3d:null },
+        'GTI Clubsport 300 л.с.': { stock:300, s1:375, s2:445, s3:null, s1p:49000, s2p:65000, s3p:null, s1d:'ECU Stage 1 (Clubsport)', s2d:'ECU + IS38 + intercooler + exhaust', s3d:null },
+        'Golf R 2.0 TSI 320 л.с.': { stock:320, s1:400, s2:480, s3:null, s1p:55000, s2p:66000, s3p:null, s1d:'ECU Stage 1 (DQ381 DSG)', s2d:'ECU + IS38 + intercooler + exhaust', s3d:null },
+        'Golf R 333 Special Ed 2.0T 333 л.с.': { stock:333, s1:420, s2:500, s3:null, s1p:60000, s2p:75000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + IS38 upgrade + intercooler', s3d:null },
+        'Golf 1.5 TSI 130 л.с.': { stock:130, s1:155, s2:175, s3:null, s1p:24000, s2p:28800, s3p:null, s1d:'ECU Stage 1 (MK8 1.5 TSI) — данные SevenForce', s2d:'ECU Stage 2', s3d:null },
+        'Golf 2.0 TDI 150 л.с.': { stock:150, s1:190, s2:230, s3:null, s1p:28000, s2p:38000, s3p:null, s1d:'ECU + TCU дизель Stage 1 (MK8)', s2d:'ECU + EGR + DPF off', s3d:null },
+      }
+    },
+    'Passat (B8)': {
+      '2015–2023': {
+        '1.4 TSI EA211 150 л.с.': { stock:150, s1:190, s2:230, s3:null, s1p:5500, s2p:11000, s3p:null, s1d:'ECU Stage 1 (B8 EA211)', s2d:'ECU + intercooler', s3d:null },
+        '2.0 TSI EA888 220 л.с.': { stock:220, s1:280, s2:340, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (B8 EA888)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        '2.0 TDI EA288 150 л.с.': { stock:150, s1:190, s2:230, s3:null, s1p:5500, s2p:11000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+        '2.0 TDI EA288 190 л.с.': { stock:190, s1:240, s2:290, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+      }
+    },
+    'Arteon (3H7)': {
+      '2017–2024': {
+        '2.0 TSI 190 л.с.': { stock:190, s1:245, s2:300, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (Arteon EA888)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        '2.0 TSI 280 л.с.': { stock:280, s1:350, s2:415, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1 (Arteon R-Line)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Arteon R 2.0T 320 л.с.': { stock:320, s1:400, s2:480, s3:null, s1p:9000, s2p:20000, s3p:null, s1d:'ECU Stage 1 (Arteon R)', s2d:'ECU + IS38 + intercooler + exhaust', s3d:null },
+        '2.0 TDI 200 л.с.': { stock:200, s1:255, s2:305, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+      }
+    },
+    'Tiguan (5N/AD1)': {
+      '2008–2016': {
+        '1.4 TSI 150 л.с.': { stock:150, s1:190, s2:230, s3:null, s1p:5500, s2p:11000, s3p:null, s1d:'ECU Stage 1 (EA111/EA211)', s2d:'ECU + intercooler', s3d:null },
+        '2.0 TSI 180 л.с.': { stock:180, s1:230, s2:280, s3:null, s1p:6000, s2p:12000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        '2.0 TDI 140 л.с.': { stock:140, s1:180, s2:220, s3:null, s1p:5500, s2p:11000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+      },
+      '2017–2024': {
+        '2.0 TSI R-Line 220 л.с.': { stock:220, s1:280, s2:335, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        '2.0 TSI 4Motion 245 л.с.': { stock:245, s1:310, s2:375, s3:null, s1p:7500, s2p:15000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + IS20 + intercooler', s3d:null },
+        '2.0 TDI 150 л.с.': { stock:150, s1:190, s2:230, s3:null, s1p:5500, s2p:11000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+        '2.0 TDI 200 л.с.': { stock:200, s1:255, s2:305, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+      }
+    },
+    'Touareg (CR/CR7)': {
+      '2018–2024': {
+        'Touareg 3.0T 340 л.с.': { stock:340, s1:415, s2:490, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU Stage 1 (CR EA839)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'Touareg 4.0T V8 421 л.с.': { stock:421, s1:505, s2:590, s3:null, s1p:13000, s2p:30000, s3p:null, s1d:'ECU Stage 1 (bi-turbo V8)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'Touareg 3.0 TDI 286 л.с.': { stock:286, s1:360, s2:430, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF off', s3d:null },
+        'Touareg 4.0 V8 TDI 422 л.с.': { stock:422, s1:500, s2:580, s3:null, s1p:13000, s2p:30000, s3p:null, s1d:'ECU + TCU Stage 1 (V8 Bi-TDI)', s2d:'ECU + EGR + DPF off', s3d:null },
+      }
+    }
+  },
+  'Volvo': {
+    'XC60': {
+      '2013–2017': {
+        '2.0 Diesel D4 190 л.с.': { stock:190, s1:245, s2:295, s3:null, s1p:29000, s2p:34800, s3p:null, s1d:'ECU Stage 1 (Drive-E D4) — SevenForce: 190→245 л.с.', s2d:'ECU Stage 2: 190→295 л.с.', s3d:null },
+        '2.0T T5 245 л.с.': { stock:245, s1:305, s2:360, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (T5 Drive-E)', s2d:'ECU Stage 2 + intercooler', s3d:null },
+        '2.0T T6 306 л.с.': { stock:306, s1:380, s2:450, s3:null, s1p:40000, s2p:48000, s3p:null, s1d:'ECU Stage 1 (T6 Drive-E)', s2d:'ECU Stage 2 + intercooler', s3d:null },
+      },
+      '2017–2022': {
+        'D5 2.0 Diesel 190 л.с.': { stock:190, s1:245, s2:295, s3:46400, s1p:29000, s2p:34800, s3p:46400, s1d:'ECU Stage 1 — SevenForce: 190→245 л.с., 29 000₽', s2d:'ECU Stage 2: 190→295 л.с., 34 800₽', s3d:'ECU Stage 3 + EGR off: 46 400₽' },
+        'T5 2.0T 249 л.с.': { stock:249, s1:315, s2:370, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 — SevenForce: 249→315 л.с., 8 000₽', s2d:'ECU Stage 2: 249→370 л.с., 16 000₽', s3d:null },
+        'T6 2.0T 310 л.с.': { stock:310, s1:385, s2:455, s3:null, s1p:38000, s2p:46000, s3p:null, s1d:'ECU Stage 1 — SevenForce: 310→385 л.с., 9 000₽', s2d:'ECU Stage 2: 310→455 л.с., 19 000₽', s3d:null },
+        'D5 2.0 Diesel 235 л.с.': { stock:235, s1:295, s2:360, s3:null, s1p:32000, s2p:38500, s3p:null, s1d:'ECU Stage 1 (D5 PowerPulse)', s2d:'ECU Stage 2 + EGR off', s3d:null },
+        'T8 PHEV 2.0T 390 л.с.': { stock:390, s1:450, s2:null, s3:null, s1p:45000, s2p:null, s3p:null, s1d:'ECU Stage 1 (PHEV)', s2d:null, s3d:null },
+      },
+      '2022–2024': {
+        'B5 2.0T 250 л.с.': { stock:250, s1:315, s2:375, s3:null, s1p:36000, s2p:43200, s3p:null, s1d:'ECU Stage 1 — SevenForce: 250→315 л.с., 8 000₽', s2d:'ECU Stage 2: 250→375 л.с., 16 000₽', s3d:null },
+        'B6 2.0T 300 л.с.': { stock:300, s1:375, s2:445, s3:null, s1p:42000, s2p:50400, s3p:null, s1d:'ECU Stage 1 (Mild-Hybrid)', s2d:'ECU Stage 2 + intercooler', s3d:null },
+      }
+    },
+    'XC90': {
+      '2015–2022': {
+        'D5 2.0 Diesel 225 л.с.': { stock:225, s1:295, s2:360, s3:null, s1p:31000, s2p:37200, s3p:null, s1d:'ECU Stage 1 — SevenForce: 225→295 л.с., 8 000₽', s2d:'ECU Stage 2: 225→360 л.с., 17 000₽', s3d:null },
+        'D5 2.0 Diesel 190 л.с.': { stock:190, s1:245, s2:295, s3:null, s1p:29000, s2p:35000, s3p:null, s1d:'ECU Stage 1 (D4 XC90)', s2d:'ECU Stage 2', s3d:null },
+        'T5 2.0T 254 л.с.': { stock:254, s1:315, s2:370, s3:null, s1p:36000, s2p:43200, s3p:null, s1d:'ECU Stage 1 — SevenForce: 254→315 л.с., 8 000₽', s2d:'ECU Stage 2: 254→370 л.с., 16 000₽', s3d:null },
+        'T6 2.0T 310 л.с.': { stock:310, s1:385, s2:455, s3:null, s1p:38000, s2p:45600, s3p:null, s1d:'ECU Stage 1 — SevenForce: 310→385 л.с., 9 000₽', s2d:'ECU Stage 2: 310→455 л.с., 19 000₽', s3d:null },
+        'T8 PHEV 2.0T 405 л.с.': { stock:405, s1:465, s2:null, s3:null, s1p:48000, s2p:null, s3p:null, s1d:'ECU Stage 1 (T8 PHEV)', s2d:null, s3d:null },
+      },
+      '2022–2024': {
+        'B5 2.0T 250 л.с.': { stock:250, s1:315, s2:375, s3:null, s1p:36000, s2p:43200, s3p:null, s1d:'ECU Stage 1 — SevenForce: 250→315 л.с., 8 000₽', s2d:'ECU Stage 2: 250→375 л.с., 16 000₽', s3d:null },
+        'B6 2.0T 300 л.с.': { stock:300, s1:375, s2:445, s3:null, s1p:42000, s2p:50400, s3p:null, s1d:'ECU Stage 1 (B6)', s2d:'ECU + intercooler + exhaust', s3d:null },
+      }
+    },
+    'S60 / V60': {
+      '2019–2024': {
+        'T5 2.0T 250 л.с.': { stock:250, s1:315, s2:375, s3:null, s1p:33000, s2p:39600, s3p:null, s1d:'ECU Stage 1 — SevenForce: 250→315 л.с., 7 500₽', s2d:'ECU Stage 2: 250→375 л.с., 15 000₽', s3d:null },
+        'T6 Polestar 2.0T 310 л.с.': { stock:310, s1:385, s2:460, s3:null, s1p:38000, s2p:45600, s3p:null, s1d:'ECU Stage 1 — SevenForce: 310→385 л.с., 9 000₽', s2d:'ECU Stage 2: 310→460 л.с., 19 000₽', s3d:null },
+        'D4 2.0D 190 л.с.': { stock:190, s1:245, s2:295, s3:null, s1p:29000, s2p:35000, s3p:null, s1d:'ECU Stage 1 (D4)', s2d:'ECU Stage 2 + EGR', s3d:null },
+      }
+    },
+    'S90 / V90': {
+      '2016–2024': {
+        'T5 2.0T 254 л.с.': { stock:254, s1:315, s2:370, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (S90 T5)', s2d:'ECU Stage 2 + intercooler', s3d:null },
+        'T6 2.0T 310 л.с.': { stock:310, s1:385, s2:455, s3:null, s1p:38000, s2p:46000, s3p:null, s1d:'ECU Stage 1 (S90 T6)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'D5 2.0D 235 л.с.': { stock:235, s1:295, s2:360, s3:null, s1p:32000, s2p:38500, s3p:null, s1d:'ECU Stage 1 (D5)', s2d:'ECU + EGR off + DPF off', s3d:null },
+      }
+    }
+  },
+  'Lexus': {
+    'IS / RC': {
+      '2013–2024': {
+        'IS 300 2.0T 245 л.с.': { stock:245, s1:305, s2:360, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 — SevenForce: 245→305 л.с., 7 500₽', s2d:'ECU Stage 2: 245→360 л.с., 15 000₽', s3d:null },
+        'IS 350 V6 3.5 NA 306 л.с.': { stock:306, s1:345, s2:null, s3:null, s1p:40000, s2p:null, s3p:null, s1d:'ECU Stage 1 — SevenForce: 306→345 л.с., 9 000₽', s2d:null, s3d:null },
+        'RC 300 2.0T 241 л.с.': { stock:241, s1:300, s2:355, s3:null, s1p:34000, s2p:41000, s3p:null, s1d:'ECU Stage 1 (8AR-FTS RC300)', s2d:'ECU Stage 2 + intercooler', s3d:null },
+        'RC F 5.0 V8 NA 471 л.с.': { stock:471, s1:520, s2:null, s3:null, s1p:55000, s2p:null, s3p:null, s1d:'ECU Stage 1 — SevenForce: 471→520 л.с., 14 000₽', s2d:null, s3d:null },
+      }
+    },
+    'RX / NX': {
+      '2015–2024': {
+        'RX 200t 2.0T 238 л.с.': { stock:238, s1:290, s2:350, s3:null, s1p:35000, s2p:42000, s3p:56000, s1d:'ECU Stage 1 SF: 238 to 290 hp, 35 000 — SevenForce: 238→290 л.с., 35 000₽', s2d:'ECU Stage 2: 238 to 350 hp, 42000 rub', s3d:'ECU Stage 3: 56000 rub' },
+        'NX 300 2.0T 238 л.с.': { stock:238, s1:295, s2:350, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 SevenForce: 238 to 295 hp, 7500 rub', s2d:'ECU Stage 2: 238 to 350 hp, 15000 rub', s3d:null },
+        'RX 350 V6 3.5 NA 249 л.с.': { stock:249, s1:280, s2:null, s3:null, s1p:36000, s2p:null, s3p:null, s1d:'ECU Stage 1 SevenForce: 249 to 280 hp, 8000 rub', s2d:null, s3d:null },
+      }
+    },
+    'GS / LX': {
+      '2012–2023': {
+        'GS 300 2.0T 245 л.с.': { stock:245, s1:305, s2:360, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (8AR-FTS GS300)', s2d:'ECU Stage 2 + intercooler', s3d:null },
+        'GS 350 V6 3.5 NA 306 л.с.': { stock:306, s1:345, s2:null, s3:null, s1p:40000, s2p:null, s3p:null, s1d:'ECU Stage 1 (NA V6)', s2d:null, s3d:null },
+        'GS F 5.0 V8 NA 471 л.с.': { stock:471, s1:520, s2:null, s3:null, s1p:55000, s2p:null, s3p:null, s1d:'ECU Stage 1 SevenForce: 471 to 520 hp, 14000 rub', s2d:null, s3d:null },
+        'LX 570 5.7 V8 NA 367 л.с.': { stock:367, s1:410, s2:null, s3:null, s1p:48000, s2p:null, s3p:null, s1d:'ECU Stage 1 (3UR-FE V8)', s2d:null, s3d:null },
+      }
+    }
+  },
+
+  // ══════════════════════════════════════════════
+  //  ALFA ROMEO
+  // ══════════════════════════════════════════════
+  'Alfa Romeo': {
+    'Giulia (952)': {
+      '2016–2019': {
+        'Giulia 2.0T 200 л.с.': { stock:200, s1:260, s2:315, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (GME)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Giulia 2.0T 280 л.с.': { stock:280, s1:345, s2:410, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Giulia Quadrifoglio 2.9T V6 510 л.с.': { stock:510, s1:600, s2:690, s3:760, s1p:16000, s2p:42000, s3p:95000, s1d:'ECU Stage 1 (bi-turbo V6)', s2d:'ECU + downpipes + catless', s3d:'ECU + турбина апгрейд + интеркулер' },
+      },
+      '2020–2024': {
+        'Giulia 2.0T 200 л.с.': { stock:200, s1:260, s2:315, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (FL)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Giulia 2.0T 280 л.с.': { stock:280, s1:345, s2:415, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Giulia Quadrifoglio 2.9T 510 л.с.': { stock:510, s1:600, s2:695, s3:770, s1p:16000, s2p:44000, s3p:98000, s1d:'ECU Stage 1', s2d:'ECU + downpipes + catless', s3d:'ECU + полный Stage 3 пакет' },
+      }
+    },
+    'Stelvio (949)': {
+      '2017–2019': {
+        'Stelvio 2.0T 200 л.с.': { stock:200, s1:260, s2:315, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Stelvio 2.0T 280 л.с.': { stock:280, s1:345, s2:410, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Stelvio Quadrifoglio 2.9T 510 л.с.': { stock:510, s1:600, s2:690, s3:760, s1p:16000, s2p:42000, s3p:95000, s1d:'ECU Stage 1 (bi-turbo)', s2d:'ECU + downpipes + catless', s3d:'ECU + турбина апгрейд' },
+      },
+      '2020–2024': {
+        'Stelvio 2.0T 200 л.с.': { stock:200, s1:260, s2:315, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (FL)', s2d:'ECU + intercooler', s3d:null },
+        'Stelvio 2.0T 280 л.с.': { stock:280, s1:350, s2:415, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Stelvio Quadrifoglio 2.9T 510 л.с.': { stock:510, s1:600, s2:695, s3:770, s1p:16000, s2p:44000, s3p:98000, s1d:'ECU Stage 1', s2d:'ECU + downpipes + catless', s3d:'ECU + полный пакет' },
+      }
+    },
+    'Giulietta (940)': {
+      '2010–2020': {
+        'Giulietta 1.4T 120 л.с.': { stock:120, s1:155, s2:185, s3:null, s1p:5500, s2p:11000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler', s3d:null },
+        'Giulietta 1.4T 170 л.с.': { stock:170, s1:215, s2:255, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Giulietta 1.75T 240 л.с. QV': { stock:240, s1:295, s2:350, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1 (Cloverleaf)', s2d:'ECU + FMIC + exhaust', s3d:null },
+        'Giulietta 2.0 JTDm 150 л.с.': { stock:150, s1:190, s2:230, s3:null, s1p:6000, s2p:12000, s3p:null, s1d:'ECU дизель Stage 1', s2d:'ECU + EGR off + DPF off', s3d:null },
+      }
+    },
+    '4C (960)': {
+      '2013–2020': {
+        '4C 1.75T 240 л.с.': { stock:240, s1:290, s2:340, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1 (SCCI)', s2d:'ECU + intercooler + exhaust', s3d:null },
+      }
+    },
+    'Tonale': {
+      '2022–2024': {
+        'Tonale 1.5T 160 л.с.': { stock:160, s1:205, s2:245, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (MHEV)', s2d:'ECU + intercooler', s3d:null },
+        'Tonale 1.5T 130 л.с.': { stock:130, s1:170, s2:205, s3:null, s1p:5500, s2p:11000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler', s3d:null },
+      }
+    }
+  },
+
+  // ══════════════════════════════════════════════
+  //  LAND ROVER / RANGE ROVER
+  // ══════════════════════════════════════════════
+  'Land Rover': {
+    'Range Rover Sport (L494/L461)': {
+      '2014–2022': {
+        '3.0 Diesel 306 л.с.': { stock:306, s1:335, s2:370, s3:null, s1p:47000, s2p:56400, s3p:75200, s1d:'ECU Stage 1 — SevenForce: 306→335 л.с., 47 000₽', s2d:'ECU Stage 2: 306→370 л.с.', s3d:'ECU Stage 3', s3d:null },
+        '3.0 P380 380 л.с.': { stock:380, s1:450, s2:525, s3:null, s1p:55000, s2p:66000, s3p:null, s1d:'ECU Stage 1 (Ingenium P380)', s2d:'ECU + intercooler + downpipes', s3d:null },
+        '3.0D 292 л.с.': { stock:292, s1:335, s2:400, s3:null, s1p:45000, s2p:54000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR off + DPF off', s3d:null },
+        'P400 3.0T 400 л.с.': { stock:400, s1:480, s2:560, s3:null, s1p:62000, s2p:75000, s3p:null, s1d:'ECU Stage 1 (Ingenium I6)', s2d:'ECU + intercooler + downpipes', s3d:null },
+        'SVR 5.0SC V8 575 л.с.': { stock:575, s1:680, s2:780, s3:null, s1p:120000, s2p:145000, s3p:null, s1d:'ECU Stage 1 (SVR V8 SC)', s2d:'ECU + pulley + intercooler + exhaust', s3d:null },
+      },
+      '2022–2024': {
+        'P300 2.0T 300 л.с.': { stock:300, s1:375, s2:445, s3:null, s1p:48000, s2p:58000, s3p:null, s1d:'ECU Stage 1 (L461 Ingenium)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'P400 3.0T 400 л.с.': { stock:400, s1:485, s2:565, s3:null, s1p:62000, s2p:75000, s3p:null, s1d:'ECU Stage 1 (Ingenium I6 L461)', s2d:'ECU + intercooler + downpipes', s3d:null },
+        'P530 V8 530 л.с.': { stock:530, s1:625, s2:720, s3:null, s1p:110000, s2p:135000, s3p:null, s1d:'ECU Stage 1 (BMW S68)', s2d:'ECU + downpipes + intercooler', s3d:null },
+      }
+    },
+    'Range Rover (L405/L460)': {
+      '2013–2022': {
+        'TDV6 3.0D 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:8500, s2p:17000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        'SDV8 4.4D 339 л.с.': { stock:339, s1:415, s2:490, s3:null, s1p:11000, s2p:24000, s3p:null, s1d:'ECU + TCU Stage 1', s2d:'ECU + EGR off + DPF off', s3d:null },
+        'P400e PHEV 404 л.с.': { stock:404, s1:465, s2:null, s3:null, s1p:11000, s2p:null, s3p:null, s1d:'ECU Stage 1 (PHEV)', s2d:null, s3d:null },
+        'P400 Ingenium 400 л.с.': { stock:400, s1:480, s2:560, s3:null, s1p:12000, s2p:28000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + downpipes', s3d:null },
+      },
+      '2022–2024': {
+        'P360 3.0T 360 л.с.': { stock:360, s1:440, s2:515, s3:null, s1p:11000, s2p:25000, s3p:null, s1d:'ECU Stage 1 (L460 Ingenium)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'P530 V8 530 л.с.': { stock:530, s1:625, s2:720, s3:null, s1p:16000, s2p:44000, s3p:null, s1d:'ECU Stage 1 (BMW S68)', s2d:'ECU + downpipes + intercooler', s3d:null },
+      }
+    },
+    'Discovery / Defender': {
+      '2017–2024': {
+        'Si4 2.0T 300 л.с.': { stock:300, s1:370, s2:440, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1 (Ingenium)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Td6 3.0D 258 л.с.': { stock:258, s1:325, s2:390, s3:null, s1p:8500, s2p:17000, s3p:null, s1d:'ECU дизель Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        'P400 3.0T 400 л.с.': { stock:400, s1:480, s2:560, s3:null, s1p:12000, s2p:28000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + downpipes', s3d:null },
+      }
+    }
+  },
+
+  // ══════════════════════════════════════════════
+  //  JAGUAR
+  // ══════════════════════════════════════════════
+  'Jaguar': {
+    'F-Pace / E-Pace': {
+      '2016–2021': {
+        'F-Pace 2.0T 250 л.с.': { stock:250, s1:310, s2:370, s3:null, s1p:7500, s2p:15000, s3p:null, s1d:'ECU Stage 1 (Ingenium)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'F-Pace 2.0D 204 л.с.': { stock:204, s1:260, s2:310, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU дизель Stage 1', s2d:'ECU + EGR + DPF', s3d:null },
+        'F-Pace SVR 5.0SC 550 л.с.': { stock:550, s1:645, s2:740, s3:null, s1p:17000, s2p:48000, s3p:null, s1d:'ECU Stage 1 (V8 SC)', s2d:'ECU + pulley + intercooler', s3d:null },
+      },
+      '2021–2024': {
+        'F-Pace P250 2.0T 250 л.с.': { stock:250, s1:315, s2:375, s3:null, s1p:7500, s2p:15000, s3p:null, s1d:'ECU Stage 1 (FL)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'F-Pace P400 3.0T 400 л.с.': { stock:400, s1:480, s2:560, s3:null, s1p:12000, s2p:28000, s3p:null, s1d:'ECU Stage 1 (I6 turbo)', s2d:'ECU + intercooler + downpipes', s3d:null },
+      }
+    },
+    'XE / XF': {
+      '2015–2020': {
+        'XE/XF 2.0T 200 л.с.': { stock:200, s1:255, s2:310, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler', s3d:null },
+        'XE/XF 2.0T 250 л.с.': { stock:250, s1:310, s2:370, s3:null, s1p:7500, s2p:15000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'XF S 3.0SC 380 л.с.': { stock:380, s1:455, s2:535, s3:null, s1p:11000, s2p:26000, s3p:null, s1d:'ECU Stage 1 (V6 SC)', s2d:'ECU + pulley + intercooler', s3d:null },
+      }
+    },
+    'F-Type': {
+      '2013–2024': {
+        'F-Type 2.0T 300 л.с.': { stock:300, s1:370, s2:440, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'F-Type V6S 3.0SC 380 л.с.': { stock:380, s1:455, s2:535, s3:null, s1p:11000, s2p:26000, s3p:null, s1d:'ECU Stage 1 (V6 SC)', s2d:'ECU + pulley + intercooler', s3d:null },
+        'F-Type V8S 5.0SC 550 л.с.': { stock:550, s1:645, s2:740, s3:null, s1p:17000, s2p:48000, s3p:null, s1d:'ECU Stage 1 (V8 SC)', s2d:'ECU + pulley + intercooler', s3d:null },
+        'F-Type SVR 5.0SC 575 л.с.': { stock:575, s1:680, s2:780, s3:null, s1p:18000, s2p:50000, s3p:null, s1d:'ECU Stage 1 (SVR)', s2d:'ECU + pulley + intercooler + exhaust', s3d:null },
+      }
+    }
+  },
+
+  // ══════════════════════════════════════════════
+  //  TOYOTA
+  // ══════════════════════════════════════════════
+  'Toyota': {
+    'Supra (A90)': {
+      '2019–2024': {
+        'GR Supra 2.0T 258 л.с.': { stock:258, s1:330, s2:400, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1 (BMW B46)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'GR Supra 3.0T 340 л.с.': { stock:340, s1:420, s2:500, s3:570, s1p:10000, s2p:22000, s3p:52000, s1d:'ECU Stage 1 (BMW B58)', s2d:'ECU + FMIC + exhaust', s3d:'ECU + турбина + FMIC + топливо' },
+        'GR Supra 3.0T 387 л.с.': { stock:387, s1:465, s2:545, s3:620, s1p:11000, s2p:26000, s3p:58000, s1d:'ECU Stage 1 (FL B58)', s2d:'ECU + FMIC + exhaust', s3d:'ECU + турбина апгрейд + FMIC' },
+      }
+    },
+    'Land Cruiser / Prado': {
+      '2010–2024': {
+        'Land Cruiser 200 4.5D V8 235 л.с.': { stock:235, s1:290, s2:345, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR off + DPF off', s3d:null },
+        'Land Cruiser 200 4.6V8 309 л.с.': { stock:309, s1:350, s2:null, s3:null, s1p:9500, s2p:null, s3p:null, s1d:'ECU Stage 1 (NA V8)', s2d:null, s3d:null },
+        'Land Cruiser 300 3.3D V6 309 л.с.': { stock:309, s1:375, s2:440, s3:null, s1p:10000, s2p:22000, s3p:null, s1d:'ECU + TCU дизель Stage 1', s2d:'ECU + EGR off + DPF off', s3d:null },
+        'Prado 150 3.0D 190 л.с.': { stock:190, s1:240, s2:285, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU дизель Stage 1', s2d:'ECU + EGR off + DPF off', s3d:null },
+      }
+    },
+    'Camry / RAV4': {
+      '2018–2024': {
+        'Camry 2.5 2AR-FE 181 л.с.': { stock:181, s1:205, s2:null, s3:null, s1p:6000, s2p:null, s3p:null, s1d:'ECU Stage 1 (NA)', s2d:null, s3d:null },
+        'RAV4 2.0T M20A-FKS 222 л.с.': { stock:222, s1:270, s2:325, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+      }
+    }
+  },
+
+  // ══════════════════════════════════════════════
+  //  KIA / HYUNDAI (N)
+  // ══════════════════════════════════════════════
+  'Hyundai': {
+    'i30 N / Elantra N': {
+      '2017–2024': {
+        'i30 N 2.0T 275 л.с.': { stock:275, s1:345, s2:415, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1 (Theta II T-GDi)', s2d:'ECU + IS38 intercooler + exhaust', s3d:null },
+        'i30 N Performance 2.0T 275 л.с.': { stock:275, s1:350, s2:420, s3:null, s1p:8000, s2p:17500, s3p:null, s1d:'ECU Stage 1 (N Performance)', s2d:'ECU + IS38 + intercooler', s3d:null },
+        'Elantra N 2.0T 276 л.с.': { stock:276, s1:350, s2:420, s3:null, s1p:8000, s2p:17000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+      }
+    },
+    'Tucson / Santa Fe': {
+      '2020–2024': {
+        'Tucson 1.6T 150 л.с.': { stock:150, s1:190, s2:230, s3:null, s1p:6000, s2p:12000, s3p:null, s1d:'ECU Stage 1 (Smartstream)', s2d:'ECU + intercooler', s3d:null },
+        'Tucson 2.0D 186 л.с.': { stock:186, s1:235, s2:280, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU дизель Stage 1', s2d:'ECU + EGR off + DPF off', s3d:null },
+        'Santa Fe 2.5T 281 л.с.': { stock:281, s1:350, s2:415, s3:null, s1p:8500, s2p:18000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+      }
+    }
+  },
+
+  'Kia': {
+    'Stinger': {
+      '2018–2024': {
+        'Stinger 2.0T G4KH 255 л.с.': { stock:255, s1:310, s2:370, s3:null, s1p:35000, s2p:42000, s3p:null, s1d:'ECU Stage 1 (G4KH MPI)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Stinger GT 3.3T G6DP 370 л.с.': { stock:370, s1:420, s2:null, s3:null, s1p:41000, s2p:null, s3p:null, s1d:'ECU Stage 1 (Lambda II bi-turbo) — данные SevenForce: 370→420 л.с.', s2d:null, s3d:null },
+      }
+    },
+    'K5 / Sportage': {
+      '2020–2024': {
+        'K5 1.6T 180 л.с.': { stock:180, s1:225, s2:270, s3:null, s1p:6500, s2p:13000, s3p:null, s1d:'ECU Stage 1 (Smartstream)', s2d:'ECU + intercooler', s3d:null },
+        'K5 2.5T 290 л.с.': { stock:290, s1:355, s2:420, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Sportage 1.6T 150 л.с.': { stock:150, s1:190, s2:230, s3:null, s1p:6000, s2p:12000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler', s3d:null },
+      }
+    }
+  },
+
+  // ══════════════════════════════════════════════
+  //  NISSAN / INFINITI
+  // ══════════════════════════════════════════════
+  'Nissan': {
+    'GT-R (R35)': {
+      '2009–2024': {
+        'GT-R 3.8T VR38DETT 530 л.с.': { stock:530, s1:650, s2:750, s3:900, s1p:18000, s2p:50000, s3p:120000, s1d:'ECU Stage 1 (VR38)', s2d:'ECU + HKS турбины + intercooler', s3d:'Полный Stage 3: GTX/GTR турбины + подача' },
+        'GT-R NISMO 600 л.с.': { stock:600, s1:720, s2:820, s3:null, s1p:22000, s2p:58000, s3p:null, s1d:'ECU Stage 1 (NISMO)', s2d:'ECU + интеркулер + турбины', s3d:null },
+        'GT-R Track Edition 600 л.с.': { stock:600, s1:720, s2:820, s3:null, s1p:22000, s2p:58000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler', s3d:null },
+      }
+    },
+    'Navara / Qashqai': {
+      '2015–2024': {
+        'Navara 2.3D 163 л.с.': { stock:163, s1:210, s2:250, s3:null, s1p:6000, s2p:12000, s3p:null, s1d:'ECU дизель Stage 1', s2d:'ECU + EGR off + DPF off', s3d:null },
+        'Qashqai 1.3T DIG-T 160 л.с.': { stock:160, s1:200, s2:240, s3:null, s1p:6000, s2p:12000, s3p:null, s1d:'ECU Stage 1 (HR13)', s2d:'ECU + intercooler', s3d:null },
+      }
+    }
+  },
+
+  'Infiniti': {
+    'Q50 / Q60': {
+      '2014–2024': {
+        'Q50 2.0T 211 л.с.': { stock:211, s1:270, s2:325, s3:null, s1p:7000, s2p:14000, s3p:null, s1d:'ECU Stage 1 (M270)', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'Q50 / Q60 3.0T 300 л.с.': { stock:300, s1:375, s2:445, s3:500, s1p:9000, s2p:20000, s3p:48000, s1d:'ECU Stage 1 (VR30DDTT)', s2d:'ECU + downpipes + intercooler', s3d:'ECU + турбины апгрейд' },
+        'Q50 / Q60 Red Sport 400 л.с.': { stock:400, s1:480, s2:560, s3:640, s1p:12000, s2p:28000, s3p:68000, s1d:'ECU Stage 1 (Red Sport)', s2d:'ECU + downpipes + catless + intercooler', s3d:'ECU + турбины + FMIC + топливо' },
+      }
+    }
+  },
+
+  // ══════════════════════════════════════════════
+  //  GENESIS
+  // ══════════════════════════════════════════════
+  'Genesis': {
+    'G70 / G80': {
+      '2017–2024': {
+        'G70 2.0T 252 л.с.': { stock:252, s1:315, s2:375, s3:null, s1p:7500, s2p:15500, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'G70 3.3T 370 л.с.': { stock:370, s1:450, s2:535, s3:600, s1p:11000, s2p:24000, s3p:55000, s1d:'ECU Stage 1 (Lambda bi-turbo)', s2d:'ECU + downpipes + intercooler', s3d:'ECU + турбины апгрейд' },
+        'G80 2.5T 300 л.с.': { stock:300, s1:370, s2:440, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'G80 3.5T 380 л.с.': { stock:380, s1:460, s2:540, s3:null, s1p:11000, s2p:25000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + intercooler', s3d:null },
+      }
+    },
+    'GV70 / GV80': {
+      '2020–2024': {
+        'GV70 2.5T 300 л.с.': { stock:300, s1:370, s2:440, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'GV70 3.5T 380 л.с.': { stock:380, s1:460, s2:540, s3:null, s1p:11000, s2p:25000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'GV80 2.5T 300 л.с.': { stock:300, s1:370, s2:440, s3:null, s1p:9000, s2p:19000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + intercooler + exhaust', s3d:null },
+        'GV80 3.5T 380 л.с.': { stock:380, s1:460, s2:545, s3:null, s1p:11000, s2p:26000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + intercooler', s3d:null },
+      }
+    }
+  },
+
+  // ══════════════════════════════════════════════
+  //  BENTLEY
+  // ══════════════════════════════════════════════
+  'Bentley': {
+    'Continental GT / Flying Spur': {
+      '2011–2017': {
+        'Continental GT 4.0T V8 507 л.с.': { stock:507, s1:595, s2:690, s3:null, s1p:16000, s2p:44000, s3p:null, s1d:'ECU Stage 1 (EA825 bi-turbo)', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'Continental GT 6.0 W12 567 л.с.': { stock:567, s1:660, s2:750, s3:null, s1p:18000, s2p:50000, s3p:null, s1d:'ECU Stage 1 (W12)', s2d:'ECU + turbo upgrade + intercooler', s3d:null },
+      },
+      '2018–2024': {
+        'Continental GT V8 550 л.с.': { stock:550, s1:645, s2:740, s3:null, s1p:18000, s2p:50000, s3p:null, s1d:'ECU Stage 1', s2d:'ECU + downpipes + intercooler', s3d:null },
+        'Continental GT W12 635 л.с.': { stock:635, s1:740, s2:845, s3:null, s1p:22000, s2p:58000, s3p:null, s1d:'ECU Stage 1 (W12 gen3)', s2d:'ECU + турбины + intercooler', s3d:null },
+        'Continental GT Speed W12 659 л.с.': { stock:659, s1:770, s2:870, s3:null, s1p:24000, s2p:62000, s3p:null, s1d:'ECU Stage 1 (Speed)', s2d:'ECU + турбины + intercooler', s3d:null },
+      }
+    },
+    'Bentayga': {
+      '2016–2024': {
+        'Bentayga W12 608 л.с.': { stock:608, s1:710, s2:810, s3:null, s1p:20000, s2p:55000, s3p:null, s1d:'ECU Stage 1 (W12 twin-turbo)', s2d:'ECU + турбины + intercooler', s3d:null },
+        'Bentayga V8 4.0T 550 л.с.': { stock:550, s1:645, s2:740, s3:null, s1p:18000, s2p:50000, s3p:null, s1d:'ECU Stage 1 (EA825)', s2d:'ECU + downpipes + intercooler', s3d:null },
+      }
+    }
+  }
+};
+
+// ─── Calculator logic ───
+const sfBrand = document.getElementById('sf-brand');
+const sfModel = document.getElementById('sf-model');
+const sfYear  = document.getElementById('sf-year');
+const sfEngine= document.getElementById('sf-engine');
+const sfBtn   = document.getElementById('sf-btn-calc');
+
+// Populate brands
+Object.keys(SF_DATA).forEach(b => {
+  const o = document.createElement('option'); o.value = b; o.textContent = b;
+  sfBrand.appendChild(o);
+});
+
+function resetFrom(level) {
+  if (level <= 1) { sfModel.innerHTML = '<option value="">— Сначала марку —</option>'; sfModel.disabled = true; }
+  if (level <= 2) { sfYear.innerHTML = '<option value="">— Сначала серию —</option>'; sfYear.disabled = true; }
+  if (level <= 3) { sfEngine.innerHTML = '<option value="">— Сначала кузов —</option>'; sfEngine.disabled = true; }
+  sfBtn.disabled = true;
+  document.getElementById('sf-result').classList.remove('show');
+  document.getElementById('sf-no-result').classList.remove('show');
+}
+
+sfBrand.addEventListener('change', () => {
+  resetFrom(1);
+  const br = sfBrand.value;
+  if (!br || !SF_DATA[br]) return;
+  sfModel.innerHTML = '<option value="">— Выберите серию —</option>';
+  Object.keys(SF_DATA[br]).forEach(m => {
+    const o = document.createElement('option'); o.value = m; o.textContent = m; sfModel.appendChild(o);
+  });
+  sfModel.disabled = false;
+});
+
+sfModel.addEventListener('change', () => {
+  resetFrom(2);
+  const br = sfBrand.value, mo = sfModel.value;
+  if (!br || !mo || !SF_DATA[br] || !SF_DATA[br][mo]) return;
+  sfYear.innerHTML = '<option value="">— Выберите кузов —</option>';
+  Object.keys(SF_DATA[br][mo]).forEach(y => {
+    const o = document.createElement('option'); o.value = y; o.textContent = y; sfYear.appendChild(o);
+  });
+  sfYear.disabled = false;
+});
+
+sfYear.addEventListener('change', () => {
+  resetFrom(3);
+  const br = sfBrand.value, mo = sfModel.value, yr = sfYear.value;
+  if (!br || !mo || !yr) return;
+  const engines = SF_DATA[br] && SF_DATA[br][mo] && SF_DATA[br][mo][yr];
+  if (!engines) return;
+  sfEngine.innerHTML = '<option value="">— Выберите двигатель —</option>';
+  Object.keys(engines).forEach(e => {
+    const o = document.createElement('option'); o.value = e; o.textContent = e; sfEngine.appendChild(o);
+  });
+  sfEngine.disabled = false;
+});
+
+sfEngine.addEventListener('change', () => {
+  sfBtn.disabled = !sfEngine.value;
+});
+
+function sfCalculate() {
+  const br = sfBrand.value, mo = sfModel.value, yr = sfYear.value, en = sfEngine.value;
+  const resultEl = document.getElementById('sf-result');
+  const noResult = document.getElementById('sf-no-result');
+  resultEl.classList.remove('show'); noResult.classList.remove('show');
+
+  const d = SF_DATA[br] && SF_DATA[br][mo] && SF_DATA[br][mo][yr] && SF_DATA[br][mo][yr][en];
+  if (!d) { noResult.classList.add('show'); return; }
+
+  document.getElementById('sf-car-name').textContent = br + ' ' + mo + ' ' + yr + ' — ' + en;
+  document.getElementById('sf-stock-val').textContent = d.stock;
+
+  const fmt = n => n ? n.toLocaleString('ru-RU') : '—';
+  const stages = [
+    { num: 1, hp: d.s1, price: d.s1p, desc: d.s1d, best: false },
+    { num: 2, hp: d.s2, price: d.s2p, desc: d.s2d, best: true },
+    { num: 3, hp: d.s3, price: d.s3p, desc: d.s3d, best: false },
+  ].filter(s => s.hp);
+
+  const grid = document.getElementById('sf-stages-grid');
+  grid.innerHTML = '';
+  stages.forEach(st => {
+    const delta = st.hp - d.stock;
+    const card = document.createElement('div');
+    card.className = 'sf-stage' + (st.best ? ' best' : '');
+    card.innerHTML = `
+      ${st.best ? '<div class="sf-best-label">⭐ ЛУЧШИЙ ВЫБОР</div>' : ''}
+      <span class="sf-stage-badge">Stage ${st.num}</span>
+      <div><span class="sf-hp-after">${fmt(st.hp)}</span><span class="sf-hp-unit"> л.с.</span></div>
+      <div class="sf-hp-delta">+${delta} л.с.</div>
+      <div class="sf-hp-before">Сток: ${fmt(d.stock)} л.с.</div>
+      <hr class="sf-divider"/>
+      <div class="sf-stage-desc">${st.desc || ''}</div>
+      <div class="sf-stage-price">от ${fmt(st.price)} ₽</div>
+      <button class="sf-stage-cta" onclick="openBooking()">Записаться на Stage ${st.num}</button>
+    `;
+    grid.appendChild(card);
+  });
+  resultEl.classList.add('show');
+  setTimeout(() => resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+}
+</script>
+</body>
+</html>

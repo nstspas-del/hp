@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#39FF14;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc11;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="60" fill="#09090b" rx="4"/>
+  <!-- HP letters -->
+  <text x="10" y="42" font-family="'Arial Black',Arial,sans-serif" font-weight="900" font-size="36" fill="url(#g1)" letter-spacing="-1">HP</text>
+  <!-- divider -->
+  <rect x="82" y="12" width="2" height="36" fill="rgba(57,255,20,0.3)" rx="1"/>
+  <!-- TUNING text -->
+  <text x="90" y="27" font-family="Arial,sans-serif" font-weight="700" font-size="10" fill="#ffffff" letter-spacing="3">ТЮНИНГ</text>
+  <text x="90" y="42" font-family="Arial,sans-serif" font-weight="400" font-size="8" fill="#71717a" letter-spacing="1">САНКТ-ПЕТЕРБУРГ</text>
+</svg>

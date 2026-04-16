@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Блог и проекты HP Тюнинг — дрифт, дейли, тюнинг-проекты в СПб</title>
+  <meta name="description" content="Блог HP Тюнинг: реальные проекты — дрифт-билды, дейли-автомобили, чип-тюнинг и детейлинг в Санкт-Петербурге. Статьи, кейсы, фото." />
+  <meta name="keywords" content="блог тюнинг, дрифт проект СПб, дейли тюнинг, чип-тюнинг проекты, HP тюнинг" />
+  <link rel="canonical" href="https://hp-tuning.ru/blog" />
+  <meta property="og:title" content="Блог HP Тюнинг — проекты, статьи, кейсы" />
+  <meta property="og:description" content="Дрифт-билды, дейли-проекты и статьи о чип-тюнинге от команды HP Тюнинг в Санкт-Петербурге." />
+  <meta property="og:url" content="https://hp-tuning.ru/blog" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://hp-tuning.ru/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    :root {
+      --accent: #39FF14;
+      --accent2: #00cc11;
+      --bg: #09090b;
+      --bg2: #111113;
+      --surface: #141416;
+      --border: rgba(57,255,20,0.12);
+      --text: #f4f4f5;
+      --muted: #71717a;
+      --tag-red: #ef4444;
+      --tag-blue: #3b82f6;
+      --tag-yellow: #f59e0b;
+      --tag-purple: #a855f7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+    
+    /* ── HERO BLOG ── */
+    .blog-hero {
+      position: relative;
+      padding: 120px 20px 70px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(57,255,20,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .blog-hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(57,255,20,0.08);
+      border: 1px solid rgba(57,255,20,0.25);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px;
+      color: var(--accent); text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .blog-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(42px, 8vw, 90px);
+      line-height: 1;
+      letter-spacing: 2px;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .blog-hero h1 span { color: var(--accent); }
+    .blog-hero p {
+      color: var(--muted); font-size: 18px; max-width: 600px; margin: 0 auto 40px; line-height: 1.7;
+    }
+
+    /* ── ФИЛЬТРЫ ── */
+    .blog-filters {
+      display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 60px; padding: 0 20px;
+    }
+    .filter-btn {
+      padding: 8px 20px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1);
+      background: transparent; color: var(--muted); font-size: 13px; font-weight: 600;
+      cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: rgba(57,255,20,0.1); border-color: rgba(57,255,20,0.4);
+      color: var(--accent);
+    }
+    .filter-btn[data-tag="drift"].active { background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.4); color: #ef4444; }
+    .filter-btn[data-tag="daily"].active { background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.4); color: #3b82f6; }
+    .filter-btn[data-tag="detailing"].active { background: rgba(168,85,247,0.1); border-color: rgba(168,85,247,0.4); color: #a855f7; }
+    .filter-btn[data-tag="tuning"].active { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.4); color: #f59e0b; }
+
+    /* ── СЕТКА ПОСТОВ ── */
+    .blog-container { max-width: 1280px; margin: 0 auto; padding: 0 20px 100px; }
+    
+    /* Главный пост */
+    .featured-post {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      margin-bottom: 48px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .featured-post:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(57,255,20,0.08); }
+    .featured-post .post-img {
+      position: relative; overflow: hidden; min-height: 380px;
+    }
+    .featured-post .post-img img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;
+    }
+    .featured-post:hover .post-img img { transform: scale(1.04); }
+    .featured-label {
+      position: absolute; top: 20px; left: 20px;
+      background: var(--accent); color: #000; font-size: 11px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px;
+      border-radius: 4px;
+    }
+    .featured-post .post-body {
+      padding: 48px 44px;
+      display: flex; flex-direction: column; justify-content: center; gap: 16px;
+    }
+
+    /* Обычные карточки */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .post-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column;
+      cursor: pointer;
+    }
+    .post-card:hover { transform: translateY(-4px); box-shadow: 0 16px 50px rgba(57,255,20,0.07); }
+    .post-card-img {
+      position: relative; overflow: hidden; aspect-ratio: 16/10;
+    }
+    .post-card-img img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;
+    }
+    .post-card:hover .post-card-img img { transform: scale(1.06); }
+    .post-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+
+    /* Теги */
+    .tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 10px; border-radius: 4px;
+      font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    }
+    .tag-drift  { background: rgba(239,68,68,0.15);  color: #ef4444;  border: 1px solid rgba(239,68,68,0.3); }
+    .tag-daily  { background: rgba(59,130,246,0.15); color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); }
+    .tag-tuning { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+    .tag-detailing { background: rgba(168,85,247,0.15); color: #a855f7; border: 1px solid rgba(168,85,247,0.3); }
+    .tag-project { background: rgba(57,255,20,0.1); color: #39FF14; border: 1px solid rgba(57,255,20,0.25); }
+
+    .post-title {
+      font-size: 20px; font-weight: 800; line-height: 1.3;
+      color: var(--text);
+    }
+    .post-title a { color: inherit; text-decoration: none; }
+    .post-title a:hover { color: var(--accent); }
+    .post-excerpt { color: var(--muted); font-size: 14px; line-height: 1.65; flex: 1; }
+    .post-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12px; color: #52525b; padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .post-meta-left { display: flex; align-items: center; gap: 8px; }
+    .post-read-more {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--accent); font-size: 13px; font-weight: 700;
+      text-decoration: none;
+    }
+    .post-read-more:hover { gap: 10px; }
+
+    /* Виджет «о нас» */
+    .blog-sidebar-cta {
+      margin-top: 48px;
+      background: linear-gradient(135deg, rgba(57,255,20,0.06) 0%, rgba(0,204,17,0.02) 100%);
+      border: 1px solid rgba(57,255,20,0.2);
+      border-radius: 24px;
+      padding: 48px;
+      display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+    }
+    .cta-text h2 { font-size: 28px; font-weight: 900; margin-bottom: 10px; }
+    .cta-text p { color: var(--muted); font-size: 15px; line-height: 1.6; }
+    .btn-accent {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #000;
+      font-size: 14px; font-weight: 800;
+      padding: 16px 32px; border-radius: 50px;
+      text-decoration: none; white-space: nowrap;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-accent:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(57,255,20,0.35); }
+
+    /* Счётчики на hero */
+    .blog-stats {
+      display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .blog-stat { text-align: center; }
+    .blog-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--accent); }
+    .blog-stat-label { font-size: 12px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+
+    /* Скрытые карточки по фильтру */
+    .post-card[data-hidden="true"],
+    .featured-post[data-hidden="true"] { display: none !important; }
+
+    @media (max-width: 1024px) {
+      .posts-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .featured-post { grid-template-columns: 1fr; }
+      .featured-post .post-img { min-height: 260px; }
+      .featured-post .post-body { padding: 28px; }
+      .posts-grid { grid-template-columns: 1fr; }
+      .blog-sidebar-cta { grid-template-columns: 1fr; text-align: center; }
+      .blog-sidebar-cta > div:last-child { display: flex; justify-content: center; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Blog","name":"HP Тюнинг — Блог","url":"https://hp-tuning.ru/blog","description":"Проекты, статьи и кейсы тюнинг-ателье HP Тюнинг в Санкт-Петербурге","publisher":{"@type":"Organization","name":"HP Тюнинг","url":"https://hp-tuning.ru"}}
+  </script>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header class="site-header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="HP Тюнинг — на главную">
+      <img src="images/logo-real.webp" alt="HP Тюнинг логотип" width="120" height="50" />
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="tuning.html" class="nav-link">Тюнинг</a>
+      <a href="index.html#autoservice" class="nav-link">Автосервис</a>
+      <a href="detailing.html" class="nav-link">Детейлинг</a>
+      <a href="blog.html" class="nav-link active">Блог</a>
+      <a href="index.html#portfolio" class="nav-link">Портфолио</a>
+      <a href="index.html#contacts" class="nav-link">Контакты</a>
+    </nav>
+    <div class="header-right">
+      <a href="tel:+79818428151" class="header-phone" aria-label="Позвонить">+7 (981) 842-81-51</a>
+      <button class="btn-booking" onclick="openBooking()" aria-label="Записаться онлайн">Записаться</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="blog-hero" aria-label="Блог HP Тюнинг">
+  <div class="blog-hero-badge">
+    <i class="fas fa-fire" aria-hidden="true"></i>
+    Блог · Проекты · Статьи
+  </div>
+  <h1>HP <span>ТЮНИНГ</span><br>БЛОГ</h1>
+  <p>Реальные проекты — от дрифт-билдов до дейли-автомобилей.<br>Честно, без воды, с цифрами и фото.</p>
+  <div class="blog-stats">
+    <div class="blog-stat">
+      <div class="blog-stat-num">3000+</div>
+      <div class="blog-stat-label">Проектов</div>
+    </div>
+    <div class="blog-stat">
+      <div class="blog-stat-num">10+</div>
+      <div class="blog-stat-label">Лет опыта</div>
+    </div>
+    <div class="blog-stat">
+      <div class="blog-stat-num">23+</div>
+      <div class="blog-stat-label">Марки</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ФИЛЬТРЫ ═══════════════════ -->
+<div class="blog-filters" role="group" aria-label="Фильтр по категориям">
+  <button class="filter-btn active" data-tag="all" onclick="filterPosts('all')">
+    <i class="fas fa-th-large"></i> Все
+  </button>
+  <button class="filter-btn" data-tag="drift" onclick="filterPosts('drift')">
+    🔴 Дрифт
+  </button>
+  <button class="filter-btn" data-tag="daily" onclick="filterPosts('daily')">
+    🔵 Дейли
+  </button>
+  <button class="filter-btn" data-tag="tuning" onclick="filterPosts('tuning')">
+    🟡 Тюнинг
+  </button>
+  <button class="filter-btn" data-tag="detailing" onclick="filterPosts('detailing')">
+    🟣 Детейлинг
+  </button>
+</div>
+
+<!-- ═══════════════════ КОНТЕНТ ═══════════════════ -->
+<main class="blog-container">
+
+  <!-- FEATURED: Дрифт-проект BMW E46 -->
+  <article class="featured-post" data-tags="drift,tuning" aria-label="Дрифт-проект BMW E46 M3">
+    <div class="post-img">
+      <img src="images/photo-bmw-purple.jpg"
+           alt="Дрифт-проект BMW — HP Тюнинг" width="900" height="500" loading="eager" style="object-position:center" />
+      <div class="featured-label">🔥 Проект года</div>
+    </div>
+    <div class="post-body">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span class="tag tag-drift">Дрифт</span>
+        <span class="tag tag-tuning">Тюнинг</span>
+        <span class="tag tag-project">Проект</span>
+      </div>
+      <h2 class="post-title" style="font-size:28px;">
+        <a href="#">BMW E46 — Дрифт-машина с нуля: от стока до 500+ л.с.</a>
+      </h2>
+      <p class="post-excerpt">
+        Клиент пришёл с обычной E46 330i с пробегом 180 000 км. Цель — полноценный дрифт-кар для соревнований. Полная замена подвески, Garrett GT35, кастомный выхлоп, клетка безопасности и перепрошивка от нуля. Результат — 520 л.с., задний привод, машина готова к трассе.
+      </p>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Мощность</div>
+          <div style="font-size:20px;font-weight:800;color:var(--accent);">228 → 520 л.с.</div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Длительность</div>
+          <div style="font-size:20px;font-weight:800;">3 месяца</div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Бюджет</div>
+          <div style="font-size:20px;font-weight:800;">от 350 000 ₽</div>
+        </div>
+      </div>
+      <div class="post-meta">
+        <div class="post-meta-left">
+          <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+          <span>Март 2026</span>
+          <span style="color:#3f3f46;">·</span>
+          <i class="fas fa-clock" aria-hidden="true"></i>
+          <span>8 мин</span>
+        </div>
+        <a href="#" class="post-read-more">Читать кейс <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </article>
+
+  <!-- СЕТКА ПОСТОВ -->
+  <div class="posts-grid">
+
+    <!-- Пост 1: Дейли Mercedes C63 -->
+    <article class="post-card" data-tags="daily,tuning">
+      <div class="post-card-img">
+        <img src="images/photo-mercedes-black.jpg"
+             alt="Mercedes C63 AMG дейли-тюнинг HP Тюнинг" width="600" height="380" loading="lazy" style="object-position:center" />
+      </div>
+      <div class="post-card-body">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="tag tag-daily">Дейли</span>
+          <span class="tag tag-tuning">Чип-тюнинг</span>
+        </div>
+        <h3 class="post-title">
+          <a href="#">C63 AMG на каждый день: Stage 1 и жизнь с 580 л.с.</a>
+        </h3>
+        <p class="post-excerpt">Клиент ездит на C63 S AMG как на основной машине. Попросили прибавить мощность без потери надёжности. Stage 1 от SevenForce — 510→580 л.с. Делимся впечатлениями и нюансами.</p>
+        <div class="post-meta">
+          <div class="post-meta-left">
+            <span>Февраль 2026</span>
+            <span style="color:#3f3f46;">·</span>
+            <span>5 мин</span>
+          </div>
+          <a href="#" class="post-read-more">Читать <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Пост 2: Дрифт Nissan S15 -->
+    <article class="post-card" data-tags="drift">
+      <div class="post-card-img">
+        <img src="images/photo-subaru-wrx.jpg"
+             alt="Дрифт-проект Subaru WRX STI — HP Тюнинг" width="600" height="380" loading="lazy" style="object-position:center" />
+      </div>
+      <div class="post-card-body">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="tag tag-drift">Дрифт</span>
+          <span class="tag tag-project">Проект</span>
+        </div>
+        <h3 class="post-title">
+          <a href="#">Nissan S15: SR20DET + большая турбина. Путь к 400 л.с.</a>
+        </h3>
+        <p class="post-excerpt">Классика жанра — S15 с SR20DET. Замена турбины на Garrett GT2871R, форсунки 740 куб, интеркулер, полная перепрошивка. Записываем процесс от и до.</p>
+        <div class="post-meta">
+          <div class="post-meta-left">
+            <span>Январь 2026</span>
+            <span style="color:#3f3f46;">·</span>
+            <span>6 мин</span>
+          </div>
+          <a href="#" class="post-read-more">Читать <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Пост 3: Детейлинг Porsche -->
+    <article class="post-card" data-tags="detailing">
+      <div class="post-card-img">
+        <img src="images/photo-porsche-cleaning.jpg"
+             alt="Детейлинг Porsche — очистка интерьера HP Тюнинг" width="600" height="380" loading="lazy" style="object-position:center" />
+      </div>
+      <div class="post-card-body">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="tag tag-detailing">Детейлинг</span>
+          <span class="tag tag-project">Проект</span>
+        </div>
+        <h3 class="post-title">
+          <a href="#">Porsche 992 GT3: полное бронирование PPF + керамика 9H</a>
+        </h3>
+        <p class="post-excerpt">GT3 в Guards Red — одна из самых красивых машин этого года в нашем боксе. Полный PPF XPEL Ultimate Plus, керамика Gtechniq Crystal Serum Ultra. Результат — на фото.</p>
+        <div class="post-meta">
+          <div class="post-meta-left">
+            <span>Декабрь 2025</span>
+            <span style="color:#3f3f46;">·</span>
+            <span>4 мин</span>
+          </div>
+          <a href="#" class="post-read-more">Читать <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Пост 4: Дрифт BMW E92 -->
+    <article class="post-card" data-tags="drift,tuning">
+      <div class="post-card-img">
+        <img src="images/photo-cover-suv-neon.jpg"
+             alt="BMW дрифт-кар HP Тюнинг" width="600" height="380" loading="lazy" style="object-position:center" />
+      </div>
+      <div class="post-card-body">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="tag tag-drift">Дрифт</span>
+          <span class="tag tag-tuning">Тюнинг</span>
+        </div>
+        <h3 class="post-title">
+          <a href="#">BMW E92 M3 → Дрифт-кар: как мы строили его с нуля</a>
+        </h3>
+        <p class="post-excerpt">S65 V8 — звучит прекрасно, но для дрифта нужна мощность. Комп-компрессор Vortech, выхлоп Akrapovič, кастомный лимитер дроссельных заслонок и Stage 2+ прошивка. 480 л.с. на колёса.</p>
+        <div class="post-meta">
+          <div class="post-meta-left">
+            <span>Ноябрь 2025</span>
+            <span style="color:#3f3f46;">·</span>
+            <span>7 мин</span>
+          </div>
+          <a href="#" class="post-read-more">Читать <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Пост 5: Дейли Audi RS6 -->
+    <article class="post-card" data-tags="daily,tuning">
+      <div class="post-card-img">
+        <img src="images/photo-mercedes-wash.jpg"
+             alt="Дейли-тюнинг HP Тюнинг — мойка Mercedes" width="600" height="380" loading="lazy" style="object-position:center" />
+      </div>
+      <div class="post-card-body">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="tag tag-daily">Дейли</span>
+          <span class="tag tag-tuning">Stage 2</span>
+        </div>
+        <h3 class="post-title">
+          <a href="#">Audi RS6 C8 Stage 2: 720 л.с. и ежедневные поездки</a>
+        </h3>
+        <p class="post-excerpt">RS6 — идеальный семейный суперкар. После Stage 2: 600→720 л.с. Даунпайпы, интеркулеры, прошивка DSG. Рассказываем о ресурсе, надёжности и расходе топлива.</p>
+        <div class="post-meta">
+          <div class="post-meta-left">
+            <span>Октябрь 2025</span>
+            <span style="color:#3f3f46;">·</span>
+            <span>9 мин</span>
+          </div>
+          <a href="#" class="post-read-more">Читать <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Пост 6: Чип-тюнинг vs магазинные чипы -->
+    <article class="post-card" data-tags="tuning">
+      <div class="post-card-img">
+        <img src="images/photo-interior-neon.jpg"
+             alt="Профессиональный чип-тюнинг HP Тюнинг — интерьер гаража" width="600" height="380" loading="lazy" style="object-position:center" />
+      </div>
+      <div class="post-card-body">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="tag tag-tuning">Статья</span>
+        </div>
+        <h3 class="post-title">
+          <a href="#">Чип-тюнинг: профессионал vs «коробочные» прошивки из интернета</a>
+        </h3>
+        <p class="post-excerpt">Разбираем разницу между Box-прошивками за 5 000 ₽ и профессиональной работой. Что происходит с двигателем, гарантией и безопасностью в каждом случае. Цифры и факты.</p>
+        <div class="post-meta">
+          <div class="post-meta-left">
+            <span>Сентябрь 2025</span>
+            <span style="color:#3f3f46;">·</span>
+            <span>6 мин</span>
+          </div>
+          <a href="#" class="post-read-more">Читать <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Пост 7: Kia Stinger дейли-дрифт -->
+    <article class="post-card" data-tags="drift,daily,tuning">
+      <div class="post-card-img">
+        <img src="images/photo-red-sportscar.jpg"
+             alt="Kia Stinger GT дрифт дейли HP Тюнинг" width="600" height="380" loading="lazy" style="object-position:center" />
+      </div>
+      <div class="post-card-body">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="tag tag-drift">Дрифт</span>
+          <span class="tag tag-daily">Дейли</span>
+        </div>
+        <h3 class="post-title">
+          <a href="#">Kia Stinger GT 3.3 BiT: 420 л.с. — дрифт и дейли в одном</a>
+        </h3>
+        <p class="post-excerpt">Stage 1 чип от SevenForce — 370→420 л.с. за 41 000 ₽. Клиент ездит на Stinger ежедневно и выезжает на дрифт-тренировки. Рассказываем честно — что изменилось, что нет.</p>
+        <div class="post-meta">
+          <div class="post-meta-left">
+            <span>Август 2025</span>
+            <span style="color:#3f3f46;">·</span>
+            <span>5 мин</span>
+          </div>
+          <a href="#" class="post-read-more">Читать <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Пост 8: PPF Range Rover -->
+    <article class="post-card" data-tags="detailing">
+      <div class="post-card-img">
+        <img src="images/photo-ppf-film.jpg"
+             alt="PPF Range Rover Sport HP Тюнинг" width="600" height="380" loading="lazy" style="object-position:center top" />
+      </div>
+      <div class="post-card-body">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="tag tag-detailing">PPF</span>
+          <span class="tag tag-project">Проект</span>
+        </div>
+        <h3 class="post-title">
+          <a href="#">Range Rover Sport: частичный PPF передней зоны + антихром</a>
+        </h3>
+        <p class="post-excerpt">Владелец обратился для защиты машины от дорожного скола. Бронирование капота, бамперов и порогов плёнкой XPEL, а также антихром декоративных элементов. Детально о процессе.</p>
+        <div class="post-meta">
+          <div class="post-meta-left">
+            <span>Июль 2025</span>
+            <span style="color:#3f3f46;">·</span>
+            <span>4 мин</span>
+          </div>
+          <a href="#" class="post-read-more">Читать <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Пост 9: Что такое Stage 1/2/3 -->
+    <article class="post-card" data-tags="tuning">
+      <div class="post-card-img">
+        <img src="images/photo-mercedes-orange-lift.jpg"
+             alt="Этапы чип-тюнинга Stage 1 2 3 HP Тюнинг" width="600" height="380" loading="lazy" style="object-position:center 30%" />
+      </div>
+      <div class="post-card-body">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="tag tag-tuning">Обучение</span>
+        </div>
+        <h3 class="post-title">
+          <a href="#">Stage 1, Stage 2, Stage 3: в чём разница и что выбрать?</a>
+        </h3>
+        <p class="post-excerpt">Разбираем каждый этап тюнинга по-честному: что меняется, какое оборудование нужно, сколько стоит, каков ресурс двигателя. Без маркетинга — только факты и цифры.</p>
+        <div class="post-meta">
+          <div class="post-meta-left">
+            <span>Июнь 2025</span>
+            <span style="color:#3f3f46;">·</span>
+            <span>10 мин</span>
+          </div>
+          <a href="#" class="post-read-more">Читать <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /posts-grid -->
+
+  <!-- CTA блок -->
+  <div class="blog-sidebar-cta" role="complementary" aria-label="Записаться на тюнинг">
+    <div class="cta-text">
+      <h2>Хотите такой же проект? 🚀</h2>
+      <p>Расскажите нам о своей машине и целях — подберём оптимальное решение: от Stage 1 до полного дрифт-билда. Консультация бесплатна.</p>
+    </div>
+    <div>
+      <a href="tel:+79818428151" class="btn-accent">
+        <i class="fas fa-phone" aria-hidden="true"></i>
+        Позвонить
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner container">
+    <div class="footer-brand">
+      <a href="index.html">
+        <img src="images/logo-real.webp" alt="HP Тюнинг" width="100" height="42" loading="lazy" />
+      </a>
+      <p class="footer-desc">Тюнинг-ателье и автосервис в СПб с 2015 года</p>
+    </div>
+    <nav class="footer-nav" aria-label="Услуги в футере">
+      <h3 class="footer-nav-title">Услуги</h3>
+      <a href="tuning.html">Чип-тюнинг</a>
+      <a href="detailing.html">Детейлинг</a>
+      <a href="index.html#autoservice">Автосервис</a>
+      <a href="blog.html">Блог</a>
+    </nav>
+    <div class="footer-contacts">
+      <h3 class="footer-nav-title">Контакты</h3>
+      <a href="tel:+79818428151">+7 (981) 842-81-51</a>
+      <p>Богородская 3Б, Порошкино, СПб</p>
+      <p>Ежедневно 10:00–20:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>© 2015–2026 HP Тюнинг. Все права защищены.</p>
+    <p>
+      <a href="privacy.html" style="color:#52525b;font-size:12px;">Политика конфиденциальности</a>
+      &nbsp;·&nbsp;
+      <a href="cookies.html" style="color:#52525b;font-size:12px;">Cookies</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ═══════════════════ МОБИЛЬНЫЕ КНОПКИ ═══════════════════ -->
+<div class="mobile-actions" aria-label="Быстрый контакт">
+  <a href="tel:+79818428151" class="mobile-btn phone" aria-label="Позвонить">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.9a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.9a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 18.2v1.4z"/></svg>
+    Позвонить
+  </a>
+  <a href="https://t.me/hptuningspb" target="_blank" rel="noopener noreferrer" class="mobile-btn telegram" aria-label="Telegram">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.199l-2.02 9.52c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.883.701z"/></svg>
+    Telegram
+  </a>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  // Фильтрация постов
+  function filterPosts(tag) {
+    // Обновить URL без перезагрузки
+    const url = new URL(window.location.href);
+    if (tag === 'all') {
+      url.searchParams.delete('filter');
+    } else {
+      url.searchParams.set('filter', tag);
+    }
+    history.replaceState(null, '', url.toString());
+
+    // Обновить активную кнопку
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.querySelector('[data-tag="' + tag + '"]');
+    if (activeBtn) activeBtn.classList.add('active');
+
+    // Фильтровать карточки
+    let visibleCount = 0;
+    document.querySelectorAll('.post-card, .featured-post').forEach(card => {
+      const tags = card.dataset.tags || '';
+      if (tag === 'all' || tags.includes(tag)) {
+        card.setAttribute('data-hidden', 'false');
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.setAttribute('data-hidden', 'true');
+        card.style.display = 'none';
+      }
+    });
+
+    // Обновить заголовок секции
+    const tagLabels = { all: 'Все проекты', drift: 'Дрифт-проекты', daily: 'Дейли-проекты', tuning: 'Тюнинг-статьи', detailing: 'Детейлинг-проекты' };
+    const heroTitle = document.querySelector('.blog-hero h1');
+    if (heroTitle && tag !== 'all') {
+      heroTitle.innerHTML = 'HP <span>' + tagLabels[tag].toUpperCase() + '</span>';
+    } else if (heroTitle) {
+      heroTitle.innerHTML = 'HP <span>ТЮНИНГ</span><br>БЛОГ';
+    }
+  }
+
+  // Читать filter из URL при загрузке
+  document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const filter = params.get('filter');
+    if (filter && ['drift','daily','tuning','detailing'].includes(filter)) {
+      filterPosts(filter);
+    }
+  });
+</script>
+</body>
+</html>

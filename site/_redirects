@@ -1,0 +1,28 @@
+# Редиректы для HP Тюнинг — многостраничный сайт
+
+# Чистые URL (без .html)
+/tuning          /tuning.html          200
+/detailing       /detailing.html       200
+/blog            /blog.html            200
+/bmw             /bmw.html             200
+/mercedes        /mercedes.html        200
+/porsche         /porsche.html         200
+/audi            /audi.html            200
+/lexus           /lexus.html           200
+/land-rover      /land-rover.html      200
+/volvo           /volvo.html           200
+/volkswagen      /volkswagen.html      200
+/jaguar          /jaguar.html          200
+/genesis         /genesis.html         200
+/infiniti        /infiniti.html        200
+/bentley         /bentley.html         200
+/toyota          /toyota.html          200
+/hyundai         /hyundai.html         200
+/kia             /kia.html             200
+/nissan          /nissan.html          200
+/range-rover     /range-rover.html     200
+/privacy         /privacy.html         200
+/cookies         /cookies.html         200
+
+# 404 fallback — не перенаправлять всё подряд на index
+/404             /index.html           404
