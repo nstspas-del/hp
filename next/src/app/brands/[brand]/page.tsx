@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CheckCircle, AlertTriangle, ArrowRight, Phone } from 'lucide-react';
@@ -60,9 +61,23 @@ export default function BrandPage({ params }: { params: { brand: string } }) {
         {/* Hero */}
         <div className="flex flex-col lg:flex-row gap-10 items-start mb-16">
           <div className="flex-1">
-            <div className="w-20 h-20 rounded-2xl flex items-center justify-center text-3xl font-display font-bold mb-6"
-              style={{ backgroundColor: `${brand.color}20`, color: brand.color }}>
-              {brand.name.slice(0, 2).toUpperCase()}
+            {/* Brand hero image — кладём в public/images/brands/{slug}/hero.webp */}
+            <div className="relative w-full h-48 md:h-64 rounded-2xl overflow-hidden mb-6 bg-bg-elevated">
+              <Image
+                src={`/images/brands/${brand.slug}/hero.webp`}
+                alt={`${brand.name} — чип-тюнинг в СПб | HP Тюнинг`}
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 60vw"
+              />
+              {/* Fallback-плашка пока нет фото */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center text-3xl font-display font-bold"
+                  style={{ backgroundColor: `${brand.color}20`, color: brand.color }}>
+                  {brand.name.slice(0, 2).toUpperCase()}
+                </div>
+              </div>
             </div>
             <span className="badge mb-4">Чип-тюнинг в СПб</span>
             <h1 className="section-title text-4xl md:text-6xl mb-4">

@@ -1,0 +1,418 @@
+{
+  "_comment": "Данные для калькулятора чип-тюнинга. Цены sevenforce.ru -500...1000₽ = наши цены. Обновлено: 2026-04-17",
+  "brands": [
+    {
+      "slug": "bmw",
+      "name": "BMW",
+      "models": [
+        {
+          "slug": "1er",
+          "name": "1-Series",
+          "variants": [
+            { "id": "f20-114i", "label": "F20/F21 114i 102 л.с. (2011–2015)", "hp": 102, "our_price": 24000, "competitor_price": 25000 },
+            { "id": "f20-118i", "label": "F20/F21 118i 136 л.с. (2011–2015)", "hp": 136, "our_price": 24500, "competitor_price": 25500 },
+            { "id": "f20-120i", "label": "F20/F21 120i 184 л.с. (2011–2015)", "hp": 184, "our_price": 25500, "competitor_price": 26000 }
+          ]
+        },
+        {
+          "slug": "3er",
+          "name": "3-Series",
+          "variants": [
+            { "id": "e9x-325i", "label": "E90–E93 325i 218 л.с. (2008–2011)", "hp": 218, "our_price": 24500, "competitor_price": 25500 },
+            { "id": "f30-318i", "label": "F30 318i 136 л.с. (2015–2019)", "hp": 136, "our_price": 24500, "competitor_price": 25500 },
+            { "id": "f30-320i", "label": "F30 320i 184 л.с. (2012–2018)", "hp": 184, "our_price": 25000, "competitor_price": 26000 }
+          ]
+        },
+        {
+          "slug": "4er",
+          "name": "4-Series",
+          "variants": [
+            { "id": "f32-420i", "label": "F32/F33/F36 420i 184 л.с. (2013–2017)", "hp": 184, "our_price": 25000, "competitor_price": 26000 }
+          ]
+        },
+        {
+          "slug": "5er",
+          "name": "5-Series",
+          "variants": [
+            { "id": "f10-520i", "label": "F10/F11 520i 184 л.с. (2010–2016)", "hp": 184, "our_price": 25000, "competitor_price": 26000 },
+            { "id": "f10-530i", "label": "F10/F11 530i 252 л.с. (2010–2016)", "hp": 252, "our_price": 26000, "competitor_price": 27000 }
+          ]
+        },
+        {
+          "slug": "6er",
+          "name": "6-Series",
+          "variants": [
+            { "id": "f12-640i", "label": "F12/F13/F06 640i 320 л.с. (2011–2017)", "hp": 320, "our_price": 28000, "competitor_price": 29000 }
+          ]
+        },
+        {
+          "slug": "7er",
+          "name": "7-Series",
+          "variants": [
+            { "id": "f0x-740i", "label": "F01/F04 740i 320 л.с. (2009–2015)", "hp": 320, "our_price": 28500, "competitor_price": 29500 },
+            { "id": "e6x-730d", "label": "E65/E66 730d 218 л.с. (2005–2008)", "hp": 218, "our_price": 24500, "competitor_price": 25500 }
+          ]
+        },
+        {
+          "slug": "m2",
+          "name": "M2",
+          "variants": [
+            { "id": "f87-m2-370", "label": "F87 M2 370 л.с. (2015–2018)", "hp": 370, "our_price": 30000, "competitor_price": 31000 }
+          ]
+        },
+        {
+          "slug": "m3",
+          "name": "M3",
+          "variants": [
+            { "id": "e9x-m3-420", "label": "E90–E93 M3 420 л.с. (2007–2013)", "hp": 420, "our_price": 32000, "competitor_price": 33000 },
+            { "id": "f80-m3-431", "label": "F80 M3 431 л.с. (2014–2019) Stage 1", "hp": 431, "our_price": 34000, "competitor_price": 35000 },
+            { "id": "f80-m3-s2",  "label": "F80 M3 431 л.с. (2014–2019) Stage 2", "hp": 431, "our_price": 52000, "competitor_price": 53000 }
+          ]
+        },
+        {
+          "slug": "m4",
+          "name": "M4",
+          "variants": [
+            { "id": "f82-m4-431", "label": "F82/F83 M4 431 л.с. (2014–2020)", "hp": 431, "our_price": 34000, "competitor_price": 35000 }
+          ]
+        },
+        {
+          "slug": "m5",
+          "name": "M5",
+          "variants": [
+            { "id": "e6x-m5-507", "label": "E60/E61 M5 507 л.с. (2004–2010)", "hp": 507, "our_price": 37000, "competitor_price": 38000 },
+            { "id": "f10-m5-560", "label": "F10 M5 560 л.с. (2011–2016)", "hp": 560, "our_price": 40000, "competitor_price": 41000 }
+          ]
+        },
+        {
+          "slug": "x1",
+          "name": "X1",
+          "variants": [
+            { "id": "e84-20i", "label": "E84 20i 184 л.с. (2012–2015)", "hp": 184, "our_price": 25000, "competitor_price": 26000 },
+            { "id": "f48-18i", "label": "F48 18i 136 л.с. (2015–2019)", "hp": 136, "our_price": 24500, "competitor_price": 25500 }
+          ]
+        },
+        {
+          "slug": "x2",
+          "name": "X2",
+          "variants": [
+            { "id": "f39-18i", "label": "F39 18i 140 л.с. (2017–)", "hp": 140, "our_price": 25000, "competitor_price": 26000 }
+          ]
+        },
+        {
+          "slug": "x3",
+          "name": "X3",
+          "variants": [
+            { "id": "f25-20i", "label": "F25 20i 184 л.с. (2011–2017)", "hp": 184, "our_price": 25000, "competitor_price": 26000 },
+            { "id": "f25-30i", "label": "F25 30i 252 л.с. (2011–2017)", "hp": 252, "our_price": 26500, "competitor_price": 27500 }
+          ]
+        },
+        {
+          "slug": "x4",
+          "name": "X4",
+          "variants": [
+            { "id": "f26-20i", "label": "F26 20i 184 л.с. (2014–2018)", "hp": 184, "our_price": 25000, "competitor_price": 26000 },
+            { "id": "g02-20i", "label": "G02 20i 184 л.с. (2018–)", "hp": 184, "our_price": 25500, "competitor_price": 26500 }
+          ]
+        },
+        {
+          "slug": "x5",
+          "name": "X5",
+          "variants": [
+            { "id": "e70-35i", "label": "E70 35i 306 л.с. (2010–2013)", "hp": 306, "our_price": 28000, "competitor_price": 29000 },
+            { "id": "f15-35i", "label": "F15 35i 306 л.с. (2013–2018)", "hp": 306, "our_price": 28000, "competitor_price": 29000 }
+          ]
+        },
+        {
+          "slug": "x6",
+          "name": "X6",
+          "variants": [
+            { "id": "e71-35i", "label": "E71 35i 306 л.с. (2012–2014)", "hp": 306, "our_price": 28000, "competitor_price": 29000 },
+            { "id": "f16-35i", "label": "F16 35i 306 л.с. (2014–)", "hp": 306, "our_price": 28500, "competitor_price": 29500 }
+          ]
+        },
+        {
+          "slug": "x6m",
+          "name": "X6M",
+          "variants": [
+            { "id": "e71-x6m-555", "label": "E71 X6M 555 л.с. (2009–2014)", "hp": 555, "our_price": 39000, "competitor_price": 40000 },
+            { "id": "f86-x6m-575", "label": "F86 X6M 575 л.с. (2014–2019)", "hp": 575, "our_price": 41000, "competitor_price": 42000 }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "mercedes",
+      "name": "Mercedes-Benz",
+      "models": [
+        {
+          "slug": "c-class",
+          "name": "C-Class",
+          "variants": [
+            { "id": "w205-c180", "label": "W205 C180 156 л.с. (2015–2018)", "hp": 156, "our_price": 23500, "competitor_price": 24500 },
+            { "id": "w205-c200", "label": "W205 C200 184 л.с. (2015–2020)", "hp": 184, "our_price": 24500, "competitor_price": 25500 },
+            { "id": "w205-c63-amg", "label": "W205 C63 AMG 476 л.с. (2014–2020) Stage 1", "hp": 476, "our_price": 36000, "competitor_price": 37000 }
+          ]
+        },
+        {
+          "slug": "e-class",
+          "name": "E-Class",
+          "variants": [
+            { "id": "w212-e200", "label": "W212 E200 184 л.с. (2013–2016)", "hp": 184, "our_price": 28000, "competitor_price": 29000 },
+            { "id": "w213-e200", "label": "W213 E200 184 л.с. (2016–2020)", "hp": 184, "our_price": 28000, "competitor_price": 29000 },
+            { "id": "w213-e400", "label": "W213 E400 333 л.с. (2016–2020)", "hp": 333, "our_price": 29500, "competitor_price": 30500 }
+          ]
+        },
+        {
+          "slug": "s-class",
+          "name": "S-Class",
+          "variants": [
+            { "id": "w222-s400", "label": "W222/C217 S400 333 л.с. (2014–2017)", "hp": 333, "our_price": 30000, "competitor_price": 31000 }
+          ]
+        },
+        {
+          "slug": "g-class",
+          "name": "G-Class",
+          "variants": [
+            { "id": "w463-g500", "label": "W463 G500 388 л.с. (2008–2018)", "hp": 388, "our_price": 31000, "competitor_price": 32000 }
+          ]
+        },
+        {
+          "slug": "gl-class",
+          "name": "GL-Class",
+          "variants": [
+            { "id": "x166-gl-400", "label": "X166 GL400 333 л.с. (2012–2016)", "hp": 333, "our_price": 29500, "competitor_price": 30500 }
+          ]
+        },
+        {
+          "slug": "glc",
+          "name": "GLC",
+          "variants": [
+            { "id": "x253-glc-250", "label": "X253 GLC250 211 л.с. (2015–2019)", "hp": 211, "our_price": 26500, "competitor_price": 27500 }
+          ]
+        },
+        {
+          "slug": "gls",
+          "name": "GLS-Class",
+          "variants": [
+            { "id": "x166-gls-400", "label": "X166 GLS400 333 л.с. (2015–2019)", "hp": 333, "our_price": 29500, "competitor_price": 30500 }
+          ]
+        },
+        {
+          "slug": "cls",
+          "name": "CLS-Class",
+          "variants": [
+            { "id": "c218-cls-350", "label": "C218 CLS350 306 л.с. (2010–2014)", "hp": 306, "our_price": 28500, "competitor_price": 29500 },
+            { "id": "c218-cls-400", "label": "C218 CLS400 333 л.с. (2014–2017)", "hp": 333, "our_price": 29500, "competitor_price": 30500 }
+          ]
+        },
+        {
+          "slug": "gt-class",
+          "name": "AMG GT",
+          "variants": [
+            { "id": "amg-gt-462", "label": "AMG GT 462 л.с. (2014–2017)", "hp": 462, "our_price": 36000, "competitor_price": 37000 }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "audi",
+      "name": "Audi",
+      "models": [
+        {
+          "slug": "a3",
+          "name": "A3",
+          "variants": [
+            { "id": "8p-12-105", "label": "8P 1.2 TFSI 105 л.с. (2008–2012)", "hp": 105, "our_price": 21000, "competitor_price": 22000 },
+            { "id": "8p-20-265", "label": "8P 2.0 TFSI 265 л.с. — S3 (2008–2012)", "hp": 265, "our_price": 26500, "competitor_price": 27500 }
+          ]
+        },
+        {
+          "slug": "a5",
+          "name": "A5",
+          "variants": [
+            { "id": "a5-18-160", "label": "A5 1.8 TFSI 160 л.с. (2007–2011)", "hp": 160, "our_price": 23500, "competitor_price": 24500 }
+          ]
+        },
+        {
+          "slug": "a6",
+          "name": "A6",
+          "variants": [
+            { "id": "c7-18-150", "label": "C7/S7 1.8 TFSI 150 л.с. (2011–2014)", "hp": 150, "our_price": 22500, "competitor_price": 23500 },
+            { "id": "c7-18-190", "label": "C7 Mk2 1.8 TFSI 190 л.с. (2014–2018)", "hp": 190, "our_price": 24000, "competitor_price": 25000 }
+          ]
+        },
+        {
+          "slug": "q5",
+          "name": "Q5",
+          "variants": [
+            { "id": "8r-20-180", "label": "8R 2.0 TFSI 180 л.с. (2012–2017)", "hp": 180, "our_price": 24500, "competitor_price": 25500 }
+          ]
+        },
+        {
+          "slug": "q7",
+          "name": "Q7",
+          "variants": [
+            { "id": "q7-20-252", "label": "Q7 2.0 TFSI 252 л.с. (2015–2019)", "hp": 252, "our_price": 26000, "competitor_price": 27000 }
+          ]
+        },
+        {
+          "slug": "a7",
+          "name": "A7",
+          "variants": [
+            { "id": "4g-20-249", "label": "4G 2.0 TFSI 249 л.с. (2014–2018)", "hp": 249, "our_price": 26000, "competitor_price": 27000 }
+          ]
+        },
+        {
+          "slug": "a8",
+          "name": "A8",
+          "variants": [
+            { "id": "d4-30-310", "label": "D4 3.0 TFSI 310 л.с. (2014–2017)", "hp": 310, "our_price": 28000, "competitor_price": 29000 }
+          ]
+        },
+        {
+          "slug": "rs3",
+          "name": "RS3",
+          "variants": [
+            { "id": "8v-25-400", "label": "8V 2.5 TFSI 400 л.с. (2017–2021)", "hp": 400, "our_price": 33000, "competitor_price": 34000 }
+          ]
+        },
+        {
+          "slug": "rs6",
+          "name": "RS6",
+          "variants": [
+            { "id": "c7-40-560", "label": "C7 4.0 TFSI 560 л.с. (2012–2014)", "hp": 560, "our_price": 40000, "competitor_price": 41000 }
+          ]
+        },
+        {
+          "slug": "s3",
+          "name": "S3",
+          "variants": [
+            { "id": "8v-20-300", "label": "8V 2.0 TFSI 300 л.с. (2013–2016)", "hp": 300, "our_price": 27000, "competitor_price": 28000 }
+          ]
+        },
+        {
+          "slug": "s4",
+          "name": "S4",
+          "variants": [
+            { "id": "b8-30-333", "label": "B8 3.0 TFSI 333 л.с. (2011–2015)", "hp": 333, "our_price": 29000, "competitor_price": 30000 }
+          ]
+        },
+        {
+          "slug": "sq5",
+          "name": "SQ5",
+          "variants": [
+            { "id": "30-354", "label": "3.0 TFSI 354 л.с. (2013–2017)", "hp": 354, "our_price": 30000, "competitor_price": 31000 }
+          ]
+        },
+        {
+          "slug": "tt",
+          "name": "TT / TTS",
+          "variants": [
+            { "id": "8s-18-180", "label": "TT 8S 1.8 TFSI 180 л.с. (2014–2018)", "hp": 180, "our_price": 23500, "competitor_price": 24500 },
+            { "id": "8s-tts-310", "label": "TTS 8S 2.0 TFSI 310 л.с. (2014–2018)", "hp": 310, "our_price": 28000, "competitor_price": 29000 }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "porsche",
+      "name": "Porsche",
+      "models": [
+        {
+          "slug": "911",
+          "name": "911",
+          "variants": [
+            { "id": "997-targa4-345", "label": "997 Targa 4 345 л.с. (2008–2011)", "hp": 345, "our_price": 29500, "competitor_price": 30500 },
+            { "id": "991-targa4-350", "label": "991 Targa 4 350 л.с. (2011–2015)", "hp": 350, "our_price": 30000, "competitor_price": 31000 }
+          ]
+        },
+        {
+          "slug": "cayenne",
+          "name": "Cayenne",
+          "variants": [
+            { "id": "957-v6-290", "label": "957 V6 290 л.с. (2007–2010)", "hp": 290, "our_price": 27000, "competitor_price": 28000 },
+            { "id": "958-30-340", "label": "958 3.0T 340 л.с. (2010–2017)", "hp": 340, "our_price": 30000, "competitor_price": 31000 }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "volvo",
+      "name": "Volvo",
+      "models": [
+        {
+          "slug": "xc60",
+          "name": "XC60",
+          "variants": [
+            { "id": "xc60-20-240", "label": "XC60 2.0T 240 л.с. (2013–2017)", "hp": 240, "our_price": 28000, "competitor_price": 29000 }
+          ]
+        },
+        {
+          "slug": "xc90",
+          "name": "XC90",
+          "variants": [
+            { "id": "xc90-20-249", "label": "XC90 2.0T 249 л.с. (2014–)", "hp": 249, "our_price": 28000, "competitor_price": 29000 }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "volkswagen",
+      "name": "Volkswagen",
+      "models": [
+        {
+          "slug": "golf",
+          "name": "Golf",
+          "variants": [
+            { "id": "7-12-86", "label": "7 1.2 TSI 86 л.с. (2012–2016)", "hp": 86, "our_price": 18500, "competitor_price": 19500 },
+            { "id": "7-14-125", "label": "7 1.4 TSI 125 л.с. (2012–2016)", "hp": 125, "our_price": 20000, "competitor_price": 21000 },
+            { "id": "7-20-gti", "label": "7 GTI 2.0 TSI 230 л.с. (2012–2016)", "hp": 230, "our_price": 25500, "competitor_price": 26500 }
+          ]
+        },
+        {
+          "slug": "passat",
+          "name": "Passat",
+          "variants": [
+            { "id": "b8-14-150", "label": "B8 1.4 TSI 150 л.с. (2014–)", "hp": 150, "our_price": 21000, "competitor_price": 22000 },
+            { "id": "b8-20-220", "label": "B8 2.0 TSI 220 л.с. (2014–)", "hp": 220, "our_price": 24000, "competitor_price": 25000 }
+          ]
+        },
+        {
+          "slug": "touareg",
+          "name": "Touareg",
+          "variants": [
+            { "id": "cr-30-340", "label": "CR 3.0 TFSI 340 л.с. (2018–)", "hp": 340, "our_price": 30000, "competitor_price": 31000 }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "lexus",
+      "name": "Lexus",
+      "models": [
+        {
+          "slug": "is",
+          "name": "IS",
+          "variants": [
+            { "id": "300-245", "label": "IS 300 245 л.с. (2013–)", "hp": 245, "our_price": 25000, "competitor_price": 26000 }
+          ]
+        },
+        {
+          "slug": "gs",
+          "name": "GS",
+          "variants": [
+            { "id": "300-245", "label": "GS 300 245 л.с. (2012–)", "hp": 245, "our_price": 25000, "competitor_price": 26000 }
+          ]
+        },
+        {
+          "slug": "rx",
+          "name": "RX",
+          "variants": [
+            { "id": "200t-238", "label": "RX 200t 238 л.с. (2015–)", "hp": 238, "our_price": 25000, "competitor_price": 26000 }
+          ]
+        }
+      ]
+    }
+  ]
+}
