@@ -130,7 +130,7 @@ export default function BrandPage({ params }: { params: { brand: string } }) {
               title: 'Чип-тюнинг',
               desc: 'Stage 1/2/3, DPF/EGR off, Immo',
               price: `от ${brand.priceFrom.toLocaleString('ru-RU')} ₽`,
-              href: `/calculator?brand=${brand.slug}`,
+              href: `/tuning/chip-tuning#chip-calculator`,
             },
             {
               icon: Sparkles,
@@ -139,7 +139,7 @@ export default function BrandPage({ params }: { params: { brand: string } }) {
               title: 'Детейлинг',
               desc: 'Керамика, PPF, химчистка, полировка',
               price: 'от 6 000 ₽',
-              href: '/services/detailing',
+              href: '/detailing',
             },
             {
               icon: Wrench,
@@ -148,7 +148,7 @@ export default function BrandPage({ params }: { params: { brand: string } }) {
               title: 'Техобслуживание',
               desc: 'ТО, диагностика, ремонт',
               price: 'от 1 500 ₽',
-              href: '/services/service',
+              href: '/service',
             },
           ].map((card) => (
             <Link

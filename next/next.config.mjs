@@ -25,6 +25,17 @@ const nextConfig = {
   // Постоянные редиректы
   async redirects() {
     return [
+      // ── Блок 2: реструктуризация URL (301) ───────────────────────────
+      { source: '/services/chip-tuning/:path*', destination: '/tuning/chip-tuning/:path*', permanent: true },
+      { source: '/services/detailing/:path*',   destination: '/detailing/:path*',           permanent: true },
+      { source: '/services/service/:path*',     destination: '/service/:path*',             permanent: true },
+      { source: '/services/detailing',          destination: '/detailing',                  permanent: true },
+      { source: '/services/service',            destination: '/service',                    permanent: true },
+      { source: '/services/chip-tuning',        destination: '/tuning/chip-tuning',         permanent: true },
+      { source: '/services',                    destination: '/',                            permanent: true },
+      { source: '/calculator',                  destination: '/tuning/chip-tuning#chip-calculator', permanent: true },
+      // ─────────────────────────────────────────────────────────────────
+
       // Старый домен с дефисом → правильный
       {
         source: '/(.*)',
