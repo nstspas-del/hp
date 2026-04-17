@@ -26,6 +26,7 @@ const NAV = [
     ],
   },
   { label: 'Работы', href: '/works' },
+  { label: 'Цены', href: '/calculator' },
   { label: 'Блог', href: '/blog' },
   { label: 'Районы', href: '/locations' },
   { label: 'Отзывы', href: '/reviews' },
