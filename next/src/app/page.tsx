@@ -7,7 +7,6 @@ import { FaqSection } from '@/components/sections/FaqSection';
 import { CtaSection } from '@/components/sections/CtaSection';
 import { ReviewsSection } from '@/components/sections/ReviewsSection';
 import { VideoSection } from '@/components/sections/VideoSection';
-import { ShowcaseSection } from '@/components/ShowcaseSection';
 import seoData from '@/data/seo.json';
 
 export const metadata: Metadata = {
@@ -75,9 +74,6 @@ export default function HomePage() {
 
       {/* Герой с BMW X7 */}
       <Hero />
-
-      {/* Что мы делаем — ShowcaseSection (3 таба) */}
-      <ShowcaseSection />
 
       {/* Услуги */}
       <ServicesSection />
