@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { Phone, Menu, X, ChevronDown } from 'lucide-react';
 import { openBooking } from '@/lib/autodealer';
@@ -97,16 +98,24 @@ export function Header() {
           {/* Логотип */}
           <Link
             href="/"
-            className="flex items-center gap-1 group flex-shrink-0"
+            className="flex items-center gap-2 group flex-shrink-0"
             aria-label="HP Тюнинг — главная"
           >
+            <Image
+              src="/images/logo/hp-logo-neon.jpg"
+              alt="HP Тюнинг"
+              width={52}
+              height={52}
+              className="rounded-lg object-cover h-11 w-11"
+              priority
+            />
             <span
-              className="font-display text-3xl tracking-widest text-[#39FF14]"
-              style={{ textShadow: '0 0 18px rgba(57,255,20,0.55)' }}
+              className="font-display text-2xl tracking-widest text-[#39FF14] hidden sm:block"
+              style={{ textShadow: '0 0 14px rgba(57,255,20,0.5)' }}
             >
               HP
             </span>
-            <span className="font-display text-3xl tracking-widest text-white">ТЮНИНГ</span>
+            <span className="font-display text-2xl tracking-widest text-white hidden sm:block">ТЮНИНГ</span>
           </Link>
 
           {/* ── Десктоп навигация ── */}

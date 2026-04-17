@@ -2,10 +2,9 @@ import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
 import { ServicesSection } from '@/components/sections/ServicesSection';
 import { BrandsSection } from '@/components/sections/BrandsSection';
+import { WorksPreview } from '@/components/sections/WorksPreview';
 import { FaqSection } from '@/components/sections/FaqSection';
 import { CtaSection } from '@/components/sections/CtaSection';
-import { PriceCalculator } from '@/components/ui/PriceCalculator';
-import { DetailingCalculator } from '@/components/ui/DetailingCalculator';
 import seoData from '@/data/seo.json';
 
 export const metadata: Metadata = {
@@ -16,6 +15,7 @@ export const metadata: Metadata = {
     title: seoData.pages.home.title,
     description: seoData.pages.home.description,
     url: 'https://hptuning.ru',
+    images: [{ url: 'https://hptuning.ru/images/mercedes-s-class-hero.jpg', width: 1200, height: 800 }],
   },
 };
 
@@ -38,9 +38,8 @@ export default function HomePage() {
       />
       <Hero />
       <ServicesSection />
-      <PriceCalculator />
-      <DetailingCalculator />
       <BrandsSection />
+      <WorksPreview />
       <FaqSection />
       <CtaSection />
     </>

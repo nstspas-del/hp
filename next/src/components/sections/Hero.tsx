@@ -1,135 +1,123 @@
 'use client';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Phone } from 'lucide-react';
 import { openBooking } from '@/lib/autodealer';
-import { Phone, ChevronDown, Zap, Shield, Wrench } from 'lucide-react';
-
-const STATS = [
-  { value: '9+', label: 'лет опыта' },
-  { value: '30+', label: 'брендов' },
-  { value: '500+', label: 'автомобилей' },
-  { value: '1 год', label: 'гарантия' },
-];
-
-const SERVICES = [
-  { icon: Zap, label: 'Чип-тюнинг', href: '/services/chip-tuning', color: 'text-accent' },
-  { icon: Shield, label: 'Детейлинг', href: '/services/detailing', color: 'text-violet-400' },
-  { icon: Wrench, label: 'Автосервис', href: '/services/service', color: 'text-blue-400' },
-];
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden" id="hero">
-      {/* ── Фоновый баннер ── */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero-banner.jpg"
-          alt="HP Тюнинг — BMW X7 в боксе"
-          fill
-          priority
-          quality={90}
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        {/* Градиент: слева плотнее (текст), справа прозрачнее (авто виден) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
-        {/* Зелёный неон-акцент снизу */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
-      </div>
+    <section className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden">
 
-      <div className="container relative z-10 pt-24 pb-20">
+      {/* ── Фон: здание HP Тюнинг ── */}
+      <Image
+        src="/images/building-facade-hp.jpg"
+        alt="HP Тюнинг — автосервис в Санкт-Петербурге"
+        fill
+        className="object-cover object-center"
+        priority
+        sizes="100vw"
+      />
+
+      {/* ── Градиентные оверлеи ── */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/60 to-black/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#09090b]/80 via-transparent to-transparent" />
+
+      {/* ── Контент ── */}
+      <div className="relative container pb-16 md:pb-24 pt-32">
         <div className="max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            {/* Бейдж */}
-            <span className="badge mb-6 inline-flex">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse mr-2" />
-              Тюнинг-ателье · СПб · с 2015 года
+
+          {/* Бейдж */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#39FF14]/10 border border-[#39FF14]/20 mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#39FF14] animate-pulse" />
+            <span className="text-[#39FF14] text-xs font-bold tracking-widest uppercase">
+              Санкт-Петербург · Богородская 3Б
             </span>
+          </div>
 
-            {/* Заголовок */}
-            <h1 className="font-display text-5xl md:text-7xl lg:text-[88px] leading-none mb-6 text-text">
-              HP<br />
-              <span className="text-accent" style={{ textShadow: '0 0 40px rgba(57,255,20,0.5)' }}>
-                ТЮНИНГ
-              </span>
-            </h1>
+          {/* Заголовок */}
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl leading-none uppercase tracking-tight text-white mb-4">
+            Премиальный{' '}
+            <span
+              className="text-[#39FF14]"
+              style={{ textShadow: '0 0 40px rgba(57,255,20,0.6)' }}
+            >
+              автосервис
+            </span>
+            <br />в Петербурге
+          </h1>
 
-            {/* Теглайн */}
-            <p className="text-[#c8c8cc] text-base md:text-lg mb-3 font-medium tracking-wider uppercase">
-              АВТОСЕРВИС · ДЕТЕЙЛИНГ · ТЮНИНГ
-            </p>
+          {/* Подзаголовок */}
+          <p className="text-zinc-300 text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
+            Чип-тюнинг, детейлинг и техническое обслуживание премиальных марок.
+            BMW, Mercedes, Porsche, Audi — опыт 9+ лет.
+          </p>
 
-            <p className="text-text-muted text-base md:text-lg max-w-lg mb-8 leading-relaxed">
-              Чип-тюнинг Stage&nbsp;1/2/3, керамика 9H, PPF плёнка и полный спектр
-              технического обслуживания премиальных авто в Санкт-Петербурге.
-            </p>
+          {/* CTA кнопки */}
+          <div className="flex flex-wrap gap-3 mb-12">
+            <button
+              onClick={() => openBooking()}
+              className="btn-primary text-base px-8 py-4 rounded-full font-bold"
+            >
+              Записаться на сервис
+            </button>
+            <a
+              href="tel:+79818428151"
+              className="flex items-center gap-2 px-8 py-4 rounded-full border border-white/15 text-white font-semibold text-base hover:border-[#39FF14]/50 hover:text-[#39FF14] transition-colors"
+              onClick={() => window.ym?.(108614238, 'reachGoal', 'phone_click')}
+            >
+              <Phone className="size-4" />
+              +7 (981) 842-81-51
+            </a>
+          </div>
 
-            {/* Кнопки CTA */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-10">
-              <button
-                onClick={() => openBooking()}
-                className="btn-primary text-sm px-7 py-3.5 rounded-full font-bold"
-              >
-                Записаться онлайн
-              </button>
-              <a
-                href="tel:+79818428151"
-                className="flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/20 text-text hover:border-accent/50 hover:text-accent transition-colors text-sm font-semibold"
-                onClick={() => window.ym?.(108614238, 'reachGoal', 'phone_click')}
-              >
-                <Phone className="size-4" />
-                +7 (981) 842-81-51
-              </a>
-            </div>
-
-            {/* Быстрые ссылки на услуги */}
-            <div className="flex flex-wrap gap-2 mb-12">
-              {SERVICES.map((s) => (
-                <a
-                  key={s.href}
-                  href={s.href}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:border-white/30 text-[13px] font-medium transition-all ${s.color}`}
+          {/* Статистика */}
+          <div className="flex flex-wrap gap-6 md:gap-10">
+            {[
+              { value: '9+', label: 'лет на рынке' },
+              { value: '500+', label: 'авто обслужено' },
+              { value: '13', label: 'марок в работе' },
+              { value: '10:00–20:00', label: 'ежедневно' },
+            ].map((s) => (
+              <div key={s.label}>
+                <div
+                  className="text-3xl font-display font-bold text-[#39FF14]"
+                  style={{ textShadow: '0 0 20px rgba(57,255,20,0.4)' }}
                 >
-                  <s.icon className="size-3.5" />
-                  {s.label}
-                </a>
-              ))}
-            </div>
-
-            {/* Статистика */}
-            <div className="grid grid-cols-4 gap-4">
-              {STATS.map((s) => (
-                <div key={s.label} className="text-center sm:text-left">
-                  <div
-                    className="font-display text-3xl md:text-4xl text-accent"
-                    style={{ textShadow: '0 0 20px rgba(57,255,20,0.4)' }}
-                  >
-                    {s.value}
-                  </div>
-                  <div className="text-text-subtle text-xs mt-1 uppercase tracking-wide">{s.label}</div>
+                  {s.value}
                 </div>
-              ))}
-            </div>
-          </motion.div>
+                <div className="text-zinc-500 text-sm mt-0.5">{s.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Скролл-стрелка */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-      >
-        <ChevronDown className="size-6 text-white/40" />
-      </motion.div>
-
-      {/* Отступ снизу под мобильную CTA-полосу */}
-      <div className="xl:hidden h-16" />
+      {/* ── Нижние ссылки-направления ── */}
+      <div className="relative border-t border-white/8 bg-[#09090b]/80 backdrop-blur-sm">
+        <div className="container">
+          <div className="grid grid-cols-3 divide-x divide-white/8">
+            {[
+              { href: '/services/chip-tuning', icon: '⚡', label: 'Чип-тюнинг', sub: 'Stage 1–3, EGR/DPF' },
+              { href: '/services/detailing', icon: '◈', label: 'Детейлинг', sub: 'Керамика, PPF, химчистка' },
+              { href: '/services/service', icon: '🔧', label: 'Автосервис', sub: 'ТО, диагностика, ремонт' },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group flex items-center gap-3 px-4 md:px-8 py-4 md:py-5 hover:bg-white/3 transition-colors"
+              >
+                <span className="text-xl md:text-2xl">{item.icon}</span>
+                <div className="min-w-0">
+                  <div className="text-white text-sm md:text-base font-semibold group-hover:text-[#39FF14] transition-colors truncate">
+                    {item.label}
+                  </div>
+                  <div className="text-zinc-600 text-xs truncate hidden sm:block">{item.sub}</div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
