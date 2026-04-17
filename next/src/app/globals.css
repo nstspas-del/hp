@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Self-hosted fonts ─── */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-cyrillic-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-cyrillic-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/fonts/bebas-neue-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Base ─── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display tracking-wider;
+  }
+  a {
+    @apply transition-colors;
+  }
+  ::selection {
+    background-color: rgba(57, 255, 20, 0.3);
+    color: #fafafa;
+  }
+}
+
+/* ─── Components ─── */
+@layer components {
+  .container {
+    @apply max-w-[1280px] mx-auto px-5 md:px-10;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-black rounded-full px-6 py-3 text-sm font-bold
+           hover:bg-accent-hover transition-colors uppercase tracking-wider
+           cursor-pointer inline-flex items-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-accent border border-accent-dim rounded-full
+           px-5 py-2.5 text-xs font-bold
+           hover:bg-accent/10 hover:border-accent transition-all uppercase tracking-wider
+           cursor-pointer inline-flex items-center gap-2;
+  }
+
+  .card {
+    @apply bg-bg-card border border-border rounded-2xl p-6
+           hover:border-accent-dim transition-colors;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold
+           bg-accent-glow text-accent uppercase tracking-widest;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl text-text uppercase tracking-wider mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-text-muted text-base md:text-lg max-w-2xl;
+  }
+}
+
+/* ─── Neon glow effect ─── */
+.glow-accent {
+  text-shadow: 0 0 20px rgba(57, 255, 20, 0.5), 0 0 40px rgba(57, 255, 20, 0.2);
+}
+
+.glow-box {
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.15), inset 0 0 20px rgba(57, 255, 20, 0.05);
+}
