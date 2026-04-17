@@ -5,9 +5,40 @@ import brands from '@/data/brands.json';
 import seoData from '@/data/seo.json';
 
 export const metadata: Metadata = {
-  title: seoData.pages.brands.title,
-  description: seoData.pages.brands.description,
+  title: 'Чип-тюнинг и детейлинг для BMW, Mercedes, Audi, Porsche в СПб | HP Тюнинг',
+  description: 'Специализируемся на 13 премиальных брендах: BMW, Mercedes-Benz, Audi, Porsche, Lexus, Land Rover, Volvo, VW, Jaguar, Genesis, Toyota, KIA, Nissan. Чип-тюнинг и детейлинг в СПб.',
+  keywords: ['чип тюнинг бренды спб', 'тюнинг bmw mercedes audi', 'автосервис премиум спб'],
   alternates: { canonical: 'https://hptuning.ru/brands' },
+  openGraph: {
+    title: 'Тюнинг и детейлинг 13 брендов в СПб | HP Тюнинг',
+    description: 'BMW, Mercedes, Audi, Porsche, Lexus — глубокая специализация на каждом бренде. Чип-тюнинг, детейлинг, автосервис.',
+    url: 'https://hptuning.ru/brands',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/brands.jpg', width: 1200, height: 630, alt: 'Бренды HP Тюнинг' }],
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
+    { '@type': 'ListItem', position: 2, name: 'Бренды', item: 'https://hptuning.ru/brands' },
+  ],
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Бренды HP Тюнинг — чип-тюнинг и детейлинг в СПб',
+  itemListElement: brands.map((b, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: b.name,
+    url: `https://hptuning.ru/brands/${b.slug}`,
+  })),
 };
 
 export default function BrandsPage() {
@@ -16,6 +47,9 @@ export default function BrandsPage() {
 
   return (
     <div className="section container">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
+
       {/* Breadcrumb */}
       <nav className="text-sm text-text-subtle mb-8" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-accent transition-colors">Главная</Link>

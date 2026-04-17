@@ -5,15 +5,18 @@ import { DetailingCalculator } from '@/components/sections/DetailingCalculator';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
-  title: 'Детейлинг в СПб — керамика 9H, PPF, полировка, химчистка | HP Тюнинг',
-  description: 'Детейлинг-студия в Санкт-Петербурге: керамическое покрытие от 35 000 ₽, PPF-плёнка XPEL/SunTek, профессиональная полировка, химчистка салона, тонировка. Материалы Gyeon, Koch-Chemie, 3M.',
-  keywords: ['детейлинг спб', 'керамика для авто спб', 'ppf плёнка спб', 'полировка авто петербург', 'химчистка салона спб', 'тонировка авто спб'],
+  title: 'Детейлинг в СПб — керамика 9H, PPF XPEL, полировка | HP Тюнинг',
+  description: 'Детейлинг-студия в Санкт-Петербурге: керамика 9H Gyeon от 22 000 ₽, PPF XPEL/SunTek от 8 000 ₽, полировка от 10 000 ₽, химчистка от 4 000 ₽, тонировка. Гарантия качества.',
+  keywords: ['детейлинг спб', 'керамика авто спб', 'ppf плёнка спб', 'полировка кузова спб', 'химчистка салона спб', 'тонировка авто спб'],
   alternates: { canonical: 'https://hptuning.ru/detailing' },
   openGraph: {
     title: 'Детейлинг в СПб — керамика 9H, PPF, полировка | HP Тюнинг',
-    description: 'Керамическое покрытие от 35 000 ₽, PPF-плёнка XPEL/SunTek. Материалы Gyeon, Koch-Chemie, 3M. Санкт-Петербург.',
+    description: 'Керамика от 22 000 ₽, PPF от 8 000 ₽, полировка от 10 000 ₽. Gyeon, XPEL, 3M. Гарантия.',
     url: 'https://hptuning.ru/detailing',
-    images: [{ url: 'https://hptuning.ru/images/og-image.jpg', width: 1200, height: 630 }],
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/detailing.jpg', width: 1200, height: 630, alt: 'Детейлинг в СПб — керамика 9H, PPF, полировка | HP Тюнинг' }],
   },
 };
 

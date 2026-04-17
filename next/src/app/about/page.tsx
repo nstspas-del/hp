@@ -5,14 +5,56 @@ import { BookingButton } from '@/components/ui/BookingButton';
 import company from '@/data/company.json';
 
 export const metadata: Metadata = {
-  title: 'О компании HP Тюнинг — чип-тюнинг с 2015 года | СПб',
-  description: 'HP Тюнинг — профессиональный чип-тюнинг и детейлинг в Санкт-Петербурге с 2015 года. Более 500 автомобилей, 13 брендов, гарантия 1 год.',
+  title: 'О компании HP Тюнинг — 9 лет чип-тюнинга в СПб | Alientech',
+  description: 'HP Тюнинг с 2015 года: более 500 автомобилей, Alientech KESSv3, 13 брендов. Чип-тюнинг Stage 1/2/3, детейлинг, автосервис в Санкт-Петербурге. Гарантия 12 месяцев.',
+  keywords: ['о компании hp тюнинг', 'чип тюнинг студия спб', 'alientech спб', 'тюнинг ателье петербург'],
   alternates: { canonical: 'https://hptuning.ru/about' },
+  openGraph: {
+    title: 'О HP Тюнинг — профессиональный тюнинг в СПб',
+    description: 'HP Тюнинг с 2015 года: более 500 автомобилей, Alientech KESSv3, 13 брендов. Чип-тюнинг Stage 1/2/3, детейлинг, автосервис в Санкт-Петербурге. Гарантия',
+    url: 'https://hptuning.ru/about',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/about.jpg', width: 1200, height: 630, alt: 'О HP Тюнинг — профессиональный тюнинг в СПб' }],
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
+    { '@type': 'ListItem', position: 2, name: 'О компании', item: 'https://hptuning.ru/about' },
+  ],
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoRepair',
+  '@id': 'https://hptuning.ru/#org',
+  name: 'HP Тюнинг',
+  foundingDate: '2015',
+  description: 'Тюнинг-ателье в Порошкино (СПб): чип-тюнинг Stage 1/2/3, детейлинг и автосервис для BMW, Mercedes, Audi, Porsche',
+  url: 'https://hptuning.ru',
+  logo: 'https://hptuning.ru/images/logo.svg',
+  telephone: '+79818428151',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'ул. Богородская, 3Б',
+    addressLocality: 'Санкт-Петербург',
+    addressCountry: 'RU',
+  },
+  numberOfEmployees: { '@type': 'QuantitativeValue', value: 5 },
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5', reviewCount: '200', bestRating: '5' },
 };
 
 export default function AboutPage() {
   return (
     <div className="section container">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+
       <nav className="text-sm text-text-subtle mb-8">
         <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
         <span className="mx-2">→</span>

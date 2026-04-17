@@ -5,15 +5,18 @@ import { ChipCalculator } from '@/components/sections/ChipCalculator';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
-  title: 'Чип-тюнинг Stage 1, 2, 3 в СПб — от 24 000 ₽ | HP Тюнинг',
-  description: 'Чип-тюнинг Stage 1 от 24 000 ₽, Stage 2 от 39 000 ₽, Stage 3 от 95 000 ₽ в Санкт-Петербурге. Прошивка BMW, Mercedes, Audi, Porsche. Alientech. Гарантия 1 год. Откат к стоку бесплатно.',
-  keywords: ['чип тюнинг спб', 'stage 1 чип тюнинг', 'stage 2', 'stage 3', 'прошивка эбу', 'чип тюнинг цена', 'alientech спб'],
+  title: 'Чип-тюнинг Stage 1/2/3 в СПб — от 17 000 ₽ | HP Тюнинг',
+  description: 'Профессиональный чип-тюнинг в Санкт-Петербурге: Stage 1 от 17 000 ₽, Stage 2 от 35 000 ₽, Stage 3 от 95 000 ₽. Прирост +20–100% мощности. BMW, Mercedes, Audi, Porsche. Гарантия 12 мес.',
+  keywords: ['чип тюнинг спб', 'stage 1 чип тюнинг спб', 'stage 2 тюнинг', 'прошивка эбу спб', 'чип тюнинг bmw спб', 'alientech kess3'],
   alternates: { canonical: 'https://hptuning.ru/tuning/chip-tuning' },
   openGraph: {
-    title: 'Чип-тюнинг Stage 1/2/3 в СПб | HP Тюнинг',
-    description: 'Stage 1 от 24 000 ₽ — профессиональная прошивка ЭБУ BMW, Mercedes, Audi, Porsche. Alientech. Гарантия 1 год.',
+    title: 'Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге | HP Тюнинг',
+    description: 'Stage 1 от 17 000 ₽. Прошивка BMW, Mercedes, Audi, Porsche. Alientech. Гарантия 12 мес.',
     url: 'https://hptuning.ru/tuning/chip-tuning',
-    images: [{ url: 'https://hptuning.ru/images/og-image.jpg', width: 1200, height: 630 }],
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/chip-tuning.jpg', width: 1200, height: 630, alt: 'Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге | HP Тюнинг' }],
   },
 };
 

@@ -5,15 +5,18 @@ import { BookingButton } from '@/components/ui/BookingButton';
 import { WorkCard } from '@/components/ui/WorkCard';
 
 export const metadata: Metadata = {
-  title: 'Наши работы — портфолио тюнинга и детейлинга | HP Тюнинг СПб',
-  description:
-    'Реальные кейсы чип-тюнинга Stage 1/2/3, керамики и PPF от HP Тюнинг. BMW M3, Mercedes AMG, Porsche, Audi RS. Замеры до и после.',
+  title: 'Наши работы — портфолио чип-тюнинга и детейлинга | HP Тюнинг СПб',
+  description: 'Портфолио HP Тюнинг: чип-тюнинг Stage 1/2/3 BMW, Mercedes, Audi, Porsche — замеры до/после. PPF XPEL, керамика Gyeon, полировка. Реальные кейсы из Санкт-Петербурга.',
+  keywords: ['портфолио тюнинг спб', 'кейсы чип тюнинг', 'работы hp тюнинг', 'детейлинг до после спб'],
   alternates: { canonical: 'https://hptuning.ru/works' },
   openGraph: {
-    title: 'Наши работы — портфолио | HP Тюнинг СПб',
-    description: 'Чип-тюнинг и детейлинг реальных авто: замеры до/после, фото работ.',
+    title: 'Портфолио HP Тюнинг — результаты тюнинга и детейлинга',
+    description: 'Портфолио HP Тюнинг: чип-тюнинг Stage 1/2/3 BMW, Mercedes, Audi, Porsche — замеры до/после. PPF XPEL, керамика Gyeon, полировка. Реальные кейсы из Сан',
     url: 'https://hptuning.ru/works',
-    images: [{ url: 'https://hptuning.ru/images/og/og-image.jpg', width: 1200, height: 630 }],
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/works.jpg', width: 1200, height: 630, alt: 'Портфолио HP Тюнинг — результаты тюнинга и детейлинга' }],
   },
 };
 
@@ -74,9 +77,34 @@ const WORKS = [
   },
 ];
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
+    { '@type': 'ListItem', position: 2, name: 'Наши работы', item: 'https://hptuning.ru/works' },
+  ],
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Портфолио HP Тюнинг — чип-тюнинг и детейлинг',
+  description: 'Реальные результаты чип-тюнинга и детейлинга от HP Тюнинг в Санкт-Петербурге',
+  itemListElement: WORKS.map((w, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: `${w.brand} ${w.model} — ${w.service}`,
+    url: `https://hptuning.ru/brands/${w.slug}`,
+  })),
+};
+
 export default function WorksPage() {
   return (
     <div className="section container">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
+
       {/* Хлебные крошки */}
       <nav className="text-sm text-text-subtle mb-8" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-accent transition-colors">Главная</Link>

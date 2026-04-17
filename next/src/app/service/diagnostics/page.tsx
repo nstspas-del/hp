@@ -5,8 +5,18 @@ import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
   title: 'Компьютерная диагностика авто в СПб — от 1 500 ₽ | HP Тюнинг',
-  description: 'Компьютерная диагностика BMW, Mercedes, Audi, Porsche в Санкт-Петербурге от 1 500 ₽. AUTEL MaxiSYS, Bosch. Расшифровка ошибок ЭБУ, диагностика всех систем.',
+  description: 'Компьютерная диагностика BMW, Mercedes, Audi, Porsche в СПб от 1 500 ₽. AUTEL MaxiSYS MS906, дилерское ПО. Расшифровка ошибок ЭБУ, диагностика всех систем автомобиля. Без записи.',
+  keywords: ['компьютерная диагностика авто спб', 'диагностика бмв спб', 'диагностика мерседес спб', 'autel maxisys спб', 'ошибки эбу спб'],
   alternates: { canonical: 'https://hptuning.ru/service/diagnostics' },
+  openGraph: {
+    title: 'Диагностика авто от 1 500 ₽ в СПб | HP Тюнинг',
+    description: 'AUTEL MaxiSYS: полная диагностика BMW, Mercedes, Audi, Porsche. Расшифровка ошибок ЭБУ.',
+    url: 'https://hptuning.ru/service/diagnostics',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/diagnostics.jpg', width: 1200, height: 630, alt: 'Диагностика авто от 1 500 ₽ в СПб | HP Тюнинг' }],
+  },
 };
 
 const PRICES = [
@@ -42,9 +52,65 @@ const FAQ = [
   { q: 'Можно ли просто считать ошибки и уехать?', a: 'Да. Считываем ошибки, выдаём распечатку с расшифровкой и рекомендациями. Никакого принудительного ремонта — только ваше решение.' },
 ];
 
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
+    { '@type': 'ListItem', position: 2, name: 'Автосервис', item: 'https://hptuning.ru/service' },
+    { '@type': 'ListItem', position: 3, name: 'Диагностика', item: 'https://hptuning.ru/service/diagnostics' }
+  ],
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Компьютерная диагностика автомобиля в Санкт-Петербурге',
+  provider: {
+    '@type': 'AutoRepair',
+    name: 'HP Тюнинг',
+    url: 'https://hptuning.ru',
+    telephone: '+79818428151',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'ул. Богородская, 3Б',
+      addressLocality: 'Санкт-Петербург',
+      addressCountry: 'RU',
+    },
+  },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'RUB',
+    price: '1500',
+    availability: 'https://schema.org/InStock',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Санкт-Петербург',
+  },
+};
+
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
+
 export default function DiagnosticsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="relative pt-28 pb-16">
         <div className="container">
           <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8">

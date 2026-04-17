@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   description: seoData.pages.privacy.description,
   alternates: { canonical: 'https://hptuning.ru/privacy' },
   robots: { index: false, follow: false },
+  openGraph: {
+    title: seoData.pages.privacy.title,
+    description: seoData.pages.privacy.description,
+    url: 'https://hptuning.ru/privacy',
+    images: [{ url: 'https://hptuning.ru/images/og/home.jpg', width: 1200, height: 630, alt: 'HP Тюнинг — политика конфиденциальности' }],
+  },
 };
 
 export default function PrivacyPage() {

@@ -4,9 +4,19 @@ import { Star, CheckCircle } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
-  title: 'Отзывы клиентов HP Тюнинг СПб — реальные оценки',
-  description: 'Отзывы реальных клиентов о чип-тюнинге и детейлинге в HP Тюнинг. BMW, Mercedes, Porsche. Яндекс.Карты, 2ГИС. Средняя оценка 4.9/5.',
+  title: 'Отзывы о HP Тюнинг СПб — реальные клиенты, Яндекс и 2ГИС',
+  description: 'Отзывы клиентов HP Тюнинг: чип-тюнинг BMW, Mercedes, Audi, Porsche и детейлинг. Средняя оценка 5.0 из 5. Яндекс.Карты, 2ГИС. Более 200 отзывов.',
+  keywords: ['отзывы hp тюнинг спб', 'отзывы чип тюнинг петербург', 'hp тюнинг оценки'],
   alternates: { canonical: 'https://hptuning.ru/reviews' },
+  openGraph: {
+    title: 'Отзывы о HP Тюнинг СПб — 5.0★ на Яндексе',
+    description: 'Отзывы клиентов HP Тюнинг: чип-тюнинг BMW, Mercedes, Audi, Porsche и детейлинг. Средняя оценка 5.0 из 5. Яндекс.Карты, 2ГИС. Более 200 отзывов.',
+    url: 'https://hptuning.ru/reviews',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/reviews.jpg', width: 1200, height: 630, alt: 'Отзывы о HP Тюнинг СПб — 5.0★ на Яндексе' }],
+  },
 };
 
 const REVIEWS = [
@@ -38,10 +48,20 @@ const schemaReviews = {
   })),
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
+    { '@type': 'ListItem', position: 2, name: 'Отзывы', item: 'https://hptuning.ru/reviews' },
+  ],
+};
+
 export default function ReviewsPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaReviews) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <div className="section container">
         <nav className="text-sm text-text-subtle mb-8">

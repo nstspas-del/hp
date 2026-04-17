@@ -27,6 +27,7 @@ export function generateMetadata({ params }: { params: { district: string } }): 
       title,
       description,
       url: `https://hptuning.ru/locations/${params.district}`,
+      images: [{ url: 'https://hptuning.ru/images/og/locations.jpg', width: 1200, height: 630, alt: 'HP Тюнинг — чип-тюнинг рядом с вами в СПб' }],
     },
   };
 }

@@ -5,8 +5,18 @@ import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
   title: 'Ремонт двигателя BMW, Mercedes, Audi в СПб | HP Тюнинг',
-  description: 'Ремонт двигателя в Санкт-Петербурге: замена ГРМ от 15 000 ₽, прокладка ГБЦ, маслосъёмные кольца, форсунки. BMW, Mercedes, Audi, Porsche. Гарантия 6 месяцев.',
+  description: 'Ремонт двигателей в Санкт-Петербурге: замена цепи ГРМ от 25 000 ₽, замена прокладки ГБЦ от 30 000 ₽. BMW, Mercedes, Audi, Porsche, Lexus. Диагностика, оригинальные запчасти.',
+  keywords: ['ремонт двигателя бмв спб', 'ремонт двигателя мерседес спб', 'замена цепи грм спб', 'прокладка гбц спб', 'ремонт мотора петербург'],
   alternates: { canonical: 'https://hptuning.ru/service/engine' },
+  openGraph: {
+    title: 'Ремонт двигателя BMW, Mercedes, Audi в СПб | HP Тюнинг',
+    description: 'Ремонт двигателей: ГРМ от 25 000 ₽, ГБЦ от 30 000 ₽. BMW, Mercedes, Audi, Porsche.',
+    url: 'https://hptuning.ru/service/engine',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/engine.jpg', width: 1200, height: 630, alt: 'Ремонт двигателя BMW, Mercedes, Audi в СПб | HP Тюнинг' }],
+  },
 };
 
 const PRICES = [
@@ -45,9 +55,65 @@ const FAQ = [
   { q: 'Даёте ли гарантию на ремонт двигателя?', a: 'Да — гарантия 6 месяцев на все работы, 12 месяцев на запчасти по гарантии производителя.' },
 ];
 
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
+    { '@type': 'ListItem', position: 2, name: 'Автосервис', item: 'https://hptuning.ru/service' },
+    { '@type': 'ListItem', position: 3, name: 'Ремонт двигателя', item: 'https://hptuning.ru/service/engine' }
+  ],
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Ремонт двигателя BMW, Mercedes, Audi в Санкт-Петербурге',
+  provider: {
+    '@type': 'AutoRepair',
+    name: 'HP Тюнинг',
+    url: 'https://hptuning.ru',
+    telephone: '+79818428151',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'ул. Богородская, 3Б',
+      addressLocality: 'Санкт-Петербург',
+      addressCountry: 'RU',
+    },
+  },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'RUB',
+    price: '10000',
+    availability: 'https://schema.org/InStock',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Санкт-Петербург',
+  },
+};
+
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
+
 export default function EnginePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="relative pt-28 pb-16">
         <div className="container">
           <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8">

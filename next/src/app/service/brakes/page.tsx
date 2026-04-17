@@ -4,9 +4,19 @@ import { Disc, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
-  title: 'Ремонт тормозной системы BMW, Mercedes, Audi в СПб | HP Тюнинг',
-  description: 'Ремонт тормозов в Санкт-Петербурге: замена колодок от 4 000 ₽, тормозных дисков, суппортов, прокачка системы. BMW, Mercedes, Audi, Porsche. Гарантия.',
+  title: 'Ремонт тормозов BMW, Mercedes, Audi в СПб — от 4 000 ₽ | HP Тюнинг',
+  description: 'Ремонт тормозной системы в Санкт-Петербурге: замена колодок от 4 000 ₽, тормозных дисков от 8 000 ₽, суппортов, прокачка системы. BMW, Mercedes, Audi, Porsche. Brembo, ATE, Bosch.',
+  keywords: ['ремонт тормозов бмв спб', 'замена тормозных колодок спб', 'замена тормозных дисков спб', 'brembo спб', 'тормоза мерседес спб'],
   alternates: { canonical: 'https://hptuning.ru/service/brakes' },
+  openGraph: {
+    title: 'Ремонт тормозной системы в СПб — от 4 000 ₽ | HP Тюнинг',
+    description: 'Замена колодок от 4 000 ₽, дисков от 8 000 ₽. Brembo, ATE, Bosch. BMW, Mercedes, Audi.',
+    url: 'https://hptuning.ru/service/brakes',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/brakes.jpg', width: 1200, height: 630, alt: 'Ремонт тормозной системы в СПб — от 4 000 ₽ | HP Тюнинг' }],
+  },
 };
 
 const PRICES = [
@@ -35,9 +45,65 @@ const FAQ = [
   { q: 'Что значит «прокачка тормозов»?', a: 'Удаление воздуха и старой жидкости из системы. Нужна после замены цилиндра, шланга или при падении педали тормоза. Рекомендуем раз в 2 года.' },
 ];
 
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
+    { '@type': 'ListItem', position: 2, name: 'Автосервис', item: 'https://hptuning.ru/service' },
+    { '@type': 'ListItem', position: 3, name: 'Ремонт тормозов', item: 'https://hptuning.ru/service/brakes' }
+  ],
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Ремонт тормозной системы в Санкт-Петербурге',
+  provider: {
+    '@type': 'AutoRepair',
+    name: 'HP Тюнинг',
+    url: 'https://hptuning.ru',
+    telephone: '+79818428151',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'ул. Богородская, 3Б',
+      addressLocality: 'Санкт-Петербург',
+      addressCountry: 'RU',
+    },
+  },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'RUB',
+    price: '4000',
+    availability: 'https://schema.org/InStock',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Санкт-Петербург',
+  },
+};
+
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
+
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="relative pt-28 pb-16">
         <div className="container">
           <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8">

@@ -4,15 +4,18 @@ import { Wrench, ChevronRight, CheckCircle, Phone, Gauge, Zap, Settings, Disc, C
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
-  title: 'Автосервис в СПб — ТО, диагностика, ремонт двигателя и подвески | HP Тюнинг',
-  description: 'Автосервис премиум-класса в Санкт-Петербурге: ТО от 3 000 ₽, компьютерная диагностика от 1 500 ₽, ремонт двигателя, тормозов, подвески, АКПП. BMW, Mercedes, Audi, Porsche, Lexus.',
-  keywords: ['автосервис спб', 'то спб', 'диагностика авто спб', 'ремонт подвески спб', 'ремонт двигателя спб', 'акпп ремонт спб', 'электрика авто спб'],
+  title: 'Автосервис BMW, Mercedes, Audi в СПб — ТО от 3 000 ₽ | HP Тюнинг',
+  description: 'Автосервис премиум-класса в Санкт-Петербурге: ТО от 3 000 ₽, диагностика от 1 500 ₽, ремонт двигателя, тормозов, подвески, АКПП. BMW, Mercedes, Audi, Porsche, Lexus. Гарантия.',
+  keywords: ['автосервис спб', 'то бмв спб', 'ремонт мерседес спб', 'автосервис премиум петербург', 'диагностика авто спб'],
   alternates: { canonical: 'https://hptuning.ru/service' },
   openGraph: {
-    title: 'Автосервис в СПб | HP Тюнинг',
-    description: 'ТО, диагностика, ремонт двигателя, тормозов, подвески, АКПП для BMW, Mercedes, Audi, Porsche.',
+    title: 'Автосервис BMW, Mercedes, Audi в СПб | HP Тюнинг',
+    description: 'ТО от 3 000 ₽, диагностика от 1 500 ₽, ремонт двигателя, тормозов, подвески, АКПП. Санкт-Петербург.',
     url: 'https://hptuning.ru/service',
-    images: [{ url: 'https://hptuning.ru/images/og-image.jpg', width: 1200, height: 630 }],
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/service.jpg', width: 1200, height: 630, alt: 'Автосервис BMW, Mercedes, Audi в СПб | HP Тюнинг' }],
   },
 };
 

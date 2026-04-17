@@ -6,7 +6,13 @@ import services from '@/data/services.json';
 export const metadata: Metadata = {
   title: 'Автосервис в СПб — ТО, диагностика, ремонт подвески | HP Тюнинг',
   description: 'Автосервис в Санкт-Петербурге: ТО, компьютерная диагностика, ремонт тормозов, подвески, двигателя и АКПП. BMW, Mercedes, Audi, Porsche. От 1 500 ₽.',
-  alternates: { canonical: 'https://hptuning.ru/services/service' },
+  alternates: { canonical: 'https://hptuning.ru/service' },
+  openGraph: {
+    title: 'Автосервис в СПб — ТО, диагностика, ремонт подвески | HP Тюнинг',
+    description: 'ТО от 3 000 ₽, диагностика от 1 500 ₽. BMW, Mercedes, Audi, Porsche. Санкт-Петербург.',
+    url: 'https://hptuning.ru/service',
+    images: [{ url: 'https://hptuning.ru/images/og/service.jpg', width: 1200, height: 630, alt: 'Автосервис BMW, Mercedes, Audi в СПб | HP Тюнинг' }],
+  },
 };
 
 const cat = services.categories.find((c) => c.slug === 'service')!;

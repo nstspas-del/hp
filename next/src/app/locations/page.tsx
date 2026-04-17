@@ -4,14 +4,28 @@ import { MapPin, ArrowRight, Clock, Car } from 'lucide-react';
 import districts from '@/data/districts.json';
 
 export const metadata: Metadata = {
-  title: 'Чип-тюнинг по районам Санкт-Петербурга | HP Тюнинг',
-  description: 'Чип-тюнинг и детейлинг в HP Тюнинг — удобно добраться из любого района СПб. Порошкино, рядом с КАД. Бесплатная парковка. Работаем с 10:00 до 20:00.',
+  title: 'Чип-тюнинг по районам Санкт-Петербурга — HP Тюнинг рядом',
+  description: 'Добраться в HP Тюнинг из любого района СПб: Приморского, Выборгского, Калининского, Невского, Московского и других. Ул. Богородская 3Б, Порошкино. Бесплатная парковка.',
+  keywords: ['чип тюнинг рядом спб', 'тюнинг по районам петербург', 'автосервис порошкино', 'чип тюнинг приморский район'],
   alternates: { canonical: 'https://hptuning.ru/locations' },
   openGraph: {
-    title: 'Чип-тюнинг по районам СПб | HP Тюнинг',
-    description: 'Удобно добраться из Приморского, Выборгского, Калининского и других районов. Свой бокс, бесплатная парковка.',
+    title: 'HP Тюнинг — удобно из любого района СПб',
+    description: 'Добраться в HP Тюнинг из любого района СПб: Приморского, Выборгского, Калининского, Невского, Московского и других. Ул. Богородская 3Б, Порошкино. Бес',
     url: 'https://hptuning.ru/locations',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/locations.jpg', width: 1200, height: 630, alt: 'HP Тюнинг — удобно из любого района СПб' }],
   },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
+    { '@type': 'ListItem', position: 2, name: 'Районы СПб', item: 'https://hptuning.ru/locations' },
+  ],
 };
 
 export default function LocationsPage() {
@@ -19,6 +33,7 @@ export default function LocationsPage() {
 
   return (
     <div className="section container">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <nav className="text-sm text-text-subtle mb-8">
         <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
         <span className="mx-2">→</span>

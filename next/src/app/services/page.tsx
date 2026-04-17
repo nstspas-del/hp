@@ -8,9 +8,10 @@ export const metadata: Metadata = {
   description: 'Полный спектр услуг: чип-тюнинг Stage 1/2/3, керамика 9H, PPF плёнка, химчистка, ТО. Порошкино, СПб. Цены от 3 000 ₽.',
   alternates: { canonical: 'https://hptuning.ru/services' },
   openGraph: {
-    title: 'Услуги HP Тюнинг СПб',
+    title: 'Услуги HP Тюнинг — чип-тюнинг, детейлинг, автосервис в СПб',
     description: 'Чип-тюнинг Stage 1/2/3, детейлинг, автосервис. Цены, сроки, гарантия.',
     url: 'https://hptuning.ru/services',
+    images: [{ url: 'https://hptuning.ru/images/og/home.jpg', width: 1200, height: 630, alt: 'Услуги HP Тюнинг — чип-тюнинг, детейлинг, автосервис' }],
   },
 };
 

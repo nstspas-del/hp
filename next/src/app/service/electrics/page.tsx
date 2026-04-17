@@ -4,9 +4,19 @@ import { Zap, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
-  title: 'Ремонт электрики авто BMW, Mercedes, Audi в СПб | HP Тюнинг',
-  description: 'Ремонт автоэлектрики в Санкт-Петербурге от 2 000 ₽. Диагностика ЭБУ, замена датчиков, кодирование блоков, ремонт жгутов проводки. BMW, Mercedes, Audi.',
+  title: 'Электрика и кодирование BMW, Mercedes, Audi в СПб | HP Тюнинг',
+  description: 'Ремонт электрики и кодирование в Санкт-Петербурге: диагностика от 1 500 ₽, активация скрытых функций BMW, Mercedes, Audi. Ремонт блоков управления, проводки, фар. Гарантия.',
+  keywords: ['электрика бмв спб', 'кодирование бмв спб', 'кодирование мерседес спб', 'активация функций аudi спб', 'ремонт блоков управления спб'],
   alternates: { canonical: 'https://hptuning.ru/service/electrics' },
+  openGraph: {
+    title: 'Электрика и кодирование BMW, Mercedes, Audi в СПб | HP Тюнинг',
+    description: 'Кодирование, активация скрытых функций, ремонт проводки. BMW, Mercedes, Audi.',
+    url: 'https://hptuning.ru/service/electrics',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/electrics.jpg', width: 1200, height: 630, alt: 'Электрика и кодирование BMW, Mercedes, Audi в СПб | HP Тюнинг' }],
+  },
 };
 
 const PRICES = [
@@ -35,9 +45,65 @@ const FAQ = [
   { q: 'Можно ли разблокировать скрытые функции?', a: 'Да! Активация скрытых функций — например, видеозапись во время движения, отображение на спидометре, складывание зеркал при закрытии — доступна для BMW, Audi, Mercedes, Volkswagen, Porsche.' },
 ];
 
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
+    { '@type': 'ListItem', position: 2, name: 'Автосервис', item: 'https://hptuning.ru/service' },
+    { '@type': 'ListItem', position: 3, name: 'Электрика', item: 'https://hptuning.ru/service/electrics' }
+  ],
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Ремонт электрики и кодирование BMW, Mercedes, Audi',
+  provider: {
+    '@type': 'AutoRepair',
+    name: 'HP Тюнинг',
+    url: 'https://hptuning.ru',
+    telephone: '+79818428151',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'ул. Богородская, 3Б',
+      addressLocality: 'Санкт-Петербург',
+      addressCountry: 'RU',
+    },
+  },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'RUB',
+    price: '1500',
+    availability: 'https://schema.org/InStock',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Санкт-Петербург',
+  },
+};
+
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
+
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="relative pt-28 pb-16">
         <div className="container">
           <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8">

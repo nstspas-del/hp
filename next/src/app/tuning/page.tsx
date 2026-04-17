@@ -4,14 +4,18 @@ import { ArrowRight, Zap, Shield, Volume2, Wind, CheckCircle } from 'lucide-reac
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
-  title: 'Тюнинг автомобилей в СПб — чип, тормоза, выхлоп, шумка | HP Тюнинг',
-  description: 'Профессиональный тюнинг автомобилей в Санкт-Петербурге: чип-тюнинг Stage 1/2/3 от 24 000 ₽, тормозной тюнинг, выхлопные системы, шумоизоляция. BMW, Mercedes, Porsche, Audi.',
-  keywords: ['тюнинг авто спб', 'чип тюнинг петербург', 'тормозной тюнинг', 'выхлоп спб', 'шумоизоляция спб'],
+  title: 'Тюнинг автомобилей в СПб — чип-тюнинг Stage 1/2/3 | HP Тюнинг',
+  description: 'Профессиональный тюнинг в Санкт-Петербурге: чип-тюнинг от 17 000 ₽, тормозной тюнинг Brembo, спортивный выхлоп, шумоизоляция. BMW, Mercedes, Audi, Porsche. Alientech KESSv3.',
+  keywords: ['тюнинг авто спб', 'чип тюнинг петербург', 'тюнинг бмв спб', 'тюнинг мерседес спб', 'stage 1 спб', 'alientech спб'],
   alternates: { canonical: 'https://hptuning.ru/tuning' },
   openGraph: {
-    title: 'Тюнинг автомобилей в СПб | HP Тюнинг',
-    description: 'Чип-тюнинг Stage 1/2/3 от 24 000 ₽, тормоза, выхлоп, шумка. BMW, Mercedes, Porsche, Audi.',
+    title: 'Тюнинг автомобилей в Санкт-Петербурге | HP Тюнинг',
+    description: 'Чип-тюнинг от 17 000 ₽, тормозной тюнинг Brembo, выхлоп, шумка. Alientech KESSv3.',
     url: 'https://hptuning.ru/tuning',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/tuning.jpg', width: 1200, height: 630, alt: 'Тюнинг автомобилей в Санкт-Петербурге | HP Тюнинг' }],
   },
 };
 

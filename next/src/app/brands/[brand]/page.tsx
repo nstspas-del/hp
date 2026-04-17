@@ -40,6 +40,7 @@ export function generateMetadata({ params }: { params: { brand: string } }): Met
       title: brand.seo?.title ?? `Чип-тюнинг ${brand.name} в СПб`,
       description: brand.seo?.description ?? brand.description,
       url: `https://hptuning.ru/brands/${brand.slug}`,
+      images: [{ url: 'https://hptuning.ru/images/og/chip-tuning.jpg', width: 1200, height: 630, alt: `Чип-тюнинг ${brand.name} в СПб | HP Тюнинг` }],
     },
   };
 }

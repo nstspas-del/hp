@@ -4,9 +4,19 @@ import { Car, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
-  title: 'Ремонт ходовой части BMW, Mercedes, Audi в СПб | HP Тюнинг',
-  description: 'Ремонт ходовой части в Санкт-Петербурге: замена амортизаторов от 5 000 ₽, пружин, рычагов, сайлентблоков, шаровых. BMW, Mercedes, Audi, Porsche. Гарантия.',
+  title: 'Ремонт подвески BMW, Mercedes, Audi в СПб — от 3 500 ₽ | HP Тюнинг',
+  description: 'Ремонт ходовой части в Санкт-Петербурге: замена амортизаторов от 8 000 ₽, сайлентблоков от 3 500 ₽, рычагов, стоек. BMW, Mercedes, Audi, Porsche. Диагностика на стенде.',
+  keywords: ['ремонт подвески бмв спб', 'замена амортизаторов спб', 'ремонт ходовой мерседес спб', 'замена сайлентблоков спб', 'диагностика ходовой спб'],
   alternates: { canonical: 'https://hptuning.ru/service/suspension' },
+  openGraph: {
+    title: 'Ремонт подвески BMW, Mercedes, Audi в СПб | HP Тюнинг',
+    description: 'Амортизаторы от 8 000 ₽, сайлентблоки от 3 500 ₽. Диагностика на стенде. BMW, Mercedes.',
+    url: 'https://hptuning.ru/service/suspension',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/suspension.jpg', width: 1200, height: 630, alt: 'Ремонт подвески BMW, Mercedes, Audi в СПб | HP Тюнинг' }],
+  },
 };
 
 const PRICES = [
@@ -35,9 +45,65 @@ const FAQ = [
   { q: 'Меняете ли вы амортизаторы пневмоподвески?', a: 'Да, работаем с пневмоподвеской BMW, Mercedes, Audi, Range Rover. Диагностика компрессора, клапанов, пневмобаллонов, ресивера.' },
 ];
 
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
+    { '@type': 'ListItem', position: 2, name: 'Автосервис', item: 'https://hptuning.ru/service' },
+    { '@type': 'ListItem', position: 3, name: 'Ремонт подвески', item: 'https://hptuning.ru/service/suspension' }
+  ],
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Ремонт подвески BMW, Mercedes, Audi в Санкт-Петербурге',
+  provider: {
+    '@type': 'AutoRepair',
+    name: 'HP Тюнинг',
+    url: 'https://hptuning.ru',
+    telephone: '+79818428151',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'ул. Богородская, 3Б',
+      addressLocality: 'Санкт-Петербург',
+      addressCountry: 'RU',
+    },
+  },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'RUB',
+    price: '3500',
+    availability: 'https://schema.org/InStock',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Санкт-Петербург',
+  },
+};
+
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
+
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="relative pt-28 pb-16">
         <div className="container">
           <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8">

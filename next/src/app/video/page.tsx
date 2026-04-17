@@ -4,11 +4,28 @@ import { Play, ExternalLink } from 'lucide-react'
 import videosData from '@/data/videos.json'
 
 export const metadata: Metadata = {
-  title: 'Видео — чип-тюнинг и детейлинг в Санкт-Петербурге | HP Тюнинг',
-  description:
-    'Видео с реальными работами HP Тюнинг на Rutube: чип-тюнинг BMW, Mercedes, Porsche, детейлинг, PPF плёнка, полировка. Санкт-Петербург.',
-  keywords: ['видео чип-тюнинг спб', 'рутуб тюнинг', 'видео детейлинг', 'hp тюнинг rutube'],
+  title: 'Видео HP Тюнинг — чип-тюнинг и детейлинг на RuTube | СПб',
+  description: 'Видео с реальными работами HP Тюнинг на RuTube: чип-тюнинг BMW M3, Mercedes AMG, Porsche 911, керамика 9H, PPF, полировка кузова. Смотрите результаты в Санкт-Петербурге.',
+  keywords: ['видео чип тюнинг спб', 'hp тюнинг rutube', 'тюнинг bmw видео спб', 'детейлинг видео петербург'],
   alternates: { canonical: 'https://hptuning.ru/video' },
+  openGraph: {
+    title: 'Видео HP Тюнинг — реальные результаты на RuTube',
+    description: 'Чип-тюнинг BMW M3, Mercedes AMG, Porsche 911, детейлинг, PPF — смотрите видео реальных работ.',
+    url: 'https://hptuning.ru/video',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/video.jpg', width: 1200, height: 630, alt: 'Видео HP Тюнинг' }],
+  },
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
+    { '@type': 'ListItem', position: 2, name: 'Видео', item: 'https://hptuning.ru/video' },
+  ],
 }
 
 const CATS: Record<string, string> = {
@@ -22,6 +39,7 @@ export default function VideoPage() {
 
   return (
     <main className="pb-24">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Breadcrumb */}
       <nav className="bg-bg-elevated border-b border-border">
         <div className="container py-3">

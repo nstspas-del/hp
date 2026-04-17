@@ -4,9 +4,19 @@ import { Settings, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react'
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
-  title: 'Ремонт АКПП и МКПП BMW, Mercedes, Audi в СПб | HP Тюнинг',
-  description: 'Обслуживание и ремонт АКПП, МКПП, DSG, PDK в Санкт-Петербурге от 8 000 ₽. BMW, Mercedes, Audi, Porsche. Замена масла, адаптация, ремонт.',
+  title: 'Ремонт АКПП, DSG, МКПП в СПб — BMW, Mercedes, Audi | HP Тюнинг',
+  description: 'Ремонт коробок передач в Санкт-Петербурге: АКПП, DSG, Tiptronic, МКПП. Замена масла АКПП от 8 000 ₽, ремонт DSG от 35 000 ₽. BMW, Mercedes, Audi, Porsche, VW.',
+  keywords: ['ремонт акпп спб', 'ремонт dsg спб', 'замена масла акпп спб', 'акпп бмв спб', 'ремонт коробки передач петербург'],
   alternates: { canonical: 'https://hptuning.ru/service/transmission' },
+  openGraph: {
+    title: 'Ремонт АКПП и DSG BMW, Mercedes, Audi в СПб | HP Тюнинг',
+    description: 'АКПП, DSG, Tiptronic, МКПП. Замена масла от 8 000 ₽, ремонт DSG от 35 000 ₽.',
+    url: 'https://hptuning.ru/service/transmission',
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/transmission.jpg', width: 1200, height: 630, alt: 'Ремонт АКПП и DSG BMW, Mercedes, Audi в СПб | HP Тюнинг' }],
+  },
 };
 
 const PRICES = [
@@ -35,9 +45,65 @@ const FAQ = [
   { q: 'Ремонтируете ли DSG 7 (сухое сцепление)?', a: 'Да. Диагностируем мехатроник, сцепление, вилки переключения. Стоимость ремонта DSG DQ200 — от 25 000 ₽ в зависимости от неисправности.' },
 ];
 
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
+    { '@type': 'ListItem', position: 2, name: 'Автосервис', item: 'https://hptuning.ru/service' },
+    { '@type': 'ListItem', position: 3, name: 'Ремонт АКПП', item: 'https://hptuning.ru/service/transmission' }
+  ],
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Ремонт АКПП, DSG, МКПП BMW, Mercedes, Audi',
+  provider: {
+    '@type': 'AutoRepair',
+    name: 'HP Тюнинг',
+    url: 'https://hptuning.ru',
+    telephone: '+79818428151',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'ул. Богородская, 3Б',
+      addressLocality: 'Санкт-Петербург',
+      addressCountry: 'RU',
+    },
+  },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'RUB',
+    price: '8000',
+    availability: 'https://schema.org/InStock',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Санкт-Петербург',
+  },
+};
+
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
+
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="relative pt-28 pb-16">
         <div className="container">
           <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8">

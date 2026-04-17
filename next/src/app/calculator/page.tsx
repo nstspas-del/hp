@@ -4,27 +4,18 @@ import Link from 'next/link'
 import calcData from '@/data/calculator.json'
 
 export const metadata: Metadata = {
-  title: 'Калькулятор стоимости чип-тюнинга — HP Тюнинг СПб',
-  description:
-    'Рассчитайте стоимость чип-тюнинга вашего автомобиля онлайн. Цены от 18 300 ₽. BMW, Mercedes, Audi, Porsche, Lexus, Toyota и ещё 25+ марок. Дешевле конкурентов на 500–1 000 ₽.',
-  keywords: [
-    'калькулятор стоимости чип тюнинга',
-    'сколько стоит чип тюнинг',
-    'цена чип тюнинга спб',
-    'чип тюнинг bmw цена',
-    'чип тюнинг mercedes цена',
-    'чип тюнинг audi цена',
-    'стоимость чип тюнинга санкт-петербург',
-    'chip tuning price calculator',
-  ],
+  title: 'Калькулятор чип-тюнинга — рассчитайте цену онлайн | HP Тюнинг СПб',
+  description: 'Калькулятор стоимости чип-тюнинга для BMW, Mercedes, Audi, Porsche и 30+ марок в Санкт-Петербурге. Узнайте прирост мощности и точную цену онлайн за 30 секунд.',
+  keywords: ['калькулятор чип тюнинг спб', 'цена тюнинг онлайн', 'прирост мощности калькулятор', 'стоимость чип тюнинга'],
   alternates: { canonical: 'https://hptuning.ru/calculator' },
   openGraph: {
-    title: 'Калькулятор стоимости чип-тюнинга | HP Тюнинг',
-    description: 'Узнайте цену чип-тюнинга вашего авто за 30 секунд. Онлайн-калькулятор для 30+ марок.',
+    title: 'Калькулятор чип-тюнинга — рассчитайте цену онлайн | HP Тюнинг СПб',
+    description: 'Рассчитайте прирост мощности и стоимость чип-тюнинга для вашего автомобиля онлайн за 30 секунд.',
     url: 'https://hptuning.ru/calculator',
-    siteName: 'HP Тюнинг',
-    locale: 'ru_RU',
     type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [{ url: 'https://hptuning.ru/images/og/chip-tuning.jpg', width: 1200, height: 630, alt: 'Калькулятор чип-тюнинга HP Тюнинг' }],
   },
 }
 

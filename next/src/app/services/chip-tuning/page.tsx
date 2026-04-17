@@ -6,7 +6,13 @@ import services from '@/data/services.json';
 export const metadata: Metadata = {
   title: 'Чип-тюнинг в СПб — Stage 1, 2, 3, DPF/EGR-off | HP Тюнинг',
   description: 'Профессиональный чип-тюнинг Stage 1/2/3 в Санкт-Петербурге. Удаление DPF, EGR, AdBlue. Прошивка ЭБУ BMW, Mercedes, Audi, Porsche. От 25 000 ₽.',
-  alternates: { canonical: 'https://hptuning.ru/services/chip-tuning' },
+  alternates: { canonical: 'https://hptuning.ru/tuning/chip-tuning' },
+  openGraph: {
+    title: 'Чип-тюнинг в СПб — Stage 1, 2, 3, DPF/EGR-off | HP Тюнинг',
+    description: 'Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге. Alientech KESS3. BMW, Mercedes, Audi, Porsche. От 17 000 ₽.',
+    url: 'https://hptuning.ru/tuning/chip-tuning',
+    images: [{ url: 'https://hptuning.ru/images/og/chip-tuning.jpg', width: 1200, height: 630, alt: 'Чип-тюнинг Stage 1/2/3 в СПб | HP Тюнинг' }],
+  },
 };
 
 const cat = services.categories.find((c) => c.slug === 'chip-tuning')!;

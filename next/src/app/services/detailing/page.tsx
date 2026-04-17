@@ -7,7 +7,13 @@ import { DetailingCalculator } from '@/components/ui/DetailingCalculator';
 export const metadata: Metadata = {
   title: 'Детейлинг в СПб — керамика 9H, PPF, химчистка | HP Тюнинг',
   description: 'Детейлинг-услуги в Санкт-Петербурге: керамическое покрытие 9H, полиуретановая плёнка PPF, химчистка салона, полировка, тонировка. Калькулятор стоимости онлайн. От 5 000 ₽.',
-  alternates: { canonical: 'https://hptuning.ru/services/detailing' },
+  alternates: { canonical: 'https://hptuning.ru/detailing' },
+  openGraph: {
+    title: 'Детейлинг в СПб — керамика 9H, PPF, химчистка | HP Тюнинг',
+    description: 'Керамика 9H от 22 000 ₽, PPF от 8 000 ₽, полировка от 10 000 ₽. Gyeon, XPEL, 3M. Гарантия.',
+    url: 'https://hptuning.ru/detailing',
+    images: [{ url: 'https://hptuning.ru/images/og/detailing.jpg', width: 1200, height: 630, alt: 'Детейлинг в СПб — керамика 9H, PPF, полировка | HP Тюнинг' }],
+  },
 };
 
 const cat = services.categories.find((c) => c.slug === 'detailing')!;

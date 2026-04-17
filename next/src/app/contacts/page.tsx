@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: seoData.pages.contacts.title,
     description: seoData.pages.contacts.description,
     url: 'https://hptuning.ru/contacts',
+    images: [{ url: 'https://hptuning.ru/images/og/home.jpg', width: 1200, height: 630, alt: 'Контакты HP Тюнинг — адрес, телефон, как добраться' }],
   },
 };
 

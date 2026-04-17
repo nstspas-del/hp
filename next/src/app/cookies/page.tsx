@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   description: seoData.pages.cookies.description,
   alternates: { canonical: 'https://hptuning.ru/cookies' },
   robots: { index: false, follow: false },
+  openGraph: {
+    title: seoData.pages.cookies.title,
+    description: seoData.pages.cookies.description,
+    url: 'https://hptuning.ru/cookies',
+    images: [{ url: 'https://hptuning.ru/images/og/home.jpg', width: 1200, height: 630, alt: 'HP Тюнинг — политика cookie' }],
+  },
 };
 
 const COOKIE_TABLE = [
