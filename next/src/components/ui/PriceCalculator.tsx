@@ -1,6 +1,6 @@
 'use client';
-import { useState, useMemo } from 'react';
-import { Calculator, ChevronDown, Zap, CheckCircle, ArrowRight } from 'lucide-react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
+import { Calculator, ChevronDown, Zap, CheckCircle, ArrowRight, RefreshCw, ExternalLink } from 'lucide-react';
 import { openBooking } from '@/lib/autodealer';
 import calcData from '@/data/calculator.json';
 
@@ -24,12 +24,22 @@ interface Brand {
   models: Model[];
 }
 
+interface LivePrices {
+  stage1: number | null;
+  stage2: number | null;
+  stage3: number | null;
+  sevenforceUrl: string;
+  loading: boolean;
+  error: boolean;
+}
+
 export function PriceCalculator() {
   const brands = calcData.brands as Brand[];
 
   const [selectedBrand, setSelectedBrand] = useState<string>('');
   const [selectedModel, setSelectedModel] = useState<string>('');
   const [selectedVariant, setSelectedVariant] = useState<string>('');
+  const [livePrices, setLivePrices] = useState<LivePrices | null>(null);
 
   const currentBrand = useMemo(
     () => brands.find((b) => b.slug === selectedBrand) ?? null,
@@ -44,9 +54,30 @@ export function PriceCalculator() {
     [currentModel, selectedVariant]
   );
 
-  const savings = currentVariant
-    ? currentVariant.competitor_price - currentVariant.our_price
-    : 0;
+  // Актуальная цена конкурента с SevenForce
+  const fetchLivePrice = useCallback(async (brand: string, model: string) => {
+    if (!brand || !model) return;
+    setLivePrices({ stage1: null, stage2: null, stage3: null, sevenforceUrl: '', loading: true, error: false });
+    try {
+      const res = await fetch(`/api/sevenforce?brand=${brand}&model=${model}`);
+      if (!res.ok) throw new Error('not found');
+      const data = await res.json();
+      setLivePrices({ ...data.prices, sevenforceUrl: data.sevenforceUrl, loading: false, error: false });
+    } catch {
+      setLivePrices({ stage1: null, stage2: null, stage3: null, sevenforceUrl: '', loading: false, error: true });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (selectedBrand && selectedModel) {
+      fetchLivePrice(selectedBrand, selectedModel);
+    } else {
+      setLivePrices(null);
+    }
+  }, [selectedBrand, selectedModel, fetchLivePrice]);
+
+  const competitorPrice = livePrices?.stage1 ?? currentVariant?.competitor_price ?? 0;
+  const savings = currentVariant ? competitorPrice - currentVariant.our_price : 0;
 
   function handleBrandChange(v: string) {
     setSelectedBrand(v);
@@ -155,10 +186,18 @@ export function PriceCalculator() {
 
                   {/* Конкурент */}
                   <div className="text-right sm:text-right">
-                    <div className="text-text-subtle text-xs uppercase tracking-wider mb-1">Конкуренты (SevenForce)</div>
+                    <div className="flex items-center gap-1 justify-end text-text-subtle text-xs uppercase tracking-wider mb-1">
+                      SevenForce
+                      {livePrices?.loading && <RefreshCw className="size-3 animate-spin" />}
+                      {livePrices?.sevenforceUrl && (
+                        <a href={livePrices.sevenforceUrl} target="_blank" rel="noopener noreferrer" title="Смотреть на SevenForce">
+                          <ExternalLink className="size-3 text-text-subtle hover:text-accent transition-colors" />
+                        </a>
+                      )}
+                    </div>
                     <div className="flex items-baseline gap-1 justify-end">
                       <span className="text-text-muted text-xl line-through opacity-60">
-                        {currentVariant.competitor_price.toLocaleString('ru-RU')}
+                        {competitorPrice > 0 ? competitorPrice.toLocaleString('ru-RU') : '—'}
                       </span>
                       <span className="text-text-subtle text-sm">₽</span>
                     </div>
@@ -166,6 +205,9 @@ export function PriceCalculator() {
                       <div className="text-accent text-sm font-semibold mt-0.5">
                         −{savings.toLocaleString('ru-RU')} ₽ дешевле!
                       </div>
+                    )}
+                    {livePrices?.error && (
+                      <div className="text-text-subtle text-xs mt-0.5">цена из кеша</div>
                     )}
                   </div>
                 </div>

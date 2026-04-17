@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
-import { ServicesSection } from '@/components/sections/ServicesSection';
+import { ShowcaseSection } from '@/components/ShowcaseSection';
 import { BrandsSection } from '@/components/sections/BrandsSection';
 import { WorksPreview } from '@/components/sections/WorksPreview';
 import { FaqSection } from '@/components/sections/FaqSection';
@@ -75,8 +75,8 @@ export default function HomePage() {
       {/* Герой с BMW X7 */}
       <Hero />
 
-      {/* Услуги */}
-      <ServicesSection />
+      {/* Что мы делаем — табы без картинок */}
+      <ShowcaseSection />
 
       {/* Бренды */}
       <BrandsSection />
