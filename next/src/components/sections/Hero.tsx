@@ -76,7 +76,7 @@ export function Hero() {
             {[
               { value: '9+', label: 'лет на рынке' },
               { value: '500+', label: 'авто обслужено' },
-              { value: '13', label: 'марок в сервисе' },
+              { value: '1 год', label: 'гарантия' },
               { value: '10:00–20:00', label: 'ежедневно' },
             ].map((s) => (
               <div key={s.label}>

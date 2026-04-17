@@ -10,7 +10,7 @@ import { ReviewsSection } from '@/components/sections/ReviewsSection';
 import { VideoSection } from '@/components/sections/VideoSection';
 import { ShowcaseSection } from '@/components/ShowcaseSection';
 import seoData from '@/data/seo.json';
-import { Zap, Sparkles, ArrowRight } from 'lucide-react';
+import { Zap, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'HP Тюнинг — чип-тюнинг, детейлинг и автосервис в СПб',
@@ -84,36 +84,36 @@ export default function HomePage() {
       {/* Услуги */}
       <ServicesSection />
 
-      {/* Тизер-блок: два калькулятора */}
+      {/* Тизер-блок: калькулятор чип-тюнинга */}
       <section className="section bg-background-alt">
         <div className="container">
           <div className="text-center mb-10">
-            <h2 className="heading-2 mb-3">Узнайте стоимость онлайн</h2>
+            <h2 className="heading-2 mb-3">Рассчитайте стоимость онлайн</h2>
             <p className="text-text-muted text-base max-w-lg mx-auto">
-              Два интерактивных калькулятора — рассчитайте тюнинг или детейлинг за 30 секунд
+              Выберите марку и модель — узнайте прирост мощности и цену прошивки за 30 секунд
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="max-w-2xl mx-auto">
             {/* Чип-тюнинг калькулятор */}
-            <div className="card border border-[#39FF14]/20 hover:border-[#39FF14]/50 transition-all group p-6 flex flex-col">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-xl bg-[#39FF14]/10 flex items-center justify-center">
-                  <Zap className="size-5 text-[#39FF14]" />
+            <div className="card border border-[#39FF14]/20 hover:border-[#39FF14]/50 transition-all group p-8 flex flex-col">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-12 h-12 rounded-xl bg-[#39FF14]/10 flex items-center justify-center">
+                  <Zap className="size-6 text-[#39FF14]" />
                 </div>
                 <div>
-                  <div className="font-semibold text-text">Чип-тюнинг</div>
-                  <div className="text-xs text-text-subtle">Stage 1 от 17 000 ₽</div>
+                  <div className="font-display text-xl text-text tracking-wide">Калькулятор чип-тюнинга</div>
+                  <div className="text-xs text-text-subtle">Stage 1 от 17 000 ₽ · Alientech KESSv3</div>
                 </div>
               </div>
 
-              <p className="text-text-muted text-sm leading-relaxed mb-4 flex-1">
-                Выберите марку, модель и двигатель — калькулятор покажет прирост мощности,
-                момента и точную стоимость прошивки.
+              <p className="text-text-muted text-sm leading-relaxed mb-5">
+                Выберите марку, модель и двигатель — калькулятор покажет реальный прирост мощности,
+                крутящего момента и точную стоимость прошивки для вашего автомобиля.
               </p>
 
-              <div className="flex flex-wrap gap-2 mb-5">
-                {['BMW', 'Mercedes', 'Audi', 'Porsche', '+ 9 марок'].map((b) => (
+              <div className="flex flex-wrap gap-2 mb-6">
+                {['BMW', 'Mercedes', 'Audi', 'Porsche', 'Land Rover', 'Lexus', '+ 7 марок'].map((b) => (
                   <span key={b} className="text-xs px-2.5 py-1 rounded-full bg-surface border border-border text-text-muted">
                     {b}
                   </span>
@@ -122,44 +122,10 @@ export default function HomePage() {
 
               <Link
                 href="/tuning/chip-tuning#chip-calculator"
-                className="btn-primary w-full justify-center gap-2 group-hover:shadow-[0_0_20px_rgba(57,255,20,0.3)]"
+                className="btn-primary w-full justify-center gap-2 group-hover:shadow-[0_0_20px_rgba(57,255,20,0.3)] py-4 text-base"
               >
-                Открыть калькулятор тюнинга
-                <ArrowRight className="size-4" />
-              </Link>
-            </div>
-
-            {/* Детейлинг калькулятор */}
-            <div className="card border border-amber-500/20 hover:border-amber-500/50 transition-all group p-6 flex flex-col">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-xl bg-amber-500/10 flex items-center justify-center">
-                  <Sparkles className="size-5 text-amber-400" />
-                </div>
-                <div>
-                  <div className="font-semibold text-text">Детейлинг</div>
-                  <div className="text-xs text-text-subtle">Услуги от 3 500 ₽</div>
-                </div>
-              </div>
-
-              <p className="text-text-muted text-sm leading-relaxed mb-4 flex-1">
-                Выберите класс автомобиля и нужные услуги — химчистка, полировка, керамика, PPF,
-                тонировка. Итог с учётом вашего авто.
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-5">
-                {['Химчистка', 'Керамика 9H', 'PPF XPEL', 'Полировка', 'Тонировка'].map((s) => (
-                  <span key={s} className="text-xs px-2.5 py-1 rounded-full bg-surface border border-border text-text-muted">
-                    {s}
-                  </span>
-                ))}
-              </div>
-
-              <Link
-                href="/detailing#detailing-calculator"
-                className="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-xl font-semibold text-sm transition-all bg-amber-500 hover:bg-amber-400 text-background group-hover:shadow-[0_0_20px_rgba(245,158,11,0.3)]"
-              >
-                Открыть калькулятор детейлинга
-                <ArrowRight className="size-4" />
+                Открыть калькулятор
+                <ArrowRight className="size-5" />
               </Link>
             </div>
           </div>

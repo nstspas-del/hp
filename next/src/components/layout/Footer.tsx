@@ -113,13 +113,30 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-border mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-text-subtle">
-          <p>© {year} {company.name}. Все права защищены.</p>
-          <p>{company.legalNameShort} · ИНН {company.inn} · ОГРНИП {company.ogrnip}</p>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-text-muted transition-colors">Конфиденциальность</Link>
-            <Link href="/cookies" className="hover:text-text-muted transition-colors">Cookie</Link>
-            <Link href="/offer" className="hover:text-text-muted transition-colors">Оферта</Link>
+        <div className="border-t border-border mt-10 pt-6 flex flex-col gap-3 text-xs text-text-subtle">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© {year} {company.name}. Все права защищены.</p>
+            <p>{company.legalNameShort} · ИНН {company.inn} · ОГРНИП {company.ogrnip}</p>
+            <div className="flex gap-4">
+              <Link href="/privacy" className="hover:text-text-muted transition-colors">Конфиденциальность</Link>
+              <Link href="/cookies" className="hover:text-text-muted transition-colors">Cookie</Link>
+              <Link href="/offer" className="hover:text-text-muted transition-colors">Оферта</Link>
+            </div>
+          </div>
+          {/* Разработка сайта — как у КатАвто */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-2 pt-2 border-t border-border/40">
+            <p className="text-text-subtle/60">
+              По вопросам разработки сайта:{' '}
+              <a
+                href="mailto:hptuningspb@yandex.ru"
+                className="hover:text-accent transition-colors"
+              >
+                hptuningspb@yandex.ru
+              </a>
+            </p>
+            <p className="text-text-subtle/40 text-[10px]">
+              Сайт разработан под ключ для автосервиса HP Тюнинг · СПб, 2025
+            </p>
           </div>
         </div>
       </div>

@@ -2,14 +2,13 @@
 import { motion } from 'framer-motion';
 import { Play, ExternalLink } from 'lucide-react';
 
-// Список видео — добавляй сюда свои RuTube ID
+// Список видео — добавляй RuTube ID из своего канала на rutube.ru
+// Пример: https://rutube.ru/video/abc123def456/ → rutube_id: 'abc123def456'
+// ⚠️  YouTube в России заблокирован — используем только RuTube
 const videos = [
   {
     id: 'v-1',
-    // Замени rutube_id на реальные ID из твоего канала
-    // Пример: https://rutube.ru/video/abc123def/ → rutube_id: 'abc123def'
-    rutube_id: null,
-    youtube_id: null,
+    rutube_id: null, // TODO: вставить реальный ID с rutube.ru
     title: 'Чип-тюнинг BMW 340i — Stage 1: +58 л.с. и +85 Нм',
     description: 'Полный процесс чип-тюнинга BMW 340i F30 в Stage 1. До и после на стенде.',
     thumbnail: '/images/works/bmw-chip.jpg',
@@ -18,7 +17,6 @@ const videos = [
   {
     id: 'v-2',
     rutube_id: null,
-    youtube_id: null,
     title: 'Керамика 9H на Porsche Cayenne — детейлинг от HP Тюнинг',
     description: 'Нанесение керамического покрытия в 2 слоя. Полный процесс детейлинга.',
     thumbnail: '/images/works/porsche-detailing.jpg',
@@ -27,7 +25,6 @@ const videos = [
   {
     id: 'v-3',
     rutube_id: null,
-    youtube_id: null,
     title: 'PPF плёнка на Land Rover Discovery — установка полного переда',
     description: 'Монтаж антигравийной PPF плёнки на капот, крылья, бампер, фары.',
     thumbnail: '/images/works/ppf-lr.jpg',
@@ -36,10 +33,9 @@ const videos = [
 ];
 
 function VideoCard({ video }: { video: typeof videos[0] }) {
+  // Только RuTube — YouTube заблокирован в России
   const embedUrl = video.rutube_id
     ? `https://rutube.ru/play/embed/${video.rutube_id}/`
-    : video.youtube_id
-    ? `https://www.youtube.com/embed/${video.youtube_id}`
     : null;
 
   return (

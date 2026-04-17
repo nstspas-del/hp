@@ -3,6 +3,12 @@ const nextConfig = {
   // Увеличенный таймаут статической генерации (секунды)
   staticPageGenerationTimeout: 180,
 
+  // Убираем X-Powered-By заголовок (безопасность + скорость)
+  poweredByHeader: false,
+
+  // Gzip-сжатие (помогает PageSpeed)
+  compress: true,
+
   // Строгий TypeScript-режим
   typescript: {
     ignoreBuildErrors: false,
@@ -90,12 +96,15 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://mc.yandex.ru https://online.autodealer.ru",
-              "style-src 'self' 'unsafe-inline'",
-              "img-src 'self' data: blob: https://mc.yandex.ru https://hptuning.ru",
-              "font-src 'self'",
-              "connect-src 'self' https://mc.yandex.ru https://online.autodealer.ru",
-              "frame-src 'self' https://yandex.ru https://online.autodealer.ru",
+              // Российские сервисы: Яндекс Метрика, Яндекс Карты, Autodealer, RuTube
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://mc.yandex.ru https://online.autodealer.ru https://api-maps.yandex.ru https://yandex.ru",
+              "style-src 'self' 'unsafe-inline' https://api-maps.yandex.ru",
+              "img-src 'self' data: blob: https://mc.yandex.ru https://hptuning.ru https://api-maps.yandex.ru https://yandex.ru https://avatars.mds.yandex.net",
+              // Шрифты self-hosted через next/font (Inter, Oswald кешируются локально)
+              "font-src 'self' data:",
+              "connect-src 'self' https://mc.yandex.ru https://online.autodealer.ru https://api-maps.yandex.ru https://yandex.ru https://api.business.yandex.net",
+              // RuTube вместо YouTube (YouTube заблокирован в РФ)
+              "frame-src 'self' https://yandex.ru https://online.autodealer.ru https://rutube.ru",
               "object-src 'none'",
               "base-uri 'self'",
             ].join('; '),
