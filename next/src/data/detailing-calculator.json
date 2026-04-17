@@ -1,0 +1,203 @@
+{
+  "_comment": "Калькулятор детейлинга HP Тюнинг. По аналогу platinum-garage.ru. Обновлено: 2026-04-17",
+  "carClasses": [
+    { "id": "sedan-s", "label": "Седан / Хэтчбек S", "desc": "до 4.5м", "examples": "VW Golf, Kia Rio, Mazda 3" },
+    { "id": "sedan-m", "label": "Седан / Купе M", "desc": "4.5–4.9м", "examples": "BMW 3, Mercedes C, Audi A4" },
+    { "id": "sedan-l", "label": "Бизнес-класс L", "desc": "4.9–5.1м", "examples": "BMW 5, Mercedes E, Audi A6" },
+    { "id": "suv-m",   "label": "Кроссовер / SUV M", "desc": "до 4.8м", "examples": "BMW X3, VW Tiguan, Mazda CX-5" },
+    { "id": "suv-l",   "label": "Кроссовер / SUV L", "desc": "от 4.8м", "examples": "BMW X5, Mercedes GLE, Porsche Cayenne" },
+    { "id": "minivan", "label": "Минивэн / Внедорожник", "desc": "большой", "examples": "BMW X7, Land Rover, Lexus LX" }
+  ],
+  "services": [
+    {
+      "id": "polishing",
+      "name": "Полировка кузова",
+      "icon": "sparkles",
+      "desc": "Удаление царапин, голограмм, восстановление блеска",
+      "packages": [
+        {
+          "id": "polish-1",
+          "name": "Лёгкая полировка",
+          "desc": "1 стадия — удаление лёгких потёртостей, голограмм",
+          "duration": "1 день",
+          "prices": {
+            "sedan-s": 12000, "sedan-m": 15000, "sedan-l": 18000,
+            "suv-m": 18000, "suv-l": 22000, "minivan": 26000
+          }
+        },
+        {
+          "id": "polish-2",
+          "name": "Полная полировка",
+          "desc": "2 стадии — удаление царапин до 3 мкм, восстановление ЛКП",
+          "duration": "2 дня",
+          "prices": {
+            "sedan-s": 22000, "sedan-m": 28000, "sedan-l": 34000,
+            "suv-m": 32000, "suv-l": 42000, "minivan": 52000
+          }
+        },
+        {
+          "id": "polish-3",
+          "name": "Полировка 3 стадии",
+          "desc": "Корректировка глубоких царапин, подготовка под керамику",
+          "duration": "3 дня",
+          "prices": {
+            "sedan-s": 35000, "sedan-m": 45000, "sedan-l": 55000,
+            "suv-m": 50000, "suv-l": 65000, "minivan": 80000
+          }
+        }
+      ]
+    },
+    {
+      "id": "ceramic",
+      "name": "Керамическое покрытие",
+      "icon": "shield",
+      "desc": "Защита ЛКП 9H, гидрофобный эффект, срок 3–5 лет",
+      "packages": [
+        {
+          "id": "ceramic-base",
+          "name": "Керамика Base",
+          "desc": "1 слой — защита от воды, грязи, УФ. Срок 1–2 года",
+          "duration": "2 дня",
+          "prices": {
+            "sedan-s": 25000, "sedan-m": 32000, "sedan-l": 38000,
+            "suv-m": 35000, "suv-l": 45000, "minivan": 55000
+          }
+        },
+        {
+          "id": "ceramic-pro",
+          "name": "Керамика Pro",
+          "desc": "2 слоя + грунтовочный слой. Срок 3 года. Полировка включена",
+          "duration": "3 дня",
+          "prices": {
+            "sedan-s": 45000, "sedan-m": 55000, "sedan-l": 65000,
+            "suv-m": 60000, "suv-l": 75000, "minivan": 90000
+          }
+        },
+        {
+          "id": "ceramic-elite",
+          "name": "Керамика Elite",
+          "desc": "3 слоя японской керамики 9H + полировка 2 стадии. Срок 5 лет",
+          "duration": "4–5 дней",
+          "prices": {
+            "sedan-s": 70000, "sedan-m": 85000, "sedan-l": 100000,
+            "suv-m": 90000, "suv-l": 115000, "minivan": 140000
+          }
+        }
+      ]
+    },
+    {
+      "id": "ppf",
+      "name": "PPF плёнка",
+      "icon": "layers",
+      "desc": "Антигравийная бронеплёнка — защита от камней и сколов",
+      "packages": [
+        {
+          "id": "ppf-hood",
+          "name": "Капот + Зоны риска",
+          "desc": "Капот, передние крылья, зеркала, пороги",
+          "duration": "1–2 дня",
+          "prices": {
+            "sedan-s": 25000, "sedan-m": 30000, "sedan-l": 35000,
+            "suv-m": 32000, "suv-l": 40000, "minivan": 50000
+          }
+        },
+        {
+          "id": "ppf-front",
+          "name": "Полный перёд",
+          "desc": "Капот полностью, бамперы, крылья, зеркала, фары",
+          "duration": "2–3 дня",
+          "prices": {
+            "sedan-s": 55000, "sedan-m": 65000, "sedan-l": 80000,
+            "suv-m": 70000, "suv-l": 90000, "minivan": 115000
+          }
+        },
+        {
+          "id": "ppf-full",
+          "name": "Полная оклейка",
+          "desc": "Весь кузов — максимальная защита ЛКП",
+          "duration": "5–7 дней",
+          "prices": {
+            "sedan-s": 130000, "sedan-m": 160000, "sedan-l": 190000,
+            "suv-m": 170000, "suv-l": 220000, "minivan": 280000
+          }
+        }
+      ]
+    },
+    {
+      "id": "cleaning",
+      "name": "Химчистка салона",
+      "icon": "sparkles",
+      "desc": "Глубокая очистка всех поверхностей салона",
+      "packages": [
+        {
+          "id": "clean-dry",
+          "name": "Сухая химчистка",
+          "desc": "Пылесос + обработка сухим паром, без замачивания",
+          "duration": "4–6 часов",
+          "prices": {
+            "sedan-s": 6000, "sedan-m": 8000, "sedan-l": 10000,
+            "suv-m": 9000, "suv-l": 12000, "minivan": 15000
+          }
+        },
+        {
+          "id": "clean-full",
+          "name": "Полная химчистка",
+          "desc": "Замачивание, экстракция, обработка кожи, потолок, ковры",
+          "duration": "1 день",
+          "prices": {
+            "sedan-s": 12000, "sedan-m": 15000, "sedan-l": 18000,
+            "suv-m": 17000, "suv-l": 22000, "minivan": 28000
+          }
+        },
+        {
+          "id": "clean-premium",
+          "name": "Детейлинг салона Premium",
+          "desc": "Полная химчистка + кондиционирование кожи + ароматизация + защита пластика",
+          "duration": "1–2 дня",
+          "prices": {
+            "sedan-s": 20000, "sedan-m": 25000, "sedan-l": 30000,
+            "suv-m": 28000, "suv-l": 36000, "minivan": 45000
+          }
+        }
+      ]
+    },
+    {
+      "id": "tinting",
+      "name": "Тонировка стёкол",
+      "icon": "eye-off",
+      "desc": "Тонировочная плёнка — защита от УФ и перегрева",
+      "packages": [
+        {
+          "id": "tint-rear",
+          "name": "Задние стёкла",
+          "desc": "Боковые задние + заднее стекло (3–4 стекла)",
+          "duration": "3–4 часа",
+          "prices": {
+            "sedan-s": 5000, "sedan-m": 6000, "sedan-l": 7000,
+            "suv-m": 7000, "suv-l": 9000, "minivan": 11000
+          }
+        },
+        {
+          "id": "tint-all",
+          "name": "Все стёкла",
+          "desc": "Все боковые + заднее (передние — атермальная плёнка)",
+          "duration": "1 день",
+          "prices": {
+            "sedan-s": 10000, "sedan-m": 12000, "sedan-l": 14000,
+            "suv-m": 14000, "suv-l": 18000, "minivan": 22000
+          }
+        },
+        {
+          "id": "tint-panorama",
+          "name": "Панорама + все стёкла",
+          "desc": "Всё включая панорамную крышу",
+          "duration": "1 день",
+          "prices": {
+            "sedan-s": 14000, "sedan-m": 17000, "sedan-l": 20000,
+            "suv-m": 20000, "suv-l": 26000, "minivan": 32000
+          }
+        }
+      ]
+    }
+  ]
+}

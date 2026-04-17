@@ -5,8 +5,8 @@ import { BrandsSection } from '@/components/sections/BrandsSection';
 import { FaqSection } from '@/components/sections/FaqSection';
 import { CtaSection } from '@/components/sections/CtaSection';
 import { PriceCalculator } from '@/components/ui/PriceCalculator';
+import { DetailingCalculator } from '@/components/ui/DetailingCalculator';
 import seoData from '@/data/seo.json';
-import company from '@/data/company.json';
 
 export const metadata: Metadata = {
   title: seoData.pages.home.title,
@@ -39,6 +39,7 @@ export default function HomePage() {
       <Hero />
       <ServicesSection />
       <PriceCalculator />
+      <DetailingCalculator />
       <BrandsSection />
       <FaqSection />
       <CtaSection />
