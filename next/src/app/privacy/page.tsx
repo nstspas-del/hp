@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import seoData from '@/data/seo.json';
 import company from '@/data/company.json';
@@ -20,11 +21,7 @@ export default function PrivacyPage() {
   return (
     <div className="section container max-w-4xl">
       {/* Breadcrumb */}
-      <nav className="text-sm text-text-subtle mb-8" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-        <span className="mx-2">→</span>
-        <span className="text-text-muted">Политика конфиденциальности</span>
-      </nav>
+      <Breadcrumbs items={[{ label: "Политика конфиденциальности" }]} />
 
       <h1 className="section-title mb-4">Политика конфиденциальности</h1>
       <p className="text-text-subtle text-sm mb-10">

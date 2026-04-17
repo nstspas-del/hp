@@ -5,11 +5,11 @@ import services from '@/data/services.json';
 
 export const metadata: Metadata = {
   title: 'Чип-тюнинг в СПб — Stage 1, 2, 3, DPF/EGR-off | HP Тюнинг',
-  description: 'Профессиональный чип-тюнинг Stage 1/2/3 в Санкт-Петербурге. Удаление DPF, EGR, AdBlue. Прошивка ЭБУ BMW, Mercedes, Audi, Porsche. От 25 000 ₽.',
+  description: 'Профессиональный чип-тюнинг Stage 1/2/3 в Санкт-Петербурге. Удаление DPF, EGR, AdBlue. Прошивка ЭБУ BMW, Mercedes, Audi, Porsche, Land Rover. От 25 000 ₽.',
   alternates: { canonical: 'https://hptuning.ru/tuning/chip-tuning' },
   openGraph: {
     title: 'Чип-тюнинг в СПб — Stage 1, 2, 3, DPF/EGR-off | HP Тюнинг',
-    description: 'Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге. Alientech KESS3. BMW, Mercedes, Audi, Porsche. От 17 000 ₽.',
+    description: 'Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге. Alientech KESS3. BMW, Mercedes, Audi, Porsche, Land Rover. От 17 000 ₽.',
     url: 'https://hptuning.ru/tuning/chip-tuning',
     images: [{ url: 'https://hptuning.ru/images/og/chip-tuning.jpg', width: 1200, height: 630, alt: 'Чип-тюнинг Stage 1/2/3 в СПб | HP Тюнинг' }],
   },
@@ -39,7 +39,7 @@ export default function ChipTuningPage() {
       </div>
       <p className="section-subtitle mb-12">
         Профессиональная перепрошивка ЭБУ для роста мощности, тяги и снижения расхода топлива.
-        BMW, Mercedes, Audi, Porsche и ещё 9 марок. Гарантия 1 год.
+        BMW, Mercedes, Audi, Porsche, Land Rover и ещё 9 марок. Гарантия 1 год.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">

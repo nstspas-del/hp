@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Cpu, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
   title: 'Компьютерная диагностика авто в СПб — от 1 500 ₽ | HP Тюнинг',
-  description: 'Компьютерная диагностика BMW, Mercedes, Audi, Porsche в СПб от 1 500 ₽. AUTEL MaxiSYS MS906, дилерское ПО. Расшифровка ошибок ЭБУ, диагностика всех систем автомобиля. Без записи.',
+  description: 'Компьютерная диагностика BMW, Mercedes, Audi, Porsche, Land Rover в СПб от 1 500 ₽. AUTEL MaxiSYS MS906, дилерское ПО. Расшифровка ошибок ЭБУ, диагностика всех систем автомобиля. Без записи.',
   keywords: ['компьютерная диагностика авто спб', 'диагностика бмв спб', 'диагностика мерседес спб', 'autel maxisys спб', 'ошибки эбу спб'],
   alternates: { canonical: 'https://hptuning.ru/service/diagnostics' },
   openGraph: {
     title: 'Диагностика авто от 1 500 ₽ в СПб | HP Тюнинг',
-    description: 'AUTEL MaxiSYS: полная диагностика BMW, Mercedes, Audi, Porsche. Расшифровка ошибок ЭБУ.',
+    description: 'AUTEL MaxiSYS: полная диагностика BMW, Mercedes, Audi, Porsche, Land Rover. Расшифровка ошибок ЭБУ.',
     url: 'https://hptuning.ru/service/diagnostics',
     type: 'website',
     locale: 'ru_RU',
@@ -52,16 +53,6 @@ const FAQ = [
   { q: 'Можно ли просто считать ошибки и уехать?', a: 'Да. Считываем ошибки, выдаём распечатку с расшифровкой и рекомендациями. Никакого принудительного ремонта — только ваше решение.' },
 ];
 
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'Автосервис', item: 'https://hptuning.ru/service' },
-    { '@type': 'ListItem', position: 3, name: 'Диагностика', item: 'https://hptuning.ru/service/diagnostics' }
-  ],
-};
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -108,18 +99,12 @@ const faqSchema = {
 export default function DiagnosticsPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="relative pt-28 pb-16">
         <div className="container">
-          <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8">
-            <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-            <ChevronRight className="size-4" />
-            <Link href="/service" className="hover:text-accent transition-colors">Автосервис</Link>
-            <ChevronRight className="size-4" />
-            <span className="text-text-muted">Диагностика</span>
-          </nav>
+          
+      <Breadcrumbs items={[{ label: "Автосервис", href: "/service" }, { label: "Диагностика" }]} />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2">

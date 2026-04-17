@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { MapPin, ArrowRight, Clock, Car } from 'lucide-react';
 import districts from '@/data/districts.json';
@@ -19,26 +20,12 @@ export const metadata: Metadata = {
   },
 };
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'Районы СПб', item: 'https://hptuning.ru/locations' },
-  ],
-};
-
 export default function LocationsPage() {
   const sorted = [...districts].sort((a, b) => (a.distanceKm ?? 99) - (b.distanceKm ?? 99));
 
   return (
     <div className="section container">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <nav className="text-sm text-text-subtle mb-8">
-        <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-        <span className="mx-2">→</span>
-        <span className="text-text-muted">Районы СПб</span>
-      </nav>
+<Breadcrumbs items={[{ label: "Районы доставки" }]} />
 
       <span className="badge mb-4">Все районы Санкт-Петербурга</span>
       <h1 className="section-title mb-4">ДОБЕРЁМСЯ ИЗ ЛЮБОГО РАЙОНА</h1>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { CheckCircle, Award, Users, Wrench } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
@@ -20,22 +21,13 @@ export const metadata: Metadata = {
   },
 };
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'О компании', item: 'https://hptuning.ru/about' },
-  ],
-};
-
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'AutoRepair',
   '@id': 'https://hptuning.ru/#org',
   name: 'HP Тюнинг',
   foundingDate: '2015',
-  description: 'Тюнинг-ателье в Порошкино (СПб): чип-тюнинг Stage 1/2/3, детейлинг и автосервис для BMW, Mercedes, Audi, Porsche',
+  description: 'Тюнинг-ателье в Порошкино (СПб): чип-тюнинг Stage 1/2/3, детейлинг и автосервис для BMW, Mercedes, Audi, Porsche, Land Rover',
   url: 'https://hptuning.ru',
   logo: 'https://hptuning.ru/images/logo.svg',
   telephone: '+79818428151',
@@ -52,21 +44,17 @@ const organizationSchema = {
 export default function AboutPage() {
   return (
     <div className="section container">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
 
-      <nav className="text-sm text-text-subtle mb-8">
-        <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-        <span className="mx-2">→</span>
-        <span className="text-text-muted">О компании</span>
-      </nav>
+      
+      <Breadcrumbs items={[{ label: "О компании" }]} />
 
       {/* Hero */}
       <span className="badge mb-4">С 2015 года в СПб</span>
       <h1 className="section-title mb-4">О НАС</h1>
       <p className="section-subtitle mb-14">
         HP Тюнинг — тюнинг-ателье в Порошкино. Чип-тюнинг Stage 1/2/3,
-        детейлинг и автосервис для владельцев BMW, Mercedes, Audi, Porsche и ещё 9 марок.
+        детейлинг и автосервис для владельцев BMW, Mercedes, Audi, Porsche, Land Rover и ещё 9 марок.
       </p>
 
       {/* Статистика */}
@@ -112,7 +100,7 @@ export default function AboutPage() {
           <h2 className="font-display text-3xl text-text uppercase tracking-wider mb-6">ПОЧЕМУ МЫ</h2>
           <ul className="flex flex-col gap-4">
             {[
-              { title: 'Специализация на премиум', desc: 'Работаем только с BMW, Mercedes, Audi, Porsche и ещё 9 брендами. Не берём что попало.' },
+              { title: 'Специализация на премиум', desc: 'Работаем только с BMW, Mercedes, Audi, Porsche, Land Rover и ещё 9 брендами. Не берём что попало.' },
               { title: 'Оригинальное оборудование', desc: 'Диагностика на официальном дилерском оборудовании. Читаем ЭБУ так же, как читает дилер.' },
               { title: 'Гарантия и откат', desc: 'Гарантия 1 год на прошивку. Оригинальная прошивка сохраняется — откат бесплатно.' },
               { title: 'Честная цена', desc: 'Называем финальную цену сразу. Без скрытых доплат за работу или расходники.' },

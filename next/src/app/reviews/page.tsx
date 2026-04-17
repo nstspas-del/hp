@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Star, CheckCircle } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
   title: 'Отзывы о HP Тюнинг СПб — реальные клиенты, Яндекс и 2ГИС',
-  description: 'Отзывы клиентов HP Тюнинг: чип-тюнинг BMW, Mercedes, Audi, Porsche и детейлинг. Средняя оценка 5.0 из 5. Яндекс.Карты, 2ГИС. Более 200 отзывов.',
+  description: 'Отзывы клиентов HP Тюнинг: чип-тюнинг BMW, Mercedes, Audi, Porsche, Land Rover и детейлинг. Средняя оценка 5.0 из 5. Яндекс.Карты, 2ГИС. Более 200 отзывов.',
   keywords: ['отзывы hp тюнинг спб', 'отзывы чип тюнинг петербург', 'hp тюнинг оценки'],
   alternates: { canonical: 'https://hptuning.ru/reviews' },
   openGraph: {
     title: 'Отзывы о HP Тюнинг СПб — 5.0★ на Яндексе',
-    description: 'Отзывы клиентов HP Тюнинг: чип-тюнинг BMW, Mercedes, Audi, Porsche и детейлинг. Средняя оценка 5.0 из 5. Яндекс.Карты, 2ГИС. Более 200 отзывов.',
+    description: 'Отзывы клиентов HP Тюнинг: чип-тюнинг BMW, Mercedes, Audi, Porsche, Land Rover и детейлинг. Средняя оценка 5.0 из 5. Яндекс.Карты, 2ГИС. Более 200 отзывов.',
     url: 'https://hptuning.ru/reviews',
     type: 'website',
     locale: 'ru_RU',
@@ -48,27 +49,13 @@ const schemaReviews = {
   })),
 };
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'Отзывы', item: 'https://hptuning.ru/reviews' },
-  ],
-};
-
 export default function ReviewsPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaReviews) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-
-      <div className="section container">
-        <nav className="text-sm text-text-subtle mb-8">
-          <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-          <span className="mx-2">→</span>
-          <span className="text-text-muted">Отзывы</span>
-        </nav>
+<div className="section container">
+        
+      <Breadcrumbs items={[{ label: "Отзывы" }]} />
 
         <span className="badge mb-4">4.9 / 5 — средняя оценка</span>
         <h1 className="section-title mb-4">ОТЗЫВЫ КЛИЕНТОВ</h1>

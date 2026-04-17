@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Calendar, Clock, Tag } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Блог HP Тюнинг — статьи о чип-тюнинге и детейлинге | СПб',
-  description: 'Экспертный блог HP Тюнинг: чип-тюнинг Stage 1/2/3 BMW, Mercedes, Audi, Porsche — сравнения, реальные результаты. Детейлинг, керамика, PPF. Советы по уходу за авто.',
+  description: 'Экспертный блог HP Тюнинг: чип-тюнинг Stage 1/2/3 BMW, Mercedes, Audi, Porsche, Land Rover — сравнения, реальные результаты. Детейлинг, керамика, PPF. Советы по уходу за авто.',
   keywords: ['блог чип тюнинг спб', 'статьи про тюнинг', 'stage 1 vs stage 2', 'детейлинг советы'],
   alternates: { canonical: 'https://hptuning.ru/blog' },
   openGraph: {
     title: 'Блог HP Тюнинг — эксперты о тюнинге и детейлинге',
-    description: 'Экспертный блог HP Тюнинг: чип-тюнинг Stage 1/2/3 BMW, Mercedes, Audi, Porsche — сравнения, реальные результаты. Детейлинг, керамика, PPF. Советы по у',
+    description: 'Экспертный блог HP Тюнинг: чип-тюнинг Stage 1/2/3 BMW, Mercedes, Audi, Porsche, Land Rover — сравнения, реальные результаты. Детейлинг, керамика, PPF. Советы по у',
     url: 'https://hptuning.ru/blog',
     type: 'website',
     locale: 'ru_RU',
@@ -93,24 +94,10 @@ const CATEGORY_COLORS: Record<string, string> = {
   'Бренды': 'text-orange-400',
 };
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'Блог', item: 'https://hptuning.ru/blog' },
-  ],
-};
-
 export default function BlogPage() {
   return (
     <div className="section container">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <nav className="text-sm text-text-subtle mb-8">
-        <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-        <span className="mx-2">→</span>
-        <span className="text-text-muted">Блог</span>
-      </nav>
+<Breadcrumbs items={[{ label: "Блог" }]} />
 
       <span className="badge mb-4">Экспертный блог</span>
       <h1 className="section-title mb-4">БЛОГ HP ТЮНИНГ</h1>

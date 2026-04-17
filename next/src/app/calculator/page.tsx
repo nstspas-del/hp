@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { PriceCalculator } from '@/components/ui/PriceCalculator'
 import Link from 'next/link'
 import calcData from '@/data/calculator.json'
 
 export const metadata: Metadata = {
   title: 'Калькулятор чип-тюнинга — рассчитайте цену онлайн | HP Тюнинг СПб',
-  description: 'Калькулятор стоимости чип-тюнинга для BMW, Mercedes, Audi, Porsche и 30+ марок в Санкт-Петербурге. Узнайте прирост мощности и точную цену онлайн за 30 секунд.',
+  description: 'Калькулятор стоимости чип-тюнинга для BMW, Mercedes, Audi, Porsche, Land Rover и 30+ марок в Санкт-Петербурге. Узнайте прирост мощности и точную цену онлайн за 30 секунд.',
   keywords: ['калькулятор чип тюнинг спб', 'цена тюнинг онлайн', 'прирост мощности калькулятор', 'стоимость чип тюнинга'],
   alternates: { canonical: 'https://hptuning.ru/calculator' },
   openGraph: {
@@ -129,22 +130,7 @@ export default function CalculatorPage() {
 
       <main>
         {/* Хлебные крошки */}
-        <nav
-          aria-label="Breadcrumb"
-          className="bg-bg-elevated border-b border-border"
-        >
-          <div className="container py-3">
-            <ol className="flex items-center gap-2 text-sm text-text-subtle">
-              <li>
-                <Link href="/" className="hover:text-text transition-colors">
-                  Главная
-                </Link>
-              </li>
-              <li className="select-none">/</li>
-              <li className="text-text">Калькулятор цен</li>
-            </ol>
-          </div>
-        </nav>
+      <Breadcrumbs items={[{ label: "Калькулятор" }]} />
 
         {/* Hero-секция */}
         <section className="section bg-bg pt-16 pb-10">

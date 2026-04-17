@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Phone } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
@@ -6,12 +7,12 @@ import { WorkCard } from '@/components/ui/WorkCard';
 
 export const metadata: Metadata = {
   title: 'Наши работы — портфолио чип-тюнинга и детейлинга | HP Тюнинг СПб',
-  description: 'Портфолио HP Тюнинг: чип-тюнинг Stage 1/2/3 BMW, Mercedes, Audi, Porsche — замеры до/после. PPF XPEL, керамика Gyeon, полировка. Реальные кейсы из Санкт-Петербурга.',
+  description: 'Портфолио HP Тюнинг: чип-тюнинг Stage 1/2/3 BMW, Mercedes, Audi, Porsche, Land Rover — замеры до/после. PPF XPEL, керамика Gyeon, полировка. Реальные кейсы из Санкт-Петербурга.',
   keywords: ['портфолио тюнинг спб', 'кейсы чип тюнинг', 'работы hp тюнинг', 'детейлинг до после спб'],
   alternates: { canonical: 'https://hptuning.ru/works' },
   openGraph: {
     title: 'Портфолио HP Тюнинг — результаты тюнинга и детейлинга',
-    description: 'Портфолио HP Тюнинг: чип-тюнинг Stage 1/2/3 BMW, Mercedes, Audi, Porsche — замеры до/после. PPF XPEL, керамика Gyeon, полировка. Реальные кейсы из Сан',
+    description: 'Портфолио HP Тюнинг: чип-тюнинг Stage 1/2/3 BMW, Mercedes, Audi, Porsche, Land Rover — замеры до/после. PPF XPEL, керамика Gyeon, полировка. Реальные кейсы из Сан',
     url: 'https://hptuning.ru/works',
     type: 'website',
     locale: 'ru_RU',
@@ -77,15 +78,6 @@ const WORKS = [
   },
 ];
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'Наши работы', item: 'https://hptuning.ru/works' },
-  ],
-};
-
 const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -102,15 +94,10 @@ const itemListSchema = {
 export default function WorksPage() {
   return (
     <div className="section container">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
 
       {/* Хлебные крошки */}
-      <nav className="text-sm text-text-subtle mb-8" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-        <span className="mx-2">→</span>
-        <span className="text-text-muted">Наши работы</span>
-      </nav>
+      <Breadcrumbs items={[{ label: "Наши работы" }]} />
 
       <span className="badge mb-4">Реальные результаты</span>
       <h1 className="section-title mb-4">НАШИ РАБОТЫ</h1>

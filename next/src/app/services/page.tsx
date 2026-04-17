@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { ArrowRight, Zap, Sparkles, Wrench } from 'lucide-react';
 import services from '@/data/services.json';
@@ -38,11 +39,7 @@ export default function ServicesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
       <div className="section container">
-        <nav className="text-sm text-text-subtle mb-8" aria-label="Breadcrumb">
-          <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-          <span className="mx-2">→</span>
-          <span className="text-text-muted">Услуги</span>
-        </nav>
+      <Breadcrumbs items={[{ label: "Услуги" }]} />
 
         <span className="badge mb-4">Прайс HP Тюнинг СПб</span>
         <h1 className="section-title mb-4">УСЛУГИ И ЦЕНЫ</h1>

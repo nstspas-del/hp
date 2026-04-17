@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Wrench, ChevronRight, CheckCircle, Phone, Gauge, Zap, Settings, Disc, Car, Cpu } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
   title: 'Автосервис BMW, Mercedes, Audi в СПб — ТО от 3 000 ₽ | HP Тюнинг',
-  description: 'Автосервис премиум-класса в Санкт-Петербурге: ТО от 3 000 ₽, диагностика от 1 500 ₽, ремонт двигателя, тормозов, подвески, АКПП. BMW, Mercedes, Audi, Porsche, Lexus. Гарантия.',
+  description: 'Автосервис премиум-класса в Санкт-Петербурге: ТО от 3 000 ₽, диагностика от 1 500 ₽, ремонт двигателя, тормозов, подвески, АКПП. BMW, Mercedes, Audi, Porsche, Land Rover, Lexus. Гарантия.',
   keywords: ['автосервис спб', 'то бмв спб', 'ремонт мерседес спб', 'автосервис премиум петербург', 'диагностика авто спб'],
   alternates: { canonical: 'https://hptuning.ru/service' },
   openGraph: {
@@ -17,15 +18,6 @@ export const metadata: Metadata = {
     siteName: 'HP Тюнинг',
     images: [{ url: 'https://hptuning.ru/images/og/service.jpg', width: 1200, height: 630, alt: 'Автосервис BMW, Mercedes, Audi в СПб | HP Тюнинг' }],
   },
-};
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'Автосервис', item: 'https://hptuning.ru/service' },
-  ],
 };
 
 const SERVICES = [
@@ -155,17 +147,11 @@ const FAQ = [
 export default function ServicePage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-
-      {/* ── Hero ── */}
+{/* ── Hero ── */}
       <section className="relative pt-28 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 via-transparent to-transparent pointer-events-none" />
         <div className="container relative z-10">
-          <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-            <ChevronRight className="size-4" />
-            <span className="text-text-muted">Автосервис</span>
-          </nav>
+      <Breadcrumbs items={[{ label: "Автосервис" }]} />
 
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm font-medium mb-6">
@@ -179,7 +165,7 @@ export default function ServicePage() {
             </h1>
             <p className="text-text-muted text-lg md:text-xl leading-relaxed mb-8 max-w-2xl">
               ТО, компьютерная диагностика, ремонт двигателя, тормозов, подвески и коробки
-              для BMW, Mercedes, Audi, Porsche и других премиум-марок.
+              для BMW, Mercedes, Audi, Porsche, Land Rover и других премиум-марок.
             </p>
             <div className="flex flex-wrap gap-4">
               <BookingButton label="Записаться на сервис" className="btn-primary text-base px-8 py-4" />

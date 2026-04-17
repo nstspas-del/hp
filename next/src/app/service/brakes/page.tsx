@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Disc, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
   title: 'Ремонт тормозов BMW, Mercedes, Audi в СПб — от 4 000 ₽ | HP Тюнинг',
-  description: 'Ремонт тормозной системы в Санкт-Петербурге: замена колодок от 4 000 ₽, тормозных дисков от 8 000 ₽, суппортов, прокачка системы. BMW, Mercedes, Audi, Porsche. Brembo, ATE, Bosch.',
+  description: 'Ремонт тормозной системы в Санкт-Петербурге: замена колодок от 4 000 ₽, тормозных дисков от 8 000 ₽, суппортов, прокачка системы. BMW, Mercedes, Audi, Porsche, Land Rover. Brembo, ATE, Bosch.',
   keywords: ['ремонт тормозов бмв спб', 'замена тормозных колодок спб', 'замена тормозных дисков спб', 'brembo спб', 'тормоза мерседес спб'],
   alternates: { canonical: 'https://hptuning.ru/service/brakes' },
   openGraph: {
@@ -45,16 +46,6 @@ const FAQ = [
   { q: 'Что значит «прокачка тормозов»?', a: 'Удаление воздуха и старой жидкости из системы. Нужна после замены цилиндра, шланга или при падении педали тормоза. Рекомендуем раз в 2 года.' },
 ];
 
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'Автосервис', item: 'https://hptuning.ru/service' },
-    { '@type': 'ListItem', position: 3, name: 'Ремонт тормозов', item: 'https://hptuning.ru/service/brakes' }
-  ],
-};
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -101,18 +92,12 @@ const faqSchema = {
 export default function Page() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="relative pt-28 pb-16">
         <div className="container">
-          <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8">
-            <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-            <ChevronRight className="size-4" />
-            <Link href="/service" className="hover:text-accent transition-colors">Автосервис</Link>
-            <ChevronRight className="size-4" />
-            <span className="text-text-muted">Тормозная система</span>
-          </nav>
+          
+      <Breadcrumbs items={[{ label: "Автосервис", href: "/service" }, { label: "Ремонт тормозов" }]} />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2">
               <div className="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center mb-6">
@@ -121,7 +106,7 @@ export default function Page() {
               <span className="badge mb-4">Тормоза</span>
               <h1 className="section-title text-4xl md:text-5xl mb-4">РЕМОНТ ТОРМОЗНОЙ СИСТЕМЫ</h1>
               <p className="text-text-muted text-lg leading-relaxed mb-8 max-w-xl">
-                Замена колодок, дисков, суппортов, тормозных трубок и шлангов. Прокачка тормозной системы. Специализируемся на BMW, Mercedes, Audi, Porsche.
+                Замена колодок, дисков, суппортов, тормозных трубок и шлангов. Прокачка тормозной системы. Специализируемся на BMW, Mercedes, Audi, Porsche, Land Rover.
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {WORKS.map((w, i) => (

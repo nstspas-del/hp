@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Sparkles, ChevronRight, CheckCircle, Phone, Shield, Award, Star, Layers } from 'lucide-react';
 import { DetailingCalculator } from '@/components/sections/DetailingCalculator';
@@ -18,15 +19,6 @@ export const metadata: Metadata = {
     siteName: 'HP Тюнинг',
     images: [{ url: 'https://hptuning.ru/images/og/detailing.jpg', width: 1200, height: 630, alt: 'Детейлинг в СПб — керамика 9H, PPF, полировка | HP Тюнинг' }],
   },
-};
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'Детейлинг', item: 'https://hptuning.ru/detailing' },
-  ],
 };
 
 const SERVICES = [
@@ -143,18 +135,12 @@ const FAQ = [
 export default function DetailingPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-
-      {/* ── Hero ── */}
+{/* ── Hero ── */}
       <section className="relative pt-28 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-transparent pointer-events-none" />
         <div className="container relative z-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-            <ChevronRight className="size-4" />
-            <span className="text-text-muted">Детейлинг</span>
-          </nav>
+      <Breadcrumbs items={[{ label: "Детейлинг" }]} />
 
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6">

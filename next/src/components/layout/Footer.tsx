@@ -41,7 +41,7 @@ export function Footer() {
               <span className="font-display text-2xl text-text">ТЮНИНГ</span>
             </Link>
             <p className="text-text-muted text-sm leading-relaxed mb-6">
-              Премиальный тюнинг и автосервис в Санкт-Петербурге с 2015 года. Специализируемся на BMW, Mercedes, Audi, Porsche.
+              Премиальный тюнинг и автосервис в Санкт-Петербурге с 2015 года. Специализируемся на BMW, Mercedes, Audi, Porsche, Land Rover.
             </p>
             <div className="flex flex-col gap-3 text-sm">
               <a href={company.contacts.phone.href}

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Zap, ChevronRight, CheckCircle, Phone, TrendingUp, Shield, RotateCcw, Award } from 'lucide-react';
 import { ChipCalculator } from '@/components/sections/ChipCalculator';
@@ -6,28 +7,18 @@ import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
   title: 'Чип-тюнинг Stage 1/2/3 в СПб — от 17 000 ₽ | HP Тюнинг',
-  description: 'Профессиональный чип-тюнинг в Санкт-Петербурге: Stage 1 от 17 000 ₽, Stage 2 от 35 000 ₽, Stage 3 от 95 000 ₽. Прирост +20–100% мощности. BMW, Mercedes, Audi, Porsche. Гарантия 12 мес.',
+  description: 'Профессиональный чип-тюнинг в Санкт-Петербурге: Stage 1 от 17 000 ₽, Stage 2 от 35 000 ₽, Stage 3 от 95 000 ₽. Прирост +20–100% мощности. BMW, Mercedes, Audi, Porsche, Land Rover. Гарантия 12 мес.',
   keywords: ['чип тюнинг спб', 'stage 1 чип тюнинг спб', 'stage 2 тюнинг', 'прошивка эбу спб', 'чип тюнинг bmw спб', 'alientech kess3'],
   alternates: { canonical: 'https://hptuning.ru/tuning/chip-tuning' },
   openGraph: {
     title: 'Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге | HP Тюнинг',
-    description: 'Stage 1 от 17 000 ₽. Прошивка BMW, Mercedes, Audi, Porsche. Alientech. Гарантия 12 мес.',
+    description: 'Stage 1 от 17 000 ₽. Прошивка BMW, Mercedes, Audi, Porsche, Land Rover. Alientech. Гарантия 12 мес.',
     url: 'https://hptuning.ru/tuning/chip-tuning',
     type: 'website',
     locale: 'ru_RU',
     siteName: 'HP Тюнинг',
     images: [{ url: 'https://hptuning.ru/images/og/chip-tuning.jpg', width: 1200, height: 630, alt: 'Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге | HP Тюнинг' }],
   },
-};
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'Тюнинг', item: 'https://hptuning.ru/tuning' },
-    { '@type': 'ListItem', position: 3, name: 'Чип-тюнинг', item: 'https://hptuning.ru/tuning/chip-tuning' },
-  ],
 };
 
 const serviceSchema = {
@@ -165,21 +156,14 @@ const FAQ = [
 export default function ChipTuningPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
       {/* ── Hero ── */}
       <section className="relative pt-28 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#39FF14]/5 via-transparent to-transparent pointer-events-none" />
         <div className="container relative z-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-            <ChevronRight className="size-4" />
-            <Link href="/tuning" className="hover:text-accent transition-colors">Тюнинг</Link>
-            <ChevronRight className="size-4" />
-            <span className="text-text-muted">Чип-тюнинг</span>
-          </nav>
+      <Breadcrumbs items={[{ label: "Тюнинг", href: "/tuning" }, { label: "Чип-тюнинг" }]} />
 
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#39FF14]/10 border border-[#39FF14]/20 text-[#39FF14] text-sm font-medium mb-6">
@@ -192,7 +176,7 @@ export default function ChipTuningPage() {
               В САНКТ-ПЕТЕРБУРГЕ
             </h1>
             <p className="text-text-muted text-lg md:text-xl leading-relaxed mb-8 max-w-2xl">
-              Профессиональная прошивка ЭБУ для BMW, Mercedes, Audi, Porsche и 30+ марок.
+              Профессиональная прошивка ЭБУ для BMW, Mercedes, Audi, Porsche, Land Rover и 30+ марок.
               Рост мощности до +100%, гарантия 12 месяцев, откат к стоку бесплатно.
             </p>
             <div className="flex flex-wrap gap-4">

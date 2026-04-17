@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import services from '@/data/services.json';
@@ -23,13 +24,7 @@ export default function DetailingPage() {
     <>
       <div className="section container pt-32">
         {/* Хлебные крошки */}
-        <nav className="text-sm text-text-subtle mb-8" aria-label="Breadcrumb">
-          <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-          <span className="mx-2">→</span>
-          <Link href="/services" className="hover:text-accent transition-colors">Услуги</Link>
-          <span className="mx-2">→</span>
-          <span className="text-text-muted">Детейлинг</span>
-        </nav>
+      <Breadcrumbs items={[{ label: "Услуги", href: "/services" }, { label: "Детейлинг" }]} />
 
         {/* Заголовок */}
         <div className="flex items-center gap-4 mb-6">

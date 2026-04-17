@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { Play, ExternalLink } from 'lucide-react'
 import videosData from '@/data/videos.json'
 
@@ -19,15 +20,6 @@ export const metadata: Metadata = {
   },
 }
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'Видео', item: 'https://hptuning.ru/video' },
-  ],
-}
-
 const CATS: Record<string, string> = {
   'chip-tuning': 'Чип-тюнинг',
   detailing: 'Детейлинг',
@@ -39,17 +31,7 @@ export default function VideoPage() {
 
   return (
     <main className="pb-24">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      {/* Breadcrumb */}
-      <nav className="bg-bg-elevated border-b border-border">
-        <div className="container py-3">
-          <ol className="flex items-center gap-2 text-sm text-text-subtle">
-            <li><Link href="/" className="hover:text-text transition-colors">Главная</Link></li>
-            <li>/</li>
-            <li className="text-text">Видео</li>
-          </ol>
-        </div>
-      </nav>
+      <Breadcrumbs items={[{ label: 'Видео' }]} />
 
       {/* Hero */}
       <section className="section bg-bg pb-10">

@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
 };
 
-// ── Schema.org LocalBusiness ──────────────────────────────────────────────────
+// ── Schema.org LocalBusiness + Organization ───────────────────────────────────
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': ['AutoRepair', 'LocalBusiness'],
@@ -55,7 +55,15 @@ const localBusinessSchema = {
   description: seoData.defaults.description,
   url: company.domain.url,
   telephone: company.contacts.phone.raw,
+  email: company.contacts.email.display,
   priceRange: company.priceRange,
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://hptuning.ru/images/logo.svg',
+    width: 200,
+    height: 60,
+  },
+  image: 'https://hptuning.ru/images/og/home.jpg',
   address: {
     '@type': 'PostalAddress',
     streetAddress: `${company.address.street}, ${company.address.building}`,
@@ -77,6 +85,33 @@ const localBusinessSchema = {
   },
   hasMap: company.geo.yandexMapUrl,
   areaServed: { '@type': 'City', name: 'Санкт-Петербург' },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    bestRating: '5',
+    ratingCount: '200',
+  },
+  sameAs: [
+    'https://t.me/hptuningspb',
+    'https://yandex.ru/maps/org/99062407907/',
+  ],
+};
+
+// ── Schema.org WebSite + SearchAction ────────────────────────────────────────
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://hptuning.ru/#website',
+  url: 'https://hptuning.ru',
+  name: company.name,
+  description: seoData.defaults.description,
+  publisher: { '@id': 'https://hptuning.ru/#org' },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: { '@type': 'EntryPoint', urlTemplate: 'https://hptuning.ru/brands?q={search_term_string}' },
+    'query-input': 'required name=search_term_string',
+  },
+  inLanguage: 'ru-RU',
 };
 
 // ── Layout ────────────────────────────────────────────────────────────────────
@@ -84,10 +119,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ru" className={`${inter.variable} ${oswald.variable}`}>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       </head>
       <body className="flex flex-col min-h-screen font-sans antialiased bg-[#09090b] text-white">
         <YandexMetrika />

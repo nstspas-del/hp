@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Settings, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
   title: 'ТО BMW, Mercedes, Audi в СПб — от 3 000 ₽ по регламенту | HP Тюнинг',
-  description: 'Техническое обслуживание автомобилей в Санкт-Петербурге от 3 000 ₽. Замена масла, фильтров, свечей, жидкостей по регламенту производителя. BMW, Mercedes, Audi, Porsche. Фиксированные цены.',
+  description: 'Техническое обслуживание автомобилей в Санкт-Петербурге от 3 000 ₽. Замена масла, фильтров, свечей, жидкостей по регламенту производителя. BMW, Mercedes, Audi, Porsche, Land Rover. Фиксированные цены.',
   keywords: ['то бмв спб', 'техническое обслуживание мерседес спб', 'то ауди спб', 'замена масла спб', 'то по регламенту петербург'],
   alternates: { canonical: 'https://hptuning.ru/service/to' },
   openGraph: {
     title: 'ТО BMW, Mercedes, Audi в СПб по регламенту | HP Тюнинг',
-    description: 'ТО от 3 000 ₽: замена масла, фильтров, жидкостей. BMW, Mercedes, Audi, Porsche. Санкт-Петербург.',
+    description: 'ТО от 3 000 ₽: замена масла, фильтров, жидкостей. BMW, Mercedes, Audi, Porsche, Land Rover. Санкт-Петербург.',
     url: 'https://hptuning.ru/service/to',
     type: 'website',
     locale: 'ru_RU',
@@ -55,16 +56,6 @@ const FAQ = [
   { q: 'Можно ли сделать ТО без записи?', a: 'Желательно записаться заранее — тогда мастер и запчасти будут готовы. Без записи берём при наличии свободного бокса.' },
 ];
 
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'Автосервис', item: 'https://hptuning.ru/service' },
-    { '@type': 'ListItem', position: 3, name: 'Техническое обслуживание', item: 'https://hptuning.ru/service/to' }
-  ],
-};
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -111,18 +102,11 @@ const faqSchema = {
 export default function ToPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="relative pt-28 pb-16">
         <div className="container">
-          <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-            <ChevronRight className="size-4" />
-            <Link href="/service" className="hover:text-accent transition-colors">Автосервис</Link>
-            <ChevronRight className="size-4" />
-            <span className="text-text-muted">ТО</span>
-          </nav>
+      <Breadcrumbs items={[{ label: "Автосервис", href: "/service" }, { label: "ТО и обслуживание" }]} />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2">

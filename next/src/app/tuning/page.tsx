@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { ArrowRight, Zap, Shield, Volume2, Wind, CheckCircle } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
   title: 'Тюнинг автомобилей в СПб — чип-тюнинг Stage 1/2/3 | HP Тюнинг',
-  description: 'Профессиональный тюнинг в Санкт-Петербурге: чип-тюнинг от 17 000 ₽, тормозной тюнинг Brembo, спортивный выхлоп, шумоизоляция. BMW, Mercedes, Audi, Porsche. Alientech KESSv3.',
+  description: 'Профессиональный тюнинг в Санкт-Петербурге: чип-тюнинг от 17 000 ₽, тормозной тюнинг Brembo, спортивный выхлоп, шумоизоляция. BMW, Mercedes, Audi, Porsche, Land Rover. Alientech KESSv3.',
   keywords: ['тюнинг авто спб', 'чип тюнинг петербург', 'тюнинг бмв спб', 'тюнинг мерседес спб', 'stage 1 спб', 'alientech спб'],
   alternates: { canonical: 'https://hptuning.ru/tuning' },
   openGraph: {
@@ -76,29 +77,15 @@ const WHY = [
 const EQUIPMENT = ['Alientech KESSv3', 'Dimsport MyGenius', 'CMD Flash', 'MPPS v22', 'WinOLS 4'];
 
 export default function TuningPage() {
-  const breadcrumb = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-      { '@type': 'ListItem', position: 2, name: 'Тюнинг', item: 'https://hptuning.ru/tuning' },
-    ],
-  };
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <Breadcrumbs items={[{ label: 'Тюнинг' }]} />
 
       {/* ── Hero ── */}
       <section className="relative min-h-[55vh] flex items-end overflow-hidden bg-[#09090b]">
         <div className="absolute inset-0 bg-gradient-to-br from-[#39FF14]/5 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(57,255,20,0.08),transparent)]" />
         <div className="relative container pb-16 pt-36">
-          <nav className="text-sm text-zinc-600 mb-6">
-            <Link href="/" className="hover:text-[#39FF14] transition-colors">Главная</Link>
-            <span className="mx-2">/</span>
-            <span className="text-zinc-400">Тюнинг</span>
-          </nav>
           <span className="badge mb-4">Тюнинг автомобилей</span>
           <h1 className="section-title text-5xl md:text-7xl mb-4">
             ТЮНИНГ{' '}
@@ -109,7 +96,7 @@ export default function TuningPage() {
           </h1>
           <p className="text-zinc-400 text-lg max-w-2xl mb-8">
             Чип-тюнинг Stage 1/2/3, тормозной тюнинг, спортивные выхлопные системы и шумоизоляция.
-            Работаем с BMW, Mercedes, Audi, Porsche и ещё 26 марками.
+            Работаем с BMW, Mercedes, Audi, Porsche, Land Rover и ещё 26 марками.
           </p>
           <div className="flex flex-wrap gap-3">
             <BookingButton className="btn-primary px-8 py-4 text-base" />

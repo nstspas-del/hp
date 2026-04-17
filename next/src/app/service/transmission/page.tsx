@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Settings, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
   title: 'Ремонт АКПП, DSG, МКПП в СПб — BMW, Mercedes, Audi | HP Тюнинг',
-  description: 'Ремонт коробок передач в Санкт-Петербурге: АКПП, DSG, Tiptronic, МКПП. Замена масла АКПП от 8 000 ₽, ремонт DSG от 35 000 ₽. BMW, Mercedes, Audi, Porsche, VW.',
+  description: 'Ремонт коробок передач в Санкт-Петербурге: АКПП, DSG, Tiptronic, МКПП. Замена масла АКПП от 8 000 ₽, ремонт DSG от 35 000 ₽. BMW, Mercedes, Audi, Porsche, Land Rover, VW.',
   keywords: ['ремонт акпп спб', 'ремонт dsg спб', 'замена масла акпп спб', 'акпп бмв спб', 'ремонт коробки передач петербург'],
   alternates: { canonical: 'https://hptuning.ru/service/transmission' },
   openGraph: {
@@ -45,16 +46,6 @@ const FAQ = [
   { q: 'Ремонтируете ли DSG 7 (сухое сцепление)?', a: 'Да. Диагностируем мехатроник, сцепление, вилки переключения. Стоимость ремонта DSG DQ200 — от 25 000 ₽ в зависимости от неисправности.' },
 ];
 
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'Автосервис', item: 'https://hptuning.ru/service' },
-    { '@type': 'ListItem', position: 3, name: 'Ремонт АКПП', item: 'https://hptuning.ru/service/transmission' }
-  ],
-};
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -101,18 +92,12 @@ const faqSchema = {
 export default function Page() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="relative pt-28 pb-16">
         <div className="container">
-          <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8">
-            <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-            <ChevronRight className="size-4" />
-            <Link href="/service" className="hover:text-accent transition-colors">Автосервис</Link>
-            <ChevronRight className="size-4" />
-            <span className="text-text-muted">Коробка передач</span>
-          </nav>
+          
+      <Breadcrumbs items={[{ label: "Автосервис", href: "/service" }, { label: "АКПП" }]} />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2">
               <div className="w-14 h-14 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-6">

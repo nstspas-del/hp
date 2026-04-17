@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Gauge, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
   title: 'Ремонт двигателя BMW, Mercedes, Audi в СПб | HP Тюнинг',
-  description: 'Ремонт двигателей в Санкт-Петербурге: замена цепи ГРМ от 25 000 ₽, замена прокладки ГБЦ от 30 000 ₽. BMW, Mercedes, Audi, Porsche, Lexus. Диагностика, оригинальные запчасти.',
+  description: 'Ремонт двигателей в Санкт-Петербурге: замена цепи ГРМ от 25 000 ₽, замена прокладки ГБЦ от 30 000 ₽. BMW, Mercedes, Audi, Porsche, Land Rover, Lexus. Диагностика, оригинальные запчасти.',
   keywords: ['ремонт двигателя бмв спб', 'ремонт двигателя мерседес спб', 'замена цепи грм спб', 'прокладка гбц спб', 'ремонт мотора петербург'],
   alternates: { canonical: 'https://hptuning.ru/service/engine' },
   openGraph: {
     title: 'Ремонт двигателя BMW, Mercedes, Audi в СПб | HP Тюнинг',
-    description: 'Ремонт двигателей: ГРМ от 25 000 ₽, ГБЦ от 30 000 ₽. BMW, Mercedes, Audi, Porsche.',
+    description: 'Ремонт двигателей: ГРМ от 25 000 ₽, ГБЦ от 30 000 ₽. BMW, Mercedes, Audi, Porsche, Land Rover.',
     url: 'https://hptuning.ru/service/engine',
     type: 'website',
     locale: 'ru_RU',
@@ -55,16 +56,6 @@ const FAQ = [
   { q: 'Даёте ли гарантию на ремонт двигателя?', a: 'Да — гарантия 6 месяцев на все работы, 12 месяцев на запчасти по гарантии производителя.' },
 ];
 
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
-    { '@type': 'ListItem', position: 2, name: 'Автосервис', item: 'https://hptuning.ru/service' },
-    { '@type': 'ListItem', position: 3, name: 'Ремонт двигателя', item: 'https://hptuning.ru/service/engine' }
-  ],
-};
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -111,18 +102,12 @@ const faqSchema = {
 export default function EnginePage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="relative pt-28 pb-16">
         <div className="container">
-          <nav className="flex items-center gap-2 text-sm text-text-subtle mb-8">
-            <Link href="/" className="hover:text-accent transition-colors">Главная</Link>
-            <ChevronRight className="size-4" />
-            <Link href="/service" className="hover:text-accent transition-colors">Автосервис</Link>
-            <ChevronRight className="size-4" />
-            <span className="text-text-muted">Ремонт двигателя</span>
-          </nav>
+          
+      <Breadcrumbs items={[{ label: "Автосервис", href: "/service" }, { label: "Двигатель" }]} />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2">
               <div className="w-14 h-14 rounded-xl bg-red-500/10 flex items-center justify-center mb-6">
@@ -132,7 +117,7 @@ export default function EnginePage() {
               <h1 className="section-title text-4xl md:text-5xl mb-4">РЕМОНТ ДВИГАТЕЛЯ</h1>
               <p className="text-text-muted text-lg leading-relaxed mb-8 max-w-xl">
                 Ремонт любой сложности: от замены ГРМ до капитального ремонта двигателя.
-                Специализируемся на BMW, Mercedes, Audi, Porsche, Lexus.
+                Специализируемся на BMW, Mercedes, Audi, Porsche, Land Rover, Lexus.
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {WORKS.map((w, i) => (
