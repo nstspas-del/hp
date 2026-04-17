@@ -1,46 +1,113 @@
 'use client';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { Phone, Menu, X, ChevronDown, Calculator, Wrench, Sparkles, Star } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Phone, Menu, X, ChevronDown } from 'lucide-react';
+import { Logo } from '@/components/Logo';
 import { openBooking } from '@/lib/autodealer';
 
+// ── Навигация — строго по ТЗ Блок 1 ─────────────────────────────────────────
 const NAV = [
   {
-    label: 'Услуги',
-    href: '/services',
+    label: 'Автосервис',
+    href: '/services/service',
     sub: [
-      { label: 'Чип-тюнинг', href: '/services/chip-tuning', icon: '⚡', desc: 'Stage 1 / 2 / 3' },
-      { label: 'Детейлинг', href: '/services/detailing', icon: '✨', desc: 'Керамика, PPF, химчистка' },
-      { label: 'Автосервис', href: '/services/service', icon: '🔧', desc: 'ТО, диагностика, ремонт' },
+      { label: 'Техническое обслуживание', href: '/services/service/to',          desc: 'Замена масла, фильтров, свечей' },
+      { label: 'Диагностика',              href: '/services/service/diagnostics',  desc: 'Компьютерная и ходовая' },
+      { label: 'Двигатель',                href: '/services/service/engine',        desc: 'Ремонт и обслуживание' },
+      { label: 'Тормоза',                  href: '/services/service/brakes',        desc: 'Колодки, диски, суппорты' },
+      { label: 'Подвеска',                 href: '/services/service/suspension',    desc: 'Амортизаторы, рычаги, ступицы' },
+      { label: 'Коробка передач',          href: '/services/service/gearbox',       desc: 'АКПП, DSG, вариатор' },
+      { label: 'Электрика',                href: '/services/service/electrics',     desc: 'Проводка, датчики, блоки' },
+      { label: 'Все услуги →',             href: '/services',                       desc: '' },
     ],
   },
   {
-    label: 'Бренды',
+    label: 'Марки',
     href: '/brands',
     sub: [
-      { label: 'BMW', href: '/brands/bmw', icon: '🔵' },
-      { label: 'Mercedes-Benz', href: '/brands/mercedes', icon: '⭐' },
-      { label: 'Audi', href: '/brands/audi', icon: '⚙️' },
-      { label: 'Porsche', href: '/brands/porsche', icon: '🏎️' },
-      { label: 'Lexus', href: '/brands/lexus', icon: '🟠' },
-      { label: 'Land Rover', href: '/brands/land-rover', icon: '🟢' },
-      { label: 'Все 13 брендов →', href: '/brands', icon: '📋' },
+      { label: 'BMW',             href: '/brands/bmw',         logo: '/images/brands/bmw.svg' },
+      { label: 'Mercedes-Benz',   href: '/brands/mercedes',    logo: '/images/brands/mercedes.svg' },
+      { label: 'Audi',            href: '/brands/audi',        logo: '/images/brands/audi.svg' },
+      { label: 'Porsche',         href: '/brands/porsche',     logo: '/images/brands/porsche.svg' },
+      { label: 'Lexus',           href: '/brands/lexus',       logo: '/images/brands/lexus.svg' },
+      { label: 'Land Rover',      href: '/brands/land-rover',  logo: '/images/brands/land-rover.svg' },
+      { label: 'Все 23 марки →',  href: '/brands',             logo: null },
     ],
   },
-  { label: 'Цены', href: '/calculator', badge: 'Онлайн' },
-  { label: 'Работы', href: '/works' },
-  { label: 'Видео', href: '/video' },
-  { label: 'Блог', href: '/blog' },
+  {
+    label: 'Тюнинг',
+    href: '/services/chip-tuning',
+    sub: [
+      { label: 'Чип-тюнинг',      href: '/services/chip-tuning',           desc: 'Stage 1 / 2 / 3, от 24 000 ₽' },
+      { label: 'Тормозной тюнинг', href: '/services/chip-tuning/brakes',    desc: 'Тормозные системы Brembo, AP Racing' },
+      { label: 'Выхлопная система', href: '/services/chip-tuning/exhaust',   desc: 'Sport-выхлоп, клапаны, катбэки' },
+      { label: 'Шумоизоляция',     href: '/services/chip-tuning/sound',     desc: 'Виброизол, шумка дверей и пола' },
+      { label: 'Тюнинг салона',    href: '/services/chip-tuning/interior',  desc: 'Карбон, алькантара, подсветка' },
+    ],
+  },
+  {
+    label: 'Детейлинг',
+    href: '/services/detailing',
+    sub: [
+      { label: 'Керамика 9H',      href: '/services/detailing/ceramic',    desc: 'Gyeon, Ceramic Pro, от 25 000 ₽' },
+      { label: 'PPF плёнка',       href: '/services/detailing/ppf',        desc: 'XPEL, SunTek — полная защита кузова' },
+      { label: 'Полировка',        href: '/services/detailing/polish',     desc: 'Коррекция царапин, глубокий блеск' },
+      { label: 'Химчистка',        href: '/services/detailing/cleaning',   desc: 'Салон, кожа, ковры, потолок' },
+      { label: 'Тонировка',        href: '/services/detailing/tinting',    desc: 'LLUMAR, SunTek, съёмная' },
+    ],
+  },
+  { label: 'Работы',   href: '/works' },
+  { label: 'Блог',     href: '/blog' },
   { label: 'Контакты', href: '/contacts' },
 ];
 
-export function Header() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [openDrop, setOpenDrop] = useState<string | null>(null);
+// ── Dropdown ──────────────────────────────────────────────────────────────────
+type DropItem = { label: string; href: string; desc?: string; logo?: string | null };
 
+function Dropdown({ items, onClose }: {
+  items: DropItem[];
+  onClose: () => void;
+}) {
+  return (
+    <div className="absolute top-full left-0 mt-2 bg-[#111113] border border-white/10 rounded-2xl shadow-2xl shadow-black/60 z-50 min-w-[240px] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-150">
+      {items.map((item) => (
+        <Link
+          key={item.href}
+          href={item.href}
+          onClick={onClose}
+          className="flex items-start gap-3 px-4 py-3 hover:bg-white/5 transition-colors group border-b border-white/5 last:border-0"
+        >
+          {/* Для марок — кружок-заглушка вместо svg */}
+          <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0 mt-0.5 text-xs text-zinc-500 font-bold">
+            {item.logo !== undefined
+              ? item.label.slice(0, 2).toUpperCase()
+              : '→'}
+          </div>
+          <div>
+            <div className="text-sm text-white font-medium group-hover:text-[#39FF14] transition-colors leading-snug">
+              {item.label}
+            </div>
+            {item.desc && (
+              <div className="text-xs text-zinc-500 mt-0.5 leading-snug">{item.desc}</div>
+            )}
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+// ── Компонент ─────────────────────────────────────────────────────────────────
+export function Header() {
+  const [scrolled, setScrolled]     = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDrop, setOpenDrop]     = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Scroll detection
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 30);
+    const handler = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handler, { passive: true });
     return () => window.removeEventListener('scroll', handler);
   }, []);
@@ -51,101 +118,103 @@ export function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
+  const handleDropEnter = (href: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpenDrop(href);
+  };
+  const handleDropLeave = () => {
+    closeTimer.current = setTimeout(() => setOpenDrop(null), 120);
+  };
+
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-bg/96 backdrop-blur-md border-b border-border shadow-xl' : 'bg-bg/60 backdrop-blur-sm'
-      }`}>
-        <div className="container flex items-center justify-between h-16">
-          {/* Логотип */}
-          <Link href="/" className="flex items-center gap-2 group shrink-0" onClick={() => setMobileOpen(false)}>
-            <span className="font-display text-2xl tracking-widest text-accent group-hover:glow-accent transition-all">HP</span>
-            <span className="font-display text-2xl tracking-widest text-text">ТЮНИНГ</span>
-          </Link>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? 'bg-[#09090b]/96 backdrop-blur-xl shadow-xl shadow-black/40'
+            : 'bg-[#09090b]/70 backdrop-blur-md'
+        }`}
+      >
+        {/* Зелёная линия при скролле */}
+        <div className={`absolute bottom-0 left-0 right-0 h-px transition-all duration-300 ${
+          scrolled ? 'bg-gradient-to-r from-transparent via-[#39FF14]/50 to-transparent' : 'opacity-0'
+        }`} />
 
-          {/* Десктопная навигация */}
-          <nav className="hidden lg:flex items-center gap-1" role="navigation">
+        <div className="max-w-[1280px] mx-auto px-5 md:px-10 flex items-center justify-between h-16">
+
+          {/* ── Лого ── */}
+          <Logo />
+
+          {/* ── Десктопная навигация (по центру) ── */}
+          <nav className="hidden lg:flex items-center gap-0.5" role="navigation" aria-label="Основное меню">
             {NAV.map((item) => (
               <div
                 key={item.href}
                 className="relative"
-                onMouseEnter={() => item.sub && setOpenDrop(item.href)}
-                onMouseLeave={() => setOpenDrop(null)}
+                onMouseEnter={() => item.sub && handleDropEnter(item.href)}
+                onMouseLeave={() => item.sub && handleDropLeave()}
               >
                 <Link
                   href={item.href}
-                  className="flex items-center gap-1 text-sm text-text-muted hover:text-text transition-colors px-3 py-2 rounded-lg hover:bg-bg-elevated"
+                  className={`flex items-center gap-1 text-sm px-3 py-2 rounded-lg transition-colors
+                    ${openDrop === item.href
+                      ? 'text-[#39FF14] bg-[#39FF14]/8'
+                      : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                    }`}
                 >
                   {item.label}
-                  {'badge' in item && item.badge && (
-                    <span className="text-[9px] bg-accent/20 text-accent px-1.5 py-0.5 rounded-full font-medium">
-                      {item.badge}
-                    </span>
+                  {item.sub && (
+                    <ChevronDown
+                      className={`size-3 transition-transform duration-200 ${
+                        openDrop === item.href ? 'rotate-180 text-[#39FF14]' : 'opacity-50'
+                      }`}
+                    />
                   )}
-                  {item.sub && <ChevronDown className="size-3 opacity-60" />}
                 </Link>
 
                 {/* Дропдаун */}
                 {item.sub && openDrop === item.href && (
-                  <div
-                    className="absolute top-full left-0 mt-1 bg-bg border border-border rounded-2xl p-3 min-w-[220px] shadow-2xl shadow-black/40 z-50"
-                    onMouseEnter={() => setOpenDrop(item.href)}
-                    onMouseLeave={() => setOpenDrop(null)}
-                  >
-                    {item.sub.map((s) => (
-                      <Link
-                        key={s.href}
-                        href={s.href}
-                        className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-bg-elevated transition-colors group"
-                      >
-                        <span className="text-base mt-0.5 shrink-0">{s.icon}</span>
-                        <div>
-                          <div className="text-sm text-text font-medium group-hover:text-accent transition-colors">
-                            {s.label}
-                          </div>
-                          {'desc' in s && s.desc && (
-                            <div className="text-xs text-text-subtle mt-0.5">{s.desc}</div>
-                          )}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
+                  <Dropdown
+                    items={item.sub}
+                    onClose={() => setOpenDrop(null)}
+                  />
                 )}
               </div>
             ))}
           </nav>
 
-          {/* Правые действия — десктоп */}
+          {/* ── Правые кнопки (десктоп) ── */}
           <div className="hidden lg:flex items-center gap-3 shrink-0">
             <a
               href="tel:+79818428151"
-              className="flex items-center gap-2 text-sm text-text-muted hover:text-accent transition-colors"
-              onClick={() => typeof window !== 'undefined' && window.ym?.(108614238, 'reachGoal', 'phone_click')}
+              className="flex items-center gap-2 text-sm text-zinc-400 hover:text-[#39FF14] transition-colors"
+              onClick={() => window.ym?.(108614238, 'reachGoal', 'phone_click')}
             >
               <Phone className="size-4" />
-              <span className="hidden xl:inline">+7 (981) 842-81-51</span>
+              <span className="hidden xl:inline font-medium">+7 (981) 842-81-51</span>
             </a>
             <button
               onClick={() => openBooking()}
-              className="btn-primary text-sm px-4 py-2 rounded-xl"
+              className="btn-primary text-xs px-5 py-2.5 rounded-xl"
             >
               Записаться
             </button>
           </div>
 
-          {/* Мобильный бургер */}
-          <div className="lg:hidden flex items-center gap-3">
+          {/* ── Мобильный бургер ── */}
+          <div className="lg:hidden flex items-center gap-2">
             <a
               href="tel:+79818428151"
-              className="flex items-center justify-center size-10 rounded-xl bg-accent/10 text-accent"
+              className="flex items-center justify-center size-10 rounded-xl bg-[#39FF14]/10 text-[#39FF14]"
               aria-label="Позвонить"
+              onClick={() => window.ym?.(108614238, 'reachGoal', 'phone_click')}
             >
               <Phone className="size-5" />
             </a>
             <button
-              className="flex items-center justify-center size-10 rounded-xl bg-bg-elevated text-text-muted hover:text-text transition-colors"
+              className="flex items-center justify-center size-10 rounded-xl bg-white/5 text-zinc-400 hover:text-white transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Меню"
+              aria-label={mobileOpen ? 'Закрыть меню' : 'Открыть меню'}
               aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -154,17 +223,14 @@ export function Header() {
         </div>
       </header>
 
-      {/* Мобильное меню — полноэкранный overlay */}
+      {/* ── Мобильное меню ── */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 bg-bg flex flex-col">
-          {/* Шапка меню */}
-          <div className="flex items-center justify-between h-16 px-4 border-b border-border shrink-0">
-            <Link href="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-              <span className="font-display text-2xl tracking-widest text-accent">HP</span>
-              <span className="font-display text-2xl tracking-widest text-text">ТЮНИНГ</span>
-            </Link>
+        <div className="lg:hidden fixed inset-0 z-40 bg-[#09090b] flex flex-col">
+          {/* Шапка */}
+          <div className="flex items-center justify-between h-16 px-5 border-b border-white/8 shrink-0">
+            <Logo onClick={() => setMobileOpen(false)} />
             <button
-              className="flex items-center justify-center size-10 rounded-xl bg-bg-elevated text-text-muted"
+              className="flex items-center justify-center size-10 rounded-xl bg-white/5 text-zinc-400"
               onClick={() => setMobileOpen(false)}
               aria-label="Закрыть меню"
             >
@@ -172,19 +238,19 @@ export function Header() {
             </button>
           </div>
 
-          {/* Навигация */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-1">
-            {/* Быстрые кнопки */}
-            <div className="grid grid-cols-2 gap-2 mb-4">
+          {/* Тело меню */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-1 pb-28">
+            {/* CTA кнопки */}
+            <div className="grid grid-cols-2 gap-2 mb-5">
               <button
                 onClick={() => { openBooking(); setMobileOpen(false); }}
                 className="btn-primary py-3 text-sm justify-center rounded-xl"
               >
-                Записаться онлайн
+                Записаться
               </button>
               <a
                 href="tel:+79818428151"
-                className="flex items-center justify-center gap-2 py-3 text-sm bg-bg-elevated text-accent rounded-xl font-medium"
+                className="flex items-center justify-center gap-2 py-3 text-sm bg-white/5 text-[#39FF14] rounded-xl font-medium"
                 onClick={() => setMobileOpen(false)}
               >
                 <Phone className="size-4" />
@@ -192,71 +258,67 @@ export function Header() {
               </a>
             </div>
 
-            {/* Группа: Услуги */}
-            <div className="mb-2">
-              <div className="text-xs text-text-subtle uppercase tracking-wider px-3 py-1 mb-1">Услуги</div>
-              <Link href="/services/chip-tuning" className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-bg-elevated transition-colors" onClick={() => setMobileOpen(false)}>
-                <span className="text-xl">⚡</span>
-                <div>
-                  <div className="text-text font-medium text-sm">Чип-тюнинг</div>
-                  <div className="text-text-subtle text-xs">Stage 1 / 2 / 3 от 18 300 ₽</div>
-                </div>
-              </Link>
-              <Link href="/services/detailing" className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-bg-elevated transition-colors" onClick={() => setMobileOpen(false)}>
-                <span className="text-xl">✨</span>
-                <div>
-                  <div className="text-text font-medium text-sm">Детейлинг</div>
-                  <div className="text-text-subtle text-xs">Керамика, PPF, химчистка</div>
-                </div>
-              </Link>
-              <Link href="/services/service" className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-bg-elevated transition-colors" onClick={() => setMobileOpen(false)}>
-                <span className="text-xl">🔧</span>
-                <div>
-                  <div className="text-text font-medium text-sm">Автосервис</div>
-                  <div className="text-text-subtle text-xs">ТО, диагностика, ремонт</div>
-                </div>
-              </Link>
-            </div>
-
-            <div className="border-t border-border/50 pt-2">
-              <div className="text-xs text-text-subtle uppercase tracking-wider px-3 py-1 mb-1">Навигация</div>
-              {[
-                { href: '/brands', label: 'Бренды', icon: '🚗' },
-                { href: '/calculator', label: 'Цены онлайн', icon: '💰', badge: 'Онлайн' },
-                { href: '/works', label: 'Наши работы', icon: '📸' },
-                { href: '/video', label: 'Видео', icon: '▶️' },
-                { href: '/blog', label: 'Блог', icon: '📝' },
-                { href: '/contacts', label: 'Контакты', icon: '📍' },
-              ].map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-bg-elevated transition-colors"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  <span className="text-xl w-8 text-center">{item.icon}</span>
-                  <span className="text-text font-medium text-sm">{item.label}</span>
-                  {'badge' in item && item.badge && (
-                    <span className="ml-auto text-[10px] bg-accent/20 text-accent px-2 py-0.5 rounded-full">
-                      {item.badge}
-                    </span>
-                  )}
-                </Link>
-              ))}
-            </div>
+            {/* Все пункты меню */}
+            {NAV.map((item) => (
+              <div key={item.href}>
+                {item.sub ? (
+                  <>
+                    <button
+                      className="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-white/5 transition-colors text-left"
+                      onClick={() => setMobileExpanded(mobileExpanded === item.href ? null : item.href)}
+                    >
+                      <span className="text-white font-medium text-sm">{item.label}</span>
+                      <ChevronDown
+                        className={`size-4 text-zinc-500 transition-transform duration-200 ${
+                          mobileExpanded === item.href ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                    {mobileExpanded === item.href && (
+                      <div className="pl-4 flex flex-col gap-0.5 mb-1">
+                        {item.sub.map((sub) => (
+                          <Link
+                            key={sub.href}
+                            href={sub.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center gap-2 px-4 py-2.5 rounded-xl hover:bg-white/5 transition-colors"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#39FF14]/50 shrink-0" />
+                            <div>
+                              <div className="text-sm text-zinc-300 font-medium">{sub.label}</div>
+                              {'desc' in sub && sub.desc && (
+                                <div className="text-xs text-zinc-600">{sub.desc}</div>
+                              )}
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"
+                  >
+                    <span className="text-white font-medium text-sm">{item.label}</span>
+                  </Link>
+                )}
+              </div>
+            ))}
           </div>
 
-          {/* Подвал меню */}
-          <div className="shrink-0 p-4 border-t border-border">
-            <p className="text-center text-text-subtle text-xs">
+          {/* Подвал мобильного меню */}
+          <div className="shrink-0 p-4 border-t border-white/8">
+            <p className="text-center text-zinc-600 text-xs">
               +7 (981) 842-81-51 · Богородская, 3Б · 10:00–20:00
             </p>
           </div>
         </div>
       )}
 
-      {/* Мобильный sticky CTA снизу экрана */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-bg/95 backdrop-blur-md border-t border-border p-3">
+      {/* ── Мобильный sticky CTA снизу ── */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-[#09090b]/95 backdrop-blur-md border-t border-white/8 p-3 safe-area-pb">
         <div className="flex gap-2">
           <button
             onClick={() => openBooking()}
@@ -266,7 +328,8 @@ export function Header() {
           </button>
           <a
             href="tel:+79818428151"
-            className="flex items-center justify-center size-12 rounded-xl bg-bg-elevated text-accent shrink-0"
+            className="flex items-center justify-center size-12 rounded-xl bg-white/5 text-[#39FF14] shrink-0"
+            onClick={() => window.ym?.(108614238, 'reachGoal', 'phone_click')}
           >
             <Phone className="size-5" />
           </a>

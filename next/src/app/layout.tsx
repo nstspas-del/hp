@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Inter, Oswald } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -7,6 +8,22 @@ import { YandexMetrika } from '@/components/analytics/YandexMetrika';
 import company from '@/data/company.json';
 import seoData from '@/data/seo.json';
 
+// ── Шрифты через next/font/google ────────────────────────────────────────────
+const inter = Inter({
+  subsets: ['latin', 'cyrillic'],
+  variable: '--font-inter',
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+});
+
+const oswald = Oswald({
+  subsets: ['latin', 'cyrillic'],
+  variable: '--font-oswald',
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+});
+
+// ── Метаданные ────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   metadataBase: new URL('https://hptuning.ru'),
   title: { default: seoData.defaults.title, template: seoData.defaults.titleTemplate },
@@ -28,6 +45,7 @@ export const metadata: Metadata = {
   },
 };
 
+// ── Schema.org LocalBusiness ──────────────────────────────────────────────────
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': ['AutoRepair', 'LocalBusiness'],
@@ -61,16 +79,17 @@ const localBusinessSchema = {
   areaServed: { '@type': 'City', name: 'Санкт-Петербург' },
 };
 
+// ── Layout ────────────────────────────────────────────────────────────────────
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={`${inter.variable} ${oswald.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen font-sans antialiased bg-[#09090b] text-white">
         <YandexMetrika />
         <Header />
         <main className="flex-1 pt-16">{children}</main>
