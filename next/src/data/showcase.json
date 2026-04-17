@@ -1,0 +1,55 @@
+{
+  "tabs": [
+    {
+      "id": "service",
+      "label": "Автосервис",
+      "subtitle": "Диагностика, ТО и ремонт по европейским стандартам",
+      "image": "/images/works/service-hero.jpg",
+      "href": "/service",
+      "cta": "Перейти в автосервис",
+      "accent": "#3B82F6",
+      "features": [
+        { "icon": "Shield", "title": "Компьютерная диагностика", "desc": "AUTEL MaxiSYS MS906 — полная диагностика всех систем" },
+        { "icon": "Wrench", "title": "Техническое обслуживание", "desc": "ТО по регламенту для любого класса автомобиля" },
+        { "icon": "Zap", "title": "Электрика и кодирование", "desc": "Сертифицированные специалисты по BMW, Mercedes, Audi" },
+        { "icon": "Settings", "title": "Ремонт подвески", "desc": "Диагностика на стенде, оригинальные и OEM запчасти" },
+        { "icon": "Activity", "title": "Ремонт двигателя", "desc": "Профессиональный ремонт без переплат у дилера" },
+        { "icon": "Gauge", "title": "Тормозная система", "desc": "Brembo, ATE, Bosch — замена и прокачка тормозов" }
+      ]
+    },
+    {
+      "id": "tuning",
+      "label": "Тюнинг",
+      "subtitle": "Чип-тюнинг Stage 1/2/3 для 30+ марок автомобилей",
+      "image": "/images/works/tuning-hero.jpg",
+      "href": "/tuning",
+      "cta": "Перейти в тюнинг",
+      "accent": "#39FF14",
+      "features": [
+        { "icon": "Zap", "title": "Чип-тюнинг Stage 1", "desc": "Прошивка ЭБУ: +20–40% мощности без механических изменений" },
+        { "icon": "Trophy", "title": "Stage 2 и Stage 3", "desc": "Полный тюнинг с доработкой впуска, выпуска, турбины" },
+        { "icon": "Gauge", "title": "DPF/EGR-off", "desc": "Программное отключение DPF, GPF, EGR, мочевины" },
+        { "icon": "Settings", "title": "Тормозной тюнинг", "desc": "Установка Brembo, AP Racing — спортивное торможение" },
+        { "icon": "Volume2", "title": "Выхлоп и шумка", "desc": "Спортивные выхлопные системы и шумоизоляция" },
+        { "icon": "Shield", "title": "Гарантия 12 месяцев", "desc": "Alientech KESSv3, WinOLS 4 — профессиональное ПО" }
+      ]
+    },
+    {
+      "id": "detailing",
+      "label": "Детейлинг",
+      "subtitle": "Керамика 9H, PPF-плёнка, полировка кузова Gyeon и XPEL",
+      "image": "/images/works/detailing-hero.jpg",
+      "href": "/detailing",
+      "cta": "Перейти в детейлинг",
+      "accent": "#F59E0B",
+      "features": [
+        { "icon": "Sparkles", "title": "Керамическое покрытие 9H", "desc": "Gyeon Q2, Ceramic Pro — защита до 5 лет от 22 000 ₽" },
+        { "icon": "Shield", "title": "PPF антигравийная плёнка", "desc": "XPEL, SunTek — капот, зона риска или весь кузов" },
+        { "icon": "Star", "title": "Полировка кузова", "desc": "1, 2, 3-шаговая: коррекция царапин, блеск +80%" },
+        { "icon": "Droplets", "title": "Химчистка салона", "desc": "Сухая, влажная, экстракторная — любая сложность" },
+        { "icon": "Eye", "title": "Тонировка стёкол", "desc": "LLumar, SunTek — передние, задние, панорама" },
+        { "icon": "Camera", "title": "Фото до и после", "desc": "Документируем каждый этап — прозрачный процесс" }
+      ]
+    }
+  ]
+}

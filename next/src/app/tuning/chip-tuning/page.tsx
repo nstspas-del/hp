@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Zap, ChevronRight, CheckCircle, Phone, TrendingUp, Shield, RotateCcw, Award } from 'lucide-react';
-import { PriceCalculator } from '@/components/ui/PriceCalculator';
+import { ChipCalculator } from '@/components/sections/ChipCalculator';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
@@ -219,17 +219,7 @@ export default function ChipTuningPage() {
       </section>
 
       {/* ── Калькулятор ── */}
-      <section id="chip-calculator" className="py-16 bg-[#111113]">
-        <div className="container">
-          <div className="text-center mb-10">
-            <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">
-              КАЛЬКУЛЯТОР ЧИПА
-            </h2>
-            <p className="text-text-muted">Выберите марку и модель — получите цену и прирост мощности</p>
-          </div>
-          <PriceCalculator />
-        </div>
-      </section>
+      <ChipCalculator />
 
       {/* ── 3 Stage карточки ── */}
       <section className="py-16 container">
