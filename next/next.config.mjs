@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Увеличенный таймаут статической генерации (секунды)
+  staticPageGenerationTimeout: 180,
+
   // Строгий TypeScript-режим
   typescript: {
     ignoreBuildErrors: false,

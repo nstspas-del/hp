@@ -8,14 +8,15 @@ export function Hero() {
   return (
     <section className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden">
 
-      {/* ── Фон: здание HP Тюнинг ── */}
+      {/* ── Фон: BMW X7 в гараже ── */}
       <Image
-        src="/images/building-facade-hp.jpg"
-        alt="HP Тюнинг — автосервис в Санкт-Петербурге"
+        src="/images/hero-bmw-x7.jpg"
+        alt="HP Тюнинг — премиальный автосервис в Санкт-Петербурге"
         fill
         className="object-cover object-center"
         priority
         sizes="100vw"
+        quality={90}
       />
 
       {/* ── Градиентные оверлеи ── */}
@@ -75,7 +76,7 @@ export function Hero() {
             {[
               { value: '9+', label: 'лет на рынке' },
               { value: '500+', label: 'авто обслужено' },
-              { value: '13', label: 'марок в работе' },
+              { value: '13', label: 'марок в сервисе' },
               { value: '10:00–20:00', label: 'ежедневно' },
             ].map((s) => (
               <div key={s.label}>

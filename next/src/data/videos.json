@@ -1,0 +1,35 @@
+[
+  {
+    "id": "placeholder-1",
+    "title": "Чип-тюнинг BMW M5 F90 — Stage 2+. До и после",
+    "description": "Прирост мощности с 600 до 780 л.с. Замер на стенде, результат на видео.",
+    "rutube_url": "https://rutube.ru/video/placeholder/",
+    "rutube_embed": "",
+    "thumbnail": "",
+    "date": "2024-11-15",
+    "category": "chip-tuning",
+    "tags": ["BMW", "M5", "Stage 2", "чип-тюнинг"]
+  },
+  {
+    "id": "placeholder-2",
+    "title": "Оклейка Porsche Cayenne PPF — полный передок",
+    "description": "Защита капота, бамперов и крыльев плёнкой XPEL Ultimate Plus.",
+    "rutube_url": "https://rutube.ru/video/placeholder/",
+    "rutube_embed": "",
+    "thumbnail": "",
+    "date": "2024-10-22",
+    "category": "detailing",
+    "tags": ["Porsche", "PPF", "детейлинг", "защитная плёнка"]
+  },
+  {
+    "id": "placeholder-3",
+    "title": "Полировка Mercedes GLE — 3-стадийная корректировка",
+    "description": "Убираем паутинки, окислы и голограммы. Финиш — нанесение керамики 9H.",
+    "rutube_url": "https://rutube.ru/video/placeholder/",
+    "rutube_embed": "",
+    "thumbnail": "",
+    "date": "2024-09-08",
+    "category": "detailing",
+    "tags": ["Mercedes", "полировка", "керамика", "детейлинг"]
+  }
+]

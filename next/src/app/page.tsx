@@ -5,17 +5,31 @@ import { BrandsSection } from '@/components/sections/BrandsSection';
 import { WorksPreview } from '@/components/sections/WorksPreview';
 import { FaqSection } from '@/components/sections/FaqSection';
 import { CtaSection } from '@/components/sections/CtaSection';
+import { ReviewsSection } from '@/components/sections/ReviewsSection';
+import { VideoSection } from '@/components/sections/VideoSection';
+import { DetailingCalculator } from '@/components/sections/DetailingCalculator';
 import seoData from '@/data/seo.json';
 
 export const metadata: Metadata = {
   title: seoData.pages.home.title,
   description: seoData.pages.home.description,
+  keywords: seoData.defaults.keywords.join(', '),
   alternates: { canonical: 'https://hptuning.ru' },
   openGraph: {
     title: seoData.pages.home.title,
     description: seoData.pages.home.description,
     url: 'https://hptuning.ru',
-    images: [{ url: 'https://hptuning.ru/images/mercedes-s-class-hero.jpg', width: 1200, height: 800 }],
+    type: 'website',
+    locale: 'ru_RU',
+    siteName: 'HP Тюнинг',
+    images: [
+      {
+        url: 'https://hptuning.ru/images/hero-bmw-x7.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'HP Тюнинг — премиальный автосервис в Санкт-Петербурге',
+      },
+    ],
   },
 };
 
@@ -29,6 +43,31 @@ const faqSchema = {
   })),
 };
 
+const reviewsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://hptuning.ru/#org',
+  name: 'HP Тюнинг',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: String(seoData.reviews.length),
+    bestRating: '5',
+    worstRating: '1',
+  },
+  review: seoData.reviews.map((r) => ({
+    '@type': 'Review',
+    author: { '@type': 'Person', name: r.name },
+    datePublished: r.date,
+    reviewBody: r.text,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: String(r.rating),
+      bestRating: '5',
+    },
+  })),
+};
+
 export default function HomePage() {
   return (
     <>
@@ -36,11 +75,36 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsSchema) }}
+      />
+
+      {/* Герой с BMW X7 */}
       <Hero />
+
+      {/* Услуги */}
       <ServicesSection />
+
+      {/* Калькулятор детейлинга */}
+      <DetailingCalculator />
+
+      {/* Бренды */}
       <BrandsSection />
+
+      {/* Работы */}
       <WorksPreview />
+
+      {/* Видео RuTube */}
+      <VideoSection />
+
+      {/* Отзывы */}
+      <ReviewsSection />
+
+      {/* FAQ */}
       <FaqSection />
+
+      {/* CTA */}
       <CtaSection />
     </>
   );

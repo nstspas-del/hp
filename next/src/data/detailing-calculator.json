@@ -1,203 +1,155 @@
 {
-  "_comment": "Калькулятор детейлинга HP Тюнинг. По аналогу platinum-garage.ru. Обновлено: 2026-04-17",
-  "carClasses": [
-    { "id": "sedan-s", "label": "Седан / Хэтчбек S", "desc": "до 4.5м", "examples": "VW Golf, Kia Rio, Mazda 3" },
-    { "id": "sedan-m", "label": "Седан / Купе M", "desc": "4.5–4.9м", "examples": "BMW 3, Mercedes C, Audi A4" },
-    { "id": "sedan-l", "label": "Бизнес-класс L", "desc": "4.9–5.1м", "examples": "BMW 5, Mercedes E, Audi A6" },
-    { "id": "suv-m",   "label": "Кроссовер / SUV M", "desc": "до 4.8м", "examples": "BMW X3, VW Tiguan, Mazda CX-5" },
-    { "id": "suv-l",   "label": "Кроссовер / SUV L", "desc": "от 4.8м", "examples": "BMW X5, Mercedes GLE, Porsche Cayenne" },
-    { "id": "minivan", "label": "Минивэн / Внедорожник", "desc": "большой", "examples": "BMW X7, Land Rover, Lexus LX" }
+  "_comment": "Калькулятор детейлинга HP Тюнинг. Структура услуг по аналогии с platinum-garage.ru. Категории авто: 1=хэтчбеки/малые седаны, 2=кроссоверы/бизнес-седаны, 3=внедорожники/премиум, 4=минивэны/пикапы",
+  "categories": [
+    { "id": 1, "label": "Хэтчбек / Малый седан", "example": "Golf, Polo, A3, 1-Series" },
+    { "id": 2, "label": "Кроссовер / Бизнес-седан", "example": "3-Series, C-Class, CX-5, Tiguan" },
+    { "id": 3, "label": "Внедорожник / Премиум", "example": "X5, GLE, LC200, Cayenne" },
+    { "id": 4, "label": "Минивэн / Большой пикап", "example": "Caravelle, Land Cruiser 300" }
   ],
   "services": [
     {
-      "id": "polishing",
-      "name": "Полировка кузова",
-      "icon": "sparkles",
-      "desc": "Удаление царапин, голограмм, восстановление блеска",
-      "packages": [
-        {
-          "id": "polish-1",
-          "name": "Лёгкая полировка",
-          "desc": "1 стадия — удаление лёгких потёртостей, голограмм",
-          "duration": "1 день",
-          "prices": {
-            "sedan-s": 12000, "sedan-m": 15000, "sedan-l": 18000,
-            "suv-m": 18000, "suv-l": 22000, "minivan": 26000
-          }
-        },
-        {
-          "id": "polish-2",
-          "name": "Полная полировка",
-          "desc": "2 стадии — удаление царапин до 3 мкм, восстановление ЛКП",
-          "duration": "2 дня",
-          "prices": {
-            "sedan-s": 22000, "sedan-m": 28000, "sedan-l": 34000,
-            "suv-m": 32000, "suv-l": 42000, "minivan": 52000
-          }
-        },
-        {
-          "id": "polish-3",
-          "name": "Полировка 3 стадии",
-          "desc": "Корректировка глубоких царапин, подготовка под керамику",
-          "duration": "3 дня",
-          "prices": {
-            "sedan-s": 35000, "sedan-m": 45000, "sedan-l": 55000,
-            "suv-m": 50000, "suv-l": 65000, "minivan": 80000
-          }
-        }
-      ]
+      "id": "wash-2phase",
+      "name": "Двухфазная мойка",
+      "slug": "myjka",
+      "description": "Двухфазная мойка кузова + ковры, турбосушка, чернение",
+      "duration": "1–2 ч",
+      "prices": [1500, 1800, 2000, 2250]
     },
     {
-      "id": "ceramic",
-      "name": "Керамическое покрытие",
-      "icon": "shield",
-      "desc": "Защита ЛКП 9H, гидрофобный эффект, срок 3–5 лет",
-      "packages": [
-        {
-          "id": "ceramic-base",
-          "name": "Керамика Base",
-          "desc": "1 слой — защита от воды, грязи, УФ. Срок 1–2 года",
-          "duration": "2 дня",
-          "prices": {
-            "sedan-s": 25000, "sedan-m": 32000, "sedan-l": 38000,
-            "suv-m": 35000, "suv-l": 45000, "minivan": 55000
-          }
-        },
-        {
-          "id": "ceramic-pro",
-          "name": "Керамика Pro",
-          "desc": "2 слоя + грунтовочный слой. Срок 3 года. Полировка включена",
-          "duration": "3 дня",
-          "prices": {
-            "sedan-s": 45000, "sedan-m": 55000, "sedan-l": 65000,
-            "suv-m": 60000, "suv-l": 75000, "minivan": 90000
-          }
-        },
-        {
-          "id": "ceramic-elite",
-          "name": "Керамика Elite",
-          "desc": "3 слоя японской керамики 9H + полировка 2 стадии. Срок 5 лет",
-          "duration": "4–5 дней",
-          "prices": {
-            "sedan-s": 70000, "sedan-m": 85000, "sedan-l": 100000,
-            "suv-m": 90000, "suv-l": 115000, "minivan": 140000
-          }
-        }
-      ]
+      "id": "wash-detail",
+      "name": "Мойка Detail",
+      "slug": "myjka-detail",
+      "description": "20 этапов: трёхфазная мойка, химчистка кузова и дисков, турбосушка, чернение, ковры",
+      "duration": "2–3 ч",
+      "prices": [2500, 2750, 3000, 3250]
     },
     {
-      "id": "ppf",
-      "name": "PPF плёнка",
-      "icon": "layers",
-      "desc": "Антигравийная бронеплёнка — защита от камней и сколов",
-      "packages": [
-        {
-          "id": "ppf-hood",
-          "name": "Капот + Зоны риска",
-          "desc": "Капот, передние крылья, зеркала, пороги",
-          "duration": "1–2 дня",
-          "prices": {
-            "sedan-s": 25000, "sedan-m": 30000, "sedan-l": 35000,
-            "suv-m": 32000, "suv-l": 40000, "minivan": 50000
-          }
-        },
-        {
-          "id": "ppf-front",
-          "name": "Полный перёд",
-          "desc": "Капот полностью, бамперы, крылья, зеркала, фары",
-          "duration": "2–3 дня",
-          "prices": {
-            "sedan-s": 55000, "sedan-m": 65000, "sedan-l": 80000,
-            "suv-m": 70000, "suv-l": 90000, "minivan": 115000
-          }
-        },
-        {
-          "id": "ppf-full",
-          "name": "Полная оклейка",
-          "desc": "Весь кузов — максимальная защита ЛКП",
-          "duration": "5–7 дней",
-          "prices": {
-            "sedan-s": 130000, "sedan-m": 160000, "sedan-l": 190000,
-            "suv-m": 170000, "suv-l": 220000, "minivan": 280000
-          }
-        }
-      ]
+      "id": "wash-detail-plus",
+      "name": "Мойка Detail Plus",
+      "slug": "myjka-detail-plus",
+      "description": "25 этапов: кузов + салон, торнадор, пылесос, влажная уборка, мойка стёкол",
+      "duration": "3–4 ч",
+      "prices": [3500, 4000, 4500, 5500]
     },
     {
-      "id": "cleaning",
-      "name": "Химчистка салона",
-      "icon": "sparkles",
-      "desc": "Глубокая очистка всех поверхностей салона",
-      "packages": [
-        {
-          "id": "clean-dry",
-          "name": "Сухая химчистка",
-          "desc": "Пылесос + обработка сухим паром, без замачивания",
-          "duration": "4–6 часов",
-          "prices": {
-            "sedan-s": 6000, "sedan-m": 8000, "sedan-l": 10000,
-            "suv-m": 9000, "suv-l": 12000, "minivan": 15000
-          }
-        },
-        {
-          "id": "clean-full",
-          "name": "Полная химчистка",
-          "desc": "Замачивание, экстракция, обработка кожи, потолок, ковры",
-          "duration": "1 день",
-          "prices": {
-            "sedan-s": 12000, "sedan-m": 15000, "sedan-l": 18000,
-            "suv-m": 17000, "suv-l": 22000, "minivan": 28000
-          }
-        },
-        {
-          "id": "clean-premium",
-          "name": "Детейлинг салона Premium",
-          "desc": "Полная химчистка + кондиционирование кожи + ароматизация + защита пластика",
-          "duration": "1–2 дня",
-          "prices": {
-            "sedan-s": 20000, "sedan-m": 25000, "sedan-l": 30000,
-            "suv-m": 28000, "suv-l": 36000, "minivan": 45000
-          }
-        }
-      ]
+      "id": "wash-detail-pro",
+      "name": "Мойка Detail Pro",
+      "slug": "myjka-detail-pro",
+      "description": "27 этапов: полный уход — кузов, салон, антидождь на стёкла, кварцевое напыление",
+      "duration": "4–5 ч",
+      "prices": [5500, 6000, 6600, 7500]
     },
     {
-      "id": "tinting",
-      "name": "Тонировка стёкол",
-      "icon": "eye-off",
-      "desc": "Тонировочная плёнка — защита от УФ и перегрева",
-      "packages": [
-        {
-          "id": "tint-rear",
-          "name": "Задние стёкла",
-          "desc": "Боковые задние + заднее стекло (3–4 стекла)",
-          "duration": "3–4 часа",
-          "prices": {
-            "sedan-s": 5000, "sedan-m": 6000, "sedan-l": 7000,
-            "suv-m": 7000, "suv-l": 9000, "minivan": 11000
-          }
-        },
-        {
-          "id": "tint-all",
-          "name": "Все стёкла",
-          "desc": "Все боковые + заднее (передние — атермальная плёнка)",
-          "duration": "1 день",
-          "prices": {
-            "sedan-s": 10000, "sedan-m": 12000, "sedan-l": 14000,
-            "suv-m": 14000, "suv-l": 18000, "minivan": 22000
-          }
-        },
-        {
-          "id": "tint-panorama",
-          "name": "Панорама + все стёкла",
-          "desc": "Всё включая панорамную крышу",
-          "duration": "1 день",
-          "prices": {
-            "sedan-s": 14000, "sedan-m": 17000, "sedan-l": 20000,
-            "suv-m": 20000, "suv-l": 26000, "minivan": 32000
-          }
-        }
-      ]
+      "id": "dry-clean-partial",
+      "name": "Химчистка салона (частичная)",
+      "slug": "himchistka-chast",
+      "description": "Торпедо, двери, потолок или только сиденья — по выбору",
+      "duration": "4–6 ч",
+      "prices": [5000, 6000, 7000, 8000]
+    },
+    {
+      "id": "dry-clean-full",
+      "name": "Химчистка салона (полная)",
+      "slug": "himchistka-polnaya",
+      "description": "Полная химчистка всего салона: сиденья, ковры, потолок, двери, торпедо",
+      "duration": "8–12 ч",
+      "prices": [12000, 15000, 18000, 22000]
+    },
+    {
+      "id": "polish-1",
+      "name": "Полировка 1-стадийная",
+      "slug": "polirovka-1",
+      "description": "Удаление мелких царапин, восстановление блеска, защитный воск в финале",
+      "duration": "6–8 ч",
+      "prices": [8000, 10000, 13000, 16000]
+    },
+    {
+      "id": "polish-2",
+      "name": "Полировка 2-стадийная",
+      "slug": "polirovka-2",
+      "description": "Исправление кузова: глубокие царапины, голограммы, окислы — 2 прохода",
+      "duration": "10–14 ч",
+      "prices": [16000, 20000, 25000, 30000]
+    },
+    {
+      "id": "polish-3",
+      "name": "Полировка 3-стадийная",
+      "slug": "polirovka-3",
+      "description": "Корректировка + финиш + защитный слой. Результат как на новом авто",
+      "duration": "1–2 дня",
+      "prices": [25000, 32000, 40000, 50000]
+    },
+    {
+      "id": "ceramic-1",
+      "name": "Керамика (1 слой)",
+      "slug": "keramika-1",
+      "description": "Однослойное керамическое покрытие 9H. Защита 1–2 года",
+      "duration": "1 день",
+      "prices": [20000, 25000, 30000, 35000]
+    },
+    {
+      "id": "ceramic-2",
+      "name": "Керамика (2 слоя)",
+      "slug": "keramika-2",
+      "description": "Двухслойная керамика 9H. Защита 2–3 года. Рекомендуется после полировки",
+      "duration": "1–2 дня",
+      "prices": [30000, 38000, 46000, 55000]
+    },
+    {
+      "id": "ppf-hood",
+      "name": "PPF капот",
+      "slug": "ppf-kapot",
+      "description": "Защитная плёнка XPEL/SunTek на капот — защита от сколов и абразива",
+      "duration": "4–6 ч",
+      "prices": [18000, 22000, 26000, 30000]
+    },
+    {
+      "id": "ppf-front",
+      "name": "PPF передняя зона",
+      "slug": "ppf-peredok",
+      "description": "Капот + бамперы + крылья + зеркала. Полная защита передка",
+      "duration": "1–2 дня",
+      "prices": [55000, 65000, 80000, 95000]
+    },
+    {
+      "id": "ppf-full",
+      "name": "PPF весь кузов",
+      "slug": "ppf-full",
+      "description": "Полная оклейка кузова PPF. Срок службы 7–10 лет",
+      "duration": "3–5 дней",
+      "prices": [150000, 180000, 220000, 270000]
+    },
+    {
+      "id": "tint-rear",
+      "name": "Тонировка задние стёкла",
+      "slug": "tonirovka-zadnie",
+      "description": "Тонировка задних боковых + заднего стекла. Плёнка Llumar/SunTek",
+      "duration": "2–3 ч",
+      "prices": [4000, 5000, 6000, 7000]
+    },
+    {
+      "id": "tint-full",
+      "name": "Тонировка весь автомобиль",
+      "slug": "tonirovka-full",
+      "description": "Все стёкла кроме лобового. Гарантия на плёнку 5 лет",
+      "duration": "4–6 ч",
+      "prices": [8000, 10000, 12000, 15000]
+    },
+    {
+      "id": "engine-wash",
+      "name": "Мойка подкапотного пространства",
+      "slug": "myjka-dvigatelya",
+      "description": "Диэлектрик, пена, вода, продувка. Безопасно для электрики",
+      "duration": "1–2 ч",
+      "prices": [2000, 2250, 2500, 2750]
+    },
+    {
+      "id": "bottom-wash",
+      "name": "Мойка днища и подвески",
+      "slug": "myjka-dnisha",
+      "description": "Две фазы бесконтактной мойки на подъёмнике",
+      "duration": "1–2 ч",
+      "prices": [6000, 6500, 7000, 7000]
     }
   ]
 }

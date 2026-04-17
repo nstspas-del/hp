@@ -1,234 +1,209 @@
 'use client';
 import { useState, useMemo } from 'react';
+import { Sparkles, ChevronDown, CheckCircle, ArrowRight, Clock } from 'lucide-react';
 import { openBooking } from '@/lib/autodealer';
-import calcData from '@/data/detailing-calculator.json';
+import data from '@/data/detailing-calculator.json';
 
-/* ── Типы ── */
-interface CarClass { id: string; label: string; desc: string; examples: string; }
-interface Package { id: string; name: string; desc: string; duration: string; prices: Record<string, number>; }
-interface Service { id: string; name: string; icon: string; desc: string; packages: Package[]; }
+type Category = (typeof data.categories)[number];
+type Service = (typeof data.services)[number];
 
-const carClasses = calcData.carClasses as CarClass[];
-const services   = calcData.services   as Service[];
+const GROUPS = [
+  { label: 'Мойка', ids: ['wash-2phase', 'wash-detail', 'wash-detail-plus', 'wash-detail-pro'] },
+  { label: 'Химчистка салона', ids: ['dry-clean-partial', 'dry-clean-full'] },
+  { label: 'Полировка', ids: ['polish-1', 'polish-2', 'polish-3'] },
+  { label: 'Керамика', ids: ['ceramic-1', 'ceramic-2'] },
+  { label: 'PPF плёнка', ids: ['ppf-hood', 'ppf-front', 'ppf-full'] },
+  { label: 'Тонировка', ids: ['tint-rear', 'tint-full'] },
+  { label: 'Мойка агрегатов', ids: ['engine-wash', 'bottom-wash'] },
+];
 
-const ICONS: Record<string, string> = {
-  polishing: '✦',
-  ceramic:   '◈',
-  ppf:       '⬡',
-  cleaning:  '❋',
-  tinting:   '◐',
-};
-
-const SERVICE_COLORS: Record<string, string> = {
-  polishing: 'from-amber-500/20 to-amber-500/5 border-amber-500/30',
-  ceramic:   'from-sky-500/20 to-sky-500/5 border-sky-500/30',
-  ppf:       'from-emerald-500/20 to-emerald-500/5 border-emerald-500/30',
-  cleaning:  'from-violet-500/20 to-violet-500/5 border-violet-500/30',
-  tinting:   'from-zinc-400/20 to-zinc-400/5 border-zinc-400/30',
-};
-
-const ACTIVE_COLORS: Record<string, string> = {
-  polishing: 'border-amber-400 bg-amber-400/10',
-  ceramic:   'border-sky-400 bg-sky-400/10',
-  ppf:       'border-emerald-400 bg-emerald-400/10',
-  cleaning:  'border-violet-400 bg-violet-400/10',
-  tinting:   'border-zinc-300 bg-zinc-300/10',
-};
-
-const ICON_COLORS: Record<string, string> = {
-  polishing: 'text-amber-400',
-  ceramic:   'text-sky-400',
-  ppf:       'text-emerald-400',
-  cleaning:  'text-violet-400',
-  tinting:   'text-zinc-300',
-};
+function fmt(n: number) {
+  return n.toLocaleString('ru-RU');
+}
 
 export function DetailingCalculator() {
-  const [carClassId, setCarClassId] = useState<string>('sedan-m');
-  const [serviceId,  setServiceId]  = useState<string>('polishing');
-  const [packageId,  setPackageId]  = useState<string | null>(null);
+  const [catId, setCatId] = useState<number | null>(null);
+  const [selected, setSelected] = useState<Set<string>>(new Set());
 
-  const currentService = useMemo(
-    () => services.find((s) => s.id === serviceId)!,
-    [serviceId]
+  const cat = useMemo(() => data.categories.find((c) => c.id === catId) ?? null, [catId]);
+
+  function getPrice(s: Service): number {
+    if (catId === null) return 0;
+    return s.prices[catId - 1] ?? 0;
+  }
+
+  function toggleService(id: string) {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
+
+  const selectedServices = useMemo(
+    () => data.services.filter((s) => selected.has(s.id)),
+    [selected]
   );
 
-  const currentPackage = useMemo(
-    () => currentService?.packages.find((p) => p.id === packageId) ?? null,
-    [currentService, packageId]
+  const total = useMemo(
+    () => selectedServices.reduce((acc, s) => acc + getPrice(s), 0),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [selectedServices, catId]
   );
-
-  const price = useMemo(
-    () => (currentPackage ? currentPackage.prices[carClassId] ?? 0 : null),
-    [currentPackage, carClassId]
-  );
-
-  const carClass = useMemo(
-    () => carClasses.find((c) => c.id === carClassId),
-    [carClassId]
-  );
-
-  /* Сброс пакета при смене услуги */
-  const handleServiceChange = (id: string) => {
-    setServiceId(id);
-    setPackageId(null);
-  };
 
   return (
-    <section id="calculator" className="py-20 bg-[#0c0c0e]">
-      <div className="container max-w-5xl">
-
-        {/* ── Заголовок ── */}
-        <div className="mb-10 text-center">
-          <span className="inline-block px-3 py-1 rounded-full bg-[#39FF14]/10 text-[#39FF14] text-xs font-bold uppercase tracking-widest mb-4">
-            Калькулятор
+    <section className="section bg-bg-elevated" id="detailing-calculator">
+      <div className="container">
+        {/* Заголовок */}
+        <div className="text-center mb-10">
+          <span className="badge mb-4">
+            <Sparkles className="size-3 mr-1" />
+            Калькулятор детейлинга
           </span>
-          <h2 className="text-3xl md:text-4xl font-display uppercase tracking-wide text-white mb-3">
-            Стоимость детейлинга
-          </h2>
-          <p className="text-zinc-500 text-sm max-w-xl mx-auto">
-            Выберите класс автомобиля, вид работ и пакет — узнайте точную цену за 10 секунд
+          <h2 className="section-title">РАССЧИТАЙ СТОИМОСТЬ</h2>
+          <p className="section-subtitle mx-auto">
+            Выбери тип авто и нужные услуги — получи точную цену за 30 секунд
           </p>
         </div>
 
-        {/* ── Шаг 1: класс авто ── */}
-        <div className="mb-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-3">
-            01 · Класс автомобиля
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
-            {carClasses.map((cls) => (
-              <button
-                key={cls.id}
-                onClick={() => setCarClassId(cls.id)}
-                className={`flex flex-col items-start p-3 rounded-xl border text-left transition-all duration-150 ${
-                  carClassId === cls.id
-                    ? 'border-[#39FF14]/60 bg-[#39FF14]/8 text-white'
-                    : 'border-white/8 bg-[#111113] text-zinc-400 hover:border-white/20 hover:text-white'
-                }`}
-              >
-                <span className={`text-[11px] font-semibold leading-tight mb-1 ${carClassId === cls.id ? 'text-[#39FF14]' : ''}`}>
-                  {cls.label}
-                </span>
-                <span className="text-[10px] text-zinc-600">{cls.desc}</span>
-                <span className="text-[10px] text-zinc-600 mt-1 leading-tight">{cls.examples}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Шаг 2: вид услуги ── */}
-        <div className="mb-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-3">
-            02 · Вид работ
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
-            {services.map((svc) => (
-              <button
-                key={svc.id}
-                onClick={() => handleServiceChange(svc.id)}
-                className={`flex flex-col items-start p-4 rounded-xl border transition-all duration-150 text-left ${
-                  serviceId === svc.id
-                    ? `${ACTIVE_COLORS[svc.id]} text-white`
-                    : 'border-white/8 bg-[#111113] text-zinc-400 hover:border-white/20 hover:text-white'
-                }`}
-              >
-                <span className={`text-2xl mb-2 ${serviceId === svc.id ? ICON_COLORS[svc.id] : 'text-zinc-600'}`}>
-                  {ICONS[svc.id]}
-                </span>
-                <span className="text-[13px] font-semibold">{svc.name}</span>
-                <span className="text-[11px] text-zinc-600 mt-1 leading-tight">{svc.desc}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Шаг 3: пакет ── */}
-        <div className="mb-8">
-          <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-3">
-            03 · Пакет
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {currentService.packages.map((pkg) => {
-              const pkgPrice = pkg.prices[carClassId];
-              const isActive = packageId === pkg.id;
-              return (
+        <div className="max-w-3xl mx-auto">
+          {/* Шаг 1 — категория */}
+          <div className="mb-8">
+            <p className="text-text-subtle text-xs uppercase tracking-wider mb-3 font-medium">
+              <span className="text-accent font-bold mr-1">1.</span> Тип автомобиля
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {data.categories.map((c: Category) => (
                 <button
-                  key={pkg.id}
-                  onClick={() => setPackageId(pkg.id)}
-                  className={`relative flex flex-col items-start p-5 rounded-2xl border text-left transition-all duration-150 ${
-                    isActive
-                      ? `bg-gradient-to-br ${SERVICE_COLORS[serviceId]} shadow-lg`
-                      : 'border-white/8 bg-[#111113] hover:border-white/20'
+                  key={c.id}
+                  onClick={() => setCatId(c.id)}
+                  className={`text-left p-4 rounded-2xl border transition-all ${
+                    catId === c.id
+                      ? 'border-accent bg-accent/10 shadow-[0_0_20px_rgba(57,255,20,0.15)]'
+                      : 'border-border bg-bg hover:border-accent/40'
                   }`}
                 >
-                  {isActive && (
-                    <span className="absolute top-3 right-3 w-5 h-5 rounded-full bg-[#39FF14] flex items-center justify-center text-black text-[10px] font-bold">
-                      ✓
-                    </span>
-                  )}
-                  <p className={`text-sm font-bold mb-1 ${isActive ? 'text-white' : 'text-zinc-300'}`}>
-                    {pkg.name}
-                  </p>
-                  <p className="text-[12px] text-zinc-500 mb-3 leading-snug">{pkg.desc}</p>
-                  <div className="flex items-center justify-between w-full mt-auto">
-                    <span className={`text-xl font-bold ${isActive ? ICON_COLORS[serviceId] : 'text-zinc-300'}`}>
-                      {pkgPrice.toLocaleString('ru-RU')} ₽
-                    </span>
-                    <span className="text-[11px] text-zinc-600 bg-white/5 px-2 py-1 rounded-full">
-                      ⏱ {pkg.duration}
-                    </span>
-                  </div>
+                  <div className="text-text text-sm font-semibold leading-tight mb-1">{c.label}</div>
+                  <div className="text-text-subtle text-xs leading-snug">{c.example}</div>
                 </button>
-              );
-            })}
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* ── Результат ── */}
-        <div
-          className={`rounded-2xl border transition-all duration-300 ${
-            price !== null
-              ? 'bg-gradient-to-r from-[#39FF14]/10 to-transparent border-[#39FF14]/30 p-6'
-              : 'border-white/8 bg-[#111113] p-6'
-          }`}
-        >
-          {price !== null && currentPackage ? (
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div>
-                <p className="text-zinc-500 text-xs uppercase tracking-widest mb-1">Ваш расчёт</p>
-                <p className="text-white font-semibold text-lg">
-                  {currentService.name} · {currentPackage.name}
-                </p>
-                <p className="text-zinc-500 text-sm mt-0.5">
-                  Класс: <span className="text-zinc-300">{carClass?.label}</span>
-                  &nbsp;·&nbsp;Срок: <span className="text-zinc-300">{currentPackage.duration}</span>
-                </p>
-              </div>
-              <div className="flex flex-col sm:items-end gap-3">
-                <span className="text-[#39FF14] text-3xl font-display font-bold" style={{ textShadow: '0 0 20px rgba(57,255,20,0.4)' }}>
-                  {price.toLocaleString('ru-RU')} ₽
-                </span>
+          {/* Шаг 2 — услуги */}
+          <div className={`transition-all duration-300 ${catId ? 'opacity-100' : 'opacity-40 pointer-events-none select-none'}`}>
+            <p className="text-text-subtle text-xs uppercase tracking-wider mb-4 font-medium">
+              <span className="text-accent font-bold mr-1">2.</span> Выберите услуги (можно несколько)
+            </p>
+
+            <div className="flex flex-col gap-3">
+              {GROUPS.map((group) => {
+                const groupServices = group.ids
+                  .map((id) => data.services.find((s) => s.id === id))
+                  .filter(Boolean) as Service[];
+                if (!groupServices.length) return null;
+
+                return (
+                  <div key={group.label} className="card overflow-hidden">
+                    <div className="px-4 py-2.5 bg-bg border-b border-border">
+                      <span className="text-text-muted text-xs uppercase tracking-widest font-bold">
+                        {group.label}
+                      </span>
+                    </div>
+                    {groupServices.map((s) => {
+                      const price = getPrice(s);
+                      const isSelected = selected.has(s.id);
+                      return (
+                        <button
+                          key={s.id}
+                          onClick={() => toggleService(s.id)}
+                          className={`w-full text-left flex items-start gap-3 px-4 py-3.5 transition-colors border-b border-border/50 last:border-0 ${
+                            isSelected ? 'bg-accent/5' : 'hover:bg-bg-elevated/50'
+                          }`}
+                        >
+                          <div
+                            className={`shrink-0 mt-0.5 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
+                              isSelected
+                                ? 'border-accent bg-accent'
+                                : 'border-border'
+                            }`}
+                          >
+                            {isSelected && <CheckCircle className="size-3 text-black" />}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-start justify-between gap-2">
+                              <span className={`text-sm font-semibold ${isSelected ? 'text-accent' : 'text-text'}`}>
+                                {s.name}
+                              </span>
+                              <span className={`text-sm font-bold shrink-0 ${isSelected ? 'text-accent' : 'text-text-muted'}`}>
+                                {catId ? `${fmt(price)} ₽` : '—'}
+                              </span>
+                            </div>
+                            <div className="text-text-subtle text-xs mt-0.5 leading-relaxed pr-2">
+                              {s.description}
+                            </div>
+                            <div className="flex items-center gap-1 mt-1.5 text-text-subtle text-xs">
+                              <Clock className="size-3" />
+                              {s.duration}
+                            </div>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Итог */}
+          {selectedServices.length > 0 && catId && (
+            <div className="mt-8 card p-6 border-accent/30 bg-accent/5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+                <div>
+                  <div className="text-text-subtle text-xs uppercase tracking-wider mb-1">
+                    Итого за {selectedServices.length} услуг{selectedServices.length === 1 ? 'у' : 'и'}
+                  </div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="font-display text-4xl text-accent">{fmt(total)}</span>
+                    <span className="text-text-muted text-xl">₽</span>
+                  </div>
+                  <div className="text-text-subtle text-xs mt-1">{cat?.label}</div>
+                </div>
                 <button
-                  onClick={() => openBooking()}
-                  className="btn-primary px-6 py-3 rounded-full text-sm font-bold whitespace-nowrap"
+                  onClick={() => openBooking('Детейлинг')}
+                  className="flex items-center gap-2 bg-[#39FF14] text-black font-bold px-6 py-3.5 rounded-full hover:bg-[#39FF14]/90 hover:shadow-[0_0_24px_rgba(57,255,20,0.4)] transition-all"
                 >
-                  Записаться на этот пакет
+                  Записаться по этой цене
+                  <ArrowRight className="size-4" />
                 </button>
+              </div>
+
+              {/* Перечень */}
+              <div className="border-t border-border pt-4 flex flex-col gap-2">
+                {selectedServices.map((s) => (
+                  <div key={s.id} className="flex justify-between text-sm">
+                    <span className="text-text-muted">{s.name}</span>
+                    <span className="text-text font-medium">{fmt(getPrice(s))} ₽</span>
+                  </div>
+                ))}
               </div>
             </div>
-          ) : (
-            <div className="flex items-center gap-3 text-zinc-600">
-              <span className="text-2xl">↑</span>
-              <p className="text-sm">Выберите пакет выше — цена отобразится здесь</p>
+          )}
+
+          {/* Подсказка если ничего не выбрано */}
+          {catId && selected.size === 0 && (
+            <div className="mt-6 text-center text-text-subtle text-sm">
+              ← Выберите одну или несколько услуг выше
+            </div>
+          )}
+          {!catId && (
+            <div className="mt-6 text-center text-text-subtle text-sm">
+              ↑ Сначала выберите тип автомобиля
             </div>
           )}
         </div>
-
-        {/* ── Сноска ── */}
-        <p className="text-center text-zinc-600 text-xs mt-5">
-          Цены актуальны на апрель 2026. Точный расчёт — после осмотра автомобиля. Выезд мастера бесплатно.
-        </p>
       </div>
     </section>
   );
