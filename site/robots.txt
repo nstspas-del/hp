@@ -4,6 +4,7 @@ Allow: /
 User-agent: Yandex
 Allow: /
 Crawl-delay: 2
+Clean-param: utm_source&utm_medium&utm_campaign&utm_term&utm_content&fbclid&gclid
 
 User-agent: Googlebot
 Allow: /
@@ -11,5 +12,5 @@ Allow: /
 Disallow: /privacy
 Disallow: /cookies
 
-Sitemap: https://hp-tuning.ru/sitemap.xml
-Host: hp-tuning.ru
+Sitemap: https://hptuning.ru/sitemap.xml
+Host: hptuning.ru

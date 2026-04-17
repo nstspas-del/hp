@@ -3,151 +3,151 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <url>
-    <loc>https://hp-tuning.ru/</loc>
+    <loc>https://hptuning.ru/</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://hp-tuning.ru/og-image.jpg</image:loc>
+      <image:loc>https://hptuning.ru/og-image.jpg</image:loc>
       <image:title>HP Тюнинг — тюнинг-ателье в Санкт-Петербурге</image:title>
     </image:image>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/tuning</loc>
+    <loc>https://hptuning.ru/tuning</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/detailing</loc>
+    <loc>https://hptuning.ru/detailing</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/blog</loc>
+    <loc>https://hptuning.ru/blog</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/bmw</loc>
+    <loc>https://hptuning.ru/bmw</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/mercedes</loc>
+    <loc>https://hptuning.ru/mercedes</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/porsche</loc>
+    <loc>https://hptuning.ru/porsche</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/audi</loc>
+    <loc>https://hptuning.ru/audi</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/lexus</loc>
+    <loc>https://hptuning.ru/lexus</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/land-rover</loc>
+    <loc>https://hptuning.ru/land-rover</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/range-rover</loc>
+    <loc>https://hptuning.ru/range-rover</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/volvo</loc>
+    <loc>https://hptuning.ru/volvo</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/volkswagen</loc>
+    <loc>https://hptuning.ru/volkswagen</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/jaguar</loc>
+    <loc>https://hptuning.ru/jaguar</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/genesis</loc>
+    <loc>https://hptuning.ru/genesis</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/infiniti</loc>
+    <loc>https://hptuning.ru/infiniti</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/bentley</loc>
+    <loc>https://hptuning.ru/bentley</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/toyota</loc>
+    <loc>https://hptuning.ru/toyota</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/hyundai</loc>
+    <loc>https://hptuning.ru/hyundai</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/kia</loc>
+    <loc>https://hptuning.ru/kia</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://hp-tuning.ru/nissan</loc>
+    <loc>https://hptuning.ru/nissan</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
