@@ -6,90 +6,90 @@ import services from '@/data/services.json';
 import { DetailingCalculator } from '@/components/ui/DetailingCalculator';
 
 export const metadata: Metadata = {
-  title: 'Детейлинг в СПб — керамика 9H, PPF, химчистка | HP Тюнинг',
-  description: 'Детейлинг-услуги в Санкт-Петербурге: керамическое покрытие 9H, полиуретановая плёнка PPF, химчистка салона, полировка, тонировка. Калькулятор стоимости онлайн. От 5 000 ₽.',
-  alternates: { canonical: 'https://hptuning.ru/detailing' },
-  openGraph: {
-    title: 'Детейлинг в СПб — керамика 9H, PPF, химчистка | HP Тюнинг',
-    description: 'Керамика 9H от 22 000 ₽, PPF от 8 000 ₽, полировка от 10 000 ₽. Gyeon, XPEL, 3M. Гарантия.',
-    url: 'https://hptuning.ru/detailing',
-    images: [{ url: 'https://hptuning.ru/images/og/detailing.jpg', width: 1200, height: 630, alt: 'Детейлинг в СПб — керамика 9H, PPF, полировка | HP Тюнинг' }],
-  },
+ title: 'Детейлинг в СПб — керамика 9H, PPF, химчистка | HP Тюнинг',
+ description: 'Детейлинг-услуги в Санкт-Петербурге: керамическое покрытие 9H, полиуретановая плёнка PPF, химчистка салона, полировка, тонировка. Калькулятор стоимости онлайн. От 5 000 ₽.',
+ alternates: { canonical: 'https://hptuning.ru/detailing' },
+ openGraph: {
+ title: 'Детейлинг в СПб — керамика 9H, PPF, химчистка | HP Тюнинг',
+ description: 'Керамика 9H от 22 000 ₽, PPF от 8 000 ₽, полировка от 10 000 ₽. Gyeon, XPEL, 3M.',
+ url: 'https://hptuning.ru/detailing',
+ images: [{ url: 'https://hptuning.ru/images/og/detailing.jpg', width: 1200, height: 630, alt: 'Детейлинг в СПб — керамика 9H, PPF, полировка | HP Тюнинг' }],
+ },
 };
 
 const cat = services.categories.find((c) => c.slug === 'detailing')!;
 
 export default function DetailingPage() {
-  return (
-    <>
-      <div className="section container pt-32">
-        {/* Хлебные крошки */}
-      <Breadcrumbs items={[{ label: "Услуги", href: "/services" }, { label: "Детейлинг" }]} />
+ return (
+ <>
+ <div className="section container pt-32">
+ {/* Хлебные крошки */}
+ <Breadcrumbs items={[{ label: "Услуги", href: "/services" }, { label: "Детейлинг" }]} />
 
-        {/* Заголовок */}
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center">
-            <Sparkles className="size-7 text-blue-400" />
-          </div>
-          <div>
-            <span className="badge">Защита кузова</span>
-            <h1 className="section-title text-4xl md:text-5xl mt-1">ДЕТЕЙЛИНГ В СПБ</h1>
-          </div>
-        </div>
-        <p className="section-subtitle mb-12 max-w-2xl">
-          Профессиональная защита и уход за автомобилем. Керамика 9H сроком до 5 лет, PPF плёнка,
-          химчистка, полировка, тонировка. Работаем с BMW, Mercedes, Porsche и другими марками.
-        </p>
+ {/* Заголовок */}
+ <div className="flex items-center gap-4 mb-6">
+ <div className="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center">
+ <Sparkles className="size-7 text-blue-400" />
+ </div>
+ <div>
+ <span className="badge">Защита кузова</span>
+ <h1 className="section-title text-4xl md:text-5xl mt-1">ДЕТЕЙЛИНГ В СПБ</h1>
+ </div>
+ </div>
+ <p className="section-subtitle mb-12 max-w-2xl">
+ Профессиональная защита и уход за автомобилем. Керамика 9H сроком до 5 лет, PPF плёнка,
+ химчистка, полировка, тонировка. Работаем с BMW, Mercedes, Porsche и другими марками.
+ </p>
 
-        {/* Карточки услуг */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
-          {cat.items.map((item) => (
-            <Link
-              key={item.slug}
-              href={`/services/detailing/${item.slug}`}
-              className="card group hover:border-accent-dim flex flex-col gap-3"
-            >
-              <div className="flex items-start justify-between gap-2">
-                <h2 className="text-text font-semibold text-lg group-hover:text-accent transition-colors">
-                  {item.name}
-                </h2>
-                <ArrowRight className="size-4 text-text-subtle group-hover:text-accent transition-colors shrink-0 mt-1" />
-              </div>
-              {item.shortDescription && (
-                <p className="text-text-subtle text-sm leading-relaxed line-clamp-2">
-                  {item.shortDescription}
-                </p>
-              )}
-              <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
-                <span className="text-accent font-bold">
-                  от {item.priceFrom.toLocaleString('ru-RU')} ₽
-                </span>
-                {item.duration && (
-                  <span className="text-text-subtle text-xs">{item.duration}</span>
-                )}
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
+ {/* Карточки услуг */}
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+ {cat.items.map((item) => (
+ <Link
+ key={item.slug}
+ href={`/services/detailing/${item.slug}`}
+ className="card group hover:border-accent-dim flex flex-col gap-3"
+ >
+ <div className="flex items-start justify-between gap-2">
+ <h2 className="text-text font-semibold text-lg group-hover:text-accent transition-colors">
+ {item.name}
+ </h2>
+ <ArrowRight className="size-4 text-text-subtle group-hover:text-accent transition-colors shrink-0 mt-1" />
+ </div>
+ {item.shortDescription && (
+ <p className="text-text-subtle text-sm leading-relaxed line-clamp-2">
+ {item.shortDescription}
+ </p>
+ )}
+ <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
+ <span className="text-accent font-bold">
+ от {item.priceFrom.toLocaleString('ru-RU')} ₽
+ </span>
+ {item.duration && (
+ <span className="text-text-subtle text-xs">{item.duration}</span>
+ )}
+ </div>
+ </Link>
+ ))}
+ </div>
+ </div>
 
-      {/* Калькулятор детейлинга (полная ширина) */}
-      <DetailingCalculator />
+ {/* Калькулятор детейлинга (полная ширина) */}
+ <DetailingCalculator />
 
-      {/* CTA */}
-      <div className="container pb-20">
-        <div className="card border-accent-dim p-8 glow-box text-center">
-          <h2 className="font-display text-3xl text-text uppercase tracking-wider mb-3">
-            КОНСУЛЬТАЦИЯ БЕСПЛАТНО
-          </h2>
-          <p className="text-text-muted mb-5">
-            Привезите авто — осмотрим и подберём оптимальную защиту под ваш бюджет.
-          </p>
-          <a href="tel:+79818428151" className="btn-primary text-base px-10 py-4">
-            +7 (981) 842-81-51
-          </a>
-        </div>
-      </div>
-    </>
-  );
+ {/* CTA */}
+ <div className="container pb-20">
+ <div className="card border-accent-dim p-8 glow-box text-center">
+ <h2 className="font-display text-3xl text-text uppercase tracking-wider mb-3">
+ КОНСУЛЬТАЦИЯ БЕСПЛАТНО
+ </h2>
+ <p className="text-text-muted mb-5">
+ Привезите авто — осмотрим и подберём оптимальную защиту под ваш бюджет.
+ </p>
+ <a href="tel:+79818428151" className="btn-primary text-base px-10 py-4">
+ +7 (981) 842-81-51
+ </a>
+ </div>
+ </div>
+ </>
+ );
 }

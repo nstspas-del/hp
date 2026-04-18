@@ -4,7 +4,7 @@
       "id": "service",
       "label": "Автосервис",
       "subtitle": "Диагностика, ТО и ремонт по европейским стандартам",
-      "image": "/images/works/service-hero.jpg",
+      "image": "/images/service-hero.jpg",
       "href": "/service",
       "cta": "Перейти в автосервис",
       "accent": "#3B82F6",
@@ -21,7 +21,7 @@
       "id": "tuning",
       "label": "Тюнинг",
       "subtitle": "Чип-тюнинг Stage 1/2/3 для 30+ марок автомобилей",
-      "image": "/images/works/tuning-hero.jpg",
+      "image": "/images/tuning-hero.jpg",
       "href": "/tuning",
       "cta": "Перейти в тюнинг",
       "accent": "#39FF14",
@@ -31,14 +31,14 @@
         { "icon": "Gauge", "title": "DPF/EGR-off", "desc": "Программное отключение DPF, GPF, EGR, мочевины" },
         { "icon": "Settings", "title": "Тормозной тюнинг", "desc": "Установка Brembo, AP Racing — спортивное торможение" },
         { "icon": "Volume2", "title": "Выхлоп и шумка", "desc": "Спортивные выхлопные системы и шумоизоляция" },
-        { "icon": "Shield", "title": "Гарантия 12 месяцев", "desc": "Alientech KESSv3, WinOLS 4 — профессиональное ПО" }
+        { "icon": "Shield", "title": "Alientech KESS3", "desc": "Alientech KESSv3, WinOLS 4 — профессиональное ПО" }
       ]
     },
     {
       "id": "detailing",
       "label": "Детейлинг",
       "subtitle": "Керамика 9H, PPF-плёнка, полировка кузова Gyeon и XPEL",
-      "image": "/images/works/detailing-hero.jpg",
+      "image": "/images/detailing-hero.jpg",
       "href": "/detailing",
       "cta": "Перейти в детейлинг",
       "accent": "#F59E0B",

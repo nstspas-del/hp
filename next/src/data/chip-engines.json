@@ -1,417 +1,417 @@
 {
-  "brands": [
-    {
-      "id": "bmw",
-      "name": "BMW",
-      "multiplier": 1.0,
-      "models": [
-        {
-          "id": "bmw-1",
-          "name": "1 серия (F20/F40)",
-          "engines": [
-            { "id": "bmw-1-116i", "name": "116i 1.5T 109 л.с.", "hp": 109, "torque": 180, "stage1Hp": 135, "stage1Torque": 220, "stage1Price": 18000, "stage2Price": 28000, "stage3Price": null },
-            { "id": "bmw-1-118i", "name": "118i 1.5T 140 л.с.", "hp": 140, "torque": 220, "stage1Hp": 170, "stage1Torque": 270, "stage1Price": 20000, "stage2Price": 30000, "stage3Price": null },
-            { "id": "bmw-1-120i", "name": "120i 2.0T 178 л.с.", "hp": 178, "torque": 280, "stage1Hp": 220, "stage1Torque": 340, "stage1Price": 22000, "stage2Price": 33000, "stage3Price": null },
-            { "id": "bmw-1-118d", "name": "118d 2.0d 150 л.с.", "hp": 150, "torque": 320, "stage1Hp": 190, "stage1Torque": 390, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "bmw-3",
-          "name": "3 серия (G20/F30)",
-          "engines": [
-            { "id": "bmw-3-320i", "name": "320i 2.0T 184 л.с.", "hp": 184, "torque": 290, "stage1Hp": 230, "stage1Torque": 360, "stage1Price": 24000, "stage2Price": 35000, "stage3Price": 55000 },
-            { "id": "bmw-3-330i", "name": "330i 2.0T 258 л.с.", "hp": 258, "torque": 400, "stage1Hp": 310, "stage1Torque": 470, "stage1Price": 26000, "stage2Price": 38000, "stage3Price": 60000 },
-            { "id": "bmw-3-320d", "name": "320d 2.0d 190 л.с.", "hp": 190, "torque": 400, "stage1Hp": 240, "stage1Torque": 480, "stage1Price": 24000, "stage2Price": 34000, "stage3Price": null },
-            { "id": "bmw-3-330d", "name": "330d 3.0d 265 л.с.", "hp": 265, "torque": 580, "stage1Hp": 320, "stage1Torque": 680, "stage1Price": 27000, "stage2Price": 38000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "bmw-5",
-          "name": "5 серия (G30/F10)",
-          "engines": [
-            { "id": "bmw-5-520i", "name": "520i 2.0T 184 л.с.", "hp": 184, "torque": 290, "stage1Hp": 230, "stage1Torque": 360, "stage1Price": 25000, "stage2Price": 36000, "stage3Price": null },
-            { "id": "bmw-5-530i", "name": "530i 2.0T 252 л.с.", "hp": 252, "torque": 350, "stage1Hp": 310, "stage1Torque": 430, "stage1Price": 27000, "stage2Price": 40000, "stage3Price": 62000 },
-            { "id": "bmw-5-540i", "name": "540i 3.0T 340 л.с.", "hp": 340, "torque": 450, "stage1Hp": 400, "stage1Torque": 560, "stage1Price": 30000, "stage2Price": 45000, "stage3Price": 70000 },
-            { "id": "bmw-5-530d", "name": "530d 3.0d 265 л.с.", "hp": 265, "torque": 580, "stage1Hp": 320, "stage1Torque": 680, "stage1Price": 27000, "stage2Price": 38000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "bmw-x5",
-          "name": "X5 (G05/F15)",
-          "engines": [
-            { "id": "bmw-x5-30i", "name": "xDrive30i 2.0T 252 л.с.", "hp": 252, "torque": 350, "stage1Hp": 310, "stage1Torque": 430, "stage1Price": 28000, "stage2Price": 42000, "stage3Price": null },
-            { "id": "bmw-x5-40i", "name": "xDrive40i 3.0T 340 л.с.", "hp": 340, "torque": 450, "stage1Hp": 400, "stage1Torque": 560, "stage1Price": 32000, "stage2Price": 48000, "stage3Price": 75000 },
-            { "id": "bmw-x5-30d", "name": "xDrive30d 3.0d 265 л.с.", "hp": 265, "torque": 620, "stage1Hp": 330, "stage1Torque": 730, "stage1Price": 28000, "stage2Price": 40000, "stage3Price": null },
-            { "id": "bmw-x5-m50d", "name": "M50d 3.0d 400 л.с.", "hp": 400, "torque": 760, "stage1Hp": 460, "stage1Torque": 850, "stage1Price": 35000, "stage2Price": 52000, "stage3Price": null }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "mercedes",
-      "name": "Mercedes-Benz",
-      "multiplier": 1.05,
-      "models": [
-        {
-          "id": "mercedes-c",
-          "name": "C-класс (W205/W206)",
-          "engines": [
-            { "id": "mb-c180", "name": "C 180 1.6T 156 л.с.", "hp": 156, "torque": 250, "stage1Hp": 195, "stage1Torque": 310, "stage1Price": 22000, "stage2Price": 33000, "stage3Price": null },
-            { "id": "mb-c200", "name": "C 200 2.0T 204 л.с.", "hp": 204, "torque": 300, "stage1Hp": 255, "stage1Torque": 380, "stage1Price": 24000, "stage2Price": 36000, "stage3Price": null },
-            { "id": "mb-c300", "name": "C 300 2.0T 258 л.с.", "hp": 258, "torque": 400, "stage1Hp": 320, "stage1Torque": 490, "stage1Price": 26000, "stage2Price": 40000, "stage3Price": 62000 },
-            { "id": "mb-c220d", "name": "C 220d 2.0d 194 л.с.", "hp": 194, "torque": 400, "stage1Hp": 245, "stage1Torque": 490, "stage1Price": 25000, "stage2Price": 36000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "mercedes-e",
-          "name": "E-класс (W213/W212)",
-          "engines": [
-            { "id": "mb-e200", "name": "E 200 2.0T 197 л.с.", "hp": 197, "torque": 320, "stage1Hp": 250, "stage1Torque": 400, "stage1Price": 25000, "stage2Price": 37000, "stage3Price": null },
-            { "id": "mb-e300", "name": "E 300 2.0T 258 л.с.", "hp": 258, "torque": 370, "stage1Hp": 320, "stage1Torque": 460, "stage1Price": 27000, "stage2Price": 40000, "stage3Price": 63000 },
-            { "id": "mb-e220d", "name": "E 220d 2.0d 194 л.с.", "hp": 194, "torque": 400, "stage1Hp": 245, "stage1Torque": 490, "stage1Price": 25000, "stage2Price": 36000, "stage3Price": null },
-            { "id": "mb-e400d", "name": "E 400d 3.0d 340 л.с.", "hp": 340, "torque": 700, "stage1Hp": 400, "stage1Torque": 800, "stage1Price": 30000, "stage2Price": 44000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "mercedes-gle",
-          "name": "GLE (W167/W166)",
-          "engines": [
-            { "id": "mb-gle300d", "name": "GLE 300d 2.0d 245 л.с.", "hp": 245, "torque": 500, "stage1Hp": 305, "stage1Torque": 600, "stage1Price": 27000, "stage2Price": 39000, "stage3Price": null },
-            { "id": "mb-gle350", "name": "GLE 350 2.0T 258 л.с.", "hp": 258, "torque": 370, "stage1Hp": 320, "stage1Torque": 460, "stage1Price": 28000, "stage2Price": 42000, "stage3Price": null },
-            { "id": "mb-gle400d", "name": "GLE 400d 3.0d 330 л.с.", "hp": 330, "torque": 700, "stage1Hp": 400, "stage1Torque": 800, "stage1Price": 31000, "stage2Price": 46000, "stage3Price": null }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "audi",
-      "name": "Audi",
-      "multiplier": 1.0,
-      "models": [
-        {
-          "id": "audi-a4",
-          "name": "A4 (B9/B8)",
-          "engines": [
-            { "id": "audi-a4-14t", "name": "1.4 TFSI 150 л.с.", "hp": 150, "torque": 250, "stage1Hp": 185, "stage1Torque": 310, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null },
-            { "id": "audi-a4-20t", "name": "2.0 TFSI 190 л.с.", "hp": 190, "torque": 320, "stage1Hp": 240, "stage1Torque": 400, "stage1Price": 23000, "stage2Price": 34000, "stage3Price": 55000 },
-            { "id": "audi-a4-20t252", "name": "2.0 TFSI 252 л.с.", "hp": 252, "torque": 370, "stage1Hp": 310, "stage1Torque": 460, "stage1Price": 26000, "stage2Price": 38000, "stage3Price": 60000 },
-            { "id": "audi-a4-20tdi", "name": "2.0 TDI 190 л.с.", "hp": 190, "torque": 400, "stage1Hp": 240, "stage1Torque": 490, "stage1Price": 23000, "stage2Price": 33000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "audi-a6",
-          "name": "A6 (C8/C7)",
-          "engines": [
-            { "id": "audi-a6-20t", "name": "2.0 TFSI 245 л.с.", "hp": 245, "torque": 370, "stage1Hp": 305, "stage1Torque": 450, "stage1Price": 26000, "stage2Price": 38000, "stage3Price": null },
-            { "id": "audi-a6-30t", "name": "3.0 TFSI 340 л.с.", "hp": 340, "torque": 500, "stage1Hp": 410, "stage1Torque": 600, "stage1Price": 30000, "stage2Price": 45000, "stage3Price": 70000 },
-            { "id": "audi-a6-30tdi", "name": "3.0 TDI 272 л.с.", "hp": 272, "torque": 600, "stage1Hp": 340, "stage1Torque": 720, "stage1Price": 28000, "stage2Price": 40000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "audi-q7",
-          "name": "Q7 (4M)",
-          "engines": [
-            { "id": "audi-q7-20t", "name": "2.0 TFSI 252 л.с.", "hp": 252, "torque": 370, "stage1Hp": 310, "stage1Torque": 450, "stage1Price": 28000, "stage2Price": 40000, "stage3Price": null },
-            { "id": "audi-q7-30t", "name": "3.0 TFSI 333 л.с.", "hp": 333, "torque": 440, "stage1Hp": 400, "stage1Torque": 540, "stage1Price": 32000, "stage2Price": 47000, "stage3Price": null },
-            { "id": "audi-q7-30tdi", "name": "3.0 TDI 272 л.с.", "hp": 272, "torque": 600, "stage1Hp": 340, "stage1Torque": 720, "stage1Price": 29000, "stage2Price": 42000, "stage3Price": null }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "volkswagen",
-      "name": "Volkswagen",
-      "multiplier": 0.9,
-      "models": [
-        {
-          "id": "vw-golf",
-          "name": "Golf (7/8)",
-          "engines": [
-            { "id": "vw-golf-10t", "name": "1.0 TSI 116 л.с.", "hp": 116, "torque": 200, "stage1Hp": 145, "stage1Torque": 250, "stage1Price": 17000, "stage2Price": 26000, "stage3Price": null },
-            { "id": "vw-golf-15t", "name": "1.5 TSI 150 л.с.", "hp": 150, "torque": 250, "stage1Hp": 185, "stage1Torque": 310, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null },
-            { "id": "vw-golf-20t", "name": "2.0 TSI 245 л.с. GTI", "hp": 245, "torque": 370, "stage1Hp": 310, "stage1Torque": 450, "stage1Price": 24000, "stage2Price": 36000, "stage3Price": 58000 },
-            { "id": "vw-golf-20tdi", "name": "2.0 TDI 150 л.с.", "hp": 150, "torque": 360, "stage1Hp": 195, "stage1Torque": 440, "stage1Price": 20000, "stage2Price": 29000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "vw-tiguan",
-          "name": "Tiguan (2)",
-          "engines": [
-            { "id": "vw-tiguan-15t", "name": "1.5 TSI 150 л.с.", "hp": 150, "torque": 250, "stage1Hp": 185, "stage1Torque": 310, "stage1Price": 20000, "stage2Price": 30000, "stage3Price": null },
-            { "id": "vw-tiguan-20t", "name": "2.0 TSI 180 л.с.", "hp": 180, "torque": 320, "stage1Hp": 230, "stage1Torque": 400, "stage1Price": 22000, "stage2Price": 32000, "stage3Price": null },
-            { "id": "vw-tiguan-20tdi", "name": "2.0 TDI 150 л.с.", "hp": 150, "torque": 340, "stage1Hp": 195, "stage1Torque": 420, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "porsche",
-      "name": "Porsche",
-      "multiplier": 1.2,
-      "models": [
-        {
-          "id": "porsche-cayenne",
-          "name": "Cayenne (9Y0/92A)",
-          "engines": [
-            { "id": "porsche-cayenne-30t", "name": "3.0 V6T 340 л.с.", "hp": 340, "torque": 450, "stage1Hp": 400, "stage1Torque": 560, "stage1Price": 35000, "stage2Price": 52000, "stage3Price": null },
-            { "id": "porsche-cayenne-s40t", "name": "S 4.0 V8T 460 л.с.", "hp": 460, "torque": 620, "stage1Hp": 540, "stage1Torque": 730, "stage1Price": 40000, "stage2Price": 60000, "stage3Price": 90000 },
-            { "id": "porsche-cayenne-30d", "name": "3.0 V6 TDI 245 л.с.", "hp": 245, "torque": 550, "stage1Hp": 310, "stage1Torque": 660, "stage1Price": 33000, "stage2Price": 48000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "porsche-macan",
-          "name": "Macan (95B)",
-          "engines": [
-            { "id": "porsche-macan-20t", "name": "2.0 T 252 л.с.", "hp": 252, "torque": 370, "stage1Hp": 315, "stage1Torque": 460, "stage1Price": 32000, "stage2Price": 47000, "stage3Price": null },
-            { "id": "porsche-macan-s30t", "name": "S 3.0 V6T 354 л.с.", "hp": 354, "torque": 480, "stage1Hp": 420, "stage1Torque": 580, "stage1Price": 36000, "stage2Price": 54000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "porsche-panamera",
-          "name": "Panamera (971)",
-          "engines": [
-            { "id": "porsche-panamera-29t", "name": "2.9T V6 330 л.с.", "hp": 330, "torque": 450, "stage1Hp": 400, "stage1Torque": 560, "stage1Price": 36000, "stage2Price": 54000, "stage3Price": 82000 },
-            { "id": "porsche-panamera-s40t", "name": "Turbo S 4.0 V8 630 л.с.", "hp": 630, "torque": 820, "stage1Hp": 700, "stage1Torque": 920, "stage1Price": 45000, "stage2Price": 68000, "stage3Price": null }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "toyota",
-      "name": "Toyota",
-      "multiplier": 0.95,
-      "models": [
-        {
-          "id": "toyota-camry",
-          "name": "Camry (XV70)",
-          "engines": [
-            { "id": "toyota-camry-20t", "name": "2.0T 249 л.с.", "hp": 249, "torque": 350, "stage1Hp": 290, "stage1Torque": 420, "stage1Price": 22000, "stage2Price": 33000, "stage3Price": null },
-            { "id": "toyota-camry-25", "name": "2.5 AT 181 л.с.", "hp": 181, "torque": 235, "stage1Hp": 205, "stage1Torque": 265, "stage1Price": 20000, "stage2Price": null, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "toyota-lc200",
-          "name": "Land Cruiser 200/300",
-          "engines": [
-            { "id": "toyota-lc-44d", "name": "4.4 TD 204 л.с.", "hp": 204, "torque": 500, "stage1Hp": 260, "stage1Torque": 600, "stage1Price": 27000, "stage2Price": 40000, "stage3Price": null },
-            { "id": "toyota-lc-48d", "name": "4.8 D 218 л.с.", "hp": 218, "torque": 430, "stage1Hp": 265, "stage1Torque": 520, "stage1Price": 26000, "stage2Price": 38000, "stage3Price": null },
-            { "id": "toyota-lc300-35d", "name": "LC 300 3.5T 415 л.с.", "hp": 415, "torque": 650, "stage1Hp": 490, "stage1Torque": 750, "stage1Price": 35000, "stage2Price": 52000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "toyota-rav4",
-          "name": "RAV4 (50)",
-          "engines": [
-            { "id": "toyota-rav4-20", "name": "2.0 149 л.с.", "hp": 149, "torque": 200, "stage1Hp": 170, "stage1Torque": 230, "stage1Price": 18000, "stage2Price": null, "stage3Price": null },
-            { "id": "toyota-rav4-25", "name": "2.5 199 л.с.", "hp": 199, "torque": 243, "stage1Hp": 225, "stage1Torque": 275, "stage1Price": 20000, "stage2Price": null, "stage3Price": null }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "lexus",
-      "name": "Lexus",
-      "multiplier": 1.1,
-      "models": [
-        {
-          "id": "lexus-is",
-          "name": "IS (300/350)",
-          "engines": [
-            { "id": "lexus-is300t", "name": "IS 300 2.0T 245 л.с.", "hp": 245, "torque": 350, "stage1Hp": 305, "stage1Torque": 435, "stage1Price": 26000, "stage2Price": 38000, "stage3Price": null },
-            { "id": "lexus-is350", "name": "IS 350 3.5 313 л.с.", "hp": 313, "torque": 380, "stage1Hp": 355, "stage1Torque": 430, "stage1Price": 28000, "stage2Price": null, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "lexus-lx",
-          "name": "LX (570/600)",
-          "engines": [
-            { "id": "lexus-lx570", "name": "LX 570 5.7 V8 367 л.с.", "hp": 367, "torque": 530, "stage1Hp": 415, "stage1Torque": 600, "stage1Price": 32000, "stage2Price": null, "stage3Price": null },
-            { "id": "lexus-lx600t", "name": "LX 600 3.5T 415 л.с.", "hp": 415, "torque": 650, "stage1Hp": 490, "stage1Torque": 750, "stage1Price": 36000, "stage2Price": 54000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "lexus-rx",
-          "name": "RX (350/400)",
-          "engines": [
-            { "id": "lexus-rx350", "name": "RX 350 3.5 278 л.с.", "hp": 278, "torque": 340, "stage1Hp": 315, "stage1Torque": 385, "stage1Price": 26000, "stage2Price": null, "stage3Price": null },
-            { "id": "lexus-rx350t", "name": "RX 350 2.4T 279 л.с.", "hp": 279, "torque": 430, "stage1Hp": 340, "stage1Torque": 520, "stage1Price": 27000, "stage2Price": 40000, "stage3Price": null }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "land-rover",
-      "name": "Land Rover",
-      "multiplier": 1.1,
-      "models": [
-        {
-          "id": "lr-discovery",
-          "name": "Discovery (4/5)",
-          "engines": [
-            { "id": "lr-disco-30d", "name": "3.0 TDV6 211 л.с.", "hp": 211, "torque": 550, "stage1Hp": 270, "stage1Torque": 660, "stage1Price": 27000, "stage2Price": 39000, "stage3Price": null },
-            { "id": "lr-disco-30t", "name": "3.0 Si6 340 л.с.", "hp": 340, "torque": 450, "stage1Hp": 405, "stage1Torque": 550, "stage1Price": 32000, "stage2Price": 47000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "lr-range-rover",
-          "name": "Range Rover (L405/L460)",
-          "engines": [
-            { "id": "lr-rr-30d", "name": "3.0 TDV6 258 л.с.", "hp": 258, "torque": 600, "stage1Hp": 320, "stage1Torque": 720, "stage1Price": 30000, "stage2Price": 43000, "stage3Price": null },
-            { "id": "lr-rr-50v8", "name": "5.0 V8 Supercharged 510 л.с.", "hp": 510, "torque": 625, "stage1Hp": 580, "stage1Torque": 700, "stage1Price": 40000, "stage2Price": 60000, "stage3Price": null },
-            { "id": "lr-rr-30t", "name": "3.0 Ingenium 360 л.с.", "hp": 360, "torque": 500, "stage1Hp": 430, "stage1Torque": 610, "stage1Price": 34000, "stage2Price": 50000, "stage3Price": null }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "volvo",
-      "name": "Volvo",
-      "multiplier": 0.95,
-      "models": [
-        {
-          "id": "volvo-xc60",
-          "name": "XC60 (2)",
-          "engines": [
-            { "id": "volvo-xc60-20t", "name": "T5 2.0T 254 л.с.", "hp": 254, "torque": 350, "stage1Hp": 310, "stage1Torque": 430, "stage1Price": 24000, "stage2Price": 36000, "stage3Price": null },
-            { "id": "volvo-xc60-20d", "name": "D4 2.0D 190 л.с.", "hp": 190, "torque": 400, "stage1Hp": 240, "stage1Torque": 490, "stage1Price": 23000, "stage2Price": 34000, "stage3Price": null },
-            { "id": "volvo-xc60-b6", "name": "B6 2.0T 300 л.с.", "hp": 300, "torque": 420, "stage1Hp": 365, "stage1Torque": 510, "stage1Price": 26000, "stage2Price": 39000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "volvo-xc90",
-          "name": "XC90 (2)",
-          "engines": [
-            { "id": "volvo-xc90-20t", "name": "T5 2.0T 254 л.с.", "hp": 254, "torque": 350, "stage1Hp": 310, "stage1Torque": 430, "stage1Price": 25000, "stage2Price": 37000, "stage3Price": null },
-            { "id": "volvo-xc90-b6", "name": "B6 AWD 300 л.с.", "hp": 300, "torque": 420, "stage1Hp": 365, "stage1Torque": 510, "stage1Price": 27000, "stage2Price": 40000, "stage3Price": null }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "ford",
-      "name": "Ford",
-      "multiplier": 0.9,
-      "models": [
-        {
-          "id": "ford-focus",
-          "name": "Focus (3/4)",
-          "engines": [
-            { "id": "ford-focus-10t", "name": "EcoBoost 1.0T 125 л.с.", "hp": 125, "torque": 170, "stage1Hp": 158, "stage1Torque": 220, "stage1Price": 17000, "stage2Price": 26000, "stage3Price": null },
-            { "id": "ford-focus-15t", "name": "EcoBoost 1.5T 150 л.с.", "hp": 150, "torque": 240, "stage1Hp": 190, "stage1Torque": 300, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null },
-            { "id": "ford-focus-20t", "name": "ST 2.0T 275 л.с.", "hp": 275, "torque": 360, "stage1Hp": 340, "stage1Torque": 450, "stage1Price": 24000, "stage2Price": 37000, "stage3Price": 58000 }
-          ]
-        },
-        {
-          "id": "ford-kuga",
-          "name": "Kuga (2/3)",
-          "engines": [
-            { "id": "ford-kuga-15t", "name": "1.5 EcoBoost 150 л.с.", "hp": 150, "torque": 240, "stage1Hp": 190, "stage1Torque": 300, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null },
-            { "id": "ford-kuga-20t", "name": "2.0 TDCi 150 л.с.", "hp": 150, "torque": 370, "stage1Hp": 195, "stage1Torque": 450, "stage1Price": 20000, "stage2Price": 30000, "stage3Price": null }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "skoda",
-      "name": "Skoda",
-      "multiplier": 0.9,
-      "models": [
-        {
-          "id": "skoda-octavia",
-          "name": "Octavia (A7/A8)",
-          "engines": [
-            { "id": "skoda-oct-10t", "name": "1.0 TSI 116 л.с.", "hp": 116, "torque": 200, "stage1Hp": 145, "stage1Torque": 250, "stage1Price": 17000, "stage2Price": 26000, "stage3Price": null },
-            { "id": "skoda-oct-15t", "name": "1.5 TSI 150 л.с.", "hp": 150, "torque": 250, "stage1Hp": 185, "stage1Torque": 310, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null },
-            { "id": "skoda-oct-20t", "name": "RS 2.0 TSI 245 л.с.", "hp": 245, "torque": 370, "stage1Hp": 310, "stage1Torque": 450, "stage1Price": 24000, "stage2Price": 36000, "stage3Price": 58000 },
-            { "id": "skoda-oct-20tdi", "name": "2.0 TDI 150 л.с.", "hp": 150, "torque": 360, "stage1Hp": 195, "stage1Torque": 440, "stage1Price": 20000, "stage2Price": 29000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "skoda-kodiaq",
-          "name": "Kodiaq",
-          "engines": [
-            { "id": "skoda-kodiaq-20t", "name": "2.0 TSI 180 л.с.", "hp": 180, "torque": 320, "stage1Hp": 230, "stage1Torque": 400, "stage1Price": 22000, "stage2Price": 32000, "stage3Price": null },
-            { "id": "skoda-kodiaq-20tdi", "name": "2.0 TDI 150 л.с.", "hp": 150, "torque": 340, "stage1Hp": 195, "stage1Torque": 420, "stage1Price": 20000, "stage2Price": 30000, "stage3Price": null }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "kia",
-      "name": "Kia",
-      "multiplier": 0.85,
-      "models": [
-        {
-          "id": "kia-k5",
-          "name": "K5 / Optima",
-          "engines": [
-            { "id": "kia-k5-20t", "name": "2.0T 249 л.с.", "hp": 249, "torque": 353, "stage1Hp": 295, "stage1Torque": 430, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null },
-            { "id": "kia-k5-16t", "name": "1.6T 180 л.с.", "hp": 180, "torque": 265, "stage1Hp": 215, "stage1Torque": 325, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "kia-sportage",
-          "name": "Sportage (4/5)",
-          "engines": [
-            { "id": "kia-spo-20d", "name": "2.0 CRDi 185 л.с.", "hp": 185, "torque": 400, "stage1Hp": 235, "stage1Torque": 480, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null },
-            { "id": "kia-spo-16t", "name": "1.6 T-GDi 177 л.с.", "hp": 177, "torque": 265, "stage1Hp": 215, "stage1Torque": 330, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "hyundai",
-      "name": "Hyundai",
-      "multiplier": 0.85,
-      "models": [
-        {
-          "id": "hyundai-sonata",
-          "name": "Sonata (DN8)",
-          "engines": [
-            { "id": "hyundai-son-20t", "name": "2.0T 249 л.с.", "hp": 249, "torque": 353, "stage1Hp": 295, "stage1Torque": 430, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null },
-            { "id": "hyundai-son-25", "name": "2.5 180 л.с.", "hp": 180, "torque": 232, "stage1Hp": 205, "stage1Torque": 265, "stage1Price": 19000, "stage2Price": null, "stage3Price": null }
-          ]
-        },
-        {
-          "id": "hyundai-tucson",
-          "name": "Tucson (4)",
-          "engines": [
-            { "id": "hyundai-tuc-20d", "name": "2.0 CRDi 185 л.с.", "hp": 185, "torque": 400, "stage1Hp": 235, "stage1Torque": 480, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null },
-            { "id": "hyundai-tuc-16t", "name": "1.6 T-GDi 150 л.с.", "hp": 150, "torque": 253, "stage1Hp": 185, "stage1Torque": 315, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null }
-          ]
-        }
-      ]
-    }
-  ],
-  "stages": {
-    "stage1": {
-      "name": "Stage 1",
-      "description": "Прошивка ЭБУ без механических изменений. Оптимизация картографий впрыска, наддува, зажигания.",
-      "priceMultiplier": 1.0,
-      "warranty": "12 месяцев",
-      "time": "2–3 часа"
-    },
-    "stage2": {
-      "name": "Stage 2",
-      "description": "Прошивка ЭБУ + доработка впуска/выпуска (воздушный фильтр, downpipe). Значительный прирост мощности.",
-      "priceMultiplier": 1.5,
-      "warranty": "6 месяцев",
-      "time": "4–6 часов"
-    },
-    "stage3": {
-      "name": "Stage 3",
-      "description": "Полный тюнинг: турбокит, форсунки, интеркулер, усиленное сцепление + прошивка ЭБУ. Максимальный результат.",
-      "priceMultiplier": 2.5,
-      "warranty": "3 месяца",
-      "time": "2–5 дней"
-    }
-  },
-  "addons": [
-    { "id": "dpf-off", "name": "Удаление DPF/GPF", "price": 8000, "desc": "Программное отключение фильтра DPF/GPF (только для дизелей и GDI)" },
-    { "id": "egr-off", "name": "Отключение EGR", "price": 4500, "desc": "Программное отключение клапана рециркуляции отработавших газов" },
-    { "id": "launch-control", "name": "Launch Control", "price": 3500, "desc": "Активация системы старта с места — максимальное ускорение" },
-    { "id": "popcorn", "name": "Popcorn / Burble", "price": 3000, "desc": "Выстрелы и хлопки при сбросе газа — спортивный выхлоп" },
-    { "id": "speed-limiter", "name": "Снятие ограничителя", "price": 2500, "desc": "Программное снятие ограничителя скорости 250 км/ч" },
-    { "id": "vmax-off", "name": "Vmax-off", "price": 2500, "desc": "Отмена ограничения максимальной скорости" }
-  ]
+ "brands": [
+ {
+ "id": "bmw",
+ "name": "BMW",
+ "multiplier": 1.0,
+ "models": [
+ {
+ "id": "bmw-1",
+ "name": "1 серия (F20/F40)",
+ "engines": [
+ { "id": "bmw-1-116i", "name": "116i 1.5T 109 л.с.", "hp": 109, "torque": 180, "stage1Hp": 135, "stage1Torque": 220, "stage1Price": 18000, "stage2Price": 28000, "stage3Price": null },
+ { "id": "bmw-1-118i", "name": "118i 1.5T 140 л.с.", "hp": 140, "torque": 220, "stage1Hp": 170, "stage1Torque": 270, "stage1Price": 20000, "stage2Price": 30000, "stage3Price": null },
+ { "id": "bmw-1-120i", "name": "120i 2.0T 178 л.с.", "hp": 178, "torque": 280, "stage1Hp": 220, "stage1Torque": 340, "stage1Price": 22000, "stage2Price": 33000, "stage3Price": null },
+ { "id": "bmw-1-118d", "name": "118d 2.0d 150 л.с.", "hp": 150, "torque": 320, "stage1Hp": 190, "stage1Torque": 390, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "bmw-3",
+ "name": "3 серия (G20/F30)",
+ "engines": [
+ { "id": "bmw-3-320i", "name": "320i 2.0T 184 л.с.", "hp": 184, "torque": 290, "stage1Hp": 230, "stage1Torque": 360, "stage1Price": 24000, "stage2Price": 35000, "stage3Price": 55000 },
+ { "id": "bmw-3-330i", "name": "330i 2.0T 258 л.с.", "hp": 258, "torque": 400, "stage1Hp": 310, "stage1Torque": 470, "stage1Price": 26000, "stage2Price": 38000, "stage3Price": 60000 },
+ { "id": "bmw-3-320d", "name": "320d 2.0d 190 л.с.", "hp": 190, "torque": 400, "stage1Hp": 240, "stage1Torque": 480, "stage1Price": 24000, "stage2Price": 34000, "stage3Price": null },
+ { "id": "bmw-3-330d", "name": "330d 3.0d 265 л.с.", "hp": 265, "torque": 580, "stage1Hp": 320, "stage1Torque": 680, "stage1Price": 27000, "stage2Price": 38000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "bmw-5",
+ "name": "5 серия (G30/F10)",
+ "engines": [
+ { "id": "bmw-5-520i", "name": "520i 2.0T 184 л.с.", "hp": 184, "torque": 290, "stage1Hp": 230, "stage1Torque": 360, "stage1Price": 25000, "stage2Price": 36000, "stage3Price": null },
+ { "id": "bmw-5-530i", "name": "530i 2.0T 252 л.с.", "hp": 252, "torque": 350, "stage1Hp": 310, "stage1Torque": 430, "stage1Price": 27000, "stage2Price": 40000, "stage3Price": 62000 },
+ { "id": "bmw-5-540i", "name": "540i 3.0T 340 л.с.", "hp": 340, "torque": 450, "stage1Hp": 400, "stage1Torque": 560, "stage1Price": 30000, "stage2Price": 45000, "stage3Price": 70000 },
+ { "id": "bmw-5-530d", "name": "530d 3.0d 265 л.с.", "hp": 265, "torque": 580, "stage1Hp": 320, "stage1Torque": 680, "stage1Price": 27000, "stage2Price": 38000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "bmw-x5",
+ "name": "X5 (G05/F15)",
+ "engines": [
+ { "id": "bmw-x5-30i", "name": "xDrive30i 2.0T 252 л.с.", "hp": 252, "torque": 350, "stage1Hp": 310, "stage1Torque": 430, "stage1Price": 28000, "stage2Price": 42000, "stage3Price": null },
+ { "id": "bmw-x5-40i", "name": "xDrive40i 3.0T 340 л.с.", "hp": 340, "torque": 450, "stage1Hp": 400, "stage1Torque": 560, "stage1Price": 32000, "stage2Price": 48000, "stage3Price": 75000 },
+ { "id": "bmw-x5-30d", "name": "xDrive30d 3.0d 265 л.с.", "hp": 265, "torque": 620, "stage1Hp": 330, "stage1Torque": 730, "stage1Price": 28000, "stage2Price": 40000, "stage3Price": null },
+ { "id": "bmw-x5-m50d", "name": "M50d 3.0d 400 л.с.", "hp": 400, "torque": 760, "stage1Hp": 460, "stage1Torque": 850, "stage1Price": 35000, "stage2Price": 52000, "stage3Price": null }
+ ]
+ }
+ ]
+ },
+ {
+ "id": "mercedes",
+ "name": "Mercedes-Benz",
+ "multiplier": 1.05,
+ "models": [
+ {
+ "id": "mercedes-c",
+ "name": "C-класс (W205/W206)",
+ "engines": [
+ { "id": "mb-c180", "name": "C 180 1.6T 156 л.с.", "hp": 156, "torque": 250, "stage1Hp": 195, "stage1Torque": 310, "stage1Price": 22000, "stage2Price": 33000, "stage3Price": null },
+ { "id": "mb-c200", "name": "C 200 2.0T 204 л.с.", "hp": 204, "torque": 300, "stage1Hp": 255, "stage1Torque": 380, "stage1Price": 24000, "stage2Price": 36000, "stage3Price": null },
+ { "id": "mb-c300", "name": "C 300 2.0T 258 л.с.", "hp": 258, "torque": 400, "stage1Hp": 320, "stage1Torque": 490, "stage1Price": 26000, "stage2Price": 40000, "stage3Price": 62000 },
+ { "id": "mb-c220d", "name": "C 220d 2.0d 194 л.с.", "hp": 194, "torque": 400, "stage1Hp": 245, "stage1Torque": 490, "stage1Price": 25000, "stage2Price": 36000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "mercedes-e",
+ "name": "E-класс (W213/W212)",
+ "engines": [
+ { "id": "mb-e200", "name": "E 200 2.0T 197 л.с.", "hp": 197, "torque": 320, "stage1Hp": 250, "stage1Torque": 400, "stage1Price": 25000, "stage2Price": 37000, "stage3Price": null },
+ { "id": "mb-e300", "name": "E 300 2.0T 258 л.с.", "hp": 258, "torque": 370, "stage1Hp": 320, "stage1Torque": 460, "stage1Price": 27000, "stage2Price": 40000, "stage3Price": 63000 },
+ { "id": "mb-e220d", "name": "E 220d 2.0d 194 л.с.", "hp": 194, "torque": 400, "stage1Hp": 245, "stage1Torque": 490, "stage1Price": 25000, "stage2Price": 36000, "stage3Price": null },
+ { "id": "mb-e400d", "name": "E 400d 3.0d 340 л.с.", "hp": 340, "torque": 700, "stage1Hp": 400, "stage1Torque": 800, "stage1Price": 30000, "stage2Price": 44000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "mercedes-gle",
+ "name": "GLE (W167/W166)",
+ "engines": [
+ { "id": "mb-gle300d", "name": "GLE 300d 2.0d 245 л.с.", "hp": 245, "torque": 500, "stage1Hp": 305, "stage1Torque": 600, "stage1Price": 27000, "stage2Price": 39000, "stage3Price": null },
+ { "id": "mb-gle350", "name": "GLE 350 2.0T 258 л.с.", "hp": 258, "torque": 370, "stage1Hp": 320, "stage1Torque": 460, "stage1Price": 28000, "stage2Price": 42000, "stage3Price": null },
+ { "id": "mb-gle400d", "name": "GLE 400d 3.0d 330 л.с.", "hp": 330, "torque": 700, "stage1Hp": 400, "stage1Torque": 800, "stage1Price": 31000, "stage2Price": 46000, "stage3Price": null }
+ ]
+ }
+ ]
+ },
+ {
+ "id": "audi",
+ "name": "Audi",
+ "multiplier": 1.0,
+ "models": [
+ {
+ "id": "audi-a4",
+ "name": "A4 (B9/B8)",
+ "engines": [
+ { "id": "audi-a4-14t", "name": "1.4 TFSI 150 л.с.", "hp": 150, "torque": 250, "stage1Hp": 185, "stage1Torque": 310, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null },
+ { "id": "audi-a4-20t", "name": "2.0 TFSI 190 л.с.", "hp": 190, "torque": 320, "stage1Hp": 240, "stage1Torque": 400, "stage1Price": 23000, "stage2Price": 34000, "stage3Price": 55000 },
+ { "id": "audi-a4-20t252", "name": "2.0 TFSI 252 л.с.", "hp": 252, "torque": 370, "stage1Hp": 310, "stage1Torque": 460, "stage1Price": 26000, "stage2Price": 38000, "stage3Price": 60000 },
+ { "id": "audi-a4-20tdi", "name": "2.0 TDI 190 л.с.", "hp": 190, "torque": 400, "stage1Hp": 240, "stage1Torque": 490, "stage1Price": 23000, "stage2Price": 33000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "audi-a6",
+ "name": "A6 (C8/C7)",
+ "engines": [
+ { "id": "audi-a6-20t", "name": "2.0 TFSI 245 л.с.", "hp": 245, "torque": 370, "stage1Hp": 305, "stage1Torque": 450, "stage1Price": 26000, "stage2Price": 38000, "stage3Price": null },
+ { "id": "audi-a6-30t", "name": "3.0 TFSI 340 л.с.", "hp": 340, "torque": 500, "stage1Hp": 410, "stage1Torque": 600, "stage1Price": 30000, "stage2Price": 45000, "stage3Price": 70000 },
+ { "id": "audi-a6-30tdi", "name": "3.0 TDI 272 л.с.", "hp": 272, "torque": 600, "stage1Hp": 340, "stage1Torque": 720, "stage1Price": 28000, "stage2Price": 40000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "audi-q7",
+ "name": "Q7 (4M)",
+ "engines": [
+ { "id": "audi-q7-20t", "name": "2.0 TFSI 252 л.с.", "hp": 252, "torque": 370, "stage1Hp": 310, "stage1Torque": 450, "stage1Price": 28000, "stage2Price": 40000, "stage3Price": null },
+ { "id": "audi-q7-30t", "name": "3.0 TFSI 333 л.с.", "hp": 333, "torque": 440, "stage1Hp": 400, "stage1Torque": 540, "stage1Price": 32000, "stage2Price": 47000, "stage3Price": null },
+ { "id": "audi-q7-30tdi", "name": "3.0 TDI 272 л.с.", "hp": 272, "torque": 600, "stage1Hp": 340, "stage1Torque": 720, "stage1Price": 29000, "stage2Price": 42000, "stage3Price": null }
+ ]
+ }
+ ]
+ },
+ {
+ "id": "volkswagen",
+ "name": "Volkswagen",
+ "multiplier": 0.9,
+ "models": [
+ {
+ "id": "vw-golf",
+ "name": "Golf (7/8)",
+ "engines": [
+ { "id": "vw-golf-10t", "name": "1.0 TSI 116 л.с.", "hp": 116, "torque": 200, "stage1Hp": 145, "stage1Torque": 250, "stage1Price": 17000, "stage2Price": 26000, "stage3Price": null },
+ { "id": "vw-golf-15t", "name": "1.5 TSI 150 л.с.", "hp": 150, "torque": 250, "stage1Hp": 185, "stage1Torque": 310, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null },
+ { "id": "vw-golf-20t", "name": "2.0 TSI 245 л.с. GTI", "hp": 245, "torque": 370, "stage1Hp": 310, "stage1Torque": 450, "stage1Price": 24000, "stage2Price": 36000, "stage3Price": 58000 },
+ { "id": "vw-golf-20tdi", "name": "2.0 TDI 150 л.с.", "hp": 150, "torque": 360, "stage1Hp": 195, "stage1Torque": 440, "stage1Price": 20000, "stage2Price": 29000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "vw-tiguan",
+ "name": "Tiguan (2)",
+ "engines": [
+ { "id": "vw-tiguan-15t", "name": "1.5 TSI 150 л.с.", "hp": 150, "torque": 250, "stage1Hp": 185, "stage1Torque": 310, "stage1Price": 20000, "stage2Price": 30000, "stage3Price": null },
+ { "id": "vw-tiguan-20t", "name": "2.0 TSI 180 л.с.", "hp": 180, "torque": 320, "stage1Hp": 230, "stage1Torque": 400, "stage1Price": 22000, "stage2Price": 32000, "stage3Price": null },
+ { "id": "vw-tiguan-20tdi", "name": "2.0 TDI 150 л.с.", "hp": 150, "torque": 340, "stage1Hp": 195, "stage1Torque": 420, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null }
+ ]
+ }
+ ]
+ },
+ {
+ "id": "porsche",
+ "name": "Porsche",
+ "multiplier": 1.2,
+ "models": [
+ {
+ "id": "porsche-cayenne",
+ "name": "Cayenne (9Y0/92A)",
+ "engines": [
+ { "id": "porsche-cayenne-30t", "name": "3.0 V6T 340 л.с.", "hp": 340, "torque": 450, "stage1Hp": 400, "stage1Torque": 560, "stage1Price": 35000, "stage2Price": 52000, "stage3Price": null },
+ { "id": "porsche-cayenne-s40t", "name": "S 4.0 V8T 460 л.с.", "hp": 460, "torque": 620, "stage1Hp": 540, "stage1Torque": 730, "stage1Price": 40000, "stage2Price": 60000, "stage3Price": 90000 },
+ { "id": "porsche-cayenne-30d", "name": "3.0 V6 TDI 245 л.с.", "hp": 245, "torque": 550, "stage1Hp": 310, "stage1Torque": 660, "stage1Price": 33000, "stage2Price": 48000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "porsche-macan",
+ "name": "Macan (95B)",
+ "engines": [
+ { "id": "porsche-macan-20t", "name": "2.0 T 252 л.с.", "hp": 252, "torque": 370, "stage1Hp": 315, "stage1Torque": 460, "stage1Price": 32000, "stage2Price": 47000, "stage3Price": null },
+ { "id": "porsche-macan-s30t", "name": "S 3.0 V6T 354 л.с.", "hp": 354, "torque": 480, "stage1Hp": 420, "stage1Torque": 580, "stage1Price": 36000, "stage2Price": 54000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "porsche-panamera",
+ "name": "Panamera (971)",
+ "engines": [
+ { "id": "porsche-panamera-29t", "name": "2.9T V6 330 л.с.", "hp": 330, "torque": 450, "stage1Hp": 400, "stage1Torque": 560, "stage1Price": 36000, "stage2Price": 54000, "stage3Price": 82000 },
+ { "id": "porsche-panamera-s40t", "name": "Turbo S 4.0 V8 630 л.с.", "hp": 630, "torque": 820, "stage1Hp": 700, "stage1Torque": 920, "stage1Price": 45000, "stage2Price": 68000, "stage3Price": null }
+ ]
+ }
+ ]
+ },
+ {
+ "id": "toyota",
+ "name": "Toyota",
+ "multiplier": 0.95,
+ "models": [
+ {
+ "id": "toyota-camry",
+ "name": "Camry (XV70)",
+ "engines": [
+ { "id": "toyota-camry-20t", "name": "2.0T 249 л.с.", "hp": 249, "torque": 350, "stage1Hp": 290, "stage1Torque": 420, "stage1Price": 22000, "stage2Price": 33000, "stage3Price": null },
+ { "id": "toyota-camry-25", "name": "2.5 AT 181 л.с.", "hp": 181, "torque": 235, "stage1Hp": 205, "stage1Torque": 265, "stage1Price": 20000, "stage2Price": null, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "toyota-lc200",
+ "name": "Land Cruiser 200/300",
+ "engines": [
+ { "id": "toyota-lc-44d", "name": "4.4 TD 204 л.с.", "hp": 204, "torque": 500, "stage1Hp": 260, "stage1Torque": 600, "stage1Price": 27000, "stage2Price": 40000, "stage3Price": null },
+ { "id": "toyota-lc-48d", "name": "4.8 D 218 л.с.", "hp": 218, "torque": 430, "stage1Hp": 265, "stage1Torque": 520, "stage1Price": 26000, "stage2Price": 38000, "stage3Price": null },
+ { "id": "toyota-lc300-35d", "name": "LC 300 3.5T 415 л.с.", "hp": 415, "torque": 650, "stage1Hp": 490, "stage1Torque": 750, "stage1Price": 35000, "stage2Price": 52000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "toyota-rav4",
+ "name": "RAV4 (50)",
+ "engines": [
+ { "id": "toyota-rav4-20", "name": "2.0 149 л.с.", "hp": 149, "torque": 200, "stage1Hp": 170, "stage1Torque": 230, "stage1Price": 18000, "stage2Price": null, "stage3Price": null },
+ { "id": "toyota-rav4-25", "name": "2.5 199 л.с.", "hp": 199, "torque": 243, "stage1Hp": 225, "stage1Torque": 275, "stage1Price": 20000, "stage2Price": null, "stage3Price": null }
+ ]
+ }
+ ]
+ },
+ {
+ "id": "lexus",
+ "name": "Lexus",
+ "multiplier": 1.1,
+ "models": [
+ {
+ "id": "lexus-is",
+ "name": "IS (300/350)",
+ "engines": [
+ { "id": "lexus-is300t", "name": "IS 300 2.0T 245 л.с.", "hp": 245, "torque": 350, "stage1Hp": 305, "stage1Torque": 435, "stage1Price": 26000, "stage2Price": 38000, "stage3Price": null },
+ { "id": "lexus-is350", "name": "IS 350 3.5 313 л.с.", "hp": 313, "torque": 380, "stage1Hp": 355, "stage1Torque": 430, "stage1Price": 28000, "stage2Price": null, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "lexus-lx",
+ "name": "LX (570/600)",
+ "engines": [
+ { "id": "lexus-lx570", "name": "LX 570 5.7 V8 367 л.с.", "hp": 367, "torque": 530, "stage1Hp": 415, "stage1Torque": 600, "stage1Price": 32000, "stage2Price": null, "stage3Price": null },
+ { "id": "lexus-lx600t", "name": "LX 600 3.5T 415 л.с.", "hp": 415, "torque": 650, "stage1Hp": 490, "stage1Torque": 750, "stage1Price": 36000, "stage2Price": 54000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "lexus-rx",
+ "name": "RX (350/400)",
+ "engines": [
+ { "id": "lexus-rx350", "name": "RX 350 3.5 278 л.с.", "hp": 278, "torque": 340, "stage1Hp": 315, "stage1Torque": 385, "stage1Price": 26000, "stage2Price": null, "stage3Price": null },
+ { "id": "lexus-rx350t", "name": "RX 350 2.4T 279 л.с.", "hp": 279, "torque": 430, "stage1Hp": 340, "stage1Torque": 520, "stage1Price": 27000, "stage2Price": 40000, "stage3Price": null }
+ ]
+ }
+ ]
+ },
+ {
+ "id": "land-rover",
+ "name": "Land Rover",
+ "multiplier": 1.1,
+ "models": [
+ {
+ "id": "lr-discovery",
+ "name": "Discovery (4/5)",
+ "engines": [
+ { "id": "lr-disco-30d", "name": "3.0 TDV6 211 л.с.", "hp": 211, "torque": 550, "stage1Hp": 270, "stage1Torque": 660, "stage1Price": 27000, "stage2Price": 39000, "stage3Price": null },
+ { "id": "lr-disco-30t", "name": "3.0 Si6 340 л.с.", "hp": 340, "torque": 450, "stage1Hp": 405, "stage1Torque": 550, "stage1Price": 32000, "stage2Price": 47000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "lr-range-rover",
+ "name": "Range Rover (L405/L460)",
+ "engines": [
+ { "id": "lr-rr-30d", "name": "3.0 TDV6 258 л.с.", "hp": 258, "torque": 600, "stage1Hp": 320, "stage1Torque": 720, "stage1Price": 30000, "stage2Price": 43000, "stage3Price": null },
+ { "id": "lr-rr-50v8", "name": "5.0 V8 Supercharged 510 л.с.", "hp": 510, "torque": 625, "stage1Hp": 580, "stage1Torque": 700, "stage1Price": 40000, "stage2Price": 60000, "stage3Price": null },
+ { "id": "lr-rr-30t", "name": "3.0 Ingenium 360 л.с.", "hp": 360, "torque": 500, "stage1Hp": 430, "stage1Torque": 610, "stage1Price": 34000, "stage2Price": 50000, "stage3Price": null }
+ ]
+ }
+ ]
+ },
+ {
+ "id": "volvo",
+ "name": "Volvo",
+ "multiplier": 0.95,
+ "models": [
+ {
+ "id": "volvo-xc60",
+ "name": "XC60 (2)",
+ "engines": [
+ { "id": "volvo-xc60-20t", "name": "T5 2.0T 254 л.с.", "hp": 254, "torque": 350, "stage1Hp": 310, "stage1Torque": 430, "stage1Price": 24000, "stage2Price": 36000, "stage3Price": null },
+ { "id": "volvo-xc60-20d", "name": "D4 2.0D 190 л.с.", "hp": 190, "torque": 400, "stage1Hp": 240, "stage1Torque": 490, "stage1Price": 23000, "stage2Price": 34000, "stage3Price": null },
+ { "id": "volvo-xc60-b6", "name": "B6 2.0T 300 л.с.", "hp": 300, "torque": 420, "stage1Hp": 365, "stage1Torque": 510, "stage1Price": 26000, "stage2Price": 39000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "volvo-xc90",
+ "name": "XC90 (2)",
+ "engines": [
+ { "id": "volvo-xc90-20t", "name": "T5 2.0T 254 л.с.", "hp": 254, "torque": 350, "stage1Hp": 310, "stage1Torque": 430, "stage1Price": 25000, "stage2Price": 37000, "stage3Price": null },
+ { "id": "volvo-xc90-b6", "name": "B6 AWD 300 л.с.", "hp": 300, "torque": 420, "stage1Hp": 365, "stage1Torque": 510, "stage1Price": 27000, "stage2Price": 40000, "stage3Price": null }
+ ]
+ }
+ ]
+ },
+ {
+ "id": "ford",
+ "name": "Ford",
+ "multiplier": 0.9,
+ "models": [
+ {
+ "id": "ford-focus",
+ "name": "Focus (3/4)",
+ "engines": [
+ { "id": "ford-focus-10t", "name": "EcoBoost 1.0T 125 л.с.", "hp": 125, "torque": 170, "stage1Hp": 158, "stage1Torque": 220, "stage1Price": 17000, "stage2Price": 26000, "stage3Price": null },
+ { "id": "ford-focus-15t", "name": "EcoBoost 1.5T 150 л.с.", "hp": 150, "torque": 240, "stage1Hp": 190, "stage1Torque": 300, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null },
+ { "id": "ford-focus-20t", "name": "ST 2.0T 275 л.с.", "hp": 275, "torque": 360, "stage1Hp": 340, "stage1Torque": 450, "stage1Price": 24000, "stage2Price": 37000, "stage3Price": 58000 }
+ ]
+ },
+ {
+ "id": "ford-kuga",
+ "name": "Kuga (2/3)",
+ "engines": [
+ { "id": "ford-kuga-15t", "name": "1.5 EcoBoost 150 л.с.", "hp": 150, "torque": 240, "stage1Hp": 190, "stage1Torque": 300, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null },
+ { "id": "ford-kuga-20t", "name": "2.0 TDCi 150 л.с.", "hp": 150, "torque": 370, "stage1Hp": 195, "stage1Torque": 450, "stage1Price": 20000, "stage2Price": 30000, "stage3Price": null }
+ ]
+ }
+ ]
+ },
+ {
+ "id": "skoda",
+ "name": "Skoda",
+ "multiplier": 0.9,
+ "models": [
+ {
+ "id": "skoda-octavia",
+ "name": "Octavia (A7/A8)",
+ "engines": [
+ { "id": "skoda-oct-10t", "name": "1.0 TSI 116 л.с.", "hp": 116, "torque": 200, "stage1Hp": 145, "stage1Torque": 250, "stage1Price": 17000, "stage2Price": 26000, "stage3Price": null },
+ { "id": "skoda-oct-15t", "name": "1.5 TSI 150 л.с.", "hp": 150, "torque": 250, "stage1Hp": 185, "stage1Torque": 310, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null },
+ { "id": "skoda-oct-20t", "name": "RS 2.0 TSI 245 л.с.", "hp": 245, "torque": 370, "stage1Hp": 310, "stage1Torque": 450, "stage1Price": 24000, "stage2Price": 36000, "stage3Price": 58000 },
+ { "id": "skoda-oct-20tdi", "name": "2.0 TDI 150 л.с.", "hp": 150, "torque": 360, "stage1Hp": 195, "stage1Torque": 440, "stage1Price": 20000, "stage2Price": 29000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "skoda-kodiaq",
+ "name": "Kodiaq",
+ "engines": [
+ { "id": "skoda-kodiaq-20t", "name": "2.0 TSI 180 л.с.", "hp": 180, "torque": 320, "stage1Hp": 230, "stage1Torque": 400, "stage1Price": 22000, "stage2Price": 32000, "stage3Price": null },
+ { "id": "skoda-kodiaq-20tdi", "name": "2.0 TDI 150 л.с.", "hp": 150, "torque": 340, "stage1Hp": 195, "stage1Torque": 420, "stage1Price": 20000, "stage2Price": 30000, "stage3Price": null }
+ ]
+ }
+ ]
+ },
+ {
+ "id": "kia",
+ "name": "Kia",
+ "multiplier": 0.85,
+ "models": [
+ {
+ "id": "kia-k5",
+ "name": "K5 / Optima",
+ "engines": [
+ { "id": "kia-k5-20t", "name": "2.0T 249 л.с.", "hp": 249, "torque": 353, "stage1Hp": 295, "stage1Torque": 430, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null },
+ { "id": "kia-k5-16t", "name": "1.6T 180 л.с.", "hp": 180, "torque": 265, "stage1Hp": 215, "stage1Torque": 325, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "kia-sportage",
+ "name": "Sportage (4/5)",
+ "engines": [
+ { "id": "kia-spo-20d", "name": "2.0 CRDi 185 л.с.", "hp": 185, "torque": 400, "stage1Hp": 235, "stage1Torque": 480, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null },
+ { "id": "kia-spo-16t", "name": "1.6 T-GDi 177 л.с.", "hp": 177, "torque": 265, "stage1Hp": 215, "stage1Torque": 330, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null }
+ ]
+ }
+ ]
+ },
+ {
+ "id": "hyundai",
+ "name": "Hyundai",
+ "multiplier": 0.85,
+ "models": [
+ {
+ "id": "hyundai-sonata",
+ "name": "Sonata (DN8)",
+ "engines": [
+ { "id": "hyundai-son-20t", "name": "2.0T 249 л.с.", "hp": 249, "torque": 353, "stage1Hp": 295, "stage1Torque": 430, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null },
+ { "id": "hyundai-son-25", "name": "2.5 180 л.с.", "hp": 180, "torque": 232, "stage1Hp": 205, "stage1Torque": 265, "stage1Price": 19000, "stage2Price": null, "stage3Price": null }
+ ]
+ },
+ {
+ "id": "hyundai-tucson",
+ "name": "Tucson (4)",
+ "engines": [
+ { "id": "hyundai-tuc-20d", "name": "2.0 CRDi 185 л.с.", "hp": 185, "torque": 400, "stage1Hp": 235, "stage1Torque": 480, "stage1Price": 21000, "stage2Price": 31000, "stage3Price": null },
+ { "id": "hyundai-tuc-16t", "name": "1.6 T-GDi 150 л.с.", "hp": 150, "torque": 253, "stage1Hp": 185, "stage1Torque": 315, "stage1Price": 19000, "stage2Price": 28000, "stage3Price": null }
+ ]
+ }
+ ]
+ }
+ ],
+ "stages": {
+ "stage1": {
+ "name": "Stage 1",
+ "description": "Прошивка ЭБУ без механических изменений. Оптимизация картографий впрыска, наддува, зажигания.",
+ "priceMultiplier": 1.0,
+ "warranty": "12 месяцев",
+ "time": "2–3 часа"
+ },
+ "stage2": {
+ "name": "Stage 2",
+ "description": "Прошивка ЭБУ + доработка впуска/выпуска (воздушный фильтр, downpipe). Значительный прирост мощности.",
+ "priceMultiplier": 1.5,
+ "warranty": "6 месяцев",
+ "time": "4–6 часов"
+ },
+ "stage3": {
+ "name": "Stage 3",
+ "description": "Полный тюнинг: турбокит, форсунки, интеркулер, усиленное сцепление + прошивка ЭБУ. Максимальный результат.",
+ "priceMultiplier": 2.5,
+ "warranty": "3 месяца",
+ "time": "2–5 дней"
+ }
+ },
+ "addons": [
+ { "id": "dpf-off", "name": "Удаление DPF/GPF", "price": 8000, "desc": "Программное отключение фильтра DPF/GPF (только для дизелей и GDI)" },
+ { "id": "egr-off", "name": "Отключение EGR", "price": 4500, "desc": "Программное отключение клапана рециркуляции отработавших газов" },
+ { "id": "launch-control", "name": "Launch Control", "price": 3500, "desc": "Активация системы старта с места — максимальное ускорение" },
+ { "id": "popcorn", "name": "Popcorn / Burble", "price": 3000, "desc": "Выстрелы и хлопки при сбросе газа — спортивный выхлоп" },
+ { "id": "speed-limiter", "name": "Снятие ограничителя", "price": 2500, "desc": "Программное снятие ограничителя скорости 250 км/ч" },
+ { "id": "vmax-off", "name": "Vmax-off", "price": 2500, "desc": "Отмена ограничения максимальной скорости" }
+ ]
 }

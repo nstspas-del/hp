@@ -23,6 +23,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'hptuning.ru' },
       { protocol: 'https', hostname: 'mc.yandex.ru' },
+      { protocol: 'https', hostname: 'www.genspark.ai' },
     ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],

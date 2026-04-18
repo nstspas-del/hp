@@ -1,88 +1,88 @@
 {
-  "categories": [
-    {
-      "slug": "chip-tuning", "name": "Чип-тюнинг", "icon": "zap", "color": "#39FF14", "priority": 1,
-      "shortDescription": "Увеличение мощности и крутящего момента через прошивку ЭБУ",
-      "longDescription": "Чип-тюнинг — корректировка программы управления двигателем (ЭБУ) для увеличения мощности и крутящего момента. Работаем на дилерском оборудовании, используем только проверенные прошивки.",
-      "priceFrom": 25000,
-      "items": [
-        {
-          "slug": "stage-1", "name": "Stage 1 (мягкий чип)",
-          "shortDescription": "+15-25% мощности без железа",
-          "priceFrom": 25000, "duration": "2-3 часа",
-          "features": ["Прирост мощности +15-25%","Прирост момента +20-35%","Без вмешательства в железо","Полная обратимость","Гарантия 1 год"]
-        },
-        {
-          "slug": "stage-2", "name": "Stage 2 (продвинутый)",
-          "shortDescription": "+30-40% мощности с даунпайпом",
-          "priceFrom": 40000, "duration": "1 день",
-          "features": ["Прирост мощности +30-40%","Требует установки даунпайпа","Холодный впуск (рекомендуется)","Прошивка под 98-100 бензин","Гарантия 1 год"]
-        },
-        {
-          "slug": "stage-3", "name": "Stage 3 (максимум)",
-          "shortDescription": "+50-100% с апгрейдом турбины",
-          "priceFrom": 100000, "duration": "2-5 дней",
-          "features": ["Прирост мощности +50-100%","Апгрейд турбины","Форсунки большего потока","Интеркулер увеличенного сечения","Прошивка под гоночный бензин"]
-        },
-        {
-          "slug": "dpf-egr-off", "name": "Удаление DPF / EGR",
-          "shortDescription": "Программное отключение сажевого и клапана EGR",
-          "priceFrom": 15000, "duration": "3-4 часа",
-          "features": ["Отключение сажевого фильтра","Отключение клапана EGR","Решение проблемы регенерации","Снижение расхода топлива","Только для авто не на гарантии"]
-        },
-        { "slug": "immo-off", "name": "Отключение иммобилайзера", "shortDescription": "IMMO OFF для восстановления авто", "priceFrom": 10000, "duration": "1-2 часа" },
-        { "slug": "start-stop-off", "name": "Отключение Start/Stop", "shortDescription": "Программное отключение системы старт-стоп", "priceFrom": 3000, "duration": "30 минут" },
-        { "slug": "adblue-off", "name": "Удаление AdBlue", "shortDescription": "Отключение системы AdBlue на дизелях", "priceFrom": 20000, "duration": "1 день" },
-        { "slug": "lambda-off", "name": "Отключение лямбда-зонда", "shortDescription": "При установке спорт-катализатора или даунпайпа", "priceFrom": 5000, "duration": "1 час" }
-      ]
-    },
-    {
-      "slug": "detailing", "name": "Детейлинг", "icon": "sparkles", "color": "#39FF14", "priority": 2,
-      "shortDescription": "Защита кузова и уход за салоном премиум-уровня",
-      "longDescription": "Керамические покрытия, PPF, химчистка салона. Работаем только с премиум-расходниками (Gyeon, Ceramic Pro, SunTek, XPEL).",
-      "priceFrom": 5000,
-      "items": [
-        {
-          "slug": "ceramic", "name": "Керамическое покрытие 9H",
-          "shortDescription": "Защита ЛКП на 3-5 лет",
-          "priceFrom": 25000, "duration": "2-3 дня",
-          "features": ["Твёрдость покрытия 9H","Гидрофобный эффект","Защита от мелких царапин","Гарантия до 5 лет","Материал: Gyeon / Ceramic Pro"]
-        },
-        {
-          "slug": "ppf", "name": "Полиуретановая плёнка PPF",
-          "shortDescription": "Самовосстанавливающаяся защита от сколов",
-          "priceFrom": 80000, "duration": "2-4 дня",
-          "features": ["Защита от сколов и царапин","Самовосстановление на солнце","Оклейка кузова целиком или фрагментами","Материалы: SunTek / XPEL","Гарантия 7-10 лет"]
-        },
-        {
-          "slug": "dry-cleaning", "name": "Химчистка салона",
-          "shortDescription": "Полная химчистка с озонацией",
-          "priceFrom": 8000, "duration": "1 день",
-          "features": ["Химчистка всех поверхностей","Удаление запахов","Озонация","Защита кожи кондиционером"]
-        },
-        {
-          "slug": "polishing", "name": "Полировка кузова",
-          "shortDescription": "Восстановление блеска ЛКП",
-          "priceFrom": 15000, "duration": "1-2 дня",
-          "features": ["Абразивная или защитная полировка","Удаление мелких царапин и голограмм","Восстановление глубины цвета"]
-        },
-        { "slug": "anti-corrosion", "name": "Антикоррозийная обработка", "shortDescription": "Защита днища и скрытых полостей", "priceFrom": 12000, "duration": "1 день" },
-        { "slug": "headlights-restoration", "name": "Полировка фар", "shortDescription": "Восстановление прозрачности фар", "priceFrom": 5000, "duration": "2-3 часа" }
-      ]
-    },
-    {
-      "slug": "service", "name": "Автосервис", "icon": "wrench", "color": "#39FF14", "priority": 3,
-      "shortDescription": "Диагностика, ТО и ремонт премиум-автомобилей",
-      "longDescription": "Обслуживаем премиум-авто на дилерском оборудовании: ISTA, Star Diagnosis, VCDS/ODIS, PIWIS. Оригинальные запчасти или проверенные аналоги.",
-      "priceFrom": 1500,
-      "items": [
-        { "slug": "to", "name": "Плановое ТО", "shortDescription": "Замена масла, фильтров, расходников", "priceFrom": 4500, "duration": "1-2 часа" },
-        { "slug": "diagnostics", "name": "Компьютерная диагностика", "shortDescription": "Считывание ошибок на дилерском оборудовании", "priceFrom": 1500, "duration": "30 минут" },
-        { "slug": "brakes", "name": "Тормозная система", "shortDescription": "Замена колодок, дисков, прокачка тормозов", "priceFrom": 3000, "duration": "1-3 часа" },
-        { "slug": "suspension", "name": "Подвеска", "shortDescription": "Замена амортизаторов, рычагов, сайлентблоков", "priceFrom": 5000, "duration": "1-2 дня" },
-        { "slug": "engine-repair", "name": "Ремонт ДВС", "shortDescription": "Замена цепи ГРМ, капитальный ремонт", "priceFrom": 30000, "duration": "3-10 дней" },
-        { "slug": "transmission", "name": "Ремонт АКПП и DSG", "shortDescription": "Диагностика и ремонт коробок передач", "priceFrom": 15000 }
-      ]
-    }
-  ]
+ "categories": [
+ {
+ "slug": "chip-tuning", "name": "Чип-тюнинг", "icon": "zap", "color": "#39FF14", "priority": 1,
+ "shortDescription": "Увеличение мощности и крутящего момента через прошивку ЭБУ",
+ "longDescription": "Чип-тюнинг — корректировка программы управления двигателем (ЭБУ) для увеличения мощности и крутящего момента. Работаем на дилерском оборудовании, используем только проверенные прошивки.",
+ "priceFrom": 25000,
+ "items": [
+ {
+ "slug": "stage-1", "name": "Stage 1 (мягкий чип)",
+ "shortDescription": "+15-25% мощности без железа",
+ "priceFrom": 25000, "duration": "2-3 часа",
+ "features": ["Прирост мощности +15-25%","Прирост момента +20-35%","Без вмешательства в железо","Полная обратимость",""]
+ },
+ {
+ "slug": "stage-2", "name": "Stage 2 (продвинутый)",
+ "shortDescription": "+30-40% мощности с даунпайпом",
+ "priceFrom": 40000, "duration": "1 день",
+ "features": ["Прирост мощности +30-40%","Требует установки даунпайпа","Холодный впуск (рекомендуется)","Прошивка под 98-100 бензин",""]
+ },
+ {
+ "slug": "stage-3", "name": "Stage 3 (максимум)",
+ "shortDescription": "+50-100% с апгрейдом турбины",
+ "priceFrom": 100000, "duration": "2-5 дней",
+ "features": ["Прирост мощности +50-100%","Апгрейд турбины","Форсунки большего потока","Интеркулер увеличенного сечения","Прошивка под гоночный бензин"]
+ },
+ {
+ "slug": "dpf-egr-off", "name": "Удаление DPF / EGR",
+ "shortDescription": "Программное отключение сажевого и клапана EGR",
+ "priceFrom": 15000, "duration": "3-4 часа",
+ "features": ["Отключение сажевого фильтра","Отключение клапана EGR","Решение проблемы регенерации","Снижение расхода топлива","Только для авто не на гарантии"]
+ },
+ { "slug": "immo-off", "name": "Отключение иммобилайзера", "shortDescription": "IMMO OFF для восстановления авто", "priceFrom": 10000, "duration": "1-2 часа" },
+ { "slug": "start-stop-off", "name": "Отключение Start/Stop", "shortDescription": "Программное отключение системы старт-стоп", "priceFrom": 3000, "duration": "30 минут" },
+ { "slug": "adblue-off", "name": "Удаление AdBlue", "shortDescription": "Отключение системы AdBlue на дизелях", "priceFrom": 20000, "duration": "1 день" },
+ { "slug": "lambda-off", "name": "Отключение лямбда-зонда", "shortDescription": "При установке спорт-катализатора или даунпайпа", "priceFrom": 5000, "duration": "1 час" }
+ ]
+ },
+ {
+ "slug": "detailing", "name": "Детейлинг", "icon": "sparkles", "color": "#39FF14", "priority": 2,
+ "shortDescription": "Защита кузова и уход за салоном премиум-уровня",
+ "longDescription": "Керамические покрытия, PPF, химчистка салона. Работаем только с премиум-расходниками (Gyeon, Ceramic Pro, SunTek, XPEL).",
+ "priceFrom": 5000,
+ "items": [
+ {
+ "slug": "ceramic", "name": "Керамическое покрытие 9H",
+ "shortDescription": "Защита ЛКП на 3-5 лет",
+ "priceFrom": 25000, "duration": "2-3 дня",
+ "features": ["Твёрдость покрытия 9H","Гидрофобный эффект","Защита от мелких царапин","Материал: Gyeon / Ceramic Pro"]
+ },
+ {
+ "slug": "ppf", "name": "Полиуретановая плёнка PPF",
+ "shortDescription": "Самовосстанавливающаяся защита от сколов",
+ "priceFrom": 80000, "duration": "2-4 дня",
+ "features": ["Защита от сколов и царапин","Самовосстановление на солнце","Оклейка кузова целиком или фрагментами","Материалы: SunTek / XPEL","Срок службы до 10 лет"]
+ },
+ {
+ "slug": "dry-cleaning", "name": "Химчистка салона",
+ "shortDescription": "Полная химчистка с озонацией",
+ "priceFrom": 8000, "duration": "1 день",
+ "features": ["Химчистка всех поверхностей","Удаление запахов","Озонация","Защита кожи кондиционером"]
+ },
+ {
+ "slug": "polishing", "name": "Полировка кузова",
+ "shortDescription": "Восстановление блеска ЛКП",
+ "priceFrom": 15000, "duration": "1-2 дня",
+ "features": ["Абразивная или защитная полировка","Удаление мелких царапин и голограмм","Восстановление глубины цвета"]
+ },
+ { "slug": "anti-corrosion", "name": "Антикоррозийная обработка", "shortDescription": "Защита днища и скрытых полостей", "priceFrom": 12000, "duration": "1 день" },
+ { "slug": "headlights-restoration", "name": "Полировка фар", "shortDescription": "Восстановление прозрачности фар", "priceFrom": 5000, "duration": "2-3 часа" }
+ ]
+ },
+ {
+ "slug": "service", "name": "Автосервис", "icon": "wrench", "color": "#39FF14", "priority": 3,
+ "shortDescription": "Диагностика, ТО и ремонт премиум-автомобилей",
+ "longDescription": "Обслуживаем премиум-авто на дилерском оборудовании: ISTA, Star Diagnosis, VCDS/ODIS, PIWIS. Оригинальные запчасти или проверенные аналоги.",
+ "priceFrom": 1500,
+ "items": [
+ { "slug": "to", "name": "Плановое ТО", "shortDescription": "Замена масла, фильтров, расходников", "priceFrom": 4500, "duration": "1-2 часа" },
+ { "slug": "diagnostics", "name": "Компьютерная диагностика", "shortDescription": "Считывание ошибок на дилерском оборудовании", "priceFrom": 1500, "duration": "30 минут" },
+ { "slug": "brakes", "name": "Тормозная система", "shortDescription": "Замена колодок, дисков, прокачка тормозов", "priceFrom": 3000, "duration": "1-3 часа" },
+ { "slug": "suspension", "name": "Подвеска", "shortDescription": "Замена амортизаторов, рычагов, сайлентблоков", "priceFrom": 5000, "duration": "1-2 дня" },
+ { "slug": "engine-repair", "name": "Ремонт ДВС", "shortDescription": "Замена цепи ГРМ, капитальный ремонт", "priceFrom": 30000, "duration": "3-10 дней" },
+ { "slug": "transmission", "name": "Ремонт АКПП и DSG", "shortDescription": "Диагностика и ремонт коробок передач", "priceFrom": 15000 }
+ ]
+ }
+ ]
 }
