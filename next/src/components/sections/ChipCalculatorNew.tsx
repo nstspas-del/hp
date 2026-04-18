@@ -4,8 +4,8 @@ import { useState, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ChevronRight, ChevronLeft, Zap, Check, 
-  Search, ExternalLink, Phone, Gauge, 
-  TrendingUp, Shield, RotateCcw, Star, BadgePercent, ChevronDown
+  Search, ExternalLink, Phone, Gauge,
+  TrendingUp, RotateCcw, Star, BadgePercent, ChevronDown
 } from 'lucide-react';
 import sfData from '@/data/sevenforce-parsed.json';
 import { openBooking } from '@/lib/autodealer';
@@ -599,10 +599,9 @@ export function ChipCalculatorNew() {
                       {/* Что входит */}
                       <div className="space-y-2">
                         {[
-                          { icon: Shield, text: 'Оригинальный файл прошивки' },
-                          { icon: TrendingUp, text: 'Прирост мощности +15–30%' },
-                          { icon: RotateCcw, text: 'Возможность возврата к стоку' },
-                          { icon: Gauge, text: 'Оценка мощности на стенде' },
+                          { icon: Zap, text: 'Прошивка ЭБУ Alientech KESS3' },
+                          { icon: TrendingUp, text: 'Прирост мощности и тяги' },
+                          { icon: Phone, text: 'Консультация перед и после' },
                         ].map(({ icon: Icon, text }) => (
                           <div key={text} className="flex items-center gap-2 text-sm">
                             <div className="w-5 h-5 rounded-full bg-[#39FF14]/10 flex items-center justify-center flex-shrink-0">
@@ -685,7 +684,7 @@ export function ChipCalculatorNew() {
                       {[
                         { icon: Star, text: 'Реальные данные SevenForce.ru' },
                         { icon: BadgePercent, text: 'Цены на 25% ниже рынка' },
-                        { icon: Shield, text: 'Alientech KESS3 · Лицензия' },
+                        { icon: Star, text: 'Alientech KESS3 · Лицензия' },
                         { icon: Zap, text: 'Прошивка за 1–2 часа' },
                       ].map(({ icon: Icon, text }) => (
                         <div key={text} className="flex items-center gap-3 text-sm text-text-secondary">

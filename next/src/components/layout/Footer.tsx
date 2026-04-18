@@ -4,11 +4,11 @@ import company from '@/data/company.json';
 
 const LINKS = {
  services: [
- { label: 'Чип-тюнинг Stage 1', href: '/services/chip-tuning/stage-1' },
- { label: 'Чип-тюнинг Stage 2', href: '/services/chip-tuning/stage-2' },
- { label: 'Чип-тюнинг Stage 3', href: '/services/chip-tuning/stage-3' },
- { label: 'Детейлинг', href: '/services/detailing' },
- { label: 'Автосервис', href: '/services/service' },
+ { label: 'Чип-тюнинг Stage 1', href: '/tuning/chip-tuning' },
+ { label: 'Чип-тюнинг Stage 2', href: '/tuning/chip-tuning' },
+ { label: 'Чип-тюнинг Stage 3', href: '/tuning/chip-tuning' },
+ { label: 'Детейлинг', href: '/detailing' },
+ { label: 'Автосервис', href: '/service' },
  ],
  brands: [
  { label: 'BMW', href: '/brands/bmw' },

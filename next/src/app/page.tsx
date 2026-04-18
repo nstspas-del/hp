@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
 import { ShowcaseSection } from '@/components/ShowcaseSection';
-import { ChipCalculatorNew } from '@/components/sections/ChipCalculatorNew';
+
 import { BrandsSection } from '@/components/sections/BrandsSection';
 import { WorksPreview } from '@/components/sections/WorksPreview';
 import { FaqSection } from '@/components/sections/FaqSection';
@@ -78,9 +78,6 @@ export default function HomePage() {
 
  {/* Что мы делаем — табы без картинок */}
  <ShowcaseSection />
-
- {/* Калькулятор чип-тюнинга — реальные данные SevenForce, -25% */}
- <ChipCalculatorNew />
 
  {/* Бренды */}
  <BrandsSection />

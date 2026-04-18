@@ -6,25 +6,28 @@ import { ArrowRight } from 'lucide-react';
 
 const WORKS = [
  {
- src: 'https://www.genspark.ai/api/files/s/wXFcnUQQ',
- brand: 'Mercedes AMG GT',
+ src: '/images/works/15-mercedes-cls-orange-lift.jpg',
+ brand: 'Mercedes CLS AMG',
  service: 'Автосервис · Диагностика на подъёмнике',
  tag: 'Автосервис',
  color: '#a78bfa',
+ href: '/service',
  },
  {
- src: 'https://www.genspark.ai/api/files/s/zJxhAMUc',
- brand: 'BMW X7',
- service: 'Детейлинг · Нано-керамика',
- tag: 'Детейлинг',
- color: '#38bdf8',
+ src: '/images/works/10-bmw-x5-neon-workshop.jpg',
+ brand: 'BMW X5',
+ service: 'Чип-тюнинг Stage 2 · +60 л.с.',
+ tag: 'Чип-тюнинг',
+ color: '#39FF14',
+ href: '/tuning/chip-tuning',
  },
  {
- src: 'https://www.genspark.ai/api/files/s/5NfczAQS',
- brand: 'Corvette C8',
- service: 'Детейлинг · Жидкое стекло + 3D-пол',
+ src: '/images/works/04-ceramic-coating-application.jpg',
+ brand: 'Детейлинг',
+ service: 'Керамическое покрытие 9H',
  tag: 'Детейлинг',
  color: '#38bdf8',
+ href: '/detailing',
  },
  {
  src: '/images/works/01-porsche-cayman-pink-lift.jpg',
@@ -32,20 +35,23 @@ const WORKS = [
  service: 'Чип-тюнинг Stage 2',
  tag: 'Чип-тюнинг',
  color: '#39FF14',
+ href: '/tuning/chip-tuning',
  },
  {
- src: '/images/works/mercedes-gle63-foam-wash.jpg',
+ src: '/images/works/16-mercedes-gle63-foam-wash.jpg',
  brand: 'Mercedes GLE 63 AMG',
- service: 'Детейлинг · Химчистка',
+ service: 'Детейлинг · Химчистка + полировка',
  tag: 'Детейлинг',
  color: '#38bdf8',
+ href: '/detailing',
  },
  {
- src: '/images/works/subaru-wrx-lift.jpg',
+ src: '/images/works/17-subaru-wrx-sti-exhaust.jpg',
  brand: 'Subaru WRX STI',
- service: 'Чип-тюнинг Stage 3',
+ service: 'Чип-тюнинг Stage 3 · Выхлоп',
  tag: 'Чип-тюнинг',
  color: '#39FF14',
+ href: '/tuning/chip-tuning',
  },
 ];
 
@@ -84,6 +90,7 @@ export function WorksPreview() {
  viewport={{ once: true }}
  transition={{ duration: 0.4, delay: i * 0.07 }}
  >
+ <Link href={w.href} className="block absolute inset-0 z-10" aria-label={w.brand} />
  <Image
  src={w.src}
  alt={`${w.brand} — ${w.service} в HP Тюнинг`}
