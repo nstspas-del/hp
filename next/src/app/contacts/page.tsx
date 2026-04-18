@@ -1,3 +1,4 @@
+export const dynamic = 'force-static';
 import type { Metadata } from 'next';
 import seoData from '@/data/seo.json';
 import { ContactsClient } from './ContactsClient';

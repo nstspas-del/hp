@@ -1,3 +1,4 @@
+export const dynamic = 'force-static';
 import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';

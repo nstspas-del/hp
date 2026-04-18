@@ -59,8 +59,8 @@
  "scriptSrc": "https://online.autodealer.ru/widget/app.js"
  },
  "yandexMetrika": {
- "counterIdPlaceholder": 99999999,
- "note": "Настя подставит реальный ID после деплоя",
+ "counterId": 108614238,
+ "note": "Yandex.Metrika counter ID HP Тюнинг",
  "goals": [
  {
  "id": "booking_open",

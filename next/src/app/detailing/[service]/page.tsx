@@ -1,3 +1,4 @@
+export const revalidate = 86400;
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getCategory, getService } from '@/lib/services';
