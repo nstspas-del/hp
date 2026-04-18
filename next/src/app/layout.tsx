@@ -41,7 +41,8 @@ export const metadata: Metadata = {
  'geo.placename': seoData.defaults.geo.placename,
  'geo.position': `${seoData.defaults.geo.latitude};${seoData.defaults.geo.longitude}`,
  'ICBM': `${seoData.defaults.geo.latitude}, ${seoData.defaults.geo.longitude}`,
- 'yandex-verification': process.env.NEXT_PUBLIC_YANDEX_VERIFICATION ?? '',
+ // Яндекс.Вебмастер — код верификации (апрель 2026)
+ 'yandex-verification': process.env.NEXT_PUBLIC_YANDEX_VERIFICATION ?? '612ea2d0128620d8',
  },
 };
 
