@@ -272,5 +272,166 @@
  { "slug": "x-trail", "name": "Nissan X-Trail", "priceFrom": 18000 },
  { "slug": "qashqai", "name": "Nissan Qashqai", "priceFrom": 18000 }
  ]
+ },
+ {
+ "slug": "hyundai", "name": "Hyundai", "nameRu": "Хендай", "featured": false, "priority": 14,
+ "description": "Чип-тюнинг Hyundai Tucson, Santa Fe, Sonata", "priceFrom": 18000,
+ "series": [
+ { "slug": "tucson", "name": "Hyundai Tucson", "priceFrom": 18000 },
+ { "slug": "santa-fe", "name": "Hyundai Santa Fe", "priceFrom": 20000 },
+ { "slug": "sonata", "name": "Hyundai Sonata", "priceFrom": 18000 }
+ ]
+ },
+ {
+ "slug": "subaru", "name": "Subaru", "nameRu": "Субару", "featured": false, "priority": 15,
+ "description": "Чип-тюнинг Subaru WRX STI, Forester, Outback", "priceFrom": 20000,
+ "series": [
+ { "slug": "wrx-sti", "name": "Subaru WRX STI", "priceFrom": 25000 },
+ { "slug": "forester", "name": "Subaru Forester", "priceFrom": 20000 },
+ { "slug": "outback", "name": "Subaru Outback", "priceFrom": 20000 }
+ ]
+ },
+ {
+ "slug": "mini", "name": "MINI", "nameRu": "Мини", "featured": false, "priority": 16,
+ "description": "Чип-тюнинг MINI Cooper S, JCW, Clubman", "priceFrom": 20000,
+ "series": [
+ { "slug": "cooper-s", "name": "MINI Cooper S / JCW", "priceFrom": 20000 },
+ { "slug": "clubman", "name": "MINI Clubman", "priceFrom": 20000 },
+ { "slug": "countryman", "name": "MINI Countryman", "priceFrom": 22000 }
+ ]
+ },
+ {
+ "slug": "skoda", "name": "Skoda", "nameRu": "Шкода", "featured": false, "priority": 17,
+ "description": "Чип-тюнинг Skoda Octavia, Superb, Kodiaq", "priceFrom": 18000,
+ "series": [
+ { "slug": "octavia", "name": "Skoda Octavia RS / vRS", "priceFrom": 18000 },
+ { "slug": "superb", "name": "Skoda Superb", "priceFrom": 20000 },
+ { "slug": "kodiaq", "name": "Skoda Kodiaq", "priceFrom": 22000 }
+ ]
+ },
+ {
+ "slug": "mitsubishi", "name": "Mitsubishi", "nameRu": "Мицубиси", "featured": false, "priority": 18,
+ "description": "Чип-тюнинг Mitsubishi Lancer Evo, Outlander, L200", "priceFrom": 18000,
+ "series": [
+ { "slug": "lancer-evo", "name": "Mitsubishi Lancer Evolution", "priceFrom": 25000 },
+ { "slug": "outlander", "name": "Mitsubishi Outlander", "priceFrom": 18000 },
+ { "slug": "l200", "name": "Mitsubishi L200", "priceFrom": 20000 }
+ ]
+ },
+ {
+ "slug": "mazda", "name": "Mazda", "nameRu": "Мазда", "featured": false, "priority": 19,
+ "description": "Чип-тюнинг Mazda CX-5, CX-9, Mazda 6", "priceFrom": 18000,
+ "series": [
+ { "slug": "cx5", "name": "Mazda CX-5", "priceFrom": 18000 },
+ { "slug": "cx9", "name": "Mazda CX-9", "priceFrom": 22000 },
+ { "slug": "6", "name": "Mazda 6", "priceFrom": 18000 }
+ ]
+ },
+ {
+ "slug": "infiniti", "name": "Infiniti", "nameRu": "Инфинити", "featured": false, "priority": 20,
+ "description": "Чип-тюнинг Infiniti Q50, QX70, QX80", "priceFrom": 22000,
+ "series": [
+ { "slug": "q50", "name": "Infiniti Q50 / Q60", "priceFrom": 25000 },
+ { "slug": "qx70", "name": "Infiniti QX70 / FX", "priceFrom": 25000 },
+ { "slug": "qx80", "name": "Infiniti QX80", "priceFrom": 30000 }
+ ]
+ },
+ {
+ "slug": "ford", "name": "Ford", "nameRu": "Форд", "featured": false, "priority": 21,
+ "description": "Чип-тюнинг Ford Focus RS, Mustang, Edge", "priceFrom": 18000,
+ "series": [
+ { "slug": "focus-rs", "name": "Ford Focus RS / ST", "priceFrom": 20000 },
+ { "slug": "mustang", "name": "Ford Mustang", "priceFrom": 25000 },
+ { "slug": "kuga", "name": "Ford Kuga / Edge", "priceFrom": 18000 }
+ ]
+ },
+ {
+ "slug": "jeep", "name": "Jeep", "nameRu": "Джип", "featured": false, "priority": 22,
+ "description": "Чип-тюнинг Jeep Grand Cherokee, Wrangler", "priceFrom": 25000,
+ "series": [
+ { "slug": "grand-cherokee", "name": "Jeep Grand Cherokee", "priceFrom": 25000 },
+ { "slug": "wrangler", "name": "Jeep Wrangler", "priceFrom": 25000 }
+ ]
+ },
+ {
+ "slug": "opel", "name": "Opel", "nameRu": "Опель", "featured": false, "priority": 23,
+ "description": "Чип-тюнинг Opel Insignia, Astra OPC, Mokka", "priceFrom": 18000,
+ "series": [
+ { "slug": "insignia", "name": "Opel Insignia OPC", "priceFrom": 18000 },
+ { "slug": "astra-opc", "name": "Opel Astra OPC / GTC", "priceFrom": 18000 }
+ ]
+ },
+ {
+ "slug": "renault", "name": "Renault", "nameRu": "Рено", "featured": false, "priority": 24,
+ "description": "Чип-тюнинг Renault Megane RS, Arkana, Duster", "priceFrom": 16000,
+ "series": [
+ { "slug": "megane-rs", "name": "Renault Megane RS / Trophy", "priceFrom": 20000 },
+ { "slug": "arkana", "name": "Renault Arkana", "priceFrom": 16000 },
+ { "slug": "duster", "name": "Renault Duster", "priceFrom": 16000 }
+ ]
+ },
+ {
+ "slug": "seat", "name": "SEAT", "nameRu": "Сеат", "featured": false, "priority": 25,
+ "description": "Чип-тюнинг SEAT Leon Cupra, Ateca", "priceFrom": 18000,
+ "series": [
+ { "slug": "leon-cupra", "name": "SEAT Leon Cupra / FR", "priceFrom": 20000 },
+ { "slug": "ateca", "name": "SEAT Ateca", "priceFrom": 18000 }
+ ]
+ },
+ {
+ "slug": "alfa-romeo", "name": "Alfa Romeo", "nameRu": "Альфа Ромео", "featured": false, "priority": 26,
+ "description": "Чип-тюнинг Alfa Romeo Giulia, Stelvio, Giulietta", "priceFrom": 22000,
+ "series": [
+ { "slug": "giulia", "name": "Alfa Romeo Giulia / Quadrifoglio", "priceFrom": 30000 },
+ { "slug": "stelvio", "name": "Alfa Romeo Stelvio", "priceFrom": 25000 }
+ ]
+ },
+ {
+ "slug": "bentley", "name": "Bentley", "nameRu": "Бентли", "featured": false, "priority": 27,
+ "description": "Тюнинг Bentley Continental GT, Bentayga", "priceFrom": 60000,
+ "series": [
+ { "slug": "continental", "name": "Bentley Continental GT", "priceFrom": 70000 },
+ { "slug": "bentayga", "name": "Bentley Bentayga", "priceFrom": 65000 }
+ ]
+ },
+ {
+ "slug": "maserati", "name": "Maserati", "nameRu": "Мазерати", "featured": false, "priority": 28,
+ "description": "Тюнинг Maserati Ghibli, Levante, Quattroporte", "priceFrom": 50000,
+ "series": [
+ { "slug": "ghibli", "name": "Maserati Ghibli", "priceFrom": 55000 },
+ { "slug": "levante", "name": "Maserati Levante", "priceFrom": 55000 }
+ ]
+ },
+ {
+ "slug": "ferrari", "name": "Ferrari", "nameRu": "Феррари", "featured": false, "priority": 29,
+ "description": "Тюнинг Ferrari 458, 488, F8, California", "priceFrom": 80000,
+ "series": [
+ { "slug": "488", "name": "Ferrari 488 GTB / Spider", "priceFrom": 90000 },
+ { "slug": "f8", "name": "Ferrari F8 Tributo", "priceFrom": 90000 }
+ ]
+ },
+ {
+ "slug": "lamborghini", "name": "Lamborghini", "nameRu": "Ламборгини", "featured": false, "priority": 30,
+ "description": "Тюнинг Lamborghini Urus, Huracan, Gallardo", "priceFrom": 80000,
+ "series": [
+ { "slug": "urus", "name": "Lamborghini Urus", "priceFrom": 90000 },
+ { "slug": "huracan", "name": "Lamborghini Huracan", "priceFrom": 100000 }
+ ]
+ },
+ {
+ "slug": "cadillac", "name": "Cadillac", "nameRu": "Кадиллак", "featured": false, "priority": 31,
+ "description": "Тюнинг Cadillac Escalade, CT5, XT5", "priceFrom": 25000,
+ "series": [
+ { "slug": "escalade", "name": "Cadillac Escalade", "priceFrom": 30000 },
+ { "slug": "ct5", "name": "Cadillac CT5 / CT6", "priceFrom": 25000 }
+ ]
+ },
+ {
+ "slug": "mclaren", "name": "McLaren", "nameRu": "Макларен", "featured": false, "priority": 32,
+ "description": "Тюнинг McLaren 570S, 720S, GT", "priceFrom": 100000,
+ "series": [
+ { "slug": "570s", "name": "McLaren 570S / 600LT", "priceFrom": 110000 },
+ { "slug": "720s", "name": "McLaren 720S", "priceFrom": 120000 }
+ ]
  }
 ]

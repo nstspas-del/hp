@@ -141,7 +141,7 @@ export default function DetailingPage() {
  {/* BMW X7 в неоне — фоновое фото */}
  <div className="absolute right-0 top-0 h-full w-1/2 hidden lg:block opacity-15 pointer-events-none overflow-hidden">
    {/* eslint-disable-next-line @next/next/no-img-element */}
-   <img src="https://www.genspark.ai/api/files/s/zJxhAMUc" alt="BMW X7 детейлинг HP" className="h-full w-full object-cover object-left-top" />
+   <img src="/images/works/04-ceramic-coating-application.jpg" alt="BMW X7 детейлинг HP" className="h-full w-full object-cover object-left-top" />
    <div className="absolute inset-0 bg-gradient-to-r from-bg via-transparent to-transparent" />
  </div>
  <div className="container relative z-10">

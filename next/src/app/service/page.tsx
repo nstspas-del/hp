@@ -100,7 +100,7 @@ const SERVICES = [
  },
 ];
 
-const BRANDS = ['BMW', 'Mercedes-Benz', 'Audi', 'Porsche', 'Lexus', 'Land Rover', 'Volvo', 'Volkswagen', 'Jaguar', 'Genesis', 'Toyota', 'KIA', 'Nissan'];
+const BRANDS = ['BMW', 'Mercedes-Benz', 'Audi', 'Porsche', 'Lexus', 'Land Rover', 'Volvo', 'Volkswagen', 'Jaguar', 'Genesis', 'Toyota', 'KIA', 'Nissan', 'Hyundai', 'Subaru', 'MINI', 'Skoda', 'Mitsubishi', 'Mazda', 'Infiniti', 'Ford', 'Alfa Romeo', 'Bentley', 'Maserati', 'Ferrari', 'Jeep', 'Opel', 'Renault', 'SEAT', 'Cadillac', 'Lamborghini', 'McLaren'];
 
 const ADVANTAGES = [
  { title: '10 лет опыта', desc: 'Специализация на немецком и британском премиуме.' },
@@ -124,7 +124,7 @@ const FAQ = [
  },
  {
  q: 'Какие марки вы обслуживаете?',
- a: 'Специализируемся на BMW, Mercedes-Benz, Audi, Porsche, Lexus, Land Rover, Volvo, Volkswagen, Jaguar. Принимаем также Genesis, Toyota, KIA, Nissan.',
+ a: 'Работаем с 32+ марками: BMW, Mercedes-Benz, Audi, Porsche, Lexus, Land Rover, Volvo, VW, Jaguar, Genesis, Toyota, KIA, Nissan, Hyundai, Subaru, MINI, Skoda, Mazda, Infiniti, Ford, Alfa Romeo, Bentley, Maserati, Ferrari, McLaren и другими.',
  },
  {
  q: 'Используете ли вы оригинальные запчасти?',
@@ -151,10 +151,9 @@ export default function ServicePage() {
  <section className="relative pt-28 pb-16 overflow-hidden">
  <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 via-transparent to-transparent pointer-events-none" />
  {/* Mercedes AMG на подъёмнике — HP Тюнинг */}
- <div className="absolute right-0 top-0 h-full w-1/2 hidden lg:block opacity-15 pointer-events-none overflow-hidden">
-   {/* eslint-disable-next-line @next/next/no-img-element */}
-   <img src="https://www.genspark.ai/api/files/s/wXFcnUQQ" alt="Автосервис HP Тюнинг" className="h-full w-full object-cover object-center" />
-   <div className="absolute inset-0 bg-gradient-to-r from-bg via-transparent to-transparent" />
+ <div className="absolute right-0 top-0 h-full w-1/2 hidden lg:block opacity-20 pointer-events-none overflow-hidden">
+ <img src="/images/mercedes-lift.jpg" alt="Автосервис HP Тюнинг — машина на подъёмнике" className="h-full w-full object-cover object-right" />
+   <div className="absolute inset-0 bg-gradient-to-r from-[#09090b] via-transparent to-transparent" />
  </div>
  <div className="container relative z-10">
  <Breadcrumbs items={[{ label: "Автосервис" }]} />
@@ -186,8 +185,8 @@ export default function ServicePage() {
  {[
  { val: 'от 1 500 ₽', label: 'Диагностика' },
  { val: 'от 3 000 ₽', label: 'ТО' },
- { val: '13 марок', label: 'Специализация' },
- { val: '9+', label: 'лет опыта' },
+ { val: '32+', label: 'марки авто' },
+ { val: '10+', label: 'лет опыта' },
  ].map((s) => (
  <div key={s.label} className="card text-center">
  <div className="font-display text-2xl md:text-3xl text-[#39FF14] mb-1">{s.val}</div>

@@ -50,7 +50,7 @@ export function Hero() {
  {/* Подзаголовок */}
  <p className="text-zinc-300 text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
  Чип-тюнинг, детейлинг и техническое обслуживание премиальных марок.
- BMW, Mercedes, Porsche, Audi — опыт 9+ лет.
+ BMW, Mercedes, Porsche, Audi, VW, Toyota и ещё 26 марок — весь премиум и средний сегмент СПб.
  </p>
 
  {/* CTA кнопки */}
@@ -74,9 +74,9 @@ export function Hero() {
  {/* Статистика */}
  <div className="flex flex-wrap gap-6 md:gap-10">
  {[
- { value: '9+', label: 'лет на рынке' },
+ { value: '10+', label: 'лет опыта' },
  { value: '500+', label: 'авто обслужено' },
- { value: '9+', label: 'лет опыта' },
+ { value: '32', label: 'марки авто' },
  { value: '10:00–20:00', label: 'ежедневно' },
  ].map((s) => (
  <div key={s.label}>
@@ -98,9 +98,9 @@ export function Hero() {
  <div className="container">
  <div className="grid grid-cols-3 divide-x divide-white/8">
  {[
- { href: '/services/chip-tuning', icon: '⚡', label: 'Чип-тюнинг', sub: 'Stage 1–3, EGR/DPF' },
- { href: '/services/detailing', icon: '◈', label: 'Детейлинг', sub: 'Керамика, PPF, химчистка' },
- { href: '/services/service', icon: '🔧', label: 'Автосервис', sub: 'ТО, диагностика, ремонт' },
+ { href: '/tuning/chip-tuning', icon: '⚡', label: 'Чип-тюнинг', sub: 'Stage 1–3, EGR/DPF' },
+ { href: '/detailing', icon: '◈', label: 'Детейлинг', sub: 'Керамика, PPF, химчистка' },
+ { href: '/service', icon: '🔧', label: 'Автосервис', sub: 'ТО, диагностика, ремонт' },
  ].map((item) => (
  <Link
  key={item.href}

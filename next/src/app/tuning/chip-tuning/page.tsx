@@ -164,7 +164,7 @@ export default function ChipTuningPage() {
  {/* Фото автомобиля на подъёмнике — фон */}
  <div className="absolute right-0 top-0 h-full w-1/2 hidden lg:block opacity-20 pointer-events-none overflow-hidden">
    {/* eslint-disable-next-line @next/next/no-img-element */}
-   <img src="https://www.genspark.ai/api/files/s/wXFcnUQQ" alt="Mercedes на подъёмнике HP" className="h-full w-full object-cover object-center" />
+   <img src="/images/works/10-bmw-x5-neon-workshop.jpg" alt="Mercedes на подъёмнике HP" className="h-full w-full object-cover object-center" />
    <div className="absolute inset-0 bg-gradient-to-r from-bg via-transparent to-transparent" />
  </div>
  <div className="container relative z-10">

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
  keywords: ['чип тюнинг бренды спб', 'тюнинг bmw mercedes audi', 'автосервис премиум спб'],
  alternates: { canonical: 'https://hptuning.ru/brands' },
  openGraph: {
- title: 'Тюнинг и детейлинг 13 брендов в СПб | HP Тюнинг',
+ title: 'Чип-тюнинг и детейлинг 32+ марок в СПб | HP Тюнинг',
  description: 'BMW, Mercedes, Audi, Porsche, Land Rover, Lexus — глубокая специализация на каждом бренде. Чип-тюнинг, детейлинг, автосервис.',
  url: 'https://hptuning.ru/brands',
  type: 'website',

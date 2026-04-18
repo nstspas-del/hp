@@ -11,14 +11,33 @@ const BRAND_COLORS: Record<string, string> = {
  audi: '#cc0000',
  porsche: '#c0941f',
  volkswagen: '#0063b2',
- land_rover: '#006a4e',
+ 'land-rover': '#006a4e',
  volvo: '#003057',
  lexus: '#1a1a1a',
  jaguar: '#1a3a5c',
  toyota: '#eb0a1e',
- kia: '#05141f',
+ kia: '#bb0a30',
  nissan: '#c3002f',
  genesis: '#8a7560',
+ hyundai: '#002c5f',
+ subaru: '#003399',
+ mini: '#1c69d4',
+ skoda: '#4ba82e',
+ mitsubishi: '#cc0000',
+ mazda: '#910a00',
+ infiniti: '#1a1a1a',
+ ford: '#003478',
+ jeep: '#333333',
+ opel: '#a09f00',
+ renault: '#c0a800',
+ seat: '#e2001a',
+ 'alfa-romeo': '#cc0000',
+ bentley: '#004d40',
+ maserati: '#1a1a8c',
+ ferrari: '#cc0000',
+ lamborghini: '#f0a800',
+ cadillac: '#333333',
+ mclaren: '#e8720d',
 };
 
 export function BrandsSection() {
@@ -31,12 +50,12 @@ export function BrandsSection() {
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true }}
  >
- <span className="badge mb-3">13 марок</span>
+ <span className="badge mb-3">{brandsData.length} марок</span>
  <h2 className="font-display text-4xl md:text-5xl uppercase tracking-wide text-white">
  Наши марки
  </h2>
  <p className="text-zinc-500 text-base mt-3 max-w-lg">
- Для каждой марки — специализированное дилерское ПО и отдельная прошивка
+ Весь премиальный и средний сегмент — от Ferrari до Renault. Специализированное ПО для каждой марки.
  </p>
  </motion.div>
 

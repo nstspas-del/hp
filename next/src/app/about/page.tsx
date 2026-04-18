@@ -6,13 +6,13 @@ import { BookingButton } from '@/components/ui/BookingButton';
 import company from '@/data/company.json';
 
 export const metadata: Metadata = {
- title: 'О компании HP Тюнинг — 9 лет чип-тюнинга в СПб | Alientech',
- description: 'HP Тюнинг с 2015 года: более 500 автомобилей, Alientech KESSv3, 13 брендов. Чип-тюнинг Stage 1/2/3, детейлинг, автосервис в Санкт-Петербурге. яцев.',
+ title: 'О компании HP Тюнинг — 10+ лет опыта в СПб | Alientech',
+ description: 'HP Тюнинг с 2015 года: более 500 автомобилей, Alientech KESSv3, 32+ марки. Чип-тюнинг Stage 1/2/3, детейлинг, автосервис в Санкт-Петербурге.',
  keywords: ['о компании hp тюнинг', 'чип тюнинг студия спб', 'alientech спб', 'тюнинг ателье петербург'],
  alternates: { canonical: 'https://hptuning.ru/about' },
  openGraph: {
  title: 'О HP Тюнинг — профессиональный тюнинг в СПб',
- description: 'HP Тюнинг с 2015 года: более 500 автомобилей, Alientech KESSv3, 13 брендов. Чип-тюнинг Stage 1/2/3, детейлинг, автосервис в Санкт-Петербурге.',
+ description: 'HP Тюнинг с 2015 года: более 500 автомобилей, Alientech KESSv3, 32+ марки. Чип-тюнинг Stage 1/2/3, детейлинг, автосервис в Санкт-Петербурге.',
  url: 'https://hptuning.ru/about',
  type: 'website',
  locale: 'ru_RU',
@@ -60,7 +60,7 @@ export default function AboutPage() {
  {/* Статистика */}
  <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-16">
  {[
- { icon: Award, value: '9+', label: 'лет на рынке', sub: 'с 2015 года' },
+ { icon: Award, value: '10+', label: 'лет на рынке', sub: 'с 2015 года' },
  { icon: Users, value: '500+', label: 'автомобилей', sub: 'прошито и обработано' },
  { icon: Wrench, value: '13', label: 'марок', sub: 'BMW, Mercedes, Audi…' },
  { icon: CheckCircle, value: '500+', label: 'автомобилей', sub: 'выполнено работ' },
@@ -85,7 +85,7 @@ export default function AboutPage() {
  автомобилей, не жертвуя надёжностью.
  </p>
  <p>
- За 9 лет мы выросли в полноценное тюнинг-ателье с собственным боксом в Порошкино.
+ За 10+ лет мы выросли в полноценное тюнинг-ателье с собственным боксом в Порошкино.
  Сегодня работаем с 13 марками, предлагаем чип-тюнинг, детейлинг и полный
  автосервис — всё в одном месте.
  </p>

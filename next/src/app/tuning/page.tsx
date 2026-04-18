@@ -68,7 +68,7 @@ const SERVICES = [
 ];
 
 const WHY = [
- { val: '9+', label: 'лет на рынке' },
+ { val: '10+', label: 'лет на рынке' },
  { val: '500+', label: 'авто прошито' },
  { val: '30+', label: 'марок' },
  { val: '500+', label: 'авто прошито' },
