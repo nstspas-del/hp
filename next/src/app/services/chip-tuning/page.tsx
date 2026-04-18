@@ -9,7 +9,7 @@ export const metadata: Metadata = {
  alternates: { canonical: 'https://hptuning.ru/tuning/chip-tuning' },
  openGraph: {
  title: 'Чип-тюнинг в СПб — Stage 1, 2, 3, DPF/EGR-off | HP Тюнинг',
- description: 'Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге. Alientech KESS3. BMW, Mercedes, Audi, Porsche, Land Rover. От 17 000 ₽.',
+ description: 'Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге. Alientech KESS3. BMW, Mercedes, Audi, Porsche, Land Rover. От 24 000 ₽.',
  url: 'https://hptuning.ru/tuning/chip-tuning',
  images: [{ url: 'https://hptuning.ru/images/og/chip-tuning.jpg', width: 1200, height: 630, alt: 'Чип-тюнинг Stage 1/2/3 в СПб | HP Тюнинг' }],
  },

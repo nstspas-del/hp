@@ -6,13 +6,13 @@ import { ChipCalculatorNew } from '@/components/sections/ChipCalculatorNew';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
- title: 'Чип-тюнинг Stage 1/2/3 в СПб — от 17 000 ₽ | HP Тюнинг',
- description: 'Профессиональный чип-тюнинг в Санкт-Петербурге: Stage 1 от 17 000 ₽, Stage 2 от 35 000 ₽, Stage 3 от 95 000 ₽. Прирост +20–100% мощности. BMW, Mercedes, Audi, Porsche, Land Rover. ',
+ title: 'Чип-тюнинг Stage 1/2/3 в СПб — от 24 000 ₽ | HP Тюнинг',
+ description: 'Профессиональный чип-тюнинг в Санкт-Петербурге: Stage 1 от 24 000 ₽, Stage 2 от 39 000 ₽, Stage 3 от 99 000 ₽. Прирост +20–100% мощности. BMW, Mercedes, Audi, Porsche, Land Rover. ',
  keywords: ['чип тюнинг спб', 'stage 1 чип тюнинг спб', 'stage 2 тюнинг', 'прошивка эбу спб', 'чип тюнинг bmw спб', 'alientech kess3'],
  alternates: { canonical: 'https://hptuning.ru/tuning/chip-tuning' },
  openGraph: {
  title: 'Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге | HP Тюнинг',
- description: 'Stage 1 от 17 000 ₽. Прошивка BMW, Mercedes, Audi, Porsche, Land Rover. Alientech. ',
+ description: 'Stage 1 от 24 000 ₽. Прошивка BMW, Mercedes, Audi, Porsche, Land Rover. Alientech. ',
  url: 'https://hptuning.ru/tuning/chip-tuning',
  type: 'website',
  locale: 'ru_RU',
@@ -117,7 +117,7 @@ const GAINS = [
 
 const WHY = [
  { icon: Award, title: 'Alientech KESS3', desc: 'Официальное оборудование Alientech — лицензированные чтение/запись через OBD, Bootloader, BDM.' },
- { icon: Shield, title: 'яцев', desc: 'Откат к стоку в любой момент. Файл оригинальной прошивки хранится у нас вечно.' },
+ { icon: Shield, title: 'Гарантия 12 месяцев', desc: 'Откат к стоку в любой момент. Файл оригинальной прошивки хранится у нас вечно.' },
  { icon: TrendingUp, title: '10 лет опыта', desc: 'Более 500 автомобилей, 30+ марок. Специализация на немецком и британском премиуме.' },
  { icon: RotateCcw, title: 'Откат к стоку', desc: 'Бесплатный откат к заводской прошивке в любое время — перед ТО, продажей или гарантийным случаем.' },
 ];
@@ -200,7 +200,7 @@ export default function ChipTuningPage() {
  { val: 'от 24 000 ₽', label: 'Stage 1' },
  { val: '+15–100%', label: 'Прирост мощности' },
  { val: '500+', label: 'Автомобилей' },
- { val: '500+', label: 'авто прошито' },
+ { val: '9+ лет', label: 'опыта в тюнинге' },
  ].map((s) => (
  <div key={s.label} className="card text-center">
  <div className="font-display text-2xl md:text-3xl text-[#39FF14] mb-1">{s.val}</div>

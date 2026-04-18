@@ -6,7 +6,7 @@ import { openBooking } from '@/lib/autodealer';
 
 const DIRECTIONS = [
  {
- href: '/services/chip-tuning',
+ href: '/tuning/chip-tuning',
  image: '/images/works/subaru-wrx-lift.jpg',
  tag: 'Чип-тюнинг',
  title: 'Прошивка под ваши задачи',
@@ -14,14 +14,14 @@ const DIRECTIONS = [
  price: 'от 24 000 ₽',
  accent: '#39FF14',
  links: [
- { label: 'Stage 1 · мягкий', href: '/services/chip-tuning/stage-1' },
- { label: 'Stage 2 · продвинутый', href: '/services/chip-tuning/stage-2' },
- { label: 'Stage 3 · максимум', href: '/services/chip-tuning/stage-3' },
- { label: 'Удаление сажевого / EGR', href: '/services/chip-tuning/dpf-egr-off' },
+ { label: 'Stage 1 · мягкий', href: '/tuning/chip-tuning/stage-1' },
+ { label: 'Stage 2 · продвинутый', href: '/tuning/chip-tuning/stage-2' },
+ { label: 'Stage 3 · максимум', href: '/tuning/chip-tuning/stage-3' },
+ { label: 'Удаление сажевого / EGR', href: '/tuning/chip-tuning/dpf-egr-off' },
  ],
  },
  {
- href: '/services/detailing',
+ href: '/detailing',
  image: '/images/works/mercedes-gle63-foam-wash.jpg',
  tag: 'Детейлинг',
  title: 'Защита кузова и салона',
@@ -29,14 +29,14 @@ const DIRECTIONS = [
  price: 'от 5 000 ₽',
  accent: '#38bdf8',
  links: [
- { label: 'Полировка кузова', href: '/services/detailing/polishing' },
- { label: 'Керамическое покрытие 9H', href: '/services/detailing/ceramic' },
- { label: 'PPF антигравийная плёнка', href: '/services/detailing/ppf' },
- { label: 'Химчистка салона', href: '/services/detailing/dry-cleaning' },
+ { label: 'Полировка кузова', href: '/detailing/polishing' },
+ { label: 'Керамическое покрытие 9H', href: '/detailing/ceramic' },
+ { label: 'PPF антигравийная плёнка', href: '/detailing/ppf' },
+ { label: 'Химчистка салона', href: '/detailing/dry-cleaning' },
  ],
  },
  {
- href: '/services/service',
+ href: '/service',
  image: '/images/works/mercedes-amg-orange-lift.jpg',
  tag: 'Автосервис',
  title: 'Техобслуживание и ремонт',
@@ -44,10 +44,10 @@ const DIRECTIONS = [
  price: 'от 1 500 ₽',
  accent: '#a78bfa',
  links: [
- { label: 'Плановое ТО', href: '/services/service/to' },
- { label: 'Диагностика', href: '/services/service/diagnostics' },
- { label: 'Тормозная система', href: '/services/service/brakes' },
- { label: 'Подвеска', href: '/services/service/suspension' },
+ { label: 'Плановое ТО', href: '/service/to' },
+ { label: 'Диагностика', href: '/service/diagnostics' },
+ { label: 'Тормозная система', href: '/service/brakes' },
+ { label: 'Подвеска', href: '/service/suspension' },
  ],
  },
 ];

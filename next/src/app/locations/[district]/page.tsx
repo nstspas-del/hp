@@ -145,12 +145,12 @@ export default function DistrictPage({ params }: { params: { district: string } 
  </h2>
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
  {[
- { name: 'Чип-тюнинг Stage 1', href: '/services/chip-tuning/stage-1', price: '25 000 ₽', desc: 'Прирост мощности +20-40 л.с.' },
- { name: 'Чип-тюнинг Stage 2', href: '/services/chip-tuning/stage-2', price: '40 000 ₽', desc: 'Серьёзный прирост для продвинутых водителей' },
- { name: 'Керамическое покрытие', href: '/services/detailing/ceramic', price: '25 000 ₽', desc: 'Защита 9H до 5 лет, гидрофоб' },
- { name: 'Удаление DPF/EGR', href: '/services/chip-tuning/dpf-egr-off', price: '15 000 ₽', desc: 'Устранение ошибок, восстановление тяги' },
- { name: 'Химчистка салона', href: '/services/detailing/dry-cleaning', price: '8 000 ₽', desc: 'Удаление стойких загрязнений и запахов' },
- { name: 'Диагностика', href: '/services/service/diagnostics', price: '1 500 ₽', desc: 'Считывание всех ошибок ЭБУ' },
+ { name: 'Чип-тюнинг Stage 1', href: '/tuning/chip-tuning/stage-1', price: '24 000 ₽', desc: 'Прирост мощности +20-40 л.с.' },
+ { name: 'Чип-тюнинг Stage 2', href: '/tuning/chip-tuning/stage-2', price: '39 000 ₽', desc: 'Серьёзный прирост для продвинутых водителей' },
+ { name: 'Керамическое покрытие', href: '/detailing/ceramic', price: '25 000 ₽', desc: 'Защита 9H до 5 лет, гидрофоб' },
+ { name: 'Удаление DPF/EGR', href: '/tuning/chip-tuning/dpf-egr-off', price: '15 000 ₽', desc: 'Устранение ошибок, восстановление тяги' },
+ { name: 'Химчистка салона', href: '/detailing/dry-cleaning', price: '8 500 ₽', desc: 'Удаление стойких загрязнений и запахов' },
+ { name: 'Диагностика', href: '/service/diagnostics', price: '1 500 ₽', desc: 'Считывание всех ошибок ЭБУ' },
  ].map((s) => (
  <Link key={s.href} href={s.href} className="card group hover:border-accent-dim flex flex-col gap-2">
  <div className="text-text font-medium group-hover:text-accent transition-colors">{s.name}</div>

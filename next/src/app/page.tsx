@@ -12,12 +12,12 @@ import seoData from '@/data/seo.json';
 
 export const metadata: Metadata = {
  title: 'HP Тюнинг — чип-тюнинг, детейлинг и автосервис в СПб',
- description: 'HP Тюнинг в Санкт-Петербурге: чип-тюнинг Stage 1/2/3 от 17 000 ₽, керамика 9H от 22 000 ₽, ТО от 3 000 ₽. BMW, Mercedes, Audi, Porsche, Land Rover, Lexus. Alientech. ',
+ description: 'HP Тюнинг в Санкт-Петербурге: чип-тюнинг Stage 1/2/3 от 24 000 ₽, керамика 9H от 25 000 ₽, ТО от 3 000 ₽. BMW, Mercedes, Audi, Porsche, Land Rover, Lexus. Alientech. ',
  keywords: ['чип тюнинг спб', 'детейлинг спб', 'автосервис спб', 'hp тюнинг', 'тюнинг автомобилей санкт-петербург'],
  alternates: { canonical: 'https://hptuning.ru/' },
  openGraph: {
  title: 'HP Тюнинг — чип-тюнинг, детейлинг и автосервис в СПб',
- description: 'HP Тюнинг в Санкт-Петербурге: чип-тюнинг Stage 1/2/3 от 17 000 ₽, керамика 9H от 22 000 ₽, ТО от 3 000 ₽. BMW, Mercedes, Audi, Porsche, Land Rover, Lexus. Aliente',
+ description: 'HP Тюнинг в Санкт-Петербурге: чип-тюнинг Stage 1/2/3 от 24 000 ₽, керамика 9H от 25 000 ₽, ТО от 3 000 ₽. BMW, Mercedes, Audi, Porsche, Land Rover, Lexus. Alientech.',
  url: 'https://hptuning.ru/',
  type: 'website',
  locale: 'ru_RU',

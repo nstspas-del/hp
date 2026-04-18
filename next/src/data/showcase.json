@@ -7,7 +7,7 @@
       "image": "/images/service-hero.jpg",
       "href": "/service",
       "cta": "Перейти в автосервис",
-      "accent": "#3B82F6",
+      "accent": "#39FF14",
       "features": [
         { "icon": "Shield", "title": "Компьютерная диагностика", "desc": "AUTEL MaxiSYS MS906 — полная диагностика всех систем" },
         { "icon": "Wrench", "title": "Техническое обслуживание", "desc": "ТО по регламенту для любого класса автомобиля" },

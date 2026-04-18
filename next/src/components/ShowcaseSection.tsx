@@ -105,7 +105,7 @@ export function ShowcaseSection() {
  <Link
  href={tab.href}
  className="mt-4 flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-2xl font-semibold text-sm transition-all duration-200 hover:opacity-90"
- style={{ backgroundColor: tab.accent, color: activeTab === 1 ? '#0A0A0A' : '#fff' }}
+ style={{ backgroundColor: tab.accent, color: tab.accent === '#39FF14' ? '#0A0A0A' : '#fff' }}
  >
  {tab.cta}
  <ArrowRight className="size-4" />

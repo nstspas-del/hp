@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Phone, MapPin, Clock, Send } from 'lucide-react';
+import { Phone, MapPin, Clock, Send, Zap } from 'lucide-react';
 import company from '@/data/company.json';
 
 const LINKS = {
@@ -36,9 +36,17 @@ export function Footer() {
  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
  {/* Brand */}
  <div>
- <Link href="/" className="flex items-center gap-2 mb-4">
- <span className="font-display text-2xl text-accent">HP</span>
- <span className="font-display text-2xl text-text">ТЮНИНГ</span>
+ <Link href="/" className="flex items-center gap-2.5 mb-4">
+ <div className="relative w-8 h-8 rounded-lg bg-[#39FF14]/10 border border-[#39FF14]/30 flex items-center justify-center shrink-0"
+ style={{ boxShadow: '0 0 8px rgba(57,255,20,0.3)' }}>
+ <Zap className="size-4 text-[#39FF14]" fill="currentColor" />
+ </div>
+ <div>
+ <div className="flex items-baseline gap-1">
+ <span className="font-display text-xl text-[#39FF14] leading-none">HP</span>
+ <span className="font-display text-xl text-white leading-none">ТЮНИНГ</span>
+ </div>
+ </div>
  </Link>
  <p className="text-text-muted text-sm leading-relaxed mb-6">
  Премиальный тюнинг и автосервис в Санкт-Петербурге с 2015 года. Специализируемся на BMW, Mercedes, Audi, Porsche, Land Rover.
@@ -135,7 +143,7 @@ export function Footer() {
  </a>
  </p>
  <p className="text-text-subtle/40 text-[10px]">
- Сайт разработан под ключ для автосервиса HP Тюнинг · СПб, 2025
+ Сайт разработан под ключ для автосервиса HP Тюнинг · СПб, 2026
  </p>
  </div>
  </div>

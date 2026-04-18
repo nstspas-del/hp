@@ -6,12 +6,12 @@ import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
  title: 'Тюнинг автомобилей в СПб — чип-тюнинг Stage 1/2/3 | HP Тюнинг',
- description: 'Профессиональный тюнинг в Санкт-Петербурге: чип-тюнинг от 17 000 ₽, тормозной тюнинг Brembo, спортивный выхлоп, шумоизоляция. BMW, Mercedes, Audi, Porsche, Land Rover. Alientech KESSv3.',
+ description: 'Профессиональный тюнинг в Санкт-Петербурге: чип-тюнинг от 24 000 ₽, тормозной тюнинг Brembo, спортивный выхлоп, шумоизоляция. BMW, Mercedes, Audi, Porsche, Land Rover. Alientech KESSv3.',
  keywords: ['тюнинг авто спб', 'чип тюнинг петербург', 'тюнинг бмв спб', 'тюнинг мерседес спб', 'stage 1 спб', 'alientech спб'],
  alternates: { canonical: 'https://hptuning.ru/tuning' },
  openGraph: {
  title: 'Тюнинг автомобилей в Санкт-Петербурге | HP Тюнинг',
- description: 'Чип-тюнинг от 17 000 ₽, тормозной тюнинг Brembo, выхлоп, шумка. Alientech KESSv3.',
+ description: 'Чип-тюнинг от 24 000 ₽, тормозной тюнинг Brembo, выхлоп, шумка. Alientech KESSv3.',
  url: 'https://hptuning.ru/tuning',
  type: 'website',
  locale: 'ru_RU',
