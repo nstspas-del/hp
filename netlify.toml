@@ -1,0 +1,77 @@
+# ╔══════════════════════════════════════════════════════════╗
+# ║   HP ТЮНИНГ — Netlify конфиг для Next.js (папка next/)  ║
+# ╚══════════════════════════════════════════════════════════╝
+
+[build]
+  # Базовая директория — папка с Next.js проектом
+  base    = "next"
+  # Команда сборки
+  command = "npm run build"
+  # Папка с результатом сборки (Next.js → .next)
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_VERSION  = "10"
+  # Переменные окружения (задать в Netlify UI → Site settings → Environment variables):
+  # NEXT_PUBLIC_YM_COUNTER_ID     = 108614238
+  # NEXT_PUBLIC_YANDEX_VERIFICATION = <код_верификации>
+  # NEXT_PUBLIC_SITE_URL          = https://hptuning.ru
+
+# ── Next.js plugin — обязателен для SSR/ISR ──────────────────────────────────
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# ── Заголовки безопасности ────────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options            = "SAMEORIGIN"
+    X-Content-Type-Options     = "nosniff"
+    X-XSS-Protection           = "1; mode=block"
+    Referrer-Policy            = "strict-origin-when-cross-origin"
+    Strict-Transport-Security  = "max-age=63072000; includeSubDomains; preload"
+
+# ── HTML — короткий кэш ───────────────────────────────────────────────────────
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300, s-maxage=300, stale-while-revalidate=600"
+
+# ── Статика — длинный кэш ────────────────────────────────────────────────────
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+# ── Redirects ─────────────────────────────────────────────────────────────────
+# 301 — старые HTML-страницы из site/ на новые Next.js маршруты
+[[redirects]]
+  from   = "/site/index.html"
+  to     = "/"
+  status = 301
+
+[[redirects]]
+  from   = "/site/privacy.html"
+  to     = "/privacy"
+  status = 301
+
+[[redirects]]
+  from   = "/site/cookies.html"
+  to     = "/cookies"
+  status = 301
+
+[[redirects]]
+  from   = "/site/contacts.html"
+  to     = "/contacts"
+  status = 301
+
+[[redirects]]
+  from   = "/site/consent.html"
+  to     = "/consent"
+  status = 301
