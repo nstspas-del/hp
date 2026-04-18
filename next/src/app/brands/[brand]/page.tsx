@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { CheckCircle, AlertTriangle, ArrowRight, Phone, Zap, Sparkles, Wrench } from 'lucide-react';
+import { CheckCircle, AlertTriangle, Phone, Zap, Sparkles, Wrench } from 'lucide-react';
 import brands from '@/data/brands.json';
 import { BookingButton } from '@/components/ui/BookingButton';
 
@@ -125,31 +125,31 @@ export default function BrandPage({ params }: { params: { brand: string } }) {
  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-14">
  {[
  {
+ icon: Wrench,
+ color: '#a78bfa',
+ bg: 'bg-violet-500/8 border-violet-500/20',
+ title: 'Техобслуживание',
+ desc: 'ТО, диагностика, ремонт двигателя и подвески',
+ price: 'от 1 500 ₽',
+ href: '/service',
+ },
+ {
  icon: Zap,
  color: '#39FF14',
  bg: 'bg-[#39FF14]/8 border-[#39FF14]/20',
- title: 'Чип-тюнинг',
- desc: 'Stage 1/2/3, DPF/EGR off, Immo',
+ title: 'Тюнинг',
+ desc: 'Чип Stage 1/2/3, EGR/DPF off, выхлоп',
  price: `от ${brand.priceFrom.toLocaleString('ru-RU')} ₽`,
- href: `/tuning/chip-tuning#chip-calculator`,
+ href: `/tuning/chip-tuning`,
  },
  {
  icon: Sparkles,
  color: '#38bdf8',
  bg: 'bg-sky-500/8 border-sky-500/20',
  title: 'Детейлинг',
- desc: 'Керамика, PPF, химчистка, полировка',
+ desc: 'Керамика 9H, PPF плёнка, химчистка, полировка',
  price: 'от 6 000 ₽',
  href: '/detailing',
- },
- {
- icon: Wrench,
- color: '#a78bfa',
- bg: 'bg-violet-500/8 border-violet-500/20',
- title: 'Техобслуживание',
- desc: 'ТО, диагностика, ремонт',
- price: 'от 1 500 ₽',
- href: '/service',
  },
  ].map((card) => (
  <Link
@@ -169,30 +169,6 @@ export default function BrandPage({ params }: { params: { brand: string } }) {
  ))}
  </div>
 
- {/* Серии / модели */}
- {brand.series && brand.series.length > 0 && (
- <div className="mb-14">
- <h2 className="font-display text-2xl md:text-3xl text-white uppercase tracking-wide mb-6">
- Модели {brand.name}
- </h2>
- <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
- {brand.series.map((s) => (
- <Link
- key={s.slug}
- href={`/brands/${brand.slug}/${s.slug}`}
- className="group flex items-center justify-between p-4 rounded-xl bg-[#111113] border border-white/8 hover:border-[#39FF14]/30 hover:bg-[#39FF14]/5 transition-all"
- >
- <div>
- <div className="text-white text-sm font-medium group-hover:text-[#39FF14] transition-colors">{s.name}</div>
- {'years' in s && <div className="text-zinc-600 text-xs mt-0.5">{s.years}</div>}
- <div className="text-[#39FF14] text-sm font-bold mt-1">от {s.priceFrom.toLocaleString('ru-RU')} ₽</div>
- </div>
- <ArrowRight className="size-4 text-zinc-600 group-hover:text-[#39FF14] transition-colors shrink-0" />
- </Link>
- ))}
- </div>
- </div>
- )}
 
  {/* Типичные проблемы + Что делаем */}
  {brand.typicalProblems && brand.typicalProblems.length > 0 && (

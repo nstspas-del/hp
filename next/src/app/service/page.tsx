@@ -237,7 +237,7 @@ export default function ServicePage() {
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">
  ПОДДЕРЖИВАЕМЫЕ МАРКИ
  </h2>
- <p className="text-text-muted mb-8">13 премиум-брендов — наша специализация</p>
+ <p className="text-text-muted mb-8">32+ марки — от BMW и Mercedes до KIA и Nissan</p>
  <div className="flex flex-wrap gap-3">
  {BRANDS.map((brand) => (
  <Link
