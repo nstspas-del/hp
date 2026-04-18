@@ -41,6 +41,7 @@ const reviewsSchema = {
  '@type': 'LocalBusiness',
  '@id': 'https://hptuning.ru/#org',
  name: 'HP Тюнинг',
+ privacyPolicy: 'https://hptuning.ru/privacy',
  aggregateRating: {
  '@type': 'AggregateRating',
  ratingValue: '5.0',

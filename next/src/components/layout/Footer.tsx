@@ -25,6 +25,7 @@ const LINKS = {
  { label: 'Отзывы', href: '/reviews' },
  { label: 'Контакты', href: '/contacts' },
  { label: 'Политика конфиденциальности', href: '/privacy' },
+ { label: 'Согласие ПДн', href: '/consent' },
  ],
 };
 
@@ -125,10 +126,10 @@ export function Footer() {
  <div className="flex flex-col md:flex-row justify-between items-center gap-4">
  <p>© {year} {company.name}. Все права защищены.</p>
  <p>{company.legalNameShort} · ИНН {company.inn} · ОГРНИП {company.ogrnip}</p>
- <div className="flex gap-4">
- <Link href="/privacy" className="hover:text-text-muted transition-colors">Конфиденциальность</Link>
- <Link href="/cookies" className="hover:text-text-muted transition-colors">Cookie</Link>
- <Link href="/offer" className="hover:text-text-muted transition-colors">Оферта</Link>
+ <div className="flex flex-wrap gap-4">
+ <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-text-muted transition-colors">Политика ПДн</Link>
+ <Link href="/consent" target="_blank" rel="noopener noreferrer" className="hover:text-[#39FF14] transition-colors">Согласие ПДн</Link>
+ <Link href="/cookies" target="_blank" rel="noopener noreferrer" className="hover:text-text-muted transition-colors">Cookie</Link>
  </div>
  </div>
  {/* Разработка сайта — как у КатАвто */}

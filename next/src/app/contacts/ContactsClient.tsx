@@ -8,6 +8,7 @@ import { YandexMap } from '@/components/ui/YandexMap';
 
 export function ContactsClient() {
  const [form, setForm] = useState({ name: '', phone: '', message: '' });
+ const [consent, setConsent] = useState(false);
  const [sent, setSent] = useState(false);
  const [loading, setLoading] = useState(false);
 
@@ -207,13 +208,41 @@ export function ContactsClient() {
  className="w-full bg-bg-elevated border border-border rounded-xl px-4 py-3 text-text placeholder:text-text-subtle focus:outline-none focus:border-accent/50 transition-colors text-sm resize-none"
  />
  </div>
- <p className="text-xs text-text-subtle">
- Нажимая «Отправить», вы соглашаетесь с{' '}
- <Link href="/privacy" className="text-accent hover:underline">политикой конфиденциальности</Link>
- </p>
+ {/* Чекбокс согласия на обработку ПДн — обязательный, по умолчанию НЕ отмечен */}
+ <label className="flex items-start gap-3 cursor-pointer select-none group">
+ <input
+ type="checkbox"
+ id="consent-check"
+ name="consent"
+ required
+ checked={consent}
+ onChange={e => setConsent(e.target.checked)}
+ className="mt-0.5 w-4 h-4 shrink-0 rounded border border-border bg-bg-elevated accent-[#39FF14] cursor-pointer"
+ />
+ <span className="text-xs text-text-subtle leading-relaxed">
+ Я даю{' '}
+ <Link
+ href="/consent"
+ target="_blank"
+ rel="noopener noreferrer"
+ className="text-accent hover:underline"
+ >
+ согласие на обработку персональных данных
+ </Link>{' '}
+ и соглашаюсь с{' '}
+ <Link
+ href="/privacy"
+ target="_blank"
+ rel="noopener noreferrer"
+ className="text-accent hover:underline"
+ >
+ политикой конфиденциальности
+ </Link>
+ </span>
+ </label>
  <button
  type="submit"
- disabled={loading}
+ disabled={loading || !consent}
  className="btn-primary w-full py-3 disabled:opacity-60 disabled:cursor-not-allowed"
  >
  {loading ? 'Отправка..' : 'Отправить сообщение'}

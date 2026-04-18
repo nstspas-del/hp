@@ -44,6 +44,7 @@ const localBusinessSchema = {
  hasMap: 'https://yandex.ru/maps/org/99062407907',
  priceRange: '₽₽₽',
  areaServed: { '@type': 'City', name: 'Санкт-Петербург' },
+ privacyPolicy: 'https://hptuning.ru/privacy',
 };
 
 export default function ContactsPage() {
