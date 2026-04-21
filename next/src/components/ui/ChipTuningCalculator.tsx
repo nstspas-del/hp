@@ -199,12 +199,12 @@ function parseYearRange(years?: string): number[] {
 }
 
 // ─── Компонент ────────────────────────────────────────────────────────────────
-export function ChipTuningCalculator() {
-  // Состояние шагов
-  const [step, setStep] = useState<Step>(1);
+export function ChipTuningCalculator({ defaultBrandSlug }: { defaultBrandSlug?: string } = {}) {
+  // Состояние шагов — если бренд передан, сразу переходим на шаг 2
+  const [step, setStep] = useState<Step>(defaultBrandSlug ? 2 : 1);
 
   // Выборы
-  const [brandSlug, setBrandSlug] = useState('');
+  const [brandSlug, setBrandSlug] = useState(defaultBrandSlug ?? '');
   const [seriesSlug, setSeriesSlug] = useState('');
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
   const [engineCode, setEngineCode] = useState('');
@@ -322,6 +322,9 @@ export function ChipTuningCalculator() {
     setStep(4);
   };
 
+  // Минимальный шаг навигации: если бренд предустановлен, нельзя уйти на шаг 1
+  const minStep: Step = defaultBrandSlug ? 2 : 1;
+
   // Шаги прогресса
   const STEPS = [
     { label: 'Марка', done: !!brandSlug },
@@ -352,7 +355,9 @@ export function ChipTuningCalculator() {
             УЗНАЙ ЦЕНУ <span className="text-accent">ЗА 30 СЕКУНД</span>
           </h2>
           <p className="text-text-muted max-w-xl mx-auto text-sm">
-            {BRANDS.length} марок · реальные данные по двигателям · конкретные цифры HP до и после
+            {defaultBrandSlug
+              ? `${currentBrand?.name ?? ''} — выберите модель и двигатель`
+              : `${BRANDS.length} марок · реальные данные по двигателям · конкретные цифры HP до и после`}
           </p>
         </div>
 
@@ -362,7 +367,7 @@ export function ChipTuningCalculator() {
             <div key={i} className="flex items-center">
               <button
                 onClick={() => {
-                  if (i < progressIdx || s.done) {
+                  if (i + 1 >= minStep && (i < progressIdx || s.done)) {
                     setStep((i + 1) as Step);
                   }
                 }}
@@ -471,8 +476,8 @@ export function ChipTuningCalculator() {
                   icon={<Gauge className="size-4" />}
                   title={`Модель ${currentBrand?.name}`}
                   subtitle="Выберите кузов или поколение"
-                  onBack={() => setStep(1)}
-                  backLabel={currentBrand?.name}
+                  onBack={defaultBrandSlug ? undefined : () => setStep(1)}
+                  backLabel={defaultBrandSlug ? undefined : currentBrand?.name}
                 />
                 <div className="grid sm:grid-cols-2 gap-3">
                   {seriesList.map((s) => (

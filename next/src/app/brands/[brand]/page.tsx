@@ -19,6 +19,7 @@ import { notFound } from 'next/navigation';
 import { CheckCircle, AlertTriangle, Phone, Zap, Sparkles, Wrench, Shield, Clock, Award, Star } from 'lucide-react';
 import brands from '@/data/brands.json';
 import { BookingButton } from '@/components/ui/BookingButton';
+import { ChipTuningCalculator } from '@/components/ui/ChipTuningCalculator';
 import {
   getBrandFromHeaders,
   getBrandFromHost,
@@ -667,6 +668,11 @@ export default async function BrandPage({ params }: { params: { brand: string } 
             </div>
           </div>
         )}
+
+        {/* Калькулятор чип-тюнинга */}
+        <div className="mb-14 -mx-4 sm:-mx-6 lg:-mx-8" id="calculator">
+          <ChipTuningCalculator defaultBrandSlug={brandSlug} />
+        </div>
 
         {/* Модельный ряд */}
         {brand.series && brand.series.length > 0 && (
