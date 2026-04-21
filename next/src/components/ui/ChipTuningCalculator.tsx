@@ -4,28 +4,36 @@ import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Zap, ChevronDown, ArrowRight, Phone, Search, Check,
-  TrendingUp, Shield, Clock, Star
+  TrendingUp, Shield, Clock, Star, Gauge
 } from 'lucide-react';
 import { openBooking } from '@/lib/autodealer';
-import calcData from '@/data/calculator.json';
+import sfData from '@/data/sevenforce-parsed.json';
 
-interface StageData { competitor: number; ours: number }
+// ─── Типы ─────────────────────────────────────────────────────────────────────
+interface StagePrice { ours: number; competitor: number; our?: number }
 interface Variant {
-  id: string; label: string; hp: number;
-  our_price: number; competitor_price: number;
-  sevenforce_url?: string;
-  stages?: { stage1: StageData; stage2: StageData; stage3: StageData };
+  id: string;
+  label: string;
+  hp: number;
+  our_price: number;
+  competitor_price: number;
+  stages?: {
+    stage1?: { our?: number; ours?: number; competitor: number };
+    stage2?: { our?: number; ours?: number; competitor: number };
+    stage3?: { our?: number; ours?: number; competitor: number };
+  };
 }
 interface Model { slug: string; name: string; variants: Variant[] }
 interface Brand { slug: string; name: string; models: Model[] }
 
-const BRANDS = calcData.brands as Brand[];
+// ─── Данные ───────────────────────────────────────────────────────────────────
+const BRANDS = (sfData as { brands: Brand[] }).brands;
 
 const STAGE_INFO = {
   stage1: {
     label: 'Stage 1',
     badge: 'Популярный',
-    desc: 'Только прошивка ЭБУ, без доп. оборудования',
+    desc: 'Прошивка ЭБУ без замены деталей',
     power: '+15–25%',
     color: 'from-green-500/20 to-emerald-500/20',
     border: 'border-green-500/40',
@@ -56,6 +64,21 @@ const STAGE_INFO = {
 
 type StageKey = keyof typeof STAGE_INFO;
 
+function getStagePrice(variant: Variant, stage: StageKey): StagePrice | null {
+  const sd = variant.stages?.[stage];
+  if (sd) {
+    return {
+      ours: sd.our ?? sd.ours ?? variant.our_price,
+      competitor: sd.competitor,
+    };
+  }
+  if (stage === 'stage1') {
+    return { ours: variant.our_price, competitor: variant.competitor_price };
+  }
+  return null;
+}
+
+// ─── Компонент ────────────────────────────────────────────────────────────────
 export function ChipTuningCalculator() {
   const [brandQuery, setBrandQuery] = useState('');
   const [selectedBrand, setSelectedBrand] = useState<string>('');
@@ -103,29 +126,32 @@ export function ChipTuningCalculator() {
     if (!v) { setSelectedBrand(''); setSelectedModel(''); setSelectedVariant(''); }
   }
 
-  // Получаем цены для текущего варианта
   const stagePrice = useMemo(() => {
     if (!currentVariant) return null;
-    const stageData = currentVariant.stages?.[selectedStage];
-    if (stageData) return stageData;
-    // Фолбэк: если нет stages, используем our_price для stage1
-    if (selectedStage === 'stage1') {
-      return { ours: currentVariant.our_price, competitor: currentVariant.competitor_price };
-    }
-    return null;
+    return getStagePrice(currentVariant, selectedStage);
   }, [currentVariant, selectedStage]);
 
-  const savings = stagePrice ? stagePrice.competitor - stagePrice.ours : 0;
-  const hpAfter = currentVariant
-    ? Math.round(currentVariant.hp * (selectedStage === 'stage1' ? 1.22 : selectedStage === 'stage2' ? 1.35 : 1.6))
+  const savings = stagePrice && stagePrice.competitor > 0
+    ? stagePrice.competitor - stagePrice.ours
     : 0;
 
-  // Прогресс заполнения
+  const hpAfter = currentVariant
+    ? Math.round(currentVariant.hp * (
+        selectedStage === 'stage1' ? 1.22 :
+        selectedStage === 'stage2' ? 1.35 : 1.6
+      ))
+    : 0;
+
   const progress = [selectedBrand, selectedModel, selectedVariant].filter(Boolean).length;
+
+  const totalModels = useMemo(() =>
+    BRANDS.reduce((a, b) => a + b.models.length, 0), []);
+  const totalVariants = useMemo(() =>
+    BRANDS.reduce((a, b) => a + b.models.reduce((c, m) => c + m.variants.length, 0), 0), []);
 
   return (
     <section className="section relative overflow-hidden" id="chip-calculator">
-      {/* Фоновые декорации */}
+      {/* Фон */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-accent/5 blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-purple-500/5 blur-3xl" />
@@ -142,8 +168,8 @@ export function ChipTuningCalculator() {
             УЗНАЙ ЦЕНУ <span className="text-accent">ЗА 30 СЕКУНД</span>
           </h2>
           <p className="text-text-muted max-w-xl mx-auto">
-            Выбери марку, модель и двигатель — получи точную цену.
-            Мы дешевле SevenForce на <span className="text-accent font-semibold">25%</span>
+            {BRANDS.length} марок · {totalModels} моделей · {totalVariants} двигателей.
+            Выбери — получи точную цену.
           </p>
         </div>
 
@@ -165,7 +191,7 @@ export function ChipTuningCalculator() {
               ))}
             </div>
 
-            {/* Марка — поиск с дропдауном */}
+            {/* 1 — Марка */}
             <div>
               <label className="block text-text-muted text-sm font-medium mb-2">
                 <span className="text-accent font-bold mr-1">1.</span> Марка автомобиля
@@ -193,7 +219,7 @@ export function ChipTuningCalculator() {
                       exit={{ opacity: 0, y: -8 }}
                       className="absolute z-50 top-full mt-1 w-full bg-bg-elevated border border-border rounded-xl shadow-2xl overflow-hidden"
                     >
-                      <div className="max-h-60 overflow-y-auto divide-y divide-border/50">
+                      <div className="max-h-64 overflow-y-auto divide-y divide-border/50">
                         {filteredBrands.map(b => (
                           <button
                             key={b.slug}
@@ -212,7 +238,7 @@ export function ChipTuningCalculator() {
               </div>
             </div>
 
-            {/* Модель */}
+            {/* 2 — Модель */}
             <div>
               <label className="block text-text-muted text-sm font-medium mb-2">
                 <span className="text-accent font-bold mr-1">2.</span> Модель
@@ -233,7 +259,7 @@ export function ChipTuningCalculator() {
               </div>
             </div>
 
-            {/* Двигатель */}
+            {/* 3 — Двигатель */}
             <div>
               <label className="block text-text-muted text-sm font-medium mb-2">
                 <span className="text-accent font-bold mr-1">3.</span> Двигатель / поколение
@@ -254,7 +280,7 @@ export function ChipTuningCalculator() {
               </div>
             </div>
 
-            {/* Stage выбор */}
+            {/* 4 — Stage */}
             <AnimatePresence>
               {currentVariant && (
                 <motion.div
@@ -266,9 +292,8 @@ export function ChipTuningCalculator() {
                   </label>
                   <div className="grid grid-cols-3 gap-3">
                     {(Object.entries(STAGE_INFO) as [StageKey, typeof STAGE_INFO[StageKey]][]).map(([key, info]) => {
-                      const sd = currentVariant.stages?.[key];
-                      const price = sd?.ours ?? (key === 'stage1' ? currentVariant.our_price : 0);
-                      const available = price > 0;
+                      const sp = getStagePrice(currentVariant, key);
+                      const available = !!(sp && sp.ours > 0);
                       return (
                         <button
                           key={key}
@@ -290,9 +315,9 @@ export function ChipTuningCalculator() {
                           <div className={`text-xs font-semibold mt-1 ${selectedStage === key ? info.accent : 'text-text-subtle'}`}>
                             {info.power}
                           </div>
-                          {available && (
+                          {available && sp && (
                             <div className="text-xs text-text-subtle mt-1">
-                              от {price.toLocaleString('ru-RU')} ₽
+                              от {sp.ours.toLocaleString('ru-RU')} ₽
                             </div>
                           )}
                         </button>
@@ -305,15 +330,17 @@ export function ChipTuningCalculator() {
 
             {/* Мобильный результат */}
             <div className="lg:hidden">
-              {currentVariant && stagePrice && <ResultCard
-                currentBrand={currentBrand}
-                currentModel={currentModel}
-                currentVariant={currentVariant}
-                stagePrice={stagePrice}
-                selectedStage={selectedStage}
-                hpAfter={hpAfter}
-                savings={savings}
-              />}
+              {currentVariant && stagePrice && (
+                <ResultCard
+                  currentBrand={currentBrand}
+                  currentModel={currentModel}
+                  currentVariant={currentVariant}
+                  stagePrice={stagePrice}
+                  selectedStage={selectedStage}
+                  hpAfter={hpAfter}
+                  savings={savings}
+                />
+              )}
             </div>
           </div>
 
@@ -345,7 +372,7 @@ export function ChipTuningCalculator() {
                   className="h-full flex flex-col items-center justify-center text-center p-8 rounded-2xl border border-dashed border-border bg-bg-elevated/50"
                 >
                   <Zap className="size-12 text-accent/20 mb-4" />
-                  <p className="text-text-subtle text-sm">Выберите марку, модель и двигатель — здесь появится точная цена тюнинга</p>
+                  <p className="text-text-subtle text-sm">Выберите марку, модель и двигатель — здесь появится точная цена</p>
                   <div className="mt-6 space-y-2 text-left w-full">
                     {['BMW', 'Mercedes-Benz', 'Audi', 'Porsche', 'Land Rover'].map(b => (
                       <div key={b} className="flex items-center gap-2 text-xs text-text-subtle">
@@ -361,13 +388,13 @@ export function ChipTuningCalculator() {
           </div>
         </div>
 
-        {/* Доверительные метрики */}
+        {/* Доверительные метрики — без упоминания конкурентов */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
           {[
-            { icon: TrendingUp, label: 'Экономия до 25%', desc: 'vs SevenForce' },
-            { icon: Shield, label: 'Откат к стоку', desc: 'бесплатно' },
-            { icon: Clock, label: 'от 2 часов', desc: 'время работы' },
-            { icon: Star, label: '5.0 рейтинг', desc: 'Яндекс карты' },
+            { icon: TrendingUp, label: `${BRANDS.length} марок`, desc: `${totalVariants}+ двигателей` },
+            { icon: Shield,     label: 'Откат к стоку',          desc: 'бесплатно, в любой момент' },
+            { icon: Clock,      label: 'от 1–2 часов',           desc: 'время работы' },
+            { icon: Star,       label: '4.9 рейтинг',            desc: 'Яндекс Карты' },
           ].map(({ icon: Icon, label, desc }) => (
             <div key={label} className="flex items-center gap-3 p-4 rounded-xl bg-bg-elevated border border-border">
               <Icon className="size-5 text-accent shrink-0" />
@@ -383,19 +410,20 @@ export function ChipTuningCalculator() {
   );
 }
 
-// Карточка с результатом
+// ─── Карточка результата ──────────────────────────────────────────────────────
 function ResultCard({
   currentBrand, currentModel, currentVariant, stagePrice, selectedStage, hpAfter, savings
 }: {
   currentBrand: Brand | null;
   currentModel: Model | null;
   currentVariant: Variant;
-  stagePrice: StageData;
+  stagePrice: StagePrice;
   selectedStage: StageKey;
   hpAfter: number;
   savings: number;
 }) {
   const info = STAGE_INFO[selectedStage];
+
   return (
     <div className={`rounded-2xl border-2 bg-gradient-to-br ${info.color} ${info.border} p-6 space-y-5`}>
       {/* Заголовок */}
@@ -419,18 +447,16 @@ function ResultCard({
             <span className="text-text-muted text-xl">₽</span>
           </div>
         </div>
-        {stagePrice.competitor > 0 && (
+        {savings > 0 && stagePrice.competitor > 0 && (
           <div className="text-right">
-            <div className="text-text-subtle text-xs mb-1">SevenForce</div>
+            <div className="text-text-subtle text-xs mb-1">Рыночная цена</div>
             <div className="text-text-subtle text-lg line-through">{stagePrice.competitor.toLocaleString('ru-RU')} ₽</div>
-            {savings > 0 && (
-              <div className={`text-sm font-bold ${info.accent}`}>−{savings.toLocaleString('ru-RU')} ₽</div>
-            )}
+            <div className={`text-sm font-bold ${info.accent}`}>−{savings.toLocaleString('ru-RU')} ₽</div>
           </div>
         )}
       </div>
 
-      {/* Мощность */}
+      {/* Мощность до/после */}
       {currentVariant.hp > 0 && (
         <div className="bg-bg/40 rounded-xl p-3">
           <div className="flex items-center justify-between">
@@ -455,14 +481,14 @@ function ResultCard({
             </div>
           </div>
           <div className={`text-xs text-center mt-2 font-semibold ${info.accent}`}>
-            +{info.power} мощности · {info.desc}
+            {info.power} мощности · {info.desc}
           </div>
         </div>
       )}
 
       {/* Включено */}
       <div className="space-y-1.5">
-        {['Официальное ПО Alientech', 'Сохранение стока', 'Откат бесплатно'].map(item => (
+        {['Официальное ПО Alientech KESS3', 'Сохранение оригинального файла', 'Откат к стоку — бесплатно'].map(item => (
           <div key={item} className="flex items-center gap-2 text-sm text-text-muted">
             <Check className={`size-3.5 shrink-0 ${info.accent}`} />
             {item}

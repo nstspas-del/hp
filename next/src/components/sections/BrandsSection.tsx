@@ -1,8 +1,9 @@
 'use client';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 import brandsData from '@/data/brands.json';
+import { getBrandUrl, BRAND_SUBDOMAIN_MAP } from '@/lib/brand-host';
 
 /* Цвета марок для подсветки кнопок */
 const BRAND_COLORS: Record<string, string> = {
@@ -12,6 +13,7 @@ const BRAND_COLORS: Record<string, string> = {
  porsche: '#c0941f',
  volkswagen: '#0063b2',
  'land-rover': '#006a4e',
+ landrover: '#006a4e',
  volvo: '#003057',
  lexus: '#1a1a1a',
  jaguar: '#1a3a5c',
@@ -40,6 +42,19 @@ const BRAND_COLORS: Record<string, string> = {
  mclaren: '#e8720d',
 };
 
+/** Возвращает правильный href для кнопки бренда:
+ *  - субдоменный бренд → https://bmw.hptuning.ru
+ *  - остальные → /brands/slug (остаются на основном сайте)
+ */
+function getBrandHref(slug: string): string {
+  // Нормализация: land-rover → landrover
+  const normalized = slug.replace('-', '');
+  if (BRAND_SUBDOMAIN_MAP[normalized] || BRAND_SUBDOMAIN_MAP[slug]) {
+    return getBrandUrl(BRAND_SUBDOMAIN_MAP[normalized] ?? BRAND_SUBDOMAIN_MAP[slug] ?? slug);
+  }
+  return `/brands/${slug}`;
+}
+
 export function BrandsSection() {
  return (
  <section className="py-16 md:py-20 bg-[#09090b]">
@@ -63,6 +78,8 @@ export function BrandsSection() {
  <div className="flex flex-wrap gap-2.5 mb-10">
  {brandsData.map((brand, i) => {
  const color = BRAND_COLORS[brand.slug] ?? '#39FF14';
+ const href = getBrandHref(brand.slug);
+ const isExternal = href.startsWith('http');
  return (
  <motion.div
  key={brand.slug}
@@ -71,8 +88,9 @@ export function BrandsSection() {
  viewport={{ once: true }}
  transition={{ duration: 0.3, delay: i * 0.04 }}
  >
- <Link
- href={`/brands/${brand.slug}`}
+ <a
+ href={href}
+ {...(isExternal ? {} : {})}
  className="brand-btn group relative inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl border border-white/10 bg-[#111113] text-zinc-300 font-semibold text-sm transition-all duration-200 hover:text-white hover:border-transparent hover:shadow-lg"
  style={{
  '--brand-color': color,
@@ -92,7 +110,7 @@ export function BrandsSection() {
  border: `1px solid ${color}40`,
  }}
  />
- </Link>
+ </a>
  </motion.div>
  );
  })}

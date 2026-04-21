@@ -3,10 +3,11 @@
 import { useState, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  ChevronRight, ChevronLeft, Zap, Check, 
-  Search, ExternalLink, Phone, Gauge,
+  Zap, Check,
+  Search, Phone, Gauge,
   TrendingUp, RotateCcw, Star, BadgePercent, ChevronDown
 } from 'lucide-react';
+// Данные взяты из публичного источника прайсов, названия источника не публикуем
 import sfData from '@/data/sevenforce-parsed.json';
 import { openBooking } from '@/lib/autodealer';
 
@@ -307,15 +308,15 @@ export function ChipCalculatorNew() {
         >
           <div className="inline-flex items-center gap-2 bg-[#39FF14]/10 border border-[#39FF14]/30 rounded-full px-4 py-1.5 text-[#39FF14] text-sm font-medium mb-4">
             <BadgePercent className="size-4" />
-            На 25% дешевле SevenForce
+            {ALL_BRANDS.length} марок · {ALL_BRANDS.reduce((a,b)=>a+b.models.length,0)} моделей
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-text-primary mb-4">
             КАЛЬКУЛЯТОР{' '}
             <span className="text-[#39FF14]">ЧИП-ТЮНИНГА</span>
           </h2>
           <p className="text-text-muted max-w-2xl mx-auto">
-            Реальные цены по каждой марке, модели и двигателю. Данные актуализированы с SevenForce.ru — 
-            наши цены на <strong className="text-text-primary">25% ниже</strong>.
+            Реальные цены по каждой марке, модели и двигателю.
+            Выберите автомобиль — получите точную стоимость чип-тюнинга.
           </p>
         </motion.div>
 
@@ -577,7 +578,7 @@ export function ChipCalculatorNew() {
                       {currentPrice.competitor > 0 && (
                         <div className="bg-background rounded-xl p-3 space-y-2">
                           <div className="flex justify-between text-sm">
-                            <span className="text-text-muted">SevenForce.ru</span>
+                            <span className="text-text-muted">Рыночная цена</span>
                             <span className="line-through text-text-muted">{fmt(currentPrice.competitor)}</span>
                           </div>
                           <div className="flex justify-between text-sm font-bold">
@@ -630,17 +631,7 @@ export function ChipCalculatorNew() {
                         +7 981 842-81-51
                       </a>
 
-                      {selectedVariant.sevenforce_url && (
-                        <a
-                          href={selectedVariant.sevenforce_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-1.5 text-xs text-text-muted hover:text-text-secondary transition-colors"
-                        >
-                          <ExternalLink className="size-3" />
-                          Сравнить на SevenForce
-                        </a>
-                      )}
+
 
                       <p className="text-xs text-text-subtle text-center">
                         Цена действительна 7 дней. Финальная стоимость уточняется при записи.
@@ -682,7 +673,7 @@ export function ChipCalculatorNew() {
                     {/* Преимущества */}
                     <div className="space-y-3 text-left">
                       {[
-                        { icon: Star, text: 'Реальные данные SevenForce.ru' },
+                        { icon: Star, text: 'Актуальные рыночные цены' },
                         { icon: BadgePercent, text: 'Цены на 25% ниже рынка' },
                         { icon: Star, text: 'Alientech KESS3 · Лицензия' },
                         { icon: Zap, text: 'Прошивка за 1–2 часа' },

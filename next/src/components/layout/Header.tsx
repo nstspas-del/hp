@@ -6,6 +6,7 @@ import { Logo } from '@/components/Logo';
 import { openBooking } from '@/lib/autodealer';
 
 // ── Навигация — строго по ТЗ Блок 1 ─────────────────────────────────────────
+// Бренды с субдоменами используют полный URL, чтобы браузер переходил на нужный хост
 const NAV = [
  {
  label: 'Автосервис',
@@ -25,12 +26,12 @@ const NAV = [
  label: 'Марки',
  href: '/brands',
  sub: [
- { label: 'BMW', href: '/brands/bmw', logo: '/images/brands/bmw.svg' },
- { label: 'Mercedes-Benz', href: '/brands/mercedes', logo: '/images/brands/mercedes.svg' },
- { label: 'Audi', href: '/brands/audi', logo: '/images/brands/audi.svg' },
- { label: 'Porsche', href: '/brands/porsche', logo: '/images/brands/porsche.svg' },
- { label: 'Lexus', href: '/brands/lexus', logo: '/images/brands/lexus.svg' },
- { label: 'Land Rover', href: '/brands/land-rover', logo: '/images/brands/land-rover.svg' },
+ { label: 'BMW',          href: 'https://bmw.hptuning.ru',        logo: '/images/brands/bmw.svg' },
+ { label: 'Mercedes-Benz',href: 'https://mercedes.hptuning.ru',   logo: '/images/brands/mercedes.svg' },
+ { label: 'Audi',         href: 'https://audi.hptuning.ru',       logo: '/images/brands/audi.svg' },
+ { label: 'Porsche',      href: 'https://porsche.hptuning.ru',    logo: '/images/brands/porsche.svg' },
+ { label: 'Lexus',        href: 'https://lexus.hptuning.ru',      logo: '/images/brands/lexus.svg' },
+ { label: 'Land Rover',   href: 'https://landrover.hptuning.ru',  logo: '/images/brands/land-rover.svg' },
  { label: 'Все 32 марки →', href: '/brands', logo: null },
  ],
  },
