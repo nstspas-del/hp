@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Oswald } from 'next/font/google';
+// Шрифты подключены через @font-face в globals.css (self-hosted, no Google Fonts CDN)
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -7,21 +7,6 @@ import { CookieBanner } from '@/components/layout/CookieBanner';
 import { YandexMetrika } from '@/components/analytics/YandexMetrika';
 import company from '@/data/company.json';
 import seoData from '@/data/seo.json';
-
-// ── Шрифты через next/font/google ────────────────────────────────────────────
-const inter = Inter({
- subsets: ['latin', 'cyrillic'],
- variable: '--font-inter',
- display: 'swap',
- weight: ['400', '500', '600', '700'],
-});
-
-const oswald = Oswald({
- subsets: ['latin', 'cyrillic'],
- variable: '--font-oswald',
- display: 'swap',
- weight: ['400', '500', '600', '700'],
-});
 
 // ── Метаданные ────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
@@ -118,7 +103,7 @@ const websiteSchema = {
 // ── Layout ────────────────────────────────────────────────────────────────────
 export default function RootLayout({ children }: { children: React.ReactNode }) {
  return (
- <html lang="ru" className={`${inter.variable} ${oswald.variable}`}>
+ <html lang="ru">
  <head>
  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />

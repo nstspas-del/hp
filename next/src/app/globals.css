@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 /* ─── Self-hosted fonts ─── */
+/* CSS-переменные для обратной совместимости (без Google CDN) */
+:root {
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-oswald: 'Bebas Neue', 'Oswald', Impact, sans-serif;
+}
 @font-face {
   font-family: 'Inter';
   src: url('/fonts/inter-cyrillic-400.woff2') format('woff2');

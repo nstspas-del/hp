@@ -37,6 +37,19 @@ const ALLOWED_BRANDS = new Set([
   'toyota', 'lexus', 'landrover',
 ]);
 
+/* ── H1 по брендам — полный сервис, не только чип-тюнинг ── */
+const BRAND_H1: Record<string, string> = {
+  bmw:        'Сервис, тюнинг и детейлинг BMW',
+  mercedes:   'Премиальный сервис Mercedes-Benz',
+  audi:       'Сервис Audi: диагностика, тюнинг и детейлинг',
+  porsche:    'Porsche: премиальный сервис, тюнинг и детейлинг',
+  volkswagen: 'Volkswagen: VAG-экспертиза, сервис и тюнинг',
+  toyota:     'Сервис и тюнинг Toyota',
+  lexus:      'Lexus: премиальный сервис, гибриды и детейлинг',
+  landrover:  'Land Rover: сервис, тюнинг и защита кузова',
+  'land-rover':'Land Rover: сервис, тюнинг и защита кузова',
+};
+
 /* ── Маппинг фото брендов ── */
 const BRAND_PHOTOS: Record<string, string> = {
   bmw:        '/images/works/10-bmw-x5-neon-workshop.jpg',
@@ -349,17 +362,14 @@ export async function generateMetadata({
       ? getBrandCanonical(brandSlug, '/')
       : `https://hptuning.ru/brands/${brand.slug}`;
 
+    // og:url должен совпадать с canonical и заканчиваться на /
     const ogUrl = isSubdomain
-      ? getBrandUrl(brandSlug)
-      : `https://hptuning.ru/brands/${brand.slug}`;
+      ? getBrandCanonical(brandSlug, '/')
+      : `https://hptuning.ru/brands/${brand.slug}/`;
 
-    // Host-aware og:title / og:description
-    const title = isSubdomain
-      ? (brand.seo?.title ?? `Чип-тюнинг ${brand.name} в СПб | HP Тюнинг`)
-      : `Чип-тюнинг ${brand.name} в СПб | HP Тюнинг`;
-    const description = isSubdomain
-      ? (brand.seo?.description ?? brand.description)
-      : brand.description;
+    // Host-aware og:title / og:description — полный сервис, не только чип-тюнинг
+    const title = brand.seo?.title ?? `Сервис ${brand.name} в Санкт-Петербурге | HP Тюнинг`;
+    const description = brand.seo?.description ?? brand.description;
 
     return {
       title,
@@ -378,7 +388,7 @@ export async function generateMetadata({
             url: 'https://hptuning.ru/images/og/chip-tuning.jpg',
             width: 1200,
             height: 630,
-            alt: `Чип-тюнинг ${brand.name} в СПб | HP Тюнинг`,
+            alt: `Сервис ${brand.name} в Санкт-Петербурге — HP Тюнинг`,
           },
         ],
       },
@@ -451,7 +461,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
     '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': `${pageUrl}#service`,
-    name: `Чип-тюнинг ${brand.name} в Санкт-Петербурге`,
+    name: `Автосервис, тюнинг и детейлинг ${brand.name} в Санкт-Петербурге`,
     url: pageUrl,
     provider: {
       '@type': 'AutoRepair',
@@ -543,7 +553,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
             Автосервис СПб
           </span>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white leading-none">
-            Чип-тюнинг {brand.name}
+            {BRAND_H1[brandSlug] ?? BRAND_H1[brand.slug] ?? `Сервис ${brand.name}`}
             <span
               className="text-[#39FF14]"
               style={{ textShadow: '0 0 30px rgba(57,255,20,0.5)' }}
@@ -558,16 +568,25 @@ export default async function BrandPage({ params }: { params: { brand: string } 
       {/* ── Основной контент ── */}
       <div className="container py-12">
 
-        {/* Быстрый выбор услуги */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-14">
+        {/* Быстрый выбор услуги — 4 направления */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-14">
           {[
             {
-              icon: Wrench,
+              icon: Shield,
               color: '#a78bfa',
               bg: 'bg-violet-500/8 border-violet-500/20',
-              title: 'Техобслуживание',
-              desc: 'ТО, диагностика, ремонт двигателя и подвески',
+              title: 'Диагностика',
+              desc: 'Компьютерная и ходовая диагностика',
               price: 'от 1 500 ₽',
+              href: isSubdomain ? `${mainSiteUrl}/service/diagnostics` : '/service/diagnostics',
+            },
+            {
+              icon: Wrench,
+              color: '#f59e0b',
+              bg: 'bg-amber-500/8 border-amber-500/20',
+              title: 'Техобслуживание',
+              desc: 'ТО, ремонт двигателя и подвески',
+              price: 'от 3 500 ₽',
               href: isSubdomain ? `${mainSiteUrl}/service` : '/service',
             },
             {
@@ -575,7 +594,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
               color: '#39FF14',
               bg: 'bg-[#39FF14]/8 border-[#39FF14]/20',
               title: 'Чип-тюнинг',
-              desc: 'Stage 1/2/3, EGR/DPF off, адаптация АКПП',
+              desc: 'Stage 1/2/3, EGR/DPF off, АКПП',
               price: `от ${brand.priceFrom.toLocaleString('ru-RU')} ₽`,
               href: isSubdomain ? `${mainSiteUrl}/tuning/chip-tuning` : '/tuning/chip-tuning',
             },
@@ -584,7 +603,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
               color: '#38bdf8',
               bg: 'bg-sky-500/8 border-sky-500/20',
               title: 'Детейлинг',
-              desc: 'Керамика 9H, PPF плёнка, химчистка, полировка',
+              desc: 'Керамика 9H, PPF, полировка, химчистка',
               price: 'от 6 000 ₽',
               href: isSubdomain ? `${mainSiteUrl}/detailing` : '/detailing',
             },
@@ -592,17 +611,17 @@ export default async function BrandPage({ params }: { params: { brand: string } 
             <a
               key={card.title}
               href={card.href}
-              className={`flex items-start gap-4 p-5 rounded-2xl border ${card.bg} hover:scale-[1.01] transition-transform`}
+              className={`flex flex-col gap-3 p-4 rounded-2xl border ${card.bg} hover:scale-[1.01] transition-transform`}
             >
               <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
                 style={{ backgroundColor: `${card.color}15` }}
               >
-                <card.icon className="size-5" style={{ color: card.color }} />
+                <card.icon className="size-4" style={{ color: card.color }} />
               </div>
               <div>
-                <div className="text-white font-semibold">{card.title}</div>
-                <div className="text-zinc-500 text-xs mt-0.5">{card.desc}</div>
+                <div className="text-white font-semibold text-sm">{card.title}</div>
+                <div className="text-zinc-500 text-xs mt-0.5 leading-snug">{card.desc}</div>
                 <div className="text-xs font-bold mt-2" style={{ color: card.color }}>
                   {card.price}
                 </div>
@@ -729,23 +748,52 @@ export default async function BrandPage({ params }: { params: { brand: string } 
           </div>
         )}
 
-        {/* CTA */}
-        <div className="rounded-2xl bg-gradient-to-r from-[#39FF14]/10 to-transparent border border-[#39FF14]/20 p-8 text-center">
-          <h3 className="font-display text-3xl text-white uppercase tracking-wide mb-2">
-            Записать {brand.name} на сервис
-          </h3>
-          <p className="text-zinc-500 mb-6">
-            Ответим за 15 минут — выберем время и услугу под ваш автомобиль.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <BookingButton
-              label="Записаться онлайн"
-              serviceHint={brand.name}
-              className="btn-primary text-base px-10 py-4"
-            />
-            <a href="tel:+79818428151" className="btn-secondary text-base px-10 py-4">
-              <Phone className="size-4" /> +7 (981) 842-81-51
-            </a>
+        {/* CTA — дистанционная консультация */}
+        <div className="rounded-2xl bg-gradient-to-r from-[#39FF14]/10 to-transparent border border-[#39FF14]/20 p-8">
+          <div className="max-w-2xl">
+            <h3 className="font-display text-3xl text-white uppercase tracking-wide mb-3">
+              Бесплатная консультация по {brand.name}
+            </h3>
+            <p className="text-zinc-400 text-base mb-6 leading-relaxed">
+              Расскажите о задаче онлайн — бесплатная дистанционная консультация по сервису,
+              детейлингу и тюнингу. Ответим в течение 15 минут в рабочее время.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <BookingButton
+                label="Записаться онлайн"
+                serviceHint={brand.name}
+                className="btn-primary text-sm px-6 py-3"
+              />
+              <a
+                href="https://wa.me/79818428151"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#25D366]/30 bg-[#25D366]/10 text-[#25D366] text-sm font-medium hover:bg-[#25D366]/20 transition-colors"
+              >
+                <svg className="size-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                WhatsApp
+              </a>
+              <a
+                href="https://t.me/hptuningspb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#2AABEE]/30 bg-[#2AABEE]/10 text-[#2AABEE] text-sm font-medium hover:bg-[#2AABEE]/20 transition-colors"
+              >
+                <svg className="size-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+                Telegram
+              </a>
+              <a
+                href="tel:+79818428151"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/15 bg-white/5 text-zinc-300 text-sm font-medium hover:border-white/30 hover:text-white transition-colors"
+              >
+                <Phone className="size-4" />
+                +7 (981) 842-81-51
+              </a>
+            </div>
           </div>
         </div>
       </div>

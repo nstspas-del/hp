@@ -71,29 +71,44 @@ function Dropdown({ items, onClose }: {
 }) {
  return (
  <div className="absolute top-full left-0 mt-2 bg-[#111113] border border-white/10 rounded-2xl shadow-2xl shadow-black/60 z-50 min-w-[240px] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-150">
- {items.map((item) => (
- <Link
- key={item.href}
- href={item.href}
- onClick={onClose}
- className="flex items-start gap-3 px-4 py-3 hover:bg-white/5 transition-colors group border-b border-white/5 last:border-0"
- >
- {/* Для марок — кружок-заглушка вместо svg */}
- <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0 mt-0.5 text-xs text-zinc-500 font-bold">
- {item.logo !== undefined
- ? item.label.slice(0, 2).toUpperCase()
- : '→'}
- </div>
- <div>
- <div className="text-sm text-white font-medium group-hover:text-[#39FF14] transition-colors leading-snug">
- {item.label}
- </div>
- {item.desc && (
- <div className="text-xs text-zinc-500 mt-0.5 leading-snug">{item.desc}</div>
- )}
- </div>
- </Link>
- ))}
+ {items.map((item) => {
+  const isExternal = item.href.startsWith('http');
+  if (isExternal) {
+   return (
+    <a
+     key={item.href}
+     href={item.href}
+     onClick={onClose}
+     className="flex items-start gap-3 px-4 py-3 hover:bg-white/5 transition-colors group border-b border-white/5 last:border-0"
+    >
+     <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0 mt-0.5 text-xs text-zinc-500 font-bold">
+      {item.logo !== undefined ? item.label.slice(0, 2).toUpperCase() : '→'}
+     </div>
+     <div>
+      <div className="text-sm text-white font-medium group-hover:text-[#39FF14] transition-colors leading-snug">{item.label}</div>
+      {item.desc && <div className="text-xs text-zinc-500 mt-0.5 leading-snug">{item.desc}</div>}
+     </div>
+    </a>
+   );
+  }
+  return (
+   <Link
+    key={item.href}
+    href={item.href}
+    prefetch={false}
+    onClick={onClose}
+    className="flex items-start gap-3 px-4 py-3 hover:bg-white/5 transition-colors group border-b border-white/5 last:border-0"
+   >
+    <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0 mt-0.5 text-xs text-zinc-500 font-bold">
+     {item.logo !== undefined ? item.label.slice(0, 2).toUpperCase() : '→'}
+    </div>
+    <div>
+     <div className="text-sm text-white font-medium group-hover:text-[#39FF14] transition-colors leading-snug">{item.label}</div>
+     {item.desc && <div className="text-xs text-zinc-500 mt-0.5 leading-snug">{item.desc}</div>}
+    </div>
+   </Link>
+  );
+ })}
  </div>
  );
 }

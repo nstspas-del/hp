@@ -31,9 +31,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        // display — Oswald (загружаем через next/font в layout.tsx)
-        sans:    ['var(--font-inter)',  'Inter', 'system-ui', 'sans-serif'],
-        display: ['var(--font-oswald)', 'Oswald', 'Bebas Neue', 'Impact', 'sans-serif'],
+        // Шрифты подключены через @font-face в globals.css (self-hosted, no Google CDN)
+        sans:    ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Bebas Neue', 'Oswald', 'Impact', 'sans-serif'],
       },
       boxShadow: {
         'glow-accent': '0 0 20px rgba(57,255,20,0.5), 0 0 40px rgba(57,255,20,0.2)',
