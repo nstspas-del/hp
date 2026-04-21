@@ -33,7 +33,8 @@ const STAGE_INFO = {
   stage1: {
     label: 'Stage 1',
     badge: 'Популярный',
-    desc: 'Прошивка ЭБУ без замены деталей',
+    desc: 'Прошивка ЭБУ через OBD — без разборки двигателя',
+    descDetail: 'Оптимизация карт наддува, впрыска и угла зажигания. Прирост +15–25% к мощности и моменту. Механика и гарантия не затрагиваются.',
     power: '+15–25%',
     color: 'from-green-500/20 to-emerald-500/20',
     border: 'border-green-500/40',
@@ -42,9 +43,10 @@ const STAGE_INFO = {
   },
   stage2: {
     label: 'Stage 2',
-    badge: 'Для опытных',
-    desc: 'Прошивка + доработка впуска/выпуска',
-    power: '+25–40%',
+    badge: 'Впуск + выпуск',
+    desc: 'Прошивка + доработка впускного и выпускного трактов',
+    descDetail: 'Апгрейд интеркулера, даунпайп без катализатора или спортивный катализатор, крупный фильтр холодного впуска. В связке с прошивкой даёт +25–50% к мощности.',
+    power: '+25–50%',
     color: 'from-yellow-500/20 to-orange-500/20',
     border: 'border-yellow-500/40',
     accent: 'text-yellow-400',
@@ -53,7 +55,8 @@ const STAGE_INFO = {
   stage3: {
     label: 'Stage 3',
     badge: 'Максимум',
-    desc: 'Турбо-кит + полная переработка двигателя',
+    desc: 'Турбо-кит, форсунки, топливная система + прошивка',
+    descDetail: 'Новый турбокит (Big Turbo / Twin Scroll), увеличенные форсунки, насос высокого давления, интеркулер Top Mount. Прирост +50–100%.',
     power: '+50–100%',
     color: 'from-red-500/20 to-pink-500/20',
     border: 'border-red-500/40',
@@ -135,10 +138,14 @@ export function ChipTuningCalculator() {
     ? stagePrice.competitor - stagePrice.ours
     : 0;
 
+  // Реальные мультипликаторы по стадиям:
+  // Stage 1: +22% (только прошивка, без железа)
+  // Stage 2: +40% (прошивка + даунпайп + интеркулер + впуск)
+  // Stage 3: +70% (турбо-кит + форсунки + ТНВД + прошивка)
   const hpAfter = currentVariant
     ? Math.round(currentVariant.hp * (
         selectedStage === 'stage1' ? 1.22 :
-        selectedStage === 'stage2' ? 1.35 : 1.6
+        selectedStage === 'stage2' ? 1.40 : 1.70
       ))
     : 0;
 
@@ -481,10 +488,16 @@ function ResultCard({
             </div>
           </div>
           <div className={`text-xs text-center mt-2 font-semibold ${info.accent}`}>
-            {info.power} мощности · {info.desc}
+            {info.power} мощности
           </div>
         </div>
       )}
+
+      {/* Что входит в стадию */}
+      <div className="bg-bg/30 rounded-xl p-3">
+        <div className={`text-xs font-bold ${info.accent} mb-1.5`}>{info.label}: {info.badge}</div>
+        <div className="text-xs text-text-muted leading-relaxed">{info.descDetail}</div>
+      </div>
 
       {/* Включено */}
       <div className="space-y-1.5">
