@@ -101,7 +101,7 @@ export function Hero() {
  <div className="container">
  <div className="grid grid-cols-3 divide-x divide-white/8">
  {[
- { href: '/tuning/chip-tuning', icon: '⚡', label: 'Чип-тюнинг', sub: 'Stage 1–3, EGR/DPF' },
+ { href: '/tuning/chip-tuning', icon: '⚡', label: 'Тюнинг', sub: 'Чип-тюнинг, EGR/DPF, аппаратный' },
  { href: '/detailing', icon: '◈', label: 'Детейлинг', sub: 'Керамика, PPF, химчистка' },
  { href: '/service', icon: '🔧', label: 'Автосервис', sub: 'ТО, диагностика, ремонт' },
  ].map((item) => (

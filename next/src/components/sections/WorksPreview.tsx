@@ -16,7 +16,7 @@ const WORKS = [
  {
  src: '/images/works/10-bmw-x5-neon-workshop.jpg',
  brand: 'BMW X5',
- service: 'Чип-тюнинг Stage 2 · +60 л.с.',
+ service: 'Тюнинг · +60 л.с.',
  tag: 'Чип-тюнинг',
  color: '#39FF14',
  href: '/tuning/chip-tuning',
@@ -32,7 +32,7 @@ const WORKS = [
  {
  src: '/images/works/01-porsche-cayman-pink-lift.jpg',
  brand: 'Porsche Cayman',
- service: 'Чип-тюнинг Stage 2',
+ service: 'Тюнинг и чип-тюнинг',
  tag: 'Чип-тюнинг',
  color: '#39FF14',
  href: '/tuning/chip-tuning',
@@ -48,7 +48,7 @@ const WORKS = [
  {
  src: '/images/works/17-subaru-wrx-sti-exhaust.jpg',
  brand: 'Subaru WRX STI',
- service: 'Чип-тюнинг Stage 3 · Выхлоп',
+ service: 'Тюнинг · Выхлоп',
  tag: 'Чип-тюнинг',
  color: '#39FF14',
  href: '/tuning/chip-tuning',

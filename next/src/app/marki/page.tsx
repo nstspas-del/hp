@@ -67,56 +67,56 @@ const SPECIALIZATION = [
   {
     slug: 'bmw',
     name: 'BMW',
-    href: 'https://bmw.hptuning.ru/',
+    href: '/brands/bmw',
     logo: '/images/brands/bmw.svg',
     desc: 'Диагностика ISTA+/ISTA-D, тюнинг B58/N55/S63, ТО всей линейки от 1-й серии до X7 и M-моделей в Санкт-Петербурге.',
   },
   {
     slug: 'mercedes',
     name: 'Mercedes-Benz',
-    href: 'https://mercedes.hptuning.ru/',
+    href: '/brands/mercedes',
     logo: '/images/brands/mercedes.svg',
     desc: 'XENTRY-диагностика, ремонт AIRMATIC, тюнинг AMG-моторов, ТО дизелей OM642/OM651 — для всего модельного ряда в СПб.',
   },
   {
     slug: 'audi',
     name: 'Audi',
-    href: 'https://audi.hptuning.ru/',
+    href: '/brands/audi',
     logo: '/images/brands/audi.svg',
     desc: 'VCDS/ODIS, тюнинг EA888/EA839, ремонт DSG DQ200/DQ500, сервис quattro и Haldex. A4, A6, Q5, Q7, RS-модели.',
   },
   {
     slug: 'porsche',
     name: 'Porsche',
-    href: 'https://porsche.hptuning.ru/',
+    href: '/brands/porsche',
     logo: '/images/brands/porsche.svg',
     desc: 'PIWIS III диагностика, ТО 911/Cayenne/Macan/Panamera, тюнинг 9A1 и EA839, обслуживание PDK и PASM в Санкт-Петербурге.',
   },
   {
     slug: 'volkswagen',
     name: 'Volkswagen',
-    href: 'https://volkswagen.hptuning.ru/',
+    href: '/brands/volkswagen',
     logo: '/images/brands/volkswagen.svg',
     desc: 'VCDS-диагностика, ТО Golf/Tiguan/Passat/Touareg, тюнинг EA888/EA211, ремонт DSG — практичный VAG-сервис без накруток.',
   },
   {
     slug: 'toyota',
     name: 'Toyota',
-    href: 'https://toyota.hptuning.ru/',
+    href: '/brands/toyota',
     logo: '/images/brands/toyota.svg',
     desc: 'Techstream-диагностика, ТО Land Cruiser/Camry/RAV4/Prado, тюнинг 1GD-FTV дизель, обслуживание гибридов THS II.',
   },
   {
     slug: 'lexus',
     name: 'Lexus',
-    href: 'https://lexus.hptuning.ru/',
+    href: '/brands/lexus',
     logo: '/images/brands/lexus.svg',
     desc: 'ТО RX/GX/LX/LS/NX/ES, диагностика Techstream, тюнинг V8 3UR-FE, обслуживание Lexus Hybrid Drive в Санкт-Петербурге.',
   },
   {
     slug: 'landrover',
     name: 'Land Rover',
-    href: 'https://landrover.hptuning.ru/',
+    href: '/brands/land-rover',
     logo: '/images/brands/land-rover.svg',
     desc: 'JLR SDD/Pathfinder, ремонт пневмоподвески EAS, тюнинг TD6/3.0T, ТО Defender/Discovery/Range Rover в СПб.',
   },
@@ -435,7 +435,6 @@ export default function MarkiPage() {
                   logo={b.logo}
                   desc={b.desc}
                   href={b.href}
-                  isExternal
                 />
               </section>
             ))}

@@ -40,7 +40,7 @@ const PROJECT_CARS: ProjectCar[] = [
     tag: 'Daily',
     tagColor: 'bg-[#39FF14]/20 text-[#39FF14] border-[#39FF14]/30',
     title: 'Volkswagen Golf R Mk8 — комплексный апгрейд',
-    subtitle: 'Stage 2, выхлоп Milltek, шумка, керамика 9H',
+    subtitle: 'Тюнинг мотора, выхлоп Milltek, шумка, керамика 9H',
     engine: 'EA888 Gen4',
     power: '420 л.с.',
     services: ['Чип-тюнинг', 'Детейлинг', 'Шумоизоляция'],
