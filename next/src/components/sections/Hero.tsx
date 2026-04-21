@@ -36,21 +36,24 @@ export function Hero() {
  </div>
 
  {/* Заголовок */}
- <h1 className="font-display text-5xl sm:text-6xl md:text-7xl leading-none uppercase tracking-tight text-white mb-4">
- Премиальный{' '}
+ <h1 className="font-display text-4xl sm:text-5xl md:text-6xl leading-none uppercase tracking-tight text-white mb-4">
  <span
  className="text-[#39FF14]"
  style={{ textShadow: '0 0 40px rgba(57,255,20,0.6)' }}
  >
- автосервис
+ Автосервис премиум-класса
  </span>
- <br />в Петербурге
+ <br />в Санкт-Петербурге:<br />
+ <span className="text-3xl sm:text-4xl md:text-5xl">
+ ТО, диагностика, ремонт,<br className="hidden sm:block" /> детейлинг и тюнинг
+ </span>
  </h1>
 
  {/* Подзаголовок */}
- <p className="text-zinc-300 text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
- Чип-тюнинг, детейлинг и техническое обслуживание премиальных марок.
- BMW, Mercedes, Porsche, Audi, VW, Toyota и ещё 26 марок — весь премиум и средний сегмент СПб.
+ <p className="text-zinc-300 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+ Обслуживаем BMW, Mercedes-Benz, Audi, Porsche, Volkswagen, Toyota, Lexus, Land Rover,
+ Haval, Chery, Tank, Geely и другие современные марки —
+ <strong className="text-white font-medium"> в одном месте, без беготни между сервисами.</strong>
  </p>
 
  {/* CTA кнопки */}

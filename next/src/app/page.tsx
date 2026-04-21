@@ -10,16 +10,17 @@ import { CtaSection } from '@/components/sections/CtaSection';
 import { ReviewsSection } from '@/components/sections/ReviewsSection';
 import { VideoSection } from '@/components/sections/VideoSection';
 import { ProjectCarsSection } from '@/components/sections/ProjectCarsSection';
+import { BrandStripSection } from '@/components/sections/BrandStripSection';
 import seoData from '@/data/seo.json';
 
 export const metadata: Metadata = {
- title: 'HP Тюнинг — чип-тюнинг, детейлинг и автосервис в СПб',
- description: 'HP Тюнинг в Санкт-Петербурге: чип-тюнинг Stage 1/2/3 от 24 000 ₽, керамика 9H от 25 000 ₽, ТО от 3 000 ₽. BMW, Mercedes, Audi, Porsche, Land Rover, Lexus. Alientech. ',
- keywords: ['чип тюнинг спб', 'детейлинг спб', 'автосервис спб', 'hp тюнинг', 'тюнинг автомобилей санкт-петербург'],
+ title: 'Автосервис премиум-класса в СПб | ТО, диагностика, ремонт, детейлинг и тюнинг | HP Тюнинг',
+ description: 'Автосервис премиум-класса в Санкт-Петербурге: ТО, компьютерная диагностика, ремонт двигателя, коробки, тормозов и подвески. Детейлинг и тюнинг BMW, Mercedes-Benz, Audi, Porsche, VW, Toyota, Lexus, Land Rover, Haval, Chery, Tank.',
+ keywords: ['автосервис спб', 'чип тюнинг спб', 'детейлинг спб', 'hp тюнинг', 'тюнинг автомобилей санкт-петербург'],
  alternates: { canonical: 'https://hptuning.ru/' },
  openGraph: {
- title: 'HP Тюнинг — чип-тюнинг, детейлинг и автосервис в СПб',
- description: 'HP Тюнинг в Санкт-Петербурге: чип-тюнинг Stage 1/2/3 от 24 000 ₽, керамика 9H от 25 000 ₽, ТО от 3 000 ₽. BMW, Mercedes, Audi, Porsche, Land Rover, Lexus. Alientech.',
+ title: 'Автосервис премиум-класса в СПб | HP Тюнинг',
+ description: 'ТО, диагностика, ремонт, детейлинг и тюнинг для BMW, Mercedes-Benz, Audi, Porsche, VW, Toyota, Lexus, Land Rover, Haval, Chery, Tank, Geely в Петербурге.',
  url: 'https://hptuning.ru/',
  type: 'website',
  locale: 'ru_RU',
@@ -78,6 +79,9 @@ export default function HomePage() {
 
  {/* Герой с BMW X7 */}
  <Hero />
+
+ {/* Полоска брендов → /marki/ */}
+ <BrandStripSection />
 
  {/* Что мы делаем — табы без картинок */}
  <ShowcaseSection />
