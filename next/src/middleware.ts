@@ -2,80 +2,85 @@
  * middleware.ts — HP Тюнинг
  * Host-based brand routing для субдоменов.
  *
+ * FIX EPROTO: используем request.nextUrl.clone() + меняем только pathname,
+ * не трогая protocol/host → rewrite всегда идёт через http://127.0.0.1:3000.
+ *
  * Логика:
- *  bmw.hptuning.ru/          → рендерит /brands/bmw (rewrite, URL не меняется)
- *  bmw.hptuning.ru/*         → добавляет X-Brand-Slug header для Server Components
- *  hptuning.ru/brands/bmw   → 301 → https://bmw.hptuning.ru/
+ *  bmw.hptuning.ru/    → rewrite → /brands/bmw (URL в браузере не меняется)
+ *  hptuning.ru/brands/bmw → 301 → https://bmw.hptuning.ru/
  */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { getBrandFromHost, getBrandUrl, BRAND_SUBDOMAIN_MAP } from '@/lib/brand-host';
 
+/** Список slug-ов, для которых есть субдомены */
+const SUBDOMAIN_SLUGS = new Set(Object.values(BRAND_SUBDOMAIN_MAP));
+
 export function middleware(request: NextRequest) {
-  const { pathname, host: hostHeader } = request.nextUrl;
-  // next/headers host может включать порт
-  const host = request.headers.get('host') ?? hostHeader;
+  const { pathname } = request.nextUrl;
+  const host = request.headers.get('host') ?? '';
 
   const brandSlug = getBrandFromHost(host);
 
-  // ── 1. Запрос пришёл на субдомен бренда ────────────────────────────────────
+  // ── 1. Запрос пришёл на субдомен бренда ──────────────────────────────────
   if (brandSlug) {
     // Пробрасываем slug в headers для Server Components
     const requestHeaders = new Headers(request.headers);
     requestHeaders.set('x-brand-slug', brandSlug);
     requestHeaders.set('x-brand-host', host);
 
-    // Rewrite: / → /brands/{slug}  (URL в браузере остаётся bmw.hptuning.ru/)
-    // Для остальных путей — просто добавляем заголовки и пропускаем
-    let rewriteUrl: URL;
+    // Статика и системные пути — без rewrite, только добавляем headers
+    if (
+      pathname.startsWith('/_next') ||
+      pathname.startsWith('/images') ||
+      pathname.startsWith('/fonts') ||
+      pathname.startsWith('/favicon') ||
+      pathname.startsWith('/robots') ||
+      pathname.startsWith('/sitemap') ||
+      pathname.startsWith('/yandex_')
+    ) {
+      return NextResponse.next({ request: { headers: requestHeaders } });
+    }
+
+    // КЛЮЧЕВОЙ FIX: клонируем URL и меняем ТОЛЬКО pathname.
+    // Это сохраняет protocol=http и host=localhost → нет TLS-рукопожатия.
+    const rewriteUrl = request.nextUrl.clone();
 
     if (pathname === '/' || pathname === '') {
-      // Главная субдомена → brand page
-      rewriteUrl = new URL(`/brands/${brandSlug}`, request.url);
-    } else if (pathname.startsWith('/_next') || pathname.startsWith('/images') ||
-               pathname.startsWith('/fonts') || pathname.startsWith('/favicon') ||
-               pathname.startsWith('/robots') || pathname.startsWith('/sitemap') ||
-               pathname.startsWith('/yandex_')) {
-      // Статика и системные файлы — без rewrite
-      return NextResponse.next({ request: { headers: requestHeaders } });
-    } else {
-      // Любой другой путь на субдомене — добавляем заголовки
-      rewriteUrl = new URL(pathname + request.nextUrl.search, request.url);
+      // Главная субдомена → страница бренда
+      rewriteUrl.pathname = `/brands/${brandSlug}`;
     }
+    // Все остальные пути на субдомене — оставляем pathname без изменений,
+    // но добавляем headers с информацией о бренде.
 
     return NextResponse.rewrite(rewriteUrl, {
       request: { headers: requestHeaders },
     });
   }
 
-  // ── 2. Запрос на основном домене: /brands/:slug → субдомен (301) ───────────
-  // Только для точного пути /brands/bmw (без trailing slash и без subpath)
+  // ── 2. Основной домен: /brands/:slug → субдомен (301) ─────────────────────
   const brandRedirectMatch = pathname.match(/^\/brands\/([a-z0-9_-]+)\/?$/);
   if (brandRedirectMatch) {
     const slug = brandRedirectMatch[1];
-    // Проверяем что это реальный субдоменный бренд (по BRAND_SUBDOMAIN_MAP)
-    const isSubdomainBrand = Object.values(BRAND_SUBDOMAIN_MAP).includes(slug) ||
-                              Object.keys(BRAND_SUBDOMAIN_MAP).includes(slug);
-    if (isSubdomainBrand) {
-      // Нормализуем slug (landrover вместо land-rover)
-      const normalizedSlug = Object.values(BRAND_SUBDOMAIN_MAP).includes(slug) ? slug :
-                              BRAND_SUBDOMAIN_MAP[slug] ?? slug;
+    // Нормализуем: land-rover → landrover
+    const normalizedSlug = BRAND_SUBDOMAIN_MAP[slug] ?? slug;
+
+    if (SUBDOMAIN_SLUGS.has(normalizedSlug)) {
       const subdomainUrl = getBrandUrl(normalizedSlug) + '/';
       return NextResponse.redirect(subdomainUrl, { status: 301 });
     }
   }
 
-  // ── 3. Остальные запросы на основном домене — пропускаем ──────────────────
+  // ── 3. Всё остальное — пропускаем ─────────────────────────────────────────
   return NextResponse.next();
 }
 
 export const config = {
-  // Запускаем middleware на всех путях кроме исключений
   matcher: [
     /*
-     * Match all request paths except:
-     * - _next/static (static files)
-     * - _next/image (image optimization)
+     * Запускаем на всех путях кроме:
+     * - _next/static (статика)
+     * - _next/image  (оптимизация изображений)
      * - api routes
      */
     '/((?!_next/static|_next/image|favicon.ico).*)',

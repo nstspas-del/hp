@@ -20,6 +20,7 @@ import brands from '@/data/brands.json';
 import { BookingButton } from '@/components/ui/BookingButton';
 import {
   getBrandFromHeaders,
+  getBrandFromHost,
   getBrandCanonical,
   getBrandUrl,
   BRAND_SUBDOMAIN_MAP,
@@ -27,6 +28,12 @@ import {
 
 // Dynamic — нужен чтобы читать x-brand-slug из request headers
 export const dynamic = 'force-dynamic';
+
+/** Allowlist брендовых slug-ов — только эти значения принимаются от middleware */
+const ALLOWED_BRANDS = new Set([
+  'bmw', 'mercedes', 'audi', 'porsche', 'volkswagen',
+  'toyota', 'lexus', 'landrover',
+]);
 
 /* ── Маппинг фото брендов ── */
 const BRAND_PHOTOS: Record<string, string> = {
@@ -58,60 +65,95 @@ export async function generateMetadata({
 }: {
   params: { brand: string };
 }): Promise<Metadata> {
-  const brand = brands.find((b) => b.slug === params.brand);
-  if (!brand) return {};
+  try {
+    // Валидация param — защита от подделки
+    if (!params.brand || typeof params.brand !== 'string') return {};
 
-  // Читаем host из headers — установлен middleware
-  const headersList = await headers();
-  const brandSlug = getBrandFromHeaders(headersList) ?? params.brand;
-  const isSubdomain = Object.values(BRAND_SUBDOMAIN_MAP).includes(brandSlug);
+    const brand = brands.find((b) => b.slug === params.brand);
+    if (!brand) return {};
 
-  // Canonical: субдомен или legacy path
-  const canonicalUrl = isSubdomain
-    ? getBrandCanonical(brandSlug, '/')
-    : `https://hptuning.ru/brands/${brand.slug}`;
+    // Читаем host из headers — установлен middleware.
+    // headers() работает только в Server Components / route handlers.
+    const headersList = await headers();
 
-  const ogUrl = isSubdomain
-    ? getBrandUrl(brandSlug)
-    : `https://hptuning.ru/brands/${brand.slug}`;
+    // Приоритет: x-brand-slug (установлен middleware) → host → params.brand
+    const slugFromHeader = getBrandFromHeaders(headersList);
+    const hostHeader = headersList.get('host') ?? '';
+    const slugFromHost = getBrandFromHost(hostHeader);
 
-  const title = brand.seo?.title ?? `Чип-тюнинг ${brand.name} в СПб | HP Тюнинг`;
-  const description = brand.seo?.description ?? brand.description;
+    // Берём slug из middleware-заголовка или из Host, валидируем по allowlist
+    const rawSlug = slugFromHeader ?? slugFromHost ?? params.brand;
+    const isSubdomain = ALLOWED_BRANDS.has(rawSlug) &&
+                        Object.values(BRAND_SUBDOMAIN_MAP).includes(rawSlug);
+    const brandSlug = isSubdomain ? rawSlug : params.brand;
 
-  return {
-    title,
-    description,
-    keywords: brand.seo?.keywords,
-    // Subdomains: noindex пока в разработке → убрать robots после запуска
-    // robots: { index: false, follow: true },
-    alternates: { canonical: canonicalUrl },
-    openGraph: {
+    // Canonical: субдомен → https://bmw.hptuning.ru/, иначе → legacy path
+    const canonicalUrl = isSubdomain
+      ? getBrandCanonical(brandSlug, '/')
+      : `https://hptuning.ru/brands/${brand.slug}`;
+
+    const ogUrl = isSubdomain
+      ? getBrandUrl(brandSlug)
+      : `https://hptuning.ru/brands/${brand.slug}`;
+
+    const title = brand.seo?.title ?? `Чип-тюнинг ${brand.name} в СПб | HP Тюнинг`;
+    const description = brand.seo?.description ?? brand.description;
+
+    return {
       title,
       description,
-      url: ogUrl,
-      type: 'website',
-      locale: 'ru_RU',
-      siteName: 'HP Тюнинг',
-      images: [
-        {
-          url: 'https://hptuning.ru/images/og/chip-tuning.jpg',
-          width: 1200,
-          height: 630,
-          alt: `Чип-тюнинг ${brand.name} в СПб | HP Тюнинг`,
-        },
-      ],
-    },
-  };
+      keywords: brand.seo?.keywords,
+      alternates: { canonical: canonicalUrl },
+      openGraph: {
+        title,
+        description,
+        url: ogUrl,
+        type: 'website',
+        locale: 'ru_RU',
+        siteName: 'HP Тюнинг',
+        images: [
+          {
+            url: 'https://hptuning.ru/images/og/chip-tuning.jpg',
+            width: 1200,
+            height: 630,
+            alt: `Чип-тюнинг ${brand.name} в СПб | HP Тюнинг`,
+          },
+        ],
+      },
+    };
+  } catch {
+    return {};
+  }
 }
 
 export default async function BrandPage({ params }: { params: { brand: string } }) {
-  const brand = brands.find((b) => b.slug === params.brand);
+  // Валидация param
+  if (!params.brand || typeof params.brand !== 'string') notFound();
+
+  let brand;
+  try {
+    brand = brands.find((b) => b.slug === params.brand);
+  } catch {
+    notFound();
+  }
   if (!brand) notFound();
 
   // Читаем из headers (установил middleware)
-  const headersList = await headers();
-  const brandSlug = getBrandFromHeaders(headersList) ?? params.brand;
-  const isSubdomain = Object.values(BRAND_SUBDOMAIN_MAP).includes(brandSlug);
+  let brandSlug: string;
+  let isSubdomain: boolean;
+  try {
+    const headersList = await headers();
+    const slugFromHeader = getBrandFromHeaders(headersList);
+    const hostHeader = headersList.get('host') ?? '';
+    const slugFromHost = getBrandFromHost(hostHeader);
+    const rawSlug = slugFromHeader ?? slugFromHost ?? params.brand;
+    isSubdomain = ALLOWED_BRANDS.has(rawSlug) &&
+                  Object.values(BRAND_SUBDOMAIN_MAP).includes(rawSlug);
+    brandSlug = isSubdomain ? rawSlug : params.brand;
+  } catch {
+    brandSlug = params.brand;
+    isSubdomain = false;
+  }
 
   const heroPhoto = BRAND_PHOTOS[brand.slug] ?? DEFAULT_PHOTO;
 
