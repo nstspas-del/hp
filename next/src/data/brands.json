@@ -1,437 +1,1360 @@
 [
- {
- "slug": "bmw",
- "name": "BMW",
- "nameRu": "БМВ",
- "featured": true,
- "priority": 1,
- "color": "#1c69d4",
- "description": "Чип-тюнинг и обслуживание BMW всех серий в Санкт-Петербурге",
- "tagline": "Раскрываем потенциал баварского характера",
- "seo": {
- "title": "Чип-тюнинг BMW в СПб | Stage 1/2/3 от 25 000 ₽ | HP Тюнинг",
- "description": "Профессиональный чип-тюнинг BMW в Санкт-Петербурге: E-серии, F-серии, G-серии, M-модели. Прошивка Stage 1/2/3 с гарантией. +7 (981) 842-81-51",
- "keywords": ["чип-тюнинг bmw","прошивка бмв спб","stage 1 bmw","stage 2 bmw","чип бмв"]
- },
- "typicalProblems": [
- "Износ цепи ГРМ (N20, N55)",
- "Расход масла на угар (N54, N63)",
- "Отказ Valvetronic",
- "Течь поддона и сальников",
- "Проблемы с DPF у дизелей",
- "Износ форсунок на дизелях N47, B47"
- ],
- "whatWeDo": [
- "Диагностика на дилерском оборудовании ISTA",
- "Чип Stage 1/2/3 с отключением DPF/EGR",
- "Удаление Start/Stop, CBS-сервиса",
- "Кодирование функций (активация скрытых опций)",
- "Замена цепи ГРМ с гарантией",
- "Капитальный ремонт N54, N55, S55"
- ],
- "priceFrom": 25000,
- "series": [
- {
- "slug": "e90", "name": "BMW 3-Series E90 (2005-2012)", "years": "2005-2012",
- "engines": [
- { "code": "N46B20", "displacement": 2.0, "type": "gasoline", "hp": 129, "tuning": {"stage1":{"hp":155}} },
- { "code": "N47D20", "displacement": 2.0, "type": "diesel", "hp": 177, "tuning": {"stage1":{"hp":215,"nm":450}} },
- { "code": "N54B30", "displacement": 3.0, "type": "gasoline-turbo", "hp": 306, "tuning": {"stage1":{"hp":380},"stage2":{"hp":440}} },
- { "code": "N55B30", "displacement": 3.0, "type": "gasoline-turbo", "hp": 306, "tuning": {"stage1":{"hp":370},"stage2":{"hp":420}} }
- ],
- "priceFrom": 25000
- },
- {
- "slug": "f30", "name": "BMW 3-Series F30 (2011-2019)", "years": "2011-2019",
- "engines": [
- { "code": "N20B20", "displacement": 2.0, "type": "gasoline-turbo", "hp": 184, "tuning": {"stage1":{"hp":240,"nm":370},"stage2":{"hp":280}} },
- { "code": "B48B20", "displacement": 2.0, "type": "gasoline-turbo", "hp": 252, "tuning": {"stage1":{"hp":310,"nm":450}} },
- { "code": "N47D20", "displacement": 2.0, "type": "diesel", "hp": 184, "tuning": {"stage1":{"hp":225},"stage2":{"hp":260}} },
- { "code": "B47D20", "displacement": 2.0, "type": "diesel", "hp": 190, "tuning": {"stage1":{"hp":235,"nm":490}} }
- ],
- "priceFrom": 25000
- },
- {
- "slug": "g20", "name": "BMW 3-Series G20 (2019+)", "years": "2019+",
- "engines": [
- { "code": "B48B20", "displacement": 2.0, "type": "gasoline-turbo", "hp": 258, "tuning": {"stage1":{"hp":315}} },
- { "code": "B58B30", "displacement": 3.0, "type": "gasoline-turbo", "hp": 374, "tuning": {"stage1":{"hp":450},"stage2":{"hp":520}} }
- ],
- "priceFrom": 30000
- },
- { "slug": "f10", "name": "BMW 5-Series F10 (2010-2017)", "years": "2010-2017", "engines": [], "priceFrom": 25000 },
- { "slug": "g30", "name": "BMW 5-Series G30 (2017+)", "years": "2017+", "engines": [], "priceFrom": 30000 },
- { "slug": "f15", "name": "BMW X5 F15 (2013-2018)", "years": "2013-2018", "engines": [], "priceFrom": 30000 },
- { "slug": "g05", "name": "BMW X5 G05 (2018+)", "years": "2018+", "engines": [], "priceFrom": 35000 },
- {
- "slug": "m-series", "name": "BMW M-Series (M3, M5, M8)", "years": "все поколения",
- "engines": [
- { "code": "S55B30", "displacement": 3.0, "type": "gasoline-turbo", "hp": 431, "tuning": {"stage1":{"hp":510},"stage2":{"hp":580}} },
- { "code": "S63B44", "displacement": 4.4, "type": "gasoline-turbo", "hp": 600, "tuning": {"stage1":{"hp":700},"stage2":{"hp":780}} }
- ],
- "priceFrom": 50000
- }
- ]
- },
- {
- "slug": "mercedes",
- "name": "Mercedes-Benz",
- "nameRu": "Мерседес-Бенц",
- "featured": true,
- "priority": 2,
- "color": "#00adef",
- "description": "Чип-тюнинг Mercedes-Benz всех классов в Санкт-Петербурге",
- "tagline": "Немецкая инженерия без компромиссов",
- "seo": {
- "title": "Чип-тюнинг Mercedes-Benz в СПб | C/E/S/G/GLE | HP Тюнинг",
- "description": "Профессиональный чип-тюнинг Mercedes-Benz в СПб: W205, W213, W222, Gelandewagen, AMG. Stage 1/2/3 с гарантией. +7 (981) 842-81-51",
- "keywords": ["чип-тюнинг мерседес","прошивка mercedes спб","тюнинг amg","чип gelandewagen"]
- },
- "typicalProblems": [
- "Износ цепи ГРМ на M271, M272, M273",
- "Балансировочные валы M271 EVO",
- "Проблема ТНВД на дизелях OM651",
- "Износ форсунок CDI",
- "Выход из строя 7G-Tronic и 9G-Tronic",
- "Нагар на впускных клапанах (direct injection)"
- ],
- "whatWeDo": [
- "Диагностика Star Diagnosis / XENTRY",
- "Чип M276, M278, M177, OM654, OM656",
- "Удаление сажевого фильтра и EGR",
- "Прошивка AMG Performance",
- "Кодирование мультимедии и опций",
- "Замена цепи ГРМ и балансиров"
- ],
- "priceFrom": 30000,
- "series": [
- { "slug": "w205", "name": "Mercedes C-Class W205 (2014-2021)", "years": "2014-2021", "engines": [], "priceFrom": 30000 },
- { "slug": "w213", "name": "Mercedes E-Class W213 (2016+)", "years": "2016+", "engines": [], "priceFrom": 30000 },
- { "slug": "w222", "name": "Mercedes S-Class W222 (2013-2020)", "years": "2013-2020", "engines": [], "priceFrom": 40000 },
- { "slug": "w463", "name": "Mercedes G-Class (Gelandewagen) W463", "years": "все", "engines": [], "priceFrom": 50000 },
- { "slug": "gle", "name": "Mercedes GLE W166/W167", "years": "2015+", "engines": [], "priceFrom": 35000 },
- { "slug": "amg", "name": "Mercedes-AMG (C63, E63, G63, GT)", "years": "все", "engines": [], "priceFrom": 60000 }
- ]
- },
- {
- "slug": "audi",
- "name": "Audi",
- "nameRu": "Ауди",
- "featured": true,
- "priority": 3,
- "color": "#bb0a30",
- "description": "Чип-тюнинг Audi A/Q/RS — Stage 1/2/3 в Санкт-Петербурге",
- "tagline": "Vorsprung durch Technik — усиливаем формулу",
- "seo": {
- "title": "Чип-тюнинг Audi в СПб | A4/A6/Q5/Q7/RS | HP Тюнинг",
- "description": "Профессиональный чип-тюнинг Audi в СПб: A4, A6, A8, Q5, Q7, Q8, RS-серия. Stage 1/2/3 на TFSI/TDI. +7 (981) 842-81-51",
- "keywords": ["чип ауди","прошивка audi спб","stage 2 a4","тюнинг rs6"]
- },
- "typicalProblems": [
- "Масложор TFSI 2.0 (EA113, EA888 gen1-2)",
- "Износ цепи ГРМ 3.0 TFSI / 3.2 FSI",
- "ТНВД на дизелях 2.7/3.0 TDI",
- "Проблемы DSG (7-ступка DQ200)",
- "Выход из строя турбины K03 на 1.8/2.0 TFSI",
- "Отказ заслонок впускного коллектора"
- ],
- "whatWeDo": [
- "Диагностика VCDS / ODIS",
- "Чип EA888, EA839, 3.0 TDI, 4.0 TFSI",
- "Удаление DPF/EGR/AdBlue",
- "Прошивка RS-модификаций",
- "Замена цепи ГРМ 3.0 TFSI",
- "Ремонт и чистка форсунок"
- ],
- "priceFrom": 25000,
- "series": [
- { "slug": "a4", "name": "Audi A4 (B8, B9)", "years": "2007+", "engines": [], "priceFrom": 25000 },
- { "slug": "a6", "name": "Audi A6 (C7, C8)", "years": "2011+", "engines": [], "priceFrom": 30000 },
- { "slug": "a8", "name": "Audi A8 (D4, D5)", "years": "2010+", "engines": [], "priceFrom": 40000 },
- { "slug": "q5", "name": "Audi Q5 (8R, FY)", "years": "2008+", "engines": [], "priceFrom": 30000 },
- { "slug": "q7", "name": "Audi Q7 (4L, 4M)", "years": "2005+", "engines": [], "priceFrom": 35000 },
- { "slug": "q8", "name": "Audi Q8 (4M)", "years": "2018+", "engines": [], "priceFrom": 40000 },
- { "slug": "rs", "name": "Audi RS (RS3, RS6, RS7, R8)", "years": "все", "engines": [], "priceFrom": 60000 }
- ]
- },
- {
- "slug": "porsche",
- "name": "Porsche",
- "nameRu": "Порше",
- "featured": true,
- "priority": 4,
- "color": "#d5001c",
- "description": "Чип-тюнинг Porsche Cayenne, Macan, Panamera, 911 в СПб",
- "tagline": "Штутгартская точность — на максимум",
- "seo": {
- "title": "Чип-тюнинг Porsche в СПб | Cayenne/Macan/911 | HP Тюнинг",
- "description": "Тюнинг Porsche Cayenne, Macan, Panamera, 911. Stage 1/2 с сохранением надёжности. +7 (981) 842-81-51",
- "keywords": ["чип-тюнинг порше","тюнинг cayenne","прошивка porsche macan"]
- },
- "typicalProblems": [
- "Износ цепи ГРМ Cayenne/Panamera V6",
- "Проблемы с мехатроникой PDK",
- "Отказ Coolant Pipe на V8",
- "Трещины блока цилиндров 4.8 FSI",
- "Проблема с PASM (пневмоподвеска)"
- ],
- "whatWeDo": [
- "Диагностика PIWIS",
- "Чип 3.0 TDI, 3.0/4.0 TFSI",
- "Прошивка Sport Chrono",
- "Кодирование опций Porsche Connect",
- "Восстановление coolant pipe на V8"
- ],
- "priceFrom": 40000,
- "series": [
- { "slug": "cayenne", "name": "Porsche Cayenne", "years": "2003+", "engines": [], "priceFrom": 40000 },
- { "slug": "macan", "name": "Porsche Macan", "years": "2014+", "engines": [], "priceFrom": 40000 },
- { "slug": "panamera", "name": "Porsche Panamera", "years": "2009+", "engines": [], "priceFrom": 50000 },
- { "slug": "911", "name": "Porsche 911 (991, 992)", "years": "все", "engines": [], "priceFrom": 60000 }
- ]
- },
- {
- "slug": "lexus", "name": "Lexus", "nameRu": "Лексус", "featured": false, "priority": 5,
- "description": "Обслуживание и тюнинг Lexus RX, LX, ES, GX", "priceFrom": 25000,
- "series": [
- { "slug": "rx", "name": "Lexus RX 350/450h", "years": "2003+", "priceFrom": 25000 },
- { "slug": "lx", "name": "Lexus LX 470/570/600", "years": "1998+", "priceFrom": 30000 },
- { "slug": "es", "name": "Lexus ES 250/350", "years": "1989+", "priceFrom": 20000 },
- { "slug": "gx", "name": "Lexus GX 460/470", "years": "2002+", "priceFrom": 30000 }
- ]
- },
- {
- "slug": "land-rover", "name": "Land Rover", "nameRu": "Ленд Ровер", "featured": false, "priority": 6,
- "description": "Тюнинг и ремонт Land Rover Range Rover, Discovery, Defender", "priceFrom": 30000,
- "series": [
- { "slug": "range-rover", "name": "Range Rover (L322, L405, L460)", "priceFrom": 40000 },
- { "slug": "range-rover-sport", "name": "Range Rover Sport", "priceFrom": 35000 },
- { "slug": "discovery", "name": "Land Rover Discovery 3/4/5", "priceFrom": 30000 },
- { "slug": "defender", "name": "Land Rover Defender (L663)", "priceFrom": 35000 }
- ]
- },
- {
- "slug": "volvo", "name": "Volvo", "nameRu": "Вольво", "featured": false, "priority": 7,
- "description": "Чип-тюнинг Volvo XC60, XC90, S90", "priceFrom": 20000,
- "series": [
- { "slug": "xc60", "name": "Volvo XC60", "priceFrom": 20000 },
- { "slug": "xc90", "name": "Volvo XC90", "priceFrom": 25000 },
- { "slug": "s90", "name": "Volvo S90", "priceFrom": 22000 }
- ]
- },
- {
- "slug": "volkswagen", "name": "Volkswagen", "nameRu": "Фольксваген", "featured": false, "priority": 8,
- "description": "Тюнинг VW Tiguan, Touareg, Passat", "priceFrom": 20000,
- "series": [
- { "slug": "tiguan", "name": "VW Tiguan", "priceFrom": 20000 },
- { "slug": "touareg", "name": "VW Touareg", "priceFrom": 30000 },
- { "slug": "passat", "name": "VW Passat (B7, B8)", "priceFrom": 20000 }
- ]
- },
- {
- "slug": "jaguar", "name": "Jaguar", "nameRu": "Ягуар", "featured": false, "priority": 9,
- "description": "Обслуживание и тюнинг Jaguar F-Pace, XF", "priceFrom": 30000,
- "series": [
- { "slug": "f-pace", "name": "Jaguar F-Pace", "priceFrom": 30000 },
- { "slug": "xf", "name": "Jaguar XF", "priceFrom": 30000 }
- ]
- },
- {
- "slug": "genesis", "name": "Genesis", "nameRu": "Генезис", "featured": false, "priority": 10,
- "description": "Тюнинг Genesis G70, G80, GV80", "priceFrom": 25000,
- "series": [
- { "slug": "g70", "name": "Genesis G70", "priceFrom": 25000 },
- { "slug": "g80", "name": "Genesis G80", "priceFrom": 25000 },
- { "slug": "gv80", "name": "Genesis GV80", "priceFrom": 30000 }
- ]
- },
- {
- "slug": "toyota", "name": "Toyota", "nameRu": "Тойота", "featured": false, "priority": 11,
- "description": "Чип-тюнинг Toyota Land Cruiser 200/300, Camry, RAV4", "priceFrom": 20000,
- "series": [
- { "slug": "land-cruiser-200", "name": "Toyota Land Cruiser 200", "priceFrom": 30000 },
- { "slug": "land-cruiser-300", "name": "Toyota Land Cruiser 300", "priceFrom": 35000 },
- { "slug": "camry", "name": "Toyota Camry", "priceFrom": 20000 },
- { "slug": "rav4", "name": "Toyota RAV4", "priceFrom": 20000 }
- ]
- },
- {
- "slug": "kia", "name": "KIA", "nameRu": "КИА", "featured": false, "priority": 12,
- "description": "Чип-тюнинг KIA K5, Sorento, Stinger", "priceFrom": 20000,
- "series": [
- { "slug": "k5", "name": "KIA K5 / Optima", "priceFrom": 20000 },
- { "slug": "sorento", "name": "KIA Sorento", "priceFrom": 25000 },
- { "slug": "stinger", "name": "KIA Stinger GT", "priceFrom": 30000 }
- ]
- },
- {
- "slug": "nissan", "name": "Nissan", "nameRu": "Ниссан", "featured": false, "priority": 13,
- "description": "Чип-тюнинг Nissan Patrol, X-Trail, Qashqai", "priceFrom": 18000,
- "series": [
- { "slug": "patrol", "name": "Nissan Patrol Y62", "priceFrom": 30000 },
- { "slug": "x-trail", "name": "Nissan X-Trail", "priceFrom": 18000 },
- { "slug": "qashqai", "name": "Nissan Qashqai", "priceFrom": 18000 }
- ]
- },
- {
- "slug": "hyundai", "name": "Hyundai", "nameRu": "Хендай", "featured": false, "priority": 14,
- "description": "Чип-тюнинг Hyundai Tucson, Santa Fe, Sonata", "priceFrom": 18000,
- "series": [
- { "slug": "tucson", "name": "Hyundai Tucson", "priceFrom": 18000 },
- { "slug": "santa-fe", "name": "Hyundai Santa Fe", "priceFrom": 20000 },
- { "slug": "sonata", "name": "Hyundai Sonata", "priceFrom": 18000 }
- ]
- },
- {
- "slug": "subaru", "name": "Subaru", "nameRu": "Субару", "featured": false, "priority": 15,
- "description": "Чип-тюнинг Subaru WRX STI, Forester, Outback", "priceFrom": 20000,
- "series": [
- { "slug": "wrx-sti", "name": "Subaru WRX STI", "priceFrom": 25000 },
- { "slug": "forester", "name": "Subaru Forester", "priceFrom": 20000 },
- { "slug": "outback", "name": "Subaru Outback", "priceFrom": 20000 }
- ]
- },
- {
- "slug": "mini", "name": "MINI", "nameRu": "Мини", "featured": false, "priority": 16,
- "description": "Чип-тюнинг MINI Cooper S, JCW, Clubman", "priceFrom": 20000,
- "series": [
- { "slug": "cooper-s", "name": "MINI Cooper S / JCW", "priceFrom": 20000 },
- { "slug": "clubman", "name": "MINI Clubman", "priceFrom": 20000 },
- { "slug": "countryman", "name": "MINI Countryman", "priceFrom": 22000 }
- ]
- },
- {
- "slug": "skoda", "name": "Skoda", "nameRu": "Шкода", "featured": false, "priority": 17,
- "description": "Чип-тюнинг Skoda Octavia, Superb, Kodiaq", "priceFrom": 18000,
- "series": [
- { "slug": "octavia", "name": "Skoda Octavia RS / vRS", "priceFrom": 18000 },
- { "slug": "superb", "name": "Skoda Superb", "priceFrom": 20000 },
- { "slug": "kodiaq", "name": "Skoda Kodiaq", "priceFrom": 22000 }
- ]
- },
- {
- "slug": "mitsubishi", "name": "Mitsubishi", "nameRu": "Мицубиси", "featured": false, "priority": 18,
- "description": "Чип-тюнинг Mitsubishi Lancer Evo, Outlander, L200", "priceFrom": 18000,
- "series": [
- { "slug": "lancer-evo", "name": "Mitsubishi Lancer Evolution", "priceFrom": 25000 },
- { "slug": "outlander", "name": "Mitsubishi Outlander", "priceFrom": 18000 },
- { "slug": "l200", "name": "Mitsubishi L200", "priceFrom": 20000 }
- ]
- },
- {
- "slug": "mazda", "name": "Mazda", "nameRu": "Мазда", "featured": false, "priority": 19,
- "description": "Чип-тюнинг Mazda CX-5, CX-9, Mazda 6", "priceFrom": 18000,
- "series": [
- { "slug": "cx5", "name": "Mazda CX-5", "priceFrom": 18000 },
- { "slug": "cx9", "name": "Mazda CX-9", "priceFrom": 22000 },
- { "slug": "6", "name": "Mazda 6", "priceFrom": 18000 }
- ]
- },
- {
- "slug": "infiniti", "name": "Infiniti", "nameRu": "Инфинити", "featured": false, "priority": 20,
- "description": "Чип-тюнинг Infiniti Q50, QX70, QX80", "priceFrom": 22000,
- "series": [
- { "slug": "q50", "name": "Infiniti Q50 / Q60", "priceFrom": 25000 },
- { "slug": "qx70", "name": "Infiniti QX70 / FX", "priceFrom": 25000 },
- { "slug": "qx80", "name": "Infiniti QX80", "priceFrom": 30000 }
- ]
- },
- {
- "slug": "ford", "name": "Ford", "nameRu": "Форд", "featured": false, "priority": 21,
- "description": "Чип-тюнинг Ford Focus RS, Mustang, Edge", "priceFrom": 18000,
- "series": [
- { "slug": "focus-rs", "name": "Ford Focus RS / ST", "priceFrom": 20000 },
- { "slug": "mustang", "name": "Ford Mustang", "priceFrom": 25000 },
- { "slug": "kuga", "name": "Ford Kuga / Edge", "priceFrom": 18000 }
- ]
- },
- {
- "slug": "jeep", "name": "Jeep", "nameRu": "Джип", "featured": false, "priority": 22,
- "description": "Чип-тюнинг Jeep Grand Cherokee, Wrangler", "priceFrom": 25000,
- "series": [
- { "slug": "grand-cherokee", "name": "Jeep Grand Cherokee", "priceFrom": 25000 },
- { "slug": "wrangler", "name": "Jeep Wrangler", "priceFrom": 25000 }
- ]
- },
- {
- "slug": "opel", "name": "Opel", "nameRu": "Опель", "featured": false, "priority": 23,
- "description": "Чип-тюнинг Opel Insignia, Astra OPC, Mokka", "priceFrom": 18000,
- "series": [
- { "slug": "insignia", "name": "Opel Insignia OPC", "priceFrom": 18000 },
- { "slug": "astra-opc", "name": "Opel Astra OPC / GTC", "priceFrom": 18000 }
- ]
- },
- {
- "slug": "renault", "name": "Renault", "nameRu": "Рено", "featured": false, "priority": 24,
- "description": "Чип-тюнинг Renault Megane RS, Arkana, Duster", "priceFrom": 16000,
- "series": [
- { "slug": "megane-rs", "name": "Renault Megane RS / Trophy", "priceFrom": 20000 },
- { "slug": "arkana", "name": "Renault Arkana", "priceFrom": 16000 },
- { "slug": "duster", "name": "Renault Duster", "priceFrom": 16000 }
- ]
- },
- {
- "slug": "seat", "name": "SEAT", "nameRu": "Сеат", "featured": false, "priority": 25,
- "description": "Чип-тюнинг SEAT Leon Cupra, Ateca", "priceFrom": 18000,
- "series": [
- { "slug": "leon-cupra", "name": "SEAT Leon Cupra / FR", "priceFrom": 20000 },
- { "slug": "ateca", "name": "SEAT Ateca", "priceFrom": 18000 }
- ]
- },
- {
- "slug": "alfa-romeo", "name": "Alfa Romeo", "nameRu": "Альфа Ромео", "featured": false, "priority": 26,
- "description": "Чип-тюнинг Alfa Romeo Giulia, Stelvio, Giulietta", "priceFrom": 22000,
- "series": [
- { "slug": "giulia", "name": "Alfa Romeo Giulia / Quadrifoglio", "priceFrom": 30000 },
- { "slug": "stelvio", "name": "Alfa Romeo Stelvio", "priceFrom": 25000 }
- ]
- },
- {
- "slug": "bentley", "name": "Bentley", "nameRu": "Бентли", "featured": false, "priority": 27,
- "description": "Тюнинг Bentley Continental GT, Bentayga", "priceFrom": 60000,
- "series": [
- { "slug": "continental", "name": "Bentley Continental GT", "priceFrom": 70000 },
- { "slug": "bentayga", "name": "Bentley Bentayga", "priceFrom": 65000 }
- ]
- },
- {
- "slug": "maserati", "name": "Maserati", "nameRu": "Мазерати", "featured": false, "priority": 28,
- "description": "Тюнинг Maserati Ghibli, Levante, Quattroporte", "priceFrom": 50000,
- "series": [
- { "slug": "ghibli", "name": "Maserati Ghibli", "priceFrom": 55000 },
- { "slug": "levante", "name": "Maserati Levante", "priceFrom": 55000 }
- ]
- },
- {
- "slug": "ferrari", "name": "Ferrari", "nameRu": "Феррари", "featured": false, "priority": 29,
- "description": "Тюнинг Ferrari 458, 488, F8, California", "priceFrom": 80000,
- "series": [
- { "slug": "488", "name": "Ferrari 488 GTB / Spider", "priceFrom": 90000 },
- { "slug": "f8", "name": "Ferrari F8 Tributo", "priceFrom": 90000 }
- ]
- },
- {
- "slug": "lamborghini", "name": "Lamborghini", "nameRu": "Ламборгини", "featured": false, "priority": 30,
- "description": "Тюнинг Lamborghini Urus, Huracan, Gallardo", "priceFrom": 80000,
- "series": [
- { "slug": "urus", "name": "Lamborghini Urus", "priceFrom": 90000 },
- { "slug": "huracan", "name": "Lamborghini Huracan", "priceFrom": 100000 }
- ]
- },
- {
- "slug": "cadillac", "name": "Cadillac", "nameRu": "Кадиллак", "featured": false, "priority": 31,
- "description": "Тюнинг Cadillac Escalade, CT5, XT5", "priceFrom": 25000,
- "series": [
- { "slug": "escalade", "name": "Cadillac Escalade", "priceFrom": 30000 },
- { "slug": "ct5", "name": "Cadillac CT5 / CT6", "priceFrom": 25000 }
- ]
- },
- {
- "slug": "mclaren", "name": "McLaren", "nameRu": "Макларен", "featured": false, "priority": 32,
- "description": "Тюнинг McLaren 570S, 720S, GT", "priceFrom": 100000,
- "series": [
- { "slug": "570s", "name": "McLaren 570S / 600LT", "priceFrom": 110000 },
- { "slug": "720s", "name": "McLaren 720S", "priceFrom": 120000 }
- ]
- }
+  {
+    "slug": "bmw",
+    "name": "BMW",
+    "nameRu": "БМВ",
+    "featured": true,
+    "priority": 1,
+    "color": "#1c69d4",
+    "description": "Чип-тюнинг и обслуживание BMW всех серий в Санкт-Петербурге",
+    "tagline": "Раскрываем потенциал баварского характера",
+    "seo": {
+      "title": "Чип-тюнинг BMW в СПб | Stage 1/2/3 от 25 000 ₽ | HP Тюнинг",
+      "description": "Профессиональный чип-тюнинг BMW в Санкт-Петербурге: E-серии, F-серии, G-серии, M-модели. Прошивка Stage 1/2/3 с гарантией. +7 (981) 842-81-51",
+      "keywords": [
+        "чип-тюнинг bmw",
+        "прошивка бмв спб",
+        "stage 1 bmw",
+        "stage 2 bmw",
+        "чип бмв"
+      ]
+    },
+    "typicalProblems": [
+      "Износ цепи ГРМ (N20, N55)",
+      "Расход масла на угар (N54, N63)",
+      "Отказ Valvetronic",
+      "Течь поддона и сальников",
+      "Проблемы с DPF у дизелей",
+      "Износ форсунок на дизелях N47, B47"
+    ],
+    "whatWeDo": [
+      "Диагностика на дилерском оборудовании ISTA",
+      "Чип Stage 1/2/3 с отключением DPF/EGR",
+      "Удаление Start/Stop, CBS-сервиса",
+      "Кодирование функций (активация скрытых опций)",
+      "Замена цепи ГРМ с гарантией",
+      "Капитальный ремонт N54, N55, S55"
+    ],
+    "priceFrom": 25000,
+    "series": [
+      {
+        "slug": "e90",
+        "name": "BMW 3-Series E90 (2005-2012)",
+        "years": "2005-2012",
+        "engines": [
+          {
+            "code": "N46B20",
+            "displacement": 2.0,
+            "type": "gasoline",
+            "hp": 129,
+            "tuning": {
+              "stage1": {
+                "hp": 155
+              }
+            }
+          },
+          {
+            "code": "N47D20",
+            "displacement": 2.0,
+            "type": "diesel",
+            "hp": 177,
+            "tuning": {
+              "stage1": {
+                "hp": 215,
+                "nm": 450
+              }
+            }
+          },
+          {
+            "code": "N54B30",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 306,
+            "tuning": {
+              "stage1": {
+                "hp": 380
+              },
+              "stage2": {
+                "hp": 440
+              }
+            }
+          },
+          {
+            "code": "N55B30",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 306,
+            "tuning": {
+              "stage1": {
+                "hp": 370
+              },
+              "stage2": {
+                "hp": 420
+              }
+            }
+          }
+        ],
+        "priceFrom": 25000
+      },
+      {
+        "slug": "f30",
+        "name": "BMW 3-Series F30 (2011-2019)",
+        "years": "2011-2019",
+        "engines": [
+          {
+            "code": "N20B20",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 184,
+            "tuning": {
+              "stage1": {
+                "hp": 240,
+                "nm": 370
+              },
+              "stage2": {
+                "hp": 280
+              }
+            }
+          },
+          {
+            "code": "B48B20",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 252,
+            "tuning": {
+              "stage1": {
+                "hp": 310,
+                "nm": 450
+              }
+            }
+          },
+          {
+            "code": "N47D20",
+            "displacement": 2.0,
+            "type": "diesel",
+            "hp": 184,
+            "tuning": {
+              "stage1": {
+                "hp": 225
+              },
+              "stage2": {
+                "hp": 260
+              }
+            }
+          },
+          {
+            "code": "B47D20",
+            "displacement": 2.0,
+            "type": "diesel",
+            "hp": 190,
+            "tuning": {
+              "stage1": {
+                "hp": 235,
+                "nm": 490
+              }
+            }
+          }
+        ],
+        "priceFrom": 25000
+      },
+      {
+        "slug": "g20",
+        "name": "BMW 3-Series G20 (2019+)",
+        "years": "2019+",
+        "engines": [
+          {
+            "code": "B48B20",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 258,
+            "tuning": {
+              "stage1": {
+                "hp": 315
+              }
+            }
+          },
+          {
+            "code": "B58B30",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 374,
+            "tuning": {
+              "stage1": {
+                "hp": 450
+              },
+              "stage2": {
+                "hp": 520
+              }
+            }
+          }
+        ],
+        "priceFrom": 30000
+      },
+      {
+        "slug": "f10",
+        "name": "BMW 5-Series F10 (2010-2017)",
+        "years": "2010-2017",
+        "engines": [],
+        "priceFrom": 25000
+      },
+      {
+        "slug": "g30",
+        "name": "BMW 5-Series G30 (2017+)",
+        "years": "2017+",
+        "engines": [],
+        "priceFrom": 30000
+      },
+      {
+        "slug": "f15",
+        "name": "BMW X5 F15 (2013-2018)",
+        "years": "2013-2018",
+        "engines": [],
+        "priceFrom": 30000
+      },
+      {
+        "slug": "g05",
+        "name": "BMW X5 G05 (2018+)",
+        "years": "2018+",
+        "engines": [],
+        "priceFrom": 35000
+      },
+      {
+        "slug": "m-series",
+        "name": "BMW M-Series (M3, M5, M8)",
+        "years": "все поколения",
+        "engines": [
+          {
+            "code": "S55B30",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 431,
+            "tuning": {
+              "stage1": {
+                "hp": 510
+              },
+              "stage2": {
+                "hp": 580
+              }
+            }
+          },
+          {
+            "code": "S63B44",
+            "displacement": 4.4,
+            "type": "gasoline-turbo",
+            "hp": 600,
+            "tuning": {
+              "stage1": {
+                "hp": 700
+              },
+              "stage2": {
+                "hp": 780
+              }
+            }
+          }
+        ],
+        "priceFrom": 50000
+      }
+    ]
+  },
+  {
+    "slug": "mercedes",
+    "name": "Mercedes-Benz",
+    "nameRu": "Мерседес-Бенц",
+    "featured": true,
+    "priority": 2,
+    "color": "#00adef",
+    "description": "Чип-тюнинг Mercedes-Benz всех классов в Санкт-Петербурге",
+    "tagline": "Немецкая инженерия без компромиссов",
+    "seo": {
+      "title": "Чип-тюнинг Mercedes-Benz в СПб | C/E/S/G/GLE | HP Тюнинг",
+      "description": "Профессиональный чип-тюнинг Mercedes-Benz в СПб: W205, W213, W222, Gelandewagen, AMG. Stage 1/2/3 с гарантией. +7 (981) 842-81-51",
+      "keywords": [
+        "чип-тюнинг мерседес",
+        "прошивка mercedes спб",
+        "тюнинг amg",
+        "чип gelandewagen"
+      ]
+    },
+    "typicalProblems": [
+      "Износ цепи ГРМ на M271, M272, M273",
+      "Балансировочные валы M271 EVO",
+      "Проблема ТНВД на дизелях OM651",
+      "Износ форсунок CDI",
+      "Выход из строя 7G-Tronic и 9G-Tronic",
+      "Нагар на впускных клапанах (direct injection)"
+    ],
+    "whatWeDo": [
+      "Диагностика Star Diagnosis / XENTRY",
+      "Чип M276, M278, M177, OM654, OM656",
+      "Удаление сажевого фильтра и EGR",
+      "Прошивка AMG Performance",
+      "Кодирование мультимедии и опций",
+      "Замена цепи ГРМ и балансиров"
+    ],
+    "priceFrom": 30000,
+    "series": [
+      {
+        "slug": "w205",
+        "name": "Mercedes C-Class W205 (2014-2021)",
+        "years": "2014-2021",
+        "engines": [],
+        "priceFrom": 30000
+      },
+      {
+        "slug": "w213",
+        "name": "Mercedes E-Class W213 (2016+)",
+        "years": "2016+",
+        "engines": [],
+        "priceFrom": 30000
+      },
+      {
+        "slug": "w222",
+        "name": "Mercedes S-Class W222 (2013-2020)",
+        "years": "2013-2020",
+        "engines": [],
+        "priceFrom": 40000
+      },
+      {
+        "slug": "w463",
+        "name": "Mercedes G-Class (Gelandewagen) W463",
+        "years": "все",
+        "engines": [],
+        "priceFrom": 50000
+      },
+      {
+        "slug": "gle",
+        "name": "Mercedes GLE W166/W167",
+        "years": "2015+",
+        "engines": [],
+        "priceFrom": 35000
+      },
+      {
+        "slug": "amg",
+        "name": "Mercedes-AMG (C63, E63, G63, GT)",
+        "years": "все",
+        "engines": [],
+        "priceFrom": 60000
+      }
+    ]
+  },
+  {
+    "slug": "audi",
+    "name": "Audi",
+    "nameRu": "Ауди",
+    "featured": true,
+    "priority": 3,
+    "color": "#bb0a30",
+    "description": "Чип-тюнинг Audi A/Q/RS — Stage 1/2/3 в Санкт-Петербурге",
+    "tagline": "Vorsprung durch Technik — усиливаем формулу",
+    "seo": {
+      "title": "Чип-тюнинг Audi в СПб | A4/A6/Q5/Q7/RS | HP Тюнинг",
+      "description": "Профессиональный чип-тюнинг Audi в СПб: A4, A6, A8, Q5, Q7, Q8, RS-серия. Stage 1/2/3 на TFSI/TDI. +7 (981) 842-81-51",
+      "keywords": [
+        "чип ауди",
+        "прошивка audi спб",
+        "stage 2 a4",
+        "тюнинг rs6"
+      ]
+    },
+    "typicalProblems": [
+      "Масложор TFSI 2.0 (EA113, EA888 gen1-2)",
+      "Износ цепи ГРМ 3.0 TFSI / 3.2 FSI",
+      "ТНВД на дизелях 2.7/3.0 TDI",
+      "Проблемы DSG (7-ступка DQ200)",
+      "Выход из строя турбины K03 на 1.8/2.0 TFSI",
+      "Отказ заслонок впускного коллектора"
+    ],
+    "whatWeDo": [
+      "Диагностика VCDS / ODIS",
+      "Чип EA888, EA839, 3.0 TDI, 4.0 TFSI",
+      "Удаление DPF/EGR/AdBlue",
+      "Прошивка RS-модификаций",
+      "Замена цепи ГРМ 3.0 TFSI",
+      "Ремонт и чистка форсунок"
+    ],
+    "priceFrom": 25000,
+    "series": [
+      {
+        "slug": "a4",
+        "name": "Audi A4 (B8, B9)",
+        "years": "2007+",
+        "engines": [],
+        "priceFrom": 25000
+      },
+      {
+        "slug": "a6",
+        "name": "Audi A6 (C7, C8)",
+        "years": "2011+",
+        "engines": [],
+        "priceFrom": 30000
+      },
+      {
+        "slug": "a8",
+        "name": "Audi A8 (D4, D5)",
+        "years": "2010+",
+        "engines": [],
+        "priceFrom": 40000
+      },
+      {
+        "slug": "q5",
+        "name": "Audi Q5 (8R, FY)",
+        "years": "2008+",
+        "engines": [],
+        "priceFrom": 30000
+      },
+      {
+        "slug": "q7",
+        "name": "Audi Q7 (4L, 4M)",
+        "years": "2005+",
+        "engines": [],
+        "priceFrom": 35000
+      },
+      {
+        "slug": "q8",
+        "name": "Audi Q8 (4M)",
+        "years": "2018+",
+        "engines": [],
+        "priceFrom": 40000
+      },
+      {
+        "slug": "rs",
+        "name": "Audi RS (RS3, RS6, RS7, R8)",
+        "years": "все",
+        "engines": [],
+        "priceFrom": 60000
+      }
+    ]
+  },
+  {
+    "slug": "porsche",
+    "name": "Porsche",
+    "nameRu": "Порше",
+    "featured": true,
+    "priority": 4,
+    "color": "#d5001c",
+    "description": "Чип-тюнинг Porsche Cayenne, Macan, Panamera, 911 в СПб",
+    "tagline": "Штутгартская точность — на максимум",
+    "seo": {
+      "title": "Чип-тюнинг Porsche в СПб | Cayenne/Macan/911 | HP Тюнинг",
+      "description": "Тюнинг Porsche Cayenne, Macan, Panamera, 911. Stage 1/2 с сохранением надёжности. +7 (981) 842-81-51",
+      "keywords": [
+        "чип-тюнинг порше",
+        "тюнинг cayenne",
+        "прошивка porsche macan"
+      ]
+    },
+    "typicalProblems": [
+      "Износ цепи ГРМ Cayenne/Panamera V6",
+      "Проблемы с мехатроникой PDK",
+      "Отказ Coolant Pipe на V8",
+      "Трещины блока цилиндров 4.8 FSI",
+      "Проблема с PASM (пневмоподвеска)"
+    ],
+    "whatWeDo": [
+      "Диагностика PIWIS",
+      "Чип 3.0 TDI, 3.0/4.0 TFSI",
+      "Прошивка Sport Chrono",
+      "Кодирование опций Porsche Connect",
+      "Восстановление coolant pipe на V8"
+    ],
+    "priceFrom": 40000,
+    "series": [
+      {
+        "slug": "cayenne",
+        "name": "Porsche Cayenne",
+        "years": "2003+",
+        "engines": [],
+        "priceFrom": 40000
+      },
+      {
+        "slug": "macan",
+        "name": "Porsche Macan",
+        "years": "2014+",
+        "engines": [],
+        "priceFrom": 40000
+      },
+      {
+        "slug": "panamera",
+        "name": "Porsche Panamera",
+        "years": "2009+",
+        "engines": [],
+        "priceFrom": 50000
+      },
+      {
+        "slug": "911",
+        "name": "Porsche 911 (991, 992)",
+        "years": "все",
+        "engines": [],
+        "priceFrom": 60000
+      }
+    ]
+  },
+  {
+    "slug": "lexus",
+    "name": "Lexus",
+    "nameRu": "Лексус",
+    "featured": false,
+    "priority": 5,
+    "description": "Обслуживание и тюнинг Lexus RX, LX, ES, GX",
+    "priceFrom": 25000,
+    "series": [
+      {
+        "slug": "rx",
+        "name": "Lexus RX 350/450h",
+        "years": "2003+",
+        "priceFrom": 25000
+      },
+      {
+        "slug": "lx",
+        "name": "Lexus LX 470/570/600",
+        "years": "1998+",
+        "priceFrom": 30000
+      },
+      {
+        "slug": "es",
+        "name": "Lexus ES 250/350",
+        "years": "1989+",
+        "priceFrom": 20000
+      },
+      {
+        "slug": "gx",
+        "name": "Lexus GX 460/470",
+        "years": "2002+",
+        "priceFrom": 30000
+      }
+    ],
+    "color": "#1a1a2e",
+    "tagline": "Премиум качество — японская надёжность",
+    "seo": {
+      "title": "Чип-тюнинг Lexus в СПб | RX/LX/GX/ES | HP Тюнинг",
+      "description": "Профессиональный чип-тюнинг Lexus в Санкт-Петербурге: RX 350/450h, LX 470/570, GX 460, ES 250/350. Прошивка Stage 1/2 от 25 000 ₽ с гарантией. +7 (981) 842-81-51",
+      "keywords": [
+        "чип-тюнинг lexus",
+        "прошивка лексус спб",
+        "stage 1 lexus",
+        "чип lx570",
+        "тюнинг lexus rx"
+      ]
+    },
+    "typicalProblems": [
+      "Повышенный расход топлива на V8 (1UR-FE, 3UR-FE)",
+      "Вялая динамика на атмосферных V6 (2GR-FE, 3GR-FSE)",
+      "Жёсткое переключение АКПП при прогреве",
+      "Ограничение скорости на LX 570 (140 км/ч по умолчанию)",
+      "Отказ EGR клапана на дизельных моделях",
+      "Сажевый фильтр (DPF) на IS/GS 220d, NX 300h"
+    ],
+    "whatWeDo": [
+      "Диагностика на Techstream (дилерский уровень)",
+      "Чип-тюнинг 2GR-FE, 1UR-FE, 3UR-FE: +10–15% мощности",
+      "Снятие ограничения скорости на LX 570/600",
+      "Отключение EGR, DPF с перепрошивкой",
+      "Калибровка АКПП, удаление задержек переключения",
+      "Ремонт двигателя: замена цепи ГРМ, течи"
+    ]
+  },
+  {
+    "slug": "land-rover",
+    "name": "Land Rover",
+    "nameRu": "Ленд Ровер",
+    "featured": true,
+    "priority": 6,
+    "description": "Тюнинг и ремонт Land Rover Range Rover, Discovery, Defender",
+    "priceFrom": 30000,
+    "series": [
+      {
+        "slug": "range-rover",
+        "name": "Range Rover (L322, L405, L460)",
+        "priceFrom": 40000
+      },
+      {
+        "slug": "range-rover-sport",
+        "name": "Range Rover Sport",
+        "priceFrom": 35000
+      },
+      {
+        "slug": "discovery",
+        "name": "Land Rover Discovery 3/4/5",
+        "priceFrom": 30000
+      },
+      {
+        "slug": "defender",
+        "name": "Land Rover Defender (L663)",
+        "priceFrom": 35000
+      }
+    ],
+    "color": "#006b5b",
+    "tagline": "Мощь и бездорожье — без компромиссов",
+    "seo": {
+      "title": "Чип-тюнинг Land Rover в СПб | Range Rover/Discovery | HP Тюнинг",
+      "description": "Чип-тюнинг Land Rover в Санкт-Петербурге: Range Rover L405/L460, Discovery 4/5, Defender L663. Прошивка от 30 000 ₽. Jaguar Land Rover диагностика. +7 (981) 842-81-51",
+      "keywords": [
+        "чип-тюнинг land rover",
+        "прошивка range rover спб",
+        "тюнинг discovery",
+        "чип defender",
+        "land rover спб"
+      ]
+    },
+    "typicalProblems": [
+      "Масложор и течи двигателей AJ-V8, 3.0 TDV6/SDV6",
+      "Проблемы с воздушной подвеской (пневмобаллоны, компрессор)",
+      "Отказ ZF 8HP (хаотичные переключения, пробуксовки)",
+      "Засорение сажевого фильтра DPF на TDV6/SDV8",
+      "Коррозия задней балки у Discovery 3/4",
+      "Электрические сбои мультиплексора InControl"
+    ],
+    "whatWeDo": [
+      "Диагностика IDS/SDD — дилерский уровень JLR",
+      "Чип 3.0 TDV6, SDV6, SDV8: +35–50 л.с., -1,5 л/100 км",
+      "Прошивка 3.0/4.4 Si4, 5.0 V8 с отключением Start/Stop",
+      "Отключение DPF, EGR, AdBlue с гарантией",
+      "Ремонт и замена пневматической подвески",
+      "Программирование ZF 8HP: режимы Sport, адаптация"
+    ]
+  },
+  {
+    "slug": "landrover",
+    "name": "Land Rover",
+    "nameRu": "Ленд Ровер",
+    "featured": true,
+    "priority": 6,
+    "description": "Тюнинг и ремонт Land Rover Range Rover, Discovery, Defender",
+    "priceFrom": 30000,
+    "series": [
+      {
+        "slug": "range-rover",
+        "name": "Range Rover (L322, L405, L460)",
+        "priceFrom": 40000
+      },
+      {
+        "slug": "range-rover-sport",
+        "name": "Range Rover Sport",
+        "priceFrom": 35000
+      },
+      {
+        "slug": "discovery",
+        "name": "Land Rover Discovery 3/4/5",
+        "priceFrom": 30000
+      },
+      {
+        "slug": "defender",
+        "name": "Land Rover Defender (L663)",
+        "priceFrom": 35000
+      }
+    ],
+    "color": "#006b5b",
+    "tagline": "Мощь и бездорожье — без компромиссов",
+    "seo": {
+      "title": "Чип-тюнинг Land Rover в СПб | Range Rover/Discovery | HP Тюнинг",
+      "description": "Чип-тюнинг Land Rover в Санкт-Петербурге: Range Rover L405/L460, Discovery 4/5, Defender L663. Прошивка от 30 000 ₽. Jaguar Land Rover диагностика. +7 (981) 842-81-51",
+      "keywords": [
+        "чип-тюнинг land rover",
+        "прошивка range rover спб",
+        "тюнинг discovery",
+        "чип defender",
+        "land rover спб"
+      ]
+    },
+    "typicalProblems": [
+      "Масложор и течи двигателей AJ-V8, 3.0 TDV6/SDV6",
+      "Проблемы с воздушной подвеской (пневмобаллоны, компрессор)",
+      "Отказ ZF 8HP (хаотичные переключения, пробуксовки)",
+      "Засорение сажевого фильтра DPF на TDV6/SDV8",
+      "Коррозия задней балки у Discovery 3/4",
+      "Электрические сбои мультиплексора InControl"
+    ],
+    "whatWeDo": [
+      "Диагностика IDS/SDD — дилерский уровень JLR",
+      "Чип 3.0 TDV6, SDV6, SDV8: +35–50 л.с., -1,5 л/100 км",
+      "Прошивка 3.0/4.4 Si4, 5.0 V8 с отключением Start/Stop",
+      "Отключение DPF, EGR, AdBlue с гарантией",
+      "Ремонт и замена пневматической подвески",
+      "Программирование ZF 8HP: режимы Sport, адаптация"
+    ]
+  },
+  {
+    "slug": "volvo",
+    "name": "Volvo",
+    "nameRu": "Вольво",
+    "featured": false,
+    "priority": 7,
+    "description": "Чип-тюнинг Volvo XC60, XC90, S90",
+    "priceFrom": 20000,
+    "series": [
+      {
+        "slug": "xc60",
+        "name": "Volvo XC60",
+        "priceFrom": 20000
+      },
+      {
+        "slug": "xc90",
+        "name": "Volvo XC90",
+        "priceFrom": 25000
+      },
+      {
+        "slug": "s90",
+        "name": "Volvo S90",
+        "priceFrom": 22000
+      }
+    ]
+  },
+  {
+    "slug": "volkswagen",
+    "name": "Volkswagen",
+    "nameRu": "Фольксваген",
+    "featured": false,
+    "priority": 8,
+    "description": "Тюнинг VW Tiguan, Touareg, Passat",
+    "priceFrom": 20000,
+    "series": [
+      {
+        "slug": "tiguan",
+        "name": "VW Tiguan",
+        "priceFrom": 20000
+      },
+      {
+        "slug": "touareg",
+        "name": "VW Touareg",
+        "priceFrom": 30000
+      },
+      {
+        "slug": "passat",
+        "name": "VW Passat (B7, B8)",
+        "priceFrom": 20000
+      }
+    ],
+    "color": "#001e50",
+    "tagline": "Немецкая точность — доступная мощь",
+    "seo": {
+      "title": "Чип-тюнинг Volkswagen в СПб | Tiguan/Touareg/Passat | HP Тюнинг",
+      "description": "Профессиональный чип-тюнинг Volkswagen в Санкт-Петербурге: Tiguan, Touareg, Passat B7/B8, Golf GTI/R. Прошивка Stage 1/2 от 20 000 ₽. +7 (981) 842-81-51",
+      "keywords": [
+        "чип-тюнинг volkswagen",
+        "прошивка vw спб",
+        "stage 1 tiguan",
+        "тюнинг touareg",
+        "чип passat"
+      ]
+    },
+    "typicalProblems": [
+      "Масложор 2.0 TSI (EA113, EA888 gen1-2) при неисправных маслосъёмных кольцах",
+      "Цепь ГРМ на 3.6 FSI и 3.0 TFSI: вытяжение при пробеге 80–120 тыс.",
+      "Мехатроник DSG7 (DQ200): пробуксовки на холодную, рывки",
+      "Засорение сажевого фильтра TDI (EA288, EA896)",
+      "Термостат системы охлаждения — перегрев на пробках",
+      "Течь заднего сальника коленвала на высокопробежных TSI"
+    ],
+    "whatWeDo": [
+      "Диагностика VCDS / ODIS — полная система VW Group",
+      "Чип EA888, EA839, 3.0 TDI: Stage 1/2/3 с гарантией",
+      "Программирование DQ250, DQ381, ZF 8HP — режимы Sport",
+      "Отключение DPF, EGR, AdBlue, Поп-банг",
+      "Кодирование скрытых функций: зеркала, огни, диагностика",
+      "Ремонт мехатроника DSG, замена сцепления DQ200"
+    ]
+  },
+  {
+    "slug": "jaguar",
+    "name": "Jaguar",
+    "nameRu": "Ягуар",
+    "featured": false,
+    "priority": 9,
+    "description": "Обслуживание и тюнинг Jaguar F-Pace, XF",
+    "priceFrom": 30000,
+    "series": [
+      {
+        "slug": "f-pace",
+        "name": "Jaguar F-Pace",
+        "priceFrom": 30000
+      },
+      {
+        "slug": "xf",
+        "name": "Jaguar XF",
+        "priceFrom": 30000
+      }
+    ]
+  },
+  {
+    "slug": "genesis",
+    "name": "Genesis",
+    "nameRu": "Генезис",
+    "featured": false,
+    "priority": 10,
+    "description": "Тюнинг Genesis G70, G80, GV80",
+    "priceFrom": 25000,
+    "series": [
+      {
+        "slug": "g70",
+        "name": "Genesis G70",
+        "priceFrom": 25000
+      },
+      {
+        "slug": "g80",
+        "name": "Genesis G80",
+        "priceFrom": 25000
+      },
+      {
+        "slug": "gv80",
+        "name": "Genesis GV80",
+        "priceFrom": 30000
+      }
+    ]
+  },
+  {
+    "slug": "toyota",
+    "name": "Toyota",
+    "nameRu": "Тойота",
+    "featured": false,
+    "priority": 11,
+    "description": "Чип-тюнинг Toyota Land Cruiser 200/300, Camry, RAV4",
+    "priceFrom": 20000,
+    "series": [
+      {
+        "slug": "land-cruiser-200",
+        "name": "Toyota Land Cruiser 200",
+        "priceFrom": 30000
+      },
+      {
+        "slug": "land-cruiser-300",
+        "name": "Toyota Land Cruiser 300",
+        "priceFrom": 35000
+      },
+      {
+        "slug": "camry",
+        "name": "Toyota Camry",
+        "priceFrom": 20000
+      },
+      {
+        "slug": "rav4",
+        "name": "Toyota RAV4",
+        "priceFrom": 20000
+      }
+    ],
+    "color": "#eb0a1e",
+    "tagline": "Надёжность плюс — когда хочется больше",
+    "seo": {
+      "title": "Чип-тюнинг Toyota в СПб | LC 200/300/Camry/RAV4 | HP Тюнинг",
+      "description": "Чип-тюнинг Toyota в Санкт-Петербурге: Land Cruiser 200/300, Camry V70, RAV4, Hilux. Прошивка от 20 000 ₽. Диагностика Techstream. +7 (981) 842-81-51",
+      "keywords": [
+        "чип-тюнинг toyota",
+        "прошивка тойота спб",
+        "тюнинг land cruiser 200",
+        "чип camry",
+        "stage 1 rav4"
+      ]
+    },
+    "typicalProblems": [
+      "Задиры в двигателях 1GR-FE (LC 200 4.0) при позднем обслуживании",
+      "Жёсткая характеристика АКПП A750 и AB60F на холодную",
+      "Перебои в работе дроссельной заслонки Camry V40/V50",
+      "Умирание ТНВД на дизельных D-4D (1KD, 2KD) после 150 тыс.",
+      "EGR на 1KD-FTV: закоксовывание впускного коллектора",
+      "Вялая тяга LC 200 4.7 (2UZ-FE) из-за настроек ЭБУ"
+    ],
+    "whatWeDo": [
+      "Диагностика Techstream — полный доступ к ЭБУ Toyota",
+      "Чип 1GR-FE, 3UR-FE, 2GR-FKS: +10–15 л.с., улучшение тяги",
+      "Прошивка 1KD, 2KD TDI: отключение EGR, DPF",
+      "Адаптация и ремонт АКПП: AB60F, A750, UA80E",
+      "Удаление ограничения скорости LC 200/300",
+      "Чистка впускного коллектора, ремонт ТНВД"
+    ]
+  },
+  {
+    "slug": "kia",
+    "name": "KIA",
+    "nameRu": "КИА",
+    "featured": false,
+    "priority": 12,
+    "description": "Чип-тюнинг KIA K5, Sorento, Stinger",
+    "priceFrom": 20000,
+    "series": [
+      {
+        "slug": "k5",
+        "name": "KIA K5 / Optima",
+        "priceFrom": 20000
+      },
+      {
+        "slug": "sorento",
+        "name": "KIA Sorento",
+        "priceFrom": 25000
+      },
+      {
+        "slug": "stinger",
+        "name": "KIA Stinger GT",
+        "priceFrom": 30000
+      }
+    ]
+  },
+  {
+    "slug": "nissan",
+    "name": "Nissan",
+    "nameRu": "Ниссан",
+    "featured": false,
+    "priority": 13,
+    "description": "Чип-тюнинг Nissan Patrol, X-Trail, Qashqai",
+    "priceFrom": 18000,
+    "series": [
+      {
+        "slug": "patrol",
+        "name": "Nissan Patrol Y62",
+        "priceFrom": 30000
+      },
+      {
+        "slug": "x-trail",
+        "name": "Nissan X-Trail",
+        "priceFrom": 18000
+      },
+      {
+        "slug": "qashqai",
+        "name": "Nissan Qashqai",
+        "priceFrom": 18000
+      }
+    ]
+  },
+  {
+    "slug": "hyundai",
+    "name": "Hyundai",
+    "nameRu": "Хендай",
+    "featured": false,
+    "priority": 14,
+    "description": "Чип-тюнинг Hyundai Tucson, Santa Fe, Sonata",
+    "priceFrom": 18000,
+    "series": [
+      {
+        "slug": "tucson",
+        "name": "Hyundai Tucson",
+        "priceFrom": 18000
+      },
+      {
+        "slug": "santa-fe",
+        "name": "Hyundai Santa Fe",
+        "priceFrom": 20000
+      },
+      {
+        "slug": "sonata",
+        "name": "Hyundai Sonata",
+        "priceFrom": 18000
+      }
+    ]
+  },
+  {
+    "slug": "subaru",
+    "name": "Subaru",
+    "nameRu": "Субару",
+    "featured": false,
+    "priority": 15,
+    "description": "Чип-тюнинг Subaru WRX STI, Forester, Outback",
+    "priceFrom": 20000,
+    "series": [
+      {
+        "slug": "wrx-sti",
+        "name": "Subaru WRX STI",
+        "priceFrom": 25000
+      },
+      {
+        "slug": "forester",
+        "name": "Subaru Forester",
+        "priceFrom": 20000
+      },
+      {
+        "slug": "outback",
+        "name": "Subaru Outback",
+        "priceFrom": 20000
+      }
+    ]
+  },
+  {
+    "slug": "mini",
+    "name": "MINI",
+    "nameRu": "Мини",
+    "featured": false,
+    "priority": 16,
+    "description": "Чип-тюнинг MINI Cooper S, JCW, Clubman",
+    "priceFrom": 20000,
+    "series": [
+      {
+        "slug": "cooper-s",
+        "name": "MINI Cooper S / JCW",
+        "priceFrom": 20000
+      },
+      {
+        "slug": "clubman",
+        "name": "MINI Clubman",
+        "priceFrom": 20000
+      },
+      {
+        "slug": "countryman",
+        "name": "MINI Countryman",
+        "priceFrom": 22000
+      }
+    ]
+  },
+  {
+    "slug": "skoda",
+    "name": "Skoda",
+    "nameRu": "Шкода",
+    "featured": false,
+    "priority": 17,
+    "description": "Чип-тюнинг Skoda Octavia, Superb, Kodiaq",
+    "priceFrom": 18000,
+    "series": [
+      {
+        "slug": "octavia",
+        "name": "Skoda Octavia RS / vRS",
+        "priceFrom": 18000
+      },
+      {
+        "slug": "superb",
+        "name": "Skoda Superb",
+        "priceFrom": 20000
+      },
+      {
+        "slug": "kodiaq",
+        "name": "Skoda Kodiaq",
+        "priceFrom": 22000
+      }
+    ]
+  },
+  {
+    "slug": "mitsubishi",
+    "name": "Mitsubishi",
+    "nameRu": "Мицубиси",
+    "featured": false,
+    "priority": 18,
+    "description": "Чип-тюнинг Mitsubishi Lancer Evo, Outlander, L200",
+    "priceFrom": 18000,
+    "series": [
+      {
+        "slug": "lancer-evo",
+        "name": "Mitsubishi Lancer Evolution",
+        "priceFrom": 25000
+      },
+      {
+        "slug": "outlander",
+        "name": "Mitsubishi Outlander",
+        "priceFrom": 18000
+      },
+      {
+        "slug": "l200",
+        "name": "Mitsubishi L200",
+        "priceFrom": 20000
+      }
+    ]
+  },
+  {
+    "slug": "mazda",
+    "name": "Mazda",
+    "nameRu": "Мазда",
+    "featured": false,
+    "priority": 19,
+    "description": "Чип-тюнинг Mazda CX-5, CX-9, Mazda 6",
+    "priceFrom": 18000,
+    "series": [
+      {
+        "slug": "cx5",
+        "name": "Mazda CX-5",
+        "priceFrom": 18000
+      },
+      {
+        "slug": "cx9",
+        "name": "Mazda CX-9",
+        "priceFrom": 22000
+      },
+      {
+        "slug": "6",
+        "name": "Mazda 6",
+        "priceFrom": 18000
+      }
+    ]
+  },
+  {
+    "slug": "infiniti",
+    "name": "Infiniti",
+    "nameRu": "Инфинити",
+    "featured": false,
+    "priority": 20,
+    "description": "Чип-тюнинг Infiniti Q50, QX70, QX80",
+    "priceFrom": 22000,
+    "series": [
+      {
+        "slug": "q50",
+        "name": "Infiniti Q50 / Q60",
+        "priceFrom": 25000
+      },
+      {
+        "slug": "qx70",
+        "name": "Infiniti QX70 / FX",
+        "priceFrom": 25000
+      },
+      {
+        "slug": "qx80",
+        "name": "Infiniti QX80",
+        "priceFrom": 30000
+      }
+    ]
+  },
+  {
+    "slug": "ford",
+    "name": "Ford",
+    "nameRu": "Форд",
+    "featured": false,
+    "priority": 21,
+    "description": "Чип-тюнинг Ford Focus RS, Mustang, Edge",
+    "priceFrom": 18000,
+    "series": [
+      {
+        "slug": "focus-rs",
+        "name": "Ford Focus RS / ST",
+        "priceFrom": 20000
+      },
+      {
+        "slug": "mustang",
+        "name": "Ford Mustang",
+        "priceFrom": 25000
+      },
+      {
+        "slug": "kuga",
+        "name": "Ford Kuga / Edge",
+        "priceFrom": 18000
+      }
+    ]
+  },
+  {
+    "slug": "jeep",
+    "name": "Jeep",
+    "nameRu": "Джип",
+    "featured": false,
+    "priority": 22,
+    "description": "Чип-тюнинг Jeep Grand Cherokee, Wrangler",
+    "priceFrom": 25000,
+    "series": [
+      {
+        "slug": "grand-cherokee",
+        "name": "Jeep Grand Cherokee",
+        "priceFrom": 25000
+      },
+      {
+        "slug": "wrangler",
+        "name": "Jeep Wrangler",
+        "priceFrom": 25000
+      }
+    ]
+  },
+  {
+    "slug": "opel",
+    "name": "Opel",
+    "nameRu": "Опель",
+    "featured": false,
+    "priority": 23,
+    "description": "Чип-тюнинг Opel Insignia, Astra OPC, Mokka",
+    "priceFrom": 18000,
+    "series": [
+      {
+        "slug": "insignia",
+        "name": "Opel Insignia OPC",
+        "priceFrom": 18000
+      },
+      {
+        "slug": "astra-opc",
+        "name": "Opel Astra OPC / GTC",
+        "priceFrom": 18000
+      }
+    ]
+  },
+  {
+    "slug": "renault",
+    "name": "Renault",
+    "nameRu": "Рено",
+    "featured": false,
+    "priority": 24,
+    "description": "Чип-тюнинг Renault Megane RS, Arkana, Duster",
+    "priceFrom": 16000,
+    "series": [
+      {
+        "slug": "megane-rs",
+        "name": "Renault Megane RS / Trophy",
+        "priceFrom": 20000
+      },
+      {
+        "slug": "arkana",
+        "name": "Renault Arkana",
+        "priceFrom": 16000
+      },
+      {
+        "slug": "duster",
+        "name": "Renault Duster",
+        "priceFrom": 16000
+      }
+    ]
+  },
+  {
+    "slug": "seat",
+    "name": "SEAT",
+    "nameRu": "Сеат",
+    "featured": false,
+    "priority": 25,
+    "description": "Чип-тюнинг SEAT Leon Cupra, Ateca",
+    "priceFrom": 18000,
+    "series": [
+      {
+        "slug": "leon-cupra",
+        "name": "SEAT Leon Cupra / FR",
+        "priceFrom": 20000
+      },
+      {
+        "slug": "ateca",
+        "name": "SEAT Ateca",
+        "priceFrom": 18000
+      }
+    ]
+  },
+  {
+    "slug": "alfa-romeo",
+    "name": "Alfa Romeo",
+    "nameRu": "Альфа Ромео",
+    "featured": false,
+    "priority": 26,
+    "description": "Чип-тюнинг Alfa Romeo Giulia, Stelvio, Giulietta",
+    "priceFrom": 22000,
+    "series": [
+      {
+        "slug": "giulia",
+        "name": "Alfa Romeo Giulia / Quadrifoglio",
+        "priceFrom": 30000
+      },
+      {
+        "slug": "stelvio",
+        "name": "Alfa Romeo Stelvio",
+        "priceFrom": 25000
+      }
+    ]
+  },
+  {
+    "slug": "bentley",
+    "name": "Bentley",
+    "nameRu": "Бентли",
+    "featured": false,
+    "priority": 27,
+    "description": "Тюнинг Bentley Continental GT, Bentayga",
+    "priceFrom": 60000,
+    "series": [
+      {
+        "slug": "continental",
+        "name": "Bentley Continental GT",
+        "priceFrom": 70000
+      },
+      {
+        "slug": "bentayga",
+        "name": "Bentley Bentayga",
+        "priceFrom": 65000
+      }
+    ]
+  },
+  {
+    "slug": "maserati",
+    "name": "Maserati",
+    "nameRu": "Мазерати",
+    "featured": false,
+    "priority": 28,
+    "description": "Тюнинг Maserati Ghibli, Levante, Quattroporte",
+    "priceFrom": 50000,
+    "series": [
+      {
+        "slug": "ghibli",
+        "name": "Maserati Ghibli",
+        "priceFrom": 55000
+      },
+      {
+        "slug": "levante",
+        "name": "Maserati Levante",
+        "priceFrom": 55000
+      }
+    ]
+  },
+  {
+    "slug": "ferrari",
+    "name": "Ferrari",
+    "nameRu": "Феррари",
+    "featured": false,
+    "priority": 29,
+    "description": "Тюнинг Ferrari 458, 488, F8, California",
+    "priceFrom": 80000,
+    "series": [
+      {
+        "slug": "488",
+        "name": "Ferrari 488 GTB / Spider",
+        "priceFrom": 90000
+      },
+      {
+        "slug": "f8",
+        "name": "Ferrari F8 Tributo",
+        "priceFrom": 90000
+      }
+    ]
+  },
+  {
+    "slug": "lamborghini",
+    "name": "Lamborghini",
+    "nameRu": "Ламборгини",
+    "featured": false,
+    "priority": 30,
+    "description": "Тюнинг Lamborghini Urus, Huracan, Gallardo",
+    "priceFrom": 80000,
+    "series": [
+      {
+        "slug": "urus",
+        "name": "Lamborghini Urus",
+        "priceFrom": 90000
+      },
+      {
+        "slug": "huracan",
+        "name": "Lamborghini Huracan",
+        "priceFrom": 100000
+      }
+    ]
+  },
+  {
+    "slug": "cadillac",
+    "name": "Cadillac",
+    "nameRu": "Кадиллак",
+    "featured": false,
+    "priority": 31,
+    "description": "Тюнинг Cadillac Escalade, CT5, XT5",
+    "priceFrom": 25000,
+    "series": [
+      {
+        "slug": "escalade",
+        "name": "Cadillac Escalade",
+        "priceFrom": 30000
+      },
+      {
+        "slug": "ct5",
+        "name": "Cadillac CT5 / CT6",
+        "priceFrom": 25000
+      }
+    ]
+  },
+  {
+    "slug": "mclaren",
+    "name": "McLaren",
+    "nameRu": "Макларен",
+    "featured": false,
+    "priority": 32,
+    "description": "Тюнинг McLaren 570S, 720S, GT",
+    "priceFrom": 100000,
+    "series": [
+      {
+        "slug": "570s",
+        "name": "McLaren 570S / 600LT",
+        "priceFrom": 110000
+      },
+      {
+        "slug": "720s",
+        "name": "McLaren 720S",
+        "priceFrom": 120000
+      }
+    ]
+  }
 ]

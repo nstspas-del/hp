@@ -52,15 +52,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
  // ── Бренды (динамические) ─────────────────────────────────────────────────
  // Субдоменные бренды → URL субдомена. Остальные → /brands/:slug
+ // Алиасы: land-rover → landrover (субдомен landrover.hptuning.ru)
+ const SLUG_ALIAS: Record<string, string> = { 'land-rover': 'landrover' };
  const subdomainSlugs = new Set(Object.values(BRAND_SUBDOMAIN_MAP));
- const brandPages: MetadataRoute.Sitemap = brands.map((brand) => ({
- url: subdomainSlugs.has(brand.slug)
-   ? `${getBrandUrl(brand.slug)}/`
-   : `${BASE}/brands/${brand.slug}`,
- lastModified: MONTH_AGO,
- changeFrequency: 'monthly' as const,
- priority: brand.featured ? 0.9 : 0.7,
- }));
+
+ const seenSubdomains = new Set<string>(); // дедупликация ланд ровера
+ const brandPages: MetadataRoute.Sitemap = brands
+   .filter((brand) => {
+     // Пропускаем landrover-alias (дубликат land-rover в данных)
+     if (brand.slug === 'landrover') return false;
+     return true;
+   })
+   .map((brand) => {
+     // Нормализуем slug: land-rover → landrover для проверки субдомена
+     const resolvedSlug = SLUG_ALIAS[brand.slug] ?? brand.slug;
+     const isSubdomain = subdomainSlugs.has(resolvedSlug);
+     if (isSubdomain) seenSubdomains.add(resolvedSlug);
+     return {
+       url: isSubdomain
+         ? `${getBrandUrl(resolvedSlug)}/`
+         : `${BASE}/brands/${brand.slug}`,
+       lastModified: MONTH_AGO,
+       changeFrequency: 'monthly' as const,
+       priority: brand.featured ? 0.9 : 0.7,
+     };
+   });
 
  // ── Районы (динамические) ─────────────────────────────────────────────────
  const districtPages: MetadataRoute.Sitemap = districts.map((district) => ({

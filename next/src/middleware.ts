@@ -62,8 +62,10 @@ export function middleware(request: NextRequest) {
   const brandRedirectMatch = pathname.match(/^\/brands\/([a-z0-9_-]+)\/?$/);
   if (brandRedirectMatch) {
     const slug = brandRedirectMatch[1];
-    // Нормализуем: land-rover → landrover
-    const normalizedSlug = BRAND_SUBDOMAIN_MAP[slug] ?? slug;
+    // Нормализуем алиасы: land-rover → landrover
+    const SLUG_ALIAS: Record<string, string> = { 'land-rover': 'landrover' };
+    const aliasSlug = SLUG_ALIAS[slug] ?? slug;
+    const normalizedSlug = BRAND_SUBDOMAIN_MAP[aliasSlug] ?? aliasSlug;
 
     if (SUBDOMAIN_SLUGS.has(normalizedSlug)) {
       const subdomainUrl = getBrandUrl(normalizedSlug) + '/';
