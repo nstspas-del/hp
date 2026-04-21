@@ -217,8 +217,8 @@ export default function ChipTuningPage() {
 
  {/* ── 3 Stage карточки ── */}
  <section className="py-16 container">
- <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">ВЫБЕРИТЕ УРОВЕНЬ</h2>
- <p className="text-text-muted mb-10">От базовой оптимизации до экстремального форсирования</p>
+ <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">ТЮНИНГ И ЧИП-ТЮНИНГ</h2>
+ <p className="text-text-muted mb-10">Прошивка ЭБУ, аппаратные доработки и проекты полного форсирования под задачи клиента</p>
  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
  {STAGES.map((stage) => (
  <div key={stage.slug} className={`card border transition-colors flex flex-col ${stage.color}`}>

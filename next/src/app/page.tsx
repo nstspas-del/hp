@@ -9,6 +9,7 @@ import { FaqSection } from '@/components/sections/FaqSection';
 import { CtaSection } from '@/components/sections/CtaSection';
 import { ReviewsSection } from '@/components/sections/ReviewsSection';
 import { VideoSection } from '@/components/sections/VideoSection';
+import { ProjectCarsSection } from '@/components/sections/ProjectCarsSection';
 import seoData from '@/data/seo.json';
 
 export const metadata: Metadata = {
@@ -86,6 +87,9 @@ export default function HomePage() {
 
  {/* Работы */}
  <WorksPreview />
+
+ {/* Проектные автомобили */}
+ <ProjectCarsSection />
 
  {/* Видео RuTube */}
  <VideoSection />

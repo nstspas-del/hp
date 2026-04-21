@@ -39,7 +39,7 @@ const NAV = [
  label: 'Тюнинг',
  href: '/tuning/chip-tuning',
  sub: [
- { label: 'Чип-тюнинг', href: '/tuning/chip-tuning', desc: 'Stage 1 / 2 / 3, от 24 000 ₽' },
+ { label: 'Чип-тюнинг', href: '/tuning/chip-tuning', desc: 'Прошивка ЭБУ, аппаратные доработки, от 24 000 ₽' },
  { label: 'Тормозной тюнинг', href: '/tuning/brakes', desc: 'Brembo, AP Racing' },
  { label: 'Выхлопная система', href: '/tuning/exhaust', desc: 'Sport-выхлоп, клапаны, катбэки' },
  { label: 'Шумоизоляция', href: '/tuning/sound', desc: 'Виброизол, шумка дверей и пола' },

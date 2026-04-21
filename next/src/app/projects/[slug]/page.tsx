@@ -387,12 +387,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   className="btn-primary w-full justify-center py-3 text-sm"
                 />
                 <a
-                  href="https://wa.me/79818428151"
+                  href="https://t.me/hptuning_spb"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-[#25D366]/30 bg-[#25D366]/10 text-[#25D366] text-sm font-medium hover:bg-[#25D366]/20 transition-colors"
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-[#39FF14]/20 bg-[#39FF14]/10 text-[#39FF14] text-sm font-medium hover:bg-[#39FF14]/20 transition-colors"
                 >
-                  WhatsApp
+                  Telegram
                 </a>
               </div>
             </div>
