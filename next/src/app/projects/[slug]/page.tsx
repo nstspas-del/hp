@@ -387,7 +387,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   className="btn-primary w-full justify-center py-3 text-sm"
                 />
                 <a
-                  href="https://t.me/hptuning_spb"
+                  href="https://t.me/hptuningspb"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-[#39FF14]/20 bg-[#39FF14]/10 text-[#39FF14] text-sm font-medium hover:bg-[#39FF14]/20 transition-colors"

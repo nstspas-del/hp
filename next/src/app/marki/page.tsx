@@ -540,7 +540,7 @@ export default function MarkiPage() {
               className="btn-primary px-8 py-3.5 text-sm font-semibold"
             />
             <a
-              href="https://t.me/hptuning_spb"
+              href="https://t.me/hptuningspb"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-8 py-3.5 rounded-xl border border-[#39FF14]/20 bg-[#39FF14]/10 text-[#39FF14] text-sm font-semibold hover:bg-[#39FF14]/20 transition-colors"

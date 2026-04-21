@@ -139,7 +139,7 @@ export function ProjectCarsSection() {
         {/* CTA строка */}
         <p className="text-center text-zinc-500 text-sm mt-8">
           Хотите такой же результат?{' '}
-          <a href="https://t.me/hptuning_spb" target="_blank" rel="noopener noreferrer"
+          <a href="https://t.me/hptuningspb" target="_blank" rel="noopener noreferrer"
             className="text-[#39FF14] hover:underline">
             Напишите нам в Telegram
           </a>{' '}
