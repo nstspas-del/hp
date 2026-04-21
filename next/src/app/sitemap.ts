@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import brands from '@/data/brands.json';
 import districts from '@/data/districts.json';
 import services from '@/data/services.json';
+import { BRAND_SUBDOMAIN_MAP, getBrandUrl } from '@/lib/brand-host';
 
 const BASE = 'https://hptuning.ru';
 
@@ -50,8 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
  ];
 
  // ── Бренды (динамические) ─────────────────────────────────────────────────
+ // Субдоменные бренды → URL субдомена. Остальные → /brands/:slug
+ const subdomainSlugs = new Set(Object.values(BRAND_SUBDOMAIN_MAP));
  const brandPages: MetadataRoute.Sitemap = brands.map((brand) => ({
- url: `${BASE}/brands/${brand.slug}`,
+ url: subdomainSlugs.has(brand.slug)
+   ? `${getBrandUrl(brand.slug)}/`
+   : `${BASE}/brands/${brand.slug}`,
  lastModified: MONTH_AGO,
  changeFrequency: 'monthly' as const,
  priority: brand.featured ? 0.9 : 0.7,

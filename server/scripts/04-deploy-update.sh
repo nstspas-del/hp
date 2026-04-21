@@ -9,6 +9,17 @@ APP_DIR="/var/www/hptuning/app"
 NEXT_DIR="$APP_DIR/next"
 BRANCH="next-migration"
 
+# ── Rollback: git stash + pm2 restart если сборка упала ───────
+ROLLBACK() {
+  echo "❌ Ошибка при деплое! Откатываемся..."
+  cd "$NEXT_DIR"
+  git stash 2>/dev/null || true
+  pm2 restart hptuning 2>/dev/null || true
+  echo "   Откат выполнен. Проверь: pm2 logs hptuning"
+  exit 1
+}
+trap ROLLBACK ERR
+
 echo "══════════════════════════════════════════"
 echo " HP ТЮНИНГ — Deploy Update"
 echo " $(date '+%Y-%m-%d %H:%M:%S')"

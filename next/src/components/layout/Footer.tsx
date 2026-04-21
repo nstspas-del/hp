@@ -11,12 +11,12 @@ const LINKS = {
  { label: 'Автосервис', href: '/service' },
  ],
  brands: [
- { label: 'BMW', href: '/brands/bmw' },
- { label: 'Mercedes-Benz', href: '/brands/mercedes' },
- { label: 'Audi', href: '/brands/audi' },
- { label: 'Porsche', href: '/brands/porsche' },
- { label: 'Lexus', href: '/brands/lexus' },
- { label: 'Land Rover', href: '/brands/land-rover' },
+ { label: 'BMW',           href: 'https://bmw.hptuning.ru' },
+ { label: 'Mercedes-Benz', href: 'https://mercedes.hptuning.ru' },
+ { label: 'Audi',          href: 'https://audi.hptuning.ru' },
+ { label: 'Porsche',       href: 'https://porsche.hptuning.ru' },
+ { label: 'Lexus',         href: 'https://lexus.hptuning.ru' },
+ { label: 'Land Rover',    href: 'https://landrover.hptuning.ru' },
  ],
  info: [
  { label: 'О компании', href: '/about' },
@@ -94,9 +94,9 @@ export function Footer() {
  <ul className="flex flex-col gap-2">
  {LINKS.brands.map((l) => (
  <li key={l.href}>
- <Link href={l.href} className="text-text-muted hover:text-accent text-sm transition-colors">
+ <a href={l.href} className="text-text-muted hover:text-accent text-sm transition-colors">
  {l.label}
- </Link>
+ </a>
  </li>
  ))}
  <li>
