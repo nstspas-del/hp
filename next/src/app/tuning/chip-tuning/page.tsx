@@ -1,19 +1,18 @@
 export const dynamic = 'force-static';
 import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import Link from 'next/link';
-import { Zap, ChevronRight, CheckCircle, Phone, TrendingUp, Shield, RotateCcw, Award } from 'lucide-react';
+import { Zap, CheckCircle, Phone, TrendingUp, Shield, RotateCcw, Award } from 'lucide-react';
 import { ChipCalculatorNew } from '@/components/sections/ChipCalculatorNew';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
- title: 'Чип-тюнинг Stage 1/2/3 в СПб — от 24 000 ₽ | HP Тюнинг',
- description: 'Профессиональный чип-тюнинг в Санкт-Петербурге: Stage 1 от 24 000 ₽, Stage 2 от 39 000 ₽, Stage 3 от 99 000 ₽. Прирост +20–100% мощности. BMW, Mercedes, Audi, Porsche, Land Rover. ',
- keywords: ['чип тюнинг спб', 'stage 1 чип тюнинг спб', 'stage 2 тюнинг', 'прошивка эбу спб', 'чип тюнинг bmw спб', 'alientech kess3'],
+ title: 'Чип-тюнинг и тюнинг ЭБУ в СПб — от 15 000 ₽ | HP Тюнинг',
+ description: 'Профессиональный чип-тюнинг и прошивка ЭБУ в Санкт-Петербурге: от 15 000 ₽ для японских и китайских марок, от 24 000 ₽ для премиума. BMW, Mercedes, Audi, Haval, Chery, Tank, Geely. Alientech KESS3.',
+ keywords: ['чип тюнинг спб', 'прошивка эбу спб', 'тюнинг haval спб', 'чип тюнинг chery', 'тюнинг geely', 'прошивка tank', 'чип тюнинг bmw спб', 'alientech kess3'],
  alternates: { canonical: 'https://hptuning.ru/tuning/chip-tuning' },
  openGraph: {
- title: 'Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге | HP Тюнинг',
- description: 'Stage 1 от 24 000 ₽. Прошивка BMW, Mercedes, Audi, Porsche, Land Rover. Alientech. ',
+ title: 'Чип-тюнинг и тюнинг ЭБУ в Санкт-Петербурге | HP Тюнинг',
+ description: 'Прошивка ЭБУ от 15 000 ₽. BMW, Mercedes, Audi, Porsche, Haval, Chery, Tank, Geely и 30+ марок. Alientech KESS3.',
  url: 'https://hptuning.ru/tuning/chip-tuning',
  type: 'website',
  locale: 'ru_RU',
@@ -41,71 +40,7 @@ const serviceSchema = {
  areaServed: { '@type': 'City', name: 'Санкт-Петербург' },
 };
 
-const STAGES = [
- {
- slug: 'stage-1',
- label: 'Stage 1',
- badge: 'Самый популярный',
- badgeColor: 'bg-[#39FF14]/20 text-[#39FF14]',
- price: '24 000',
- priceNote: 'от',
- time: '2–3 часа',
- power: '+15–30%',
- torque: '+20–40%',
- desc: 'Оптимизация прошивки без замены железа. Рост мощности, момента и снижение расхода топлива. Идеально для повседневной эксплуатации.',
- includes: [
- 'Чтение и анализ оригинальной прошивки',
- 'Оптимизация карт впрыска и зажигания',
- 'Настройка турбонаддува',
- 'Запись и проверка на стенде',
- 'Тест-драйв с инженером',
- ],
- href: '/tuning/chip-tuning/stage-1',
- color: 'border-[#39FF14]/40 hover:border-[#39FF14]',
- },
- {
- slug: 'stage-2',
- label: 'Stage 2',
- badge: 'Максимальная отдача',
- badgeColor: 'bg-blue-500/20 text-blue-400',
- price: '39 000',
- priceNote: 'от',
- time: '1 день',
- power: '+30–45%',
- torque: '+40–60%',
- desc: 'Прошивка под спортивный выхлоп, увеличенный интеркулер и усиленное сцепление. Серьёзный прирост для тех, кто хочет больше.',
- includes: [
- 'Всё из Stage 1',
- 'Настройка под модифицированный выхлоп',
- 'Оптимизация под усиленный интеркулер',
- 'Настройка сцепления/трансмиссии',
- 'Настройка на диностенде (опционально)',
- ],
- href: '/tuning/chip-tuning/stage-2',
- color: 'border-blue-500/40 hover:border-blue-400',
- },
- {
- slug: 'stage-3',
- label: 'Stage 3',
- badge: 'Экстремальный',
- badgeColor: 'bg-orange-500/20 text-orange-400',
- price: '95 000',
- priceNote: 'от',
- time: '2–5 дней',
- power: '+50–100%',
- torque: '+60–100%',
- desc: 'Полная форсировка: турбина big-turbo, кованые поршни, топливная система. Мощность 400–700+ л.с. Только для подготовленных автомобилей.',
- includes: [
- 'Разработка индивидуальной прошивки',
- 'Настройка под big-turbo и форсунки',
- 'Работа с LPFP/HPFP насосами',
- 'Настройка систем охлаждения',
- 'Несколько сессий на диностенде',
- ],
- href: '/tuning/chip-tuning/stage-3',
- color: 'border-orange-500/40 hover:border-orange-400',
- },
-];
+
 
 const GAINS = [
  { model: 'BMW M3 (G80) 3.0T', before: '510 л.с.', stage1: '575 л.с.', stage2: '650 л.с.' },
@@ -215,57 +150,54 @@ export default function ChipTuningPage() {
  {/* ── Калькулятор ── */}
  <ChipCalculatorNew />
 
- {/* ── 3 Stage карточки ── */}
+ {/* ── Индивидуальный подход ── */}
  <section className="py-16 container">
- <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">ТЮНИНГ И ЧИП-ТЮНИНГ</h2>
- <p className="text-text-muted mb-10">Прошивка ЭБУ, аппаратные доработки и проекты полного форсирования под задачи клиента</p>
- <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
- {STAGES.map((stage) => (
- <div key={stage.slug} className={`card border transition-colors flex flex-col ${stage.color}`}>
- <div className="flex items-start justify-between mb-4">
- <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${stage.badgeColor}`}>
- {stage.badge}
- </span>
- <span className="font-display text-2xl text-text">{stage.label}</span>
- </div>
-
- <div className="mb-4">
- <div className="text-text-subtle text-xs uppercase tracking-wider mb-1">Стоимость</div>
- <div className="font-display text-4xl text-[#39FF14]">{stage.priceNote} {stage.price} ₽</div>
- </div>
-
- <div className="grid grid-cols-3 gap-3 mb-4 p-3 bg-white/5 rounded-xl">
- <div className="text-center">
- <div className="text-text-subtle text-xs mb-1">Время</div>
- <div className="text-text text-sm font-medium">{stage.time}</div>
- </div>
- <div className="text-center border-x border-border">
- <div className="text-text-subtle text-xs mb-1">Мощность</div>
- <div className="text-[#39FF14] text-sm font-semibold">{stage.power}</div>
- </div>
- <div className="text-center">
- <div className="text-text-subtle text-xs mb-1">Момент</div>
- <div className="text-[#39FF14] text-sm font-semibold">{stage.torque}</div>
- </div>
- </div>
-
- <p className="text-text-muted text-sm leading-relaxed mb-4">{stage.desc}</p>
-
- <ul className="flex flex-col gap-2 mb-6 flex-1">
- {stage.includes.map((item, i) => (
- <li key={i} className="flex items-start gap-2 text-text-subtle text-sm">
+ <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+ <div>
+ <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-4">
+ КАЖДАЯ МАШИНА —<br/>
+ <span className="text-[#39FF14]">ИНДИВИДУАЛЬНЫЙ ПРОЕКТ</span>
+ </h2>
+ <p className="text-text-muted text-base leading-relaxed mb-6">
+ Мы не продаём «коробочные» прошивки. Каждый автомобиль диагностируется
+ отдельно: состояние двигателя, пробег, история обслуживания, топливо.
+ Только после этого инженер подбирает параметры прошивки — давление наддува,
+ углы зажигания, карты впрыска.
+ </p>
+ <p className="text-text-muted text-base leading-relaxed mb-6">
+ Объём доработок зависит от задач клиента: одним нужна экономия топлива,
+ другим — максимальная тяга под трек, третьим — ежедневный комфорт без
+ потери надёжности. Цена рассчитывается под конкретный автомобиль и ваши цели.
+ </p>
+ <ul className="flex flex-col gap-3 mb-8">
+ {[
+ 'Читаем оригинальную прошивку — не шьём «с нуля»',
+ 'Сохраняем файл оригинала навсегда — откат бесплатно',
+ 'Тест-драйв с инженером после каждой работы',
+ 'Гарантия 12 месяцев на любую прошивку',
+ ].map((item, i) => (
+ <li key={i} className="flex items-start gap-3 text-text-subtle text-sm">
  <CheckCircle className="size-4 text-[#39FF14] shrink-0 mt-0.5" />
  {item}
  </li>
  ))}
  </ul>
-
- <Link href={stage.href} className="btn-primary w-full justify-center">
- Подробнее о {stage.label}
- <ChevronRight className="size-4" />
- </Link>
+ <BookingButton label="Рассчитать стоимость под мой авто" className="btn-primary" />
+ </div>
+ <div className="grid grid-cols-2 gap-4">
+ {[
+ { val: 'от 15 000 ₽', label: 'Прошивка ЭБУ', sub: 'Японские и китайские марки' },
+ { val: 'от 24 000 ₽', label: 'Тюнинг ЭБУ', sub: 'Немецкий и британский премиум' },
+ { val: '+15–100%', label: 'Прирост мощности', sub: 'В зависимости от задач' },
+ { val: '30 мин', label: 'Откат к стоку', sub: 'Перед ТО или продажей' },
+ ].map((item) => (
+ <div key={item.label} className="card text-center p-5">
+ <div className="font-display text-2xl text-[#39FF14] mb-1">{item.val}</div>
+ <div className="text-text text-sm font-semibold mb-1">{item.label}</div>
+ <div className="text-text-subtle text-xs">{item.sub}</div>
  </div>
  ))}
+ </div>
  </div>
  </section>
 

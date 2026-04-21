@@ -80,6 +80,13 @@ const BRAND_ICONS: Record<string, string> = {
   cadillac: '🦅',
   saab: '✈️',
   mclaren: '🧡',
+  // Китайские бренды
+  haval: '🐉',
+  chery: '🍒',
+  geely: '🌟',
+  tank: '🟫',
+  changan: '🔆',
+  jetour: '🚀',
 };
 
 const STAGE_COLORS: Record<StageKey, string> = {
