@@ -31,7 +31,7 @@ export function Hero() {
  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#39FF14]/10 border border-[#39FF14]/20 mb-6">
  <span className="w-2 h-2 rounded-full bg-[#39FF14] animate-pulse" />
  <span className="text-[#39FF14] text-xs font-bold tracking-widest uppercase">
- Санкт-Петербург · Богородская 3Б
+ Санкт-Петербург · Богородская 3Б · Ежедневно 10:00–20:00
  </span>
  </div>
 
@@ -41,9 +41,9 @@ export function Hero() {
  className="text-[#39FF14]"
  style={{ textShadow: '0 0 40px rgba(57,255,20,0.6)' }}
  >
- Автосервис премиум-класса
+ Автосервис в Санкт-Петербурге
  </span>
- <br />в Санкт-Петербурге:<br />
+ <br />
  <span className="text-3xl sm:text-4xl md:text-5xl">
  ТО, диагностика, ремонт,<br className="hidden sm:block" /> детейлинг и тюнинг
  </span>
@@ -51,9 +51,10 @@ export function Hero() {
 
  {/* Подзаголовок */}
  <p className="text-zinc-300 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
- Обслуживаем BMW, Mercedes-Benz, Audi, Porsche, Volkswagen, Toyota, Lexus, Land Rover,
- Haval, Chery, Tank, Geely и другие современные марки —
- <strong className="text-white font-medium"> в одном месте, без беготни между сервисами.</strong>
+ BMW, Mercedes-Benz, Audi, Porsche, Toyota, Lexus —
+ и современные китайские:{' '}
+ <strong className="text-white font-medium">Haval, Chery, Geely, Tank, Exeed, Jaecoo.</strong>
+ {' '}38 марок в одном месте — без беготни между сервисами.
  </p>
 
  {/* CTA кнопки */}
@@ -62,7 +63,7 @@ export function Hero() {
  onClick={() => openBooking()}
  className="btn-primary text-base px-8 py-4 rounded-full font-bold"
  >
- Записаться на сервис
+ Записаться на ТО или ремонт
  </button>
  <a
  href="tel:+79818428151"
@@ -79,7 +80,7 @@ export function Hero() {
  {[
  { value: '10+', label: 'лет опыта' },
  { value: '500+', label: 'авто обслужено' },
- { value: '32', label: 'марки авто' },
+ { value: '38+', label: 'марок авто' },
  { value: '10:00–20:00', label: 'ежедневно' },
  ].map((s) => (
  <div key={s.label}>

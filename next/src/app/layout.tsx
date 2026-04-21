@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { CookieBanner } from '@/components/layout/CookieBanner';
 import { YandexMetrika } from '@/components/analytics/YandexMetrika';
+import { AutoDealerWidget } from '@/components/analytics/AutoDealerWidget';
 import company from '@/data/company.json';
 import seoData from '@/data/seo.json';
 
@@ -75,7 +76,7 @@ const localBusinessSchema = {
  '@type': 'AggregateRating',
  ratingValue: '4.9',
  bestRating: '5',
- ratingCount: '200',
+ ratingCount: '247',
  },
  sameAs: [
  'https://t.me/hptuningspb',
@@ -110,6 +111,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
  </head>
  <body className="flex flex-col min-h-screen font-sans antialiased bg-[#09090b] text-white">
  <YandexMetrika />
+ <AutoDealerWidget />
  <Header />
  <main className="flex-1 pt-16">{children}</main>
  <Footer />

@@ -14,8 +14,8 @@ import { BrandStripSection } from '@/components/sections/BrandStripSection';
 import seoData from '@/data/seo.json';
 
 export const metadata: Metadata = {
- title: 'Автосервис премиум-класса в СПб | ТО, диагностика, ремонт, детейлинг и тюнинг | HP Тюнинг',
- description: 'Автосервис премиум-класса в Санкт-Петербурге: ТО, компьютерная диагностика, ремонт двигателя, коробки, тормозов и подвески. Детейлинг и тюнинг BMW, Mercedes-Benz, Audi, Porsche, VW, Toyota, Lexus, Land Rover, Haval, Chery, Tank.',
+ title: 'Автосервис в Санкт-Петербурге | ТО, диагностика, ремонт, детейлинг и тюнинг | HP Тюнинг',
+ description: 'Автосервис в Санкт-Петербурге: ТО от 4 900 ₽, компьютерная диагностика, ремонт двигателя, коробки, подвески. Детейлинг и чип-тюнинг. BMW, Mercedes, Audi, Haval, Chery, Geely и 38 марок. Богородская 3Б, СПб. ☎ +7 (981) 842-81-51',
  keywords: ['автосервис спб', 'чип тюнинг спб', 'детейлинг спб', 'hp тюнинг', 'тюнинг автомобилей санкт-петербург'],
  alternates: { canonical: 'https://hptuning.ru/' },
  openGraph: {
