@@ -9,14 +9,25 @@
     "description": "Чип-тюнинг и обслуживание BMW всех серий в Санкт-Петербурге",
     "tagline": "Раскрываем потенциал баварского характера",
     "seo": {
-      "title": "Чип-тюнинг BMW в СПб | Stage 1/2/3 от 25 000 ₽ | HP Тюнинг",
-      "description": "Профессиональный чип-тюнинг BMW в Санкт-Петербурге: E-серии, F-серии, G-серии, M-модели. Прошивка Stage 1/2/3 с гарантией. +7 (981) 842-81-51",
+      "title": "BMW сервис, тюнинг и детейлинг в СПб | HP Тюнинг",
+      "description": "Обслуживание BMW в СПб: диагностика ISTA, ремонт двигателей N20/N55/B58, подвески и АКПП, детейлинг и чип-тюнинг Stage 1/2/3 от 25 000 ₽. HP Тюнинг.",
       "keywords": [
+        "сервис bmw спб",
+        "обслуживание бмв санкт-петербург",
         "чип-тюнинг bmw",
-        "прошивка бмв спб",
-        "stage 1 bmw",
-        "stage 2 bmw",
-        "чип бмв"
+        "ремонт bmw спб",
+        "детейлинг бмв"
+      ],
+      "h1": "Сервис, тюнинг и детейлинг BMW в Санкт-Петербурге",
+      "heroLead": "Полный цикл обслуживания BMW: диагностика ISTA, ремонт двигателя и подвески, защитные покрытия и чип-тюнинг Stage 1/2/3.",
+      "localSeoText": "Принимаем BMW всех серий в Санкт-Петербурге: Выборгский и Приморский районы, Кольцевая. Удобный заезд с КАД. Работаем с 09:00 до 21:00 без выходных.",
+      "shortIntro": "BMW — автомобиль с характером: мощные бензиновые рядники и V8, сложная пневматика, активная кинематика подвески. Всё это требует владельца, который умеет ездить, и сервиса, который умеет обслуживать. HP Тюнинг — специализированная площадка для BMW в Петербурге.",
+      "whyUs": [
+        "Диагностика BMW на оборудовании ISTA — видим всё, включая скрытые коды ЭБУ",
+        "Работаем с E-серией, F-серией и G-серией: от E36 до G80 M3",
+        "Ремонт цепей ГРМ N20/N47, маслонасосов N63, Valvetronic E9x — без посредников",
+        "Детейлинг с учётом лакокрасочного покрытия BMW: не повреждаем заводской лак 2K",
+        "Чип-тюнинг M-серии: S55, S58, S63 — настройка под конкретные пожелания"
       ]
     },
     "typicalProblems": [
@@ -266,13 +277,25 @@
     "description": "Чип-тюнинг Mercedes-Benz всех классов в Санкт-Петербурге",
     "tagline": "Немецкая инженерия без компромиссов",
     "seo": {
-      "title": "Чип-тюнинг Mercedes-Benz в СПб | C/E/S/G/GLE | HP Тюнинг",
-      "description": "Профессиональный чип-тюнинг Mercedes-Benz в СПб: W205, W213, W222, Gelandewagen, AMG. Stage 1/2/3 с гарантией. +7 (981) 842-81-51",
+      "title": "Обслуживание и диагностика Mercedes-Benz в СПб | HP Тюнинг",
+      "description": "Сервис Mercedes-Benz в Санкт-Петербурге: диагностика XENTRY, ремонт OM651/OM654, AMG-прошивки, детейлинг и защитные плёнки. HP Тюнинг — от 30 000 ₽.",
       "keywords": [
-        "чип-тюнинг мерседес",
-        "прошивка mercedes спб",
-        "тюнинг amg",
-        "чип gelandewagen"
+        "сервис mercedes спб",
+        "обслуживание мерседес петербург",
+        "диагностика mercedes xentry",
+        "тюнинг mercedes амг",
+        "детейлинг мерседес"
+      ],
+      "h1": "Сервис, диагностика и тюнинг Mercedes-Benz в Санкт-Петербурге",
+      "heroLead": "Полный спектр услуг для Mercedes-Benz: обслуживание через XENTRY, ремонт дизелей OM651/OM654, детейлинг премиум-класса и прошивка AMG.",
+      "localSeoText": "Обслуживаем Mercedes-Benz владельцев из Петроградского, Выборгского и Калининского районов Санкт-Петербурга. Быстрый заезд с Кольцевой автодороги.",
+      "shortIntro": "Mercedes-Benz — автомобиль, в котором электроника определяет всё: от комфорта езды до безопасности. Без правильной диагностики XENTRY и понимания архитектуры ME/EGS/SBC работа теряет смысл. В HP Тюнинг знаем Mercedes изнутри.",
+      "whyUs": [
+        "XENTRY PassThru для диагностики AMG-ЭБУ (ME17, EGS) — инструмент дилерского уровня",
+        "Дизельные системы OM642/OM651/OM654: AdBlue, регенерации DPF, форсунки и ТНВД",
+        "Ремонт цепей ГРМ M271 EVO, балансировочных валов — типичные проблемы без наценки",
+        "Детейлинг с учётом светлой кожи S-класса: химчистка без агрессивных средств",
+        "Прошивка AMG C63/E63/GLE 63: работаем с закрытыми модулями через XENTRY"
       ]
     },
     "typicalProblems": [
@@ -294,46 +317,240 @@
     "priceFrom": 30000,
     "series": [
       {
-        "slug": "w205",
-        "name": "Mercedes C-Class W205 (2014-2021)",
+        "slug": "c-class-w205",
+        "name": "Mercedes C-Class W205 (2014–2021)",
         "years": "2014-2021",
-        "engines": [],
-        "priceFrom": 30000
+        "priceFrom": 30000,
+        "engines": [
+          {
+            "code": "M274 DE20",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 184,
+            "tuning": {
+              "stage1": {
+                "hp": 235,
+                "nm": 370
+              }
+            }
+          },
+          {
+            "code": "M274 DE20 AMG",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 211,
+            "tuning": {
+              "stage1": {
+                "hp": 270,
+                "nm": 420
+              }
+            }
+          },
+          {
+            "code": "OM651 DE22",
+            "displacement": 2.2,
+            "type": "diesel",
+            "hp": 170,
+            "tuning": {
+              "stage1": {
+                "hp": 222,
+                "nm": 490
+              }
+            }
+          },
+          {
+            "code": "OM651 DE22 (C250d)",
+            "displacement": 2.2,
+            "type": "diesel",
+            "hp": 204,
+            "tuning": {
+              "stage1": {
+                "hp": 255,
+                "nm": 560
+              }
+            }
+          }
+        ]
       },
       {
-        "slug": "w213",
-        "name": "Mercedes E-Class W213 (2016+)",
-        "years": "2016+",
-        "engines": [],
-        "priceFrom": 30000
+        "slug": "e-class-w213",
+        "name": "Mercedes E-Class W213 (2016–2023)",
+        "years": "2016-2023",
+        "priceFrom": 32000,
+        "engines": [
+          {
+            "code": "M256 DE30",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 367,
+            "tuning": {
+              "stage1": {
+                "hp": 440,
+                "nm": 600
+              }
+            }
+          },
+          {
+            "code": "OM654 DE20",
+            "displacement": 2.0,
+            "type": "diesel",
+            "hp": 194,
+            "tuning": {
+              "stage1": {
+                "hp": 250,
+                "nm": 520
+              }
+            }
+          },
+          {
+            "code": "OM654 DE20 (E300d)",
+            "displacement": 2.0,
+            "type": "diesel",
+            "hp": 265,
+            "tuning": {
+              "stage1": {
+                "hp": 325,
+                "nm": 680
+              }
+            }
+          }
+        ]
       },
       {
-        "slug": "w222",
-        "name": "Mercedes S-Class W222 (2013-2020)",
-        "years": "2013-2020",
-        "engines": [],
-        "priceFrom": 40000
+        "slug": "gle-w167",
+        "name": "Mercedes GLE W167 (2019+)",
+        "years": "2019+",
+        "priceFrom": 35000,
+        "engines": [
+          {
+            "code": "OM656 DE30 (GLE 400d)",
+            "displacement": 3.0,
+            "type": "diesel",
+            "hp": 330,
+            "tuning": {
+              "stage1": {
+                "hp": 400,
+                "nm": 900
+              }
+            }
+          },
+          {
+            "code": "M176 DE30 (GLE 450)",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 367,
+            "tuning": {
+              "stage1": {
+                "hp": 440,
+                "nm": 600
+              }
+            }
+          }
+        ]
       },
       {
-        "slug": "w463",
-        "name": "Mercedes G-Class (Gelandewagen) W463",
-        "years": "все",
-        "engines": [],
-        "priceFrom": 50000
+        "slug": "amg-c63-w205",
+        "name": "Mercedes-AMG C63 W205",
+        "years": "2014-2021",
+        "priceFrom": 45000,
+        "engines": [
+          {
+            "code": "M177 DE40 (C63 S)",
+            "displacement": 4.0,
+            "type": "gasoline-turbo",
+            "hp": 510,
+            "tuning": {
+              "stage1": {
+                "hp": 575,
+                "nm": 750
+              },
+              "stage2": {
+                "hp": 620,
+                "nm": 820
+              }
+            }
+          },
+          {
+            "code": "M178 DE40 (AMG GT)",
+            "displacement": 4.0,
+            "type": "gasoline-turbo",
+            "hp": 557,
+            "tuning": {
+              "stage1": {
+                "hp": 630,
+                "nm": 810
+              },
+              "stage2": {
+                "hp": 680,
+                "nm": 870
+              }
+            }
+          }
+        ]
       },
       {
-        "slug": "gle",
-        "name": "Mercedes GLE W166/W167",
-        "years": "2015+",
-        "engines": [],
-        "priceFrom": 35000
+        "slug": "sprinter-w907",
+        "name": "Mercedes Sprinter W907 (2018+)",
+        "years": "2018+",
+        "priceFrom": 28000,
+        "engines": [
+          {
+            "code": "OM651 DE22 (316 CDI)",
+            "displacement": 2.2,
+            "type": "diesel",
+            "hp": 163,
+            "tuning": {
+              "stage1": {
+                "hp": 210,
+                "nm": 430
+              }
+            }
+          },
+          {
+            "code": "OM651 DE22 (319 CDI)",
+            "displacement": 2.2,
+            "type": "diesel",
+            "hp": 190,
+            "tuning": {
+              "stage1": {
+                "hp": 242,
+                "nm": 500
+              }
+            }
+          }
+        ]
       },
       {
-        "slug": "amg",
-        "name": "Mercedes-AMG (C63, E63, G63, GT)",
-        "years": "все",
-        "engines": [],
-        "priceFrom": 60000
+        "slug": "gl-x166",
+        "name": "Mercedes GL/GLS X166/X167",
+        "years": "2012-2023",
+        "priceFrom": 33000,
+        "engines": [
+          {
+            "code": "OM642 DE30 (GL350 CDI)",
+            "displacement": 3.0,
+            "type": "diesel",
+            "hp": 258,
+            "tuning": {
+              "stage1": {
+                "hp": 320,
+                "nm": 740
+              }
+            }
+          },
+          {
+            "code": "OM642 DE30 (GL350 BlueTEC)",
+            "displacement": 3.0,
+            "type": "diesel",
+            "hp": 265,
+            "tuning": {
+              "stage1": {
+                "hp": 330,
+                "nm": 760
+              }
+            }
+          }
+        ]
       }
     ]
   },
@@ -347,13 +564,25 @@
     "description": "Чип-тюнинг Audi A/Q/RS — Stage 1/2/3 в Санкт-Петербурге",
     "tagline": "Vorsprung durch Technik — усиливаем формулу",
     "seo": {
-      "title": "Чип-тюнинг Audi в СПб | A4/A6/Q5/Q7/RS | HP Тюнинг",
-      "description": "Профессиональный чип-тюнинг Audi в СПб: A4, A6, A8, Q5, Q7, Q8, RS-серия. Stage 1/2/3 на TFSI/TDI. +7 (981) 842-81-51",
+      "title": "Сервис Audi в СПб: диагностика VCDS, тюнинг и детейлинг | HP Тюнинг",
+      "description": "Сервис Audi в Санкт-Петербурге: VCDS-диагностика, ремонт EA888 и 3.0 TDI, адаптация DSG и S-Tronic, тюнинг Stage 1/2 от 25 000 ₽. HP Тюнинг.",
       "keywords": [
-        "чип ауди",
-        "прошивка audi спб",
-        "stage 2 a4",
-        "тюнинг rs6"
+        "сервис audi спб",
+        "диагностика ауди vcds",
+        "ремонт ea888",
+        "чип тюнинг ауди",
+        "dsg адаптация спб"
+      ],
+      "h1": "Сервис, диагностика и тюнинг Audi в Санкт-Петербурге",
+      "heroLead": "Комплексное обслуживание Audi quattro: диагностика VCDS/ODIS, ремонт EA888/TDI, адаптация DSG/S-Tronic и чип-тюнинг Stage 1/2/3.",
+      "localSeoText": "Сервис для Audi A3/A4/A6/Q5/Q7/RS в Санкт-Петербурге. Работаем без записи в стандартные часы — диагностика занимает от 30 минут.",
+      "shortIntro": "Audi — инженерно сложные автомобили VAG-платформы: quattro, DSG/S-Tronic, TSI и TDI в одном пакете. Без специализированного ПО VCDS и ODIS-E часть работ просто недоступна. HP Тюнинг работает с полным стеком диагностики и программирования VAG.",
+      "whyUs": [
+        "VCDS Ross-Tech + ODIS-E — полный VAG-доступ к адаптационным блокам и скрытым параметрам",
+        "Ремонт масложора EA888 gen1-2 (замена маслосъёмных колпачков без снятия ГБЦ)",
+        "S-Tronic и DSG: диагностика, промывка мехатроника, прошивка под увеличенный момент",
+        "quattro без опасений: знаем нагрузки Haldex/Torsen после прошивки Stage 1-2",
+        "Детейлинг с учётом специфики лаков Audi: работаем только с сертифицированными полиролями"
       ]
     },
     "typicalProblems": [
@@ -375,53 +604,292 @@
     "priceFrom": 25000,
     "series": [
       {
-        "slug": "a4",
-        "name": "Audi A4 (B8, B9)",
-        "years": "2007+",
-        "engines": [],
-        "priceFrom": 25000
+        "slug": "a4-b9",
+        "name": "Audi A4/A5 B9 (2016+)",
+        "years": "2016+",
+        "priceFrom": 25000,
+        "engines": [
+          {
+            "code": "EA888.3B (2.0 TFSI 190)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 190,
+            "tuning": {
+              "stage1": {
+                "hp": 260,
+                "nm": 420
+              },
+              "stage2": {
+                "hp": 310,
+                "nm": 480
+              }
+            }
+          },
+          {
+            "code": "EA888.3B (2.0 TFSI 252)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 252,
+            "tuning": {
+              "stage1": {
+                "hp": 320,
+                "nm": 440
+              },
+              "stage2": {
+                "hp": 365,
+                "nm": 510
+              }
+            }
+          },
+          {
+            "code": "EA288 (2.0 TDI 150)",
+            "displacement": 2.0,
+            "type": "diesel",
+            "hp": 150,
+            "tuning": {
+              "stage1": {
+                "hp": 195,
+                "nm": 430
+              }
+            }
+          },
+          {
+            "code": "EA288 (2.0 TDI 190)",
+            "displacement": 2.0,
+            "type": "diesel",
+            "hp": 190,
+            "tuning": {
+              "stage1": {
+                "hp": 242,
+                "nm": 490
+              }
+            }
+          }
+        ]
       },
       {
-        "slug": "a6",
-        "name": "Audi A6 (C7, C8)",
-        "years": "2011+",
-        "engines": [],
-        "priceFrom": 30000
-      },
-      {
-        "slug": "a8",
-        "name": "Audi A8 (D4, D5)",
-        "years": "2010+",
-        "engines": [],
-        "priceFrom": 40000
-      },
-      {
-        "slug": "q5",
-        "name": "Audi Q5 (8R, FY)",
-        "years": "2008+",
-        "engines": [],
-        "priceFrom": 30000
-      },
-      {
-        "slug": "q7",
-        "name": "Audi Q7 (4L, 4M)",
-        "years": "2005+",
-        "engines": [],
-        "priceFrom": 35000
-      },
-      {
-        "slug": "q8",
-        "name": "Audi Q8 (4M)",
+        "slug": "a6-c8",
+        "name": "Audi A6/A7 C8 (2018+)",
         "years": "2018+",
-        "engines": [],
-        "priceFrom": 40000
+        "priceFrom": 28000,
+        "engines": [
+          {
+            "code": "EA839 (3.0 TFSI 340)",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 340,
+            "tuning": {
+              "stage1": {
+                "hp": 410,
+                "nm": 560
+              },
+              "stage2": {
+                "hp": 460,
+                "nm": 620
+              }
+            }
+          },
+          {
+            "code": "VO TDI (3.0 TDI 286)",
+            "displacement": 3.0,
+            "type": "diesel",
+            "hp": 286,
+            "tuning": {
+              "stage1": {
+                "hp": 360,
+                "nm": 780
+              }
+            }
+          }
+        ]
       },
       {
-        "slug": "rs",
-        "name": "Audi RS (RS3, RS6, RS7, R8)",
-        "years": "все",
-        "engines": [],
-        "priceFrom": 60000
+        "slug": "q5-fy",
+        "name": "Audi Q5/Q7 (2017+)",
+        "years": "2017+",
+        "priceFrom": 26000,
+        "engines": [
+          {
+            "code": "EA888 (2.0 TFSI 252)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 252,
+            "tuning": {
+              "stage1": {
+                "hp": 320,
+                "nm": 440
+              },
+              "stage2": {
+                "hp": 365,
+                "nm": 510
+              }
+            }
+          },
+          {
+            "code": "EA288 (2.0 TDI 190)",
+            "displacement": 2.0,
+            "type": "diesel",
+            "hp": 190,
+            "tuning": {
+              "stage1": {
+                "hp": 242,
+                "nm": 490
+              }
+            }
+          },
+          {
+            "code": "EA839 (3.0 TFSI 340, SQ5)",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 354,
+            "tuning": {
+              "stage1": {
+                "hp": 425,
+                "nm": 580
+              },
+              "stage2": {
+                "hp": 480,
+                "nm": 640
+              }
+            }
+          }
+        ]
+      },
+      {
+        "slug": "rs6-c8",
+        "name": "Audi RS6/RS7 C8 (2019+)",
+        "years": "2019+",
+        "priceFrom": 45000,
+        "engines": [
+          {
+            "code": "EA825 (4.0 TFSI 600)",
+            "displacement": 4.0,
+            "type": "gasoline-turbo",
+            "hp": 600,
+            "tuning": {
+              "stage1": {
+                "hp": 680,
+                "nm": 900
+              },
+              "stage2": {
+                "hp": 720,
+                "nm": 960
+              }
+            }
+          }
+        ]
+      },
+      {
+        "slug": "s4-b9",
+        "name": "Audi S4/S5 B9 (2016+)",
+        "years": "2016+",
+        "priceFrom": 32000,
+        "engines": [
+          {
+            "code": "EA839 (3.0 TFSI 354)",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 354,
+            "tuning": {
+              "stage1": {
+                "hp": 425,
+                "nm": 580
+              },
+              "stage2": {
+                "hp": 480,
+                "nm": 640
+              }
+            }
+          }
+        ]
+      },
+      {
+        "slug": "a3-8y",
+        "name": "Audi A3/S3 8Y (2020+)",
+        "years": "2020+",
+        "priceFrom": 24000,
+        "engines": [
+          {
+            "code": "EA888.4 (2.0 TFSI 150)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 150,
+            "tuning": {
+              "stage1": {
+                "hp": 200,
+                "nm": 360
+              }
+            }
+          },
+          {
+            "code": "EA888.4 (2.0 TFSI 190)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 190,
+            "tuning": {
+              "stage1": {
+                "hp": 260,
+                "nm": 420
+              },
+              "stage2": {
+                "hp": 310,
+                "nm": 480
+              }
+            }
+          },
+          {
+            "code": "EA888.4 (2.0 TFSI 310, S3)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 310,
+            "tuning": {
+              "stage1": {
+                "hp": 380,
+                "nm": 510
+              },
+              "stage2": {
+                "hp": 420,
+                "nm": 560
+              }
+            }
+          }
+        ]
+      },
+      {
+        "slug": "tt-8s",
+        "name": "Audi TT/TTS 8S (2014+)",
+        "years": "2014+",
+        "priceFrom": 25000,
+        "engines": [
+          {
+            "code": "EA888.3 (2.0 TFSI 230, TT)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 230,
+            "tuning": {
+              "stage1": {
+                "hp": 295,
+                "nm": 450
+              }
+            }
+          },
+          {
+            "code": "EA888.3 (2.0 TFSI 310, TTS)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 310,
+            "tuning": {
+              "stage1": {
+                "hp": 375,
+                "nm": 500
+              },
+              "stage2": {
+                "hp": 415,
+                "nm": 555
+              }
+            }
+          }
+        ]
       }
     ]
   },
@@ -435,12 +903,25 @@
     "description": "Чип-тюнинг Porsche Cayenne, Macan, Panamera, 911 в СПб",
     "tagline": "Штутгартская точность — на максимум",
     "seo": {
-      "title": "Чип-тюнинг Porsche в СПб | Cayenne/Macan/911 | HP Тюнинг",
-      "description": "Тюнинг Porsche Cayenne, Macan, Panamera, 911. Stage 1/2 с сохранением надёжности. +7 (981) 842-81-51",
+      "title": "Сервис Porsche в СПб: диагностика PIWIS, тюнинг и детейлинг | HP Тюнинг",
+      "description": "Сервис Porsche в СПб: диагностика PIWIS III, ТО и ремонт Cayenne/Macan/911, детейлинг и тюнинг Stage 1/2 от 40 000 ₽. HP Тюнинг — точность немецкой инженерии.",
       "keywords": [
-        "чип-тюнинг порше",
+        "сервис porsche спб",
+        "диагностика порше piwis",
         "тюнинг cayenne",
-        "прошивка porsche macan"
+        "обслуживание porsche",
+        "детейлинг порше"
+      ],
+      "h1": "Обслуживание, тюнинг и детейлинг Porsche в Санкт-Петербурге",
+      "heroLead": "Профессиональный сервис Porsche: диагностика PIWIS III, прецизионное ТО Cayenne/Macan/911, детейлинг и прошивка PDK.",
+      "localSeoText": "Обслуживание Porsche в Санкт-Петербурге: принимаем по предварительной записи, обеспечиваем закрытую парковку для автомобилей премиум-класса.",
+      "shortIntro": "Porsche — это не просто автомобиль, это прецизионный механизм с нулевым допуском на ошибку. Диагностика PIWIS III, корректная адаптация PDK, понимание особенностей боксеров и турбированных V6/V8 — основа любой работы с Porsche в HP Тюнинг.",
+      "whyUs": [
+        "PIWIS III — официальная дилерская диагностическая станция Porsche",
+        "PDK-адаптация после каждой прошивки: точки переключения, давление сцепления",
+        "Детейлинг Porsche: понимаем стоимость заводского лака и работаем деликатно",
+        "Ремонт цепей ГРМ Cayenne V6/V8, мехатроники PDK — без гаражного подхода",
+        "Launch control и секретные настройки PDK через PIWIS — только корректная калибровка"
       ]
     },
     "typicalProblems": [
@@ -460,32 +941,180 @@
     "priceFrom": 40000,
     "series": [
       {
-        "slug": "cayenne",
-        "name": "Porsche Cayenne",
-        "years": "2003+",
-        "engines": [],
-        "priceFrom": 40000
+        "slug": "cayenne-9ya",
+        "name": "Porsche Cayenne 9YA (2018+)",
+        "years": "2018+",
+        "priceFrom": 40000,
+        "engines": [
+          {
+            "code": "3.0 TFSI (340 л.с.)",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 340,
+            "tuning": {
+              "stage1": {
+                "hp": 410,
+                "nm": 560
+              },
+              "stage2": {
+                "hp": 460,
+                "nm": 620
+              }
+            }
+          },
+          {
+            "code": "3.0 TDI V6 (286 л.с.)",
+            "displacement": 3.0,
+            "type": "diesel",
+            "hp": 286,
+            "tuning": {
+              "stage1": {
+                "hp": 362,
+                "nm": 725
+              }
+            }
+          },
+          {
+            "code": "4.0 TFSI (460 л.с., Turbo)",
+            "displacement": 4.0,
+            "type": "gasoline-turbo",
+            "hp": 460,
+            "tuning": {
+              "stage1": {
+                "hp": 540,
+                "nm": 740
+              },
+              "stage2": {
+                "hp": 580,
+                "nm": 800
+              }
+            }
+          }
+        ]
       },
       {
-        "slug": "macan",
-        "name": "Porsche Macan",
+        "slug": "macan-95b",
+        "name": "Porsche Macan (2014+)",
         "years": "2014+",
-        "engines": [],
-        "priceFrom": 40000
+        "priceFrom": 38000,
+        "engines": [
+          {
+            "code": "EA888 (2.0 TFSI 252)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 252,
+            "tuning": {
+              "stage1": {
+                "hp": 312,
+                "nm": 450
+              }
+            }
+          },
+          {
+            "code": "3.0 TFSI (354 л.с., Macan S)",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 354,
+            "tuning": {
+              "stage1": {
+                "hp": 428,
+                "nm": 590
+              },
+              "stage2": {
+                "hp": 470,
+                "nm": 640
+              }
+            }
+          },
+          {
+            "code": "3.0 TDI (258 л.с., Macan S Diesel)",
+            "displacement": 3.0,
+            "type": "diesel",
+            "hp": 258,
+            "tuning": {
+              "stage1": {
+                "hp": 333,
+                "nm": 700
+              }
+            }
+          }
+        ]
       },
       {
-        "slug": "panamera",
-        "name": "Porsche Panamera",
-        "years": "2009+",
-        "engines": [],
-        "priceFrom": 50000
+        "slug": "911-992",
+        "name": "Porsche 911 992 (2019+)",
+        "years": "2019+",
+        "priceFrom": 55000,
+        "engines": [
+          {
+            "code": "3.0 BiTurbo (385 л.с., Carrera)",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 385,
+            "tuning": {
+              "stage1": {
+                "hp": 455,
+                "nm": 600
+              },
+              "stage2": {
+                "hp": 490,
+                "nm": 650
+              }
+            }
+          },
+          {
+            "code": "3.0 BiTurbo (450 л.с., Carrera S)",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 450,
+            "tuning": {
+              "stage1": {
+                "hp": 525,
+                "nm": 670
+              },
+              "stage2": {
+                "hp": 570,
+                "nm": 720
+              }
+            }
+          }
+        ]
       },
       {
-        "slug": "911",
-        "name": "Porsche 911 (991, 992)",
-        "years": "все",
-        "engines": [],
-        "priceFrom": 60000
+        "slug": "panamera-971",
+        "name": "Porsche Panamera 971 (2016+)",
+        "years": "2016+",
+        "priceFrom": 45000,
+        "engines": [
+          {
+            "code": "2.9 BiTurbo (330 л.с.)",
+            "displacement": 2.9,
+            "type": "gasoline-turbo",
+            "hp": 330,
+            "tuning": {
+              "stage1": {
+                "hp": 400,
+                "nm": 560
+              }
+            }
+          },
+          {
+            "code": "4.0 BiTurbo (550 л.с., Turbo)",
+            "displacement": 4.0,
+            "type": "gasoline-turbo",
+            "hp": 550,
+            "tuning": {
+              "stage1": {
+                "hp": 630,
+                "nm": 810
+              },
+              "stage2": {
+                "hp": 680,
+                "nm": 870
+              }
+            }
+          }
+        ]
       }
     ]
   },
@@ -499,41 +1128,155 @@
     "priceFrom": 25000,
     "series": [
       {
-        "slug": "rx",
-        "name": "Lexus RX 350/450h",
-        "years": "2003+",
-        "priceFrom": 25000
+        "slug": "lx-570",
+        "name": "Lexus LX 570 (2008–2021)",
+        "years": "2008-2021",
+        "priceFrom": 30000,
+        "engines": [
+          {
+            "code": "3UR-FE (5.7 V8 383)",
+            "displacement": 5.7,
+            "type": "gasoline",
+            "hp": 383,
+            "tuning": {
+              "stage1": {
+                "hp": 408,
+                "nm": 570,
+                "time0_100": 7.2
+              },
+              "stage2": {
+                "hp": 440,
+                "nm": 610,
+                "time0_100": 6.8
+              }
+            },
+            "nm": 530,
+            "time0_100": 7.7
+          }
+        ]
       },
       {
-        "slug": "lx",
-        "name": "Lexus LX 470/570/600",
-        "years": "1998+",
-        "priceFrom": 30000
+        "slug": "lx-600",
+        "name": "Lexus LX 600 (2021+)",
+        "years": "2021+",
+        "priceFrom": 35000,
+        "engines": [
+          {
+            "code": "V35A-FTS (3.5 TT 409)",
+            "displacement": 3.5,
+            "type": "gasoline-turbo",
+            "hp": 409,
+            "tuning": {
+              "stage1": {
+                "hp": 464,
+                "nm": 780,
+                "time0_100": 5.0
+              },
+              "stage2": {
+                "hp": 520,
+                "nm": 870,
+                "time0_100": 4.6
+              }
+            },
+            "nm": 650,
+            "time0_100": 5.5
+          }
+        ]
       },
       {
-        "slug": "es",
-        "name": "Lexus ES 250/350",
-        "years": "1989+",
-        "priceFrom": 20000
+        "slug": "rx-350",
+        "name": "Lexus RX 350/450h (2015+)",
+        "years": "2015+",
+        "priceFrom": 25000,
+        "engines": [
+          {
+            "code": "2GR-FKS (3.5 V6 299)",
+            "displacement": 3.5,
+            "type": "gasoline",
+            "hp": 299,
+            "tuning": {
+              "stage1": {
+                "hp": 325,
+                "nm": 400,
+                "time0_100": 7.1
+              }
+            },
+            "nm": 367,
+            "time0_100": 7.7
+          },
+          {
+            "code": "8AR-FTS (2.0 T 238)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 238,
+            "tuning": {
+              "stage1": {
+                "hp": 290,
+                "nm": 430,
+                "time0_100": 6.3
+              },
+              "stage2": {
+                "hp": 330,
+                "nm": 490,
+                "time0_100": 5.8
+              }
+            },
+            "nm": 350,
+            "time0_100": 7.0
+          }
+        ]
       },
       {
-        "slug": "gx",
-        "name": "Lexus GX 460/470",
-        "years": "2002+",
-        "priceFrom": 30000
+        "slug": "gx-460",
+        "name": "Lexus GX 460 (2009+)",
+        "years": "2009+",
+        "priceFrom": 30000,
+        "engines": [
+          {
+            "code": "1UR-FE (4.6 V8 296)",
+            "displacement": 4.6,
+            "type": "gasoline",
+            "hp": 296,
+            "tuning": {
+              "stage1": {
+                "hp": 325,
+                "nm": 475,
+                "time0_100": 8.0
+              },
+              "stage2": {
+                "hp": 360,
+                "nm": 520,
+                "time0_100": 7.4
+              }
+            },
+            "nm": 439,
+            "time0_100": 8.7
+          }
+        ]
       }
     ],
     "color": "#1a1a2e",
     "tagline": "Премиум качество — японская надёжность",
     "seo": {
-      "title": "Чип-тюнинг Lexus в СПб | RX/LX/GX/ES | HP Тюнинг",
-      "description": "Профессиональный чип-тюнинг Lexus в Санкт-Петербурге: RX 350/450h, LX 470/570, GX 460, ES 250/350. Прошивка Stage 1/2 от 25 000 ₽ с гарантией. +7 (981) 842-81-51",
+      "title": "Сервис Lexus в СПб: диагностика, детейлинг и тюнинг | HP Тюнинг",
+      "description": "Сервис Lexus в СПб: диагностика Techstream JDM, ремонт LX 570/600, GX 460, RX, детейлинг и тюнинг от 25 000 ₽. HP Тюнинг — сервис уровня Lexus.",
       "keywords": [
-        "чип-тюнинг lexus",
-        "прошивка лексус спб",
-        "stage 1 lexus",
-        "чип lx570",
-        "тюнинг lexus rx"
+        "сервис lexus спб",
+        "то лексус петербург",
+        "диагностика lexus techstream",
+        "детейлинг lx 570",
+        "тюнинг лексус"
+      ],
+      "h1": "Обслуживание, детейлинг и тюнинг Lexus в Санкт-Петербурге",
+      "heroLead": "Премиальный сервис Lexus: Techstream JDM-диагностика, детейлинг салона и кузова, защита LX/GX/RX и прошивка атмосферных и турбированных двигателей.",
+      "localSeoText": "Обслуживаем Lexus владельцев из Центрального, Петроградского и Приморского районов Санкт-Петербурга. Закрытая стоянка для премиальных автомобилей.",
+      "shortIntro": "Lexus — это японская философия совершенства Kaizen: каждая деталь должна работать идеально и бесшумно. HP Тюнинг разделяет этот подход: работаем деликатно, без компромиссов, с Techstream JDM-уровня для максимально точной диагностики и настройки.",
+      "whyUs": [
+        "Techstream JDM открывает расширенные режимы калибровки АКПП и лог детонации по цилиндрам",
+        "LX 470/570/600 и GX 460 — опыт с флагманскими платформами Lexus",
+        "Детейлинг Lexus: бережная обработка светлой кожи F-Sport, кузовная защита PPF",
+        "Снятие ограничения 140 км/ч и 180 км/ч через Techstream — входит в стандартную прошивку",
+        "Ремонт систем «тихого хода»: актуаторы, подвеска, климат — без посторонних шумов"
       ]
     },
     "typicalProblems": [
@@ -563,37 +1306,240 @@
     "priceFrom": 30000,
     "series": [
       {
-        "slug": "range-rover",
-        "name": "Range Rover (L322, L405, L460)",
-        "priceFrom": 40000
+        "slug": "rr-l405",
+        "name": "Range Rover L405 (2012–2021)",
+        "years": "2012-2021",
+        "priceFrom": 40000,
+        "engines": [
+          {
+            "code": "SDV8 4.4 TDV8 (340)",
+            "displacement": 4.4,
+            "type": "diesel",
+            "hp": 340,
+            "tuning": {
+              "stage1": {
+                "hp": 420,
+                "nm": 850,
+                "time0_100": 5.7
+              },
+              "stage2": {
+                "hp": 470,
+                "nm": 950,
+                "time0_100": 5.3
+              }
+            },
+            "nm": 700,
+            "time0_100": 6.5
+          },
+          {
+            "code": "SDV6 3.0 TDV6 (306)",
+            "displacement": 3.0,
+            "type": "diesel",
+            "hp": 306,
+            "tuning": {
+              "stage1": {
+                "hp": 375,
+                "nm": 740,
+                "time0_100": 7.0
+              },
+              "stage2": {
+                "hp": 415,
+                "nm": 830,
+                "time0_100": 6.5
+              }
+            },
+            "nm": 600,
+            "time0_100": 7.9
+          },
+          {
+            "code": "AJ126 3.0 SC V6 (340)",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 340,
+            "tuning": {
+              "stage1": {
+                "hp": 400,
+                "nm": 510,
+                "time0_100": 6.9
+              },
+              "stage2": {
+                "hp": 445,
+                "nm": 570,
+                "time0_100": 6.4
+              }
+            },
+            "nm": 450,
+            "time0_100": 7.6
+          }
+        ]
       },
       {
-        "slug": "range-rover-sport",
-        "name": "Range Rover Sport",
-        "priceFrom": 35000
+        "slug": "rr-l460",
+        "name": "Range Rover L460 (2021+)",
+        "years": "2021+",
+        "priceFrom": 45000,
+        "engines": [
+          {
+            "code": "AJ126 P400 (3.0 TT 400)",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 400,
+            "tuning": {
+              "stage1": {
+                "hp": 470,
+                "nm": 660,
+                "time0_100": 4.9
+              },
+              "stage2": {
+                "hp": 530,
+                "nm": 750,
+                "time0_100": 4.5
+              }
+            },
+            "nm": 550,
+            "time0_100": 5.5
+          },
+          {
+            "code": "Ingenium D350 (3.0 TDI 350)",
+            "displacement": 3.0,
+            "type": "diesel",
+            "hp": 350,
+            "tuning": {
+              "stage1": {
+                "hp": 420,
+                "nm": 830,
+                "time0_100": 5.8
+              },
+              "stage2": {
+                "hp": 470,
+                "nm": 930,
+                "time0_100": 5.3
+              }
+            },
+            "nm": 700,
+            "time0_100": 6.4
+          }
+        ]
       },
       {
-        "slug": "discovery",
-        "name": "Land Rover Discovery 3/4/5",
-        "priceFrom": 30000
+        "slug": "defender-l663",
+        "name": "Land Rover Defender L663 (2020+)",
+        "years": "2020+",
+        "priceFrom": 35000,
+        "engines": [
+          {
+            "code": "Ingenium D300 (3.0 TDI 300)",
+            "displacement": 3.0,
+            "type": "diesel",
+            "hp": 300,
+            "tuning": {
+              "stage1": {
+                "hp": 365,
+                "nm": 780,
+                "time0_100": 6.9
+              },
+              "stage2": {
+                "hp": 410,
+                "nm": 880,
+                "time0_100": 6.4
+              }
+            },
+            "nm": 650,
+            "time0_100": 7.7
+          },
+          {
+            "code": "Ingenium P400 (3.0 TT 400)",
+            "displacement": 3.0,
+            "type": "gasoline-turbo",
+            "hp": 400,
+            "tuning": {
+              "stage1": {
+                "hp": 470,
+                "nm": 660,
+                "time0_100": 4.6
+              },
+              "stage2": {
+                "hp": 530,
+                "nm": 750,
+                "time0_100": 4.2
+              }
+            },
+            "nm": 550,
+            "time0_100": 5.1
+          }
+        ]
       },
       {
-        "slug": "defender",
-        "name": "Land Rover Defender (L663)",
-        "priceFrom": 35000
+        "slug": "discovery5",
+        "name": "Land Rover Discovery 5 (2016+)",
+        "years": "2016+",
+        "priceFrom": 33000,
+        "engines": [
+          {
+            "code": "TDV6 3.0 SDV6 (306)",
+            "displacement": 3.0,
+            "type": "diesel",
+            "hp": 306,
+            "tuning": {
+              "stage1": {
+                "hp": 375,
+                "nm": 740,
+                "time0_100": 7.2
+              },
+              "stage2": {
+                "hp": 415,
+                "nm": 830,
+                "time0_100": 6.7
+              }
+            },
+            "nm": 600,
+            "time0_100": 8.1
+          },
+          {
+            "code": "Ingenium D240 (2.0 TDI 240)",
+            "displacement": 2.0,
+            "type": "diesel",
+            "hp": 240,
+            "tuning": {
+              "stage1": {
+                "hp": 295,
+                "nm": 610,
+                "time0_100": 8.0
+              },
+              "stage2": {
+                "hp": 330,
+                "nm": 690,
+                "time0_100": 7.4
+              }
+            },
+            "nm": 500,
+            "time0_100": 8.9
+          }
+        ]
       }
     ],
     "color": "#006b5b",
     "tagline": "Мощь и бездорожье — без компромиссов",
     "seo": {
-      "title": "Чип-тюнинг Land Rover в СПб | Range Rover/Discovery | HP Тюнинг",
-      "description": "Чип-тюнинг Land Rover в Санкт-Петербурге: Range Rover L405/L460, Discovery 4/5, Defender L663. Прошивка от 30 000 ₽. Jaguar Land Rover диагностика. +7 (981) 842-81-51",
+      "title": "Сервис Land Rover в СПб: диагностика JLR SDD, тюнинг, детейлинг | HP Тюнинг",
+      "description": "Сервис Land Rover в СПб: JLR SDD диагностика, ремонт пневмоподвески Range Rover, ремонт SDV6/SDV8 и Ingenium, тюнинг Stage 1 от 30 000 ₽. HP Тюнинг.",
       "keywords": [
-        "чип-тюнинг land rover",
-        "прошивка range rover спб",
-        "тюнинг discovery",
-        "чип defender",
-        "land rover спб"
+        "сервис land rover спб",
+        "ремонт range rover",
+        "диагностика jlr sdd",
+        "пневмоподвеска range rover",
+        "тюнинг дефендер"
+      ],
+      "h1": "Обслуживание, диагностика и тюнинг Land Rover в Санкт-Петербурге",
+      "heroLead": "Комплексный сервис Land Rover: диагностика JLR SDD, ремонт пневмоподвески Range Rover, защита кузова и прошивка Ingenium/SDV6/SDV8.",
+      "localSeoText": "Обслуживаем Range Rover, Defender и Discovery в Санкт-Петербурге. Специализированный пост для внедорожников — принимаем L322, L405, L460, L663.",
+      "shortIntro": "Land Rover — это сочетание роскоши и бездорожья, которое предъявляет особые требования к сервису. Пневмоподвеска, JLR SDD, Ingenium и SDV8 — не каждый сервис в Петербурге умеет работать с этим. HP Тюнинг специализируется на Land Rover как на отдельном направлении.",
+      "whyUs": [
+        "JLR SDD — фирменная диагностическая станция Jaguar Land Rover, открывает VME-раздел ЭБУ",
+        "Пневмоподвеска Range Rover L322/L405/L460: ремонт компрессора WABCO, баллоны Arnott",
+        "Ingenium 2.0d/3.0d и SDV6/SDV8 — знаем особенности дизелей Land Rover и их слабые места",
+        "Защита кузова Defender: шагрень, матовые плёнки, дополнительная шумоизоляция арок",
+        "Адаптация ZF 8HP под увеличенный момент после прошивки — без рывков и пробуксовок"
       ]
     },
     "typicalProblems": [
@@ -709,32 +1655,184 @@
     "priceFrom": 20000,
     "series": [
       {
-        "slug": "tiguan",
-        "name": "VW Tiguan",
-        "priceFrom": 20000
+        "slug": "tiguan-mk2",
+        "name": "VW Tiguan II (2016+)",
+        "years": "2016+",
+        "priceFrom": 20000,
+        "engines": [
+          {
+            "code": "EA288 (2.0 TDI 150)",
+            "displacement": 2.0,
+            "type": "diesel",
+            "hp": 150,
+            "tuning": {
+              "stage1": {
+                "hp": 196,
+                "nm": 432
+              }
+            }
+          },
+          {
+            "code": "EA288 (2.0 TDI 190)",
+            "displacement": 2.0,
+            "type": "diesel",
+            "hp": 190,
+            "tuning": {
+              "stage1": {
+                "hp": 242,
+                "nm": 492
+              }
+            }
+          },
+          {
+            "code": "EA888.3 (2.0 TSI 180)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 180,
+            "tuning": {
+              "stage1": {
+                "hp": 235,
+                "nm": 400
+              }
+            }
+          },
+          {
+            "code": "EA888.3 (2.0 TSI 220)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 220,
+            "tuning": {
+              "stage1": {
+                "hp": 285,
+                "nm": 450
+              }
+            }
+          }
+        ]
       },
       {
-        "slug": "touareg",
-        "name": "VW Touareg",
-        "priceFrom": 30000
+        "slug": "touareg-cr7",
+        "name": "VW Touareg CR7 (2018+)",
+        "years": "2018+",
+        "priceFrom": 30000,
+        "engines": [
+          {
+            "code": "EA897evo (3.0 TDI V6 231)",
+            "displacement": 3.0,
+            "type": "diesel",
+            "hp": 231,
+            "tuning": {
+              "stage1": {
+                "hp": 295,
+                "nm": 680
+              }
+            }
+          },
+          {
+            "code": "EA897evo (3.0 TDI V6 286)",
+            "displacement": 3.0,
+            "type": "diesel",
+            "hp": 286,
+            "tuning": {
+              "stage1": {
+                "hp": 360,
+                "nm": 760
+              }
+            }
+          },
+          {
+            "code": "EA898 (4.0 TDI V8 421)",
+            "displacement": 4.0,
+            "type": "diesel",
+            "hp": 421,
+            "tuning": {
+              "stage1": {
+                "hp": 500,
+                "nm": 1000
+              },
+              "stage2": {
+                "hp": 550,
+                "nm": 1060
+              }
+            }
+          }
+        ]
       },
       {
-        "slug": "passat",
-        "name": "VW Passat (B7, B8)",
-        "priceFrom": 20000
+        "slug": "golf-mk8",
+        "name": "VW Golf 8 (2019+)",
+        "years": "2019+",
+        "priceFrom": 18000,
+        "engines": [
+          {
+            "code": "EA288evo (2.0 TDI 150)",
+            "displacement": 2.0,
+            "type": "diesel",
+            "hp": 150,
+            "tuning": {
+              "stage1": {
+                "hp": 196,
+                "nm": 400
+              }
+            }
+          },
+          {
+            "code": "EA888.4 (2.0 TSI GTI 245)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 245,
+            "tuning": {
+              "stage1": {
+                "hp": 310,
+                "nm": 450
+              },
+              "stage2": {
+                "hp": 355,
+                "nm": 510
+              }
+            }
+          },
+          {
+            "code": "EA888.4 (2.0 TSI Golf R 320)",
+            "displacement": 2.0,
+            "type": "gasoline-turbo",
+            "hp": 320,
+            "tuning": {
+              "stage1": {
+                "hp": 390,
+                "nm": 520
+              },
+              "stage2": {
+                "hp": 440,
+                "nm": 580
+              }
+            }
+          }
+        ]
       }
     ],
     "color": "#001e50",
     "tagline": "Немецкая точность — доступная мощь",
     "seo": {
-      "title": "Чип-тюнинг Volkswagen в СПб | Tiguan/Touareg/Passat | HP Тюнинг",
-      "description": "Профессиональный чип-тюнинг Volkswagen в Санкт-Петербурге: Tiguan, Touareg, Passat B7/B8, Golf GTI/R. Прошивка Stage 1/2 от 20 000 ₽. +7 (981) 842-81-51",
+      "title": "Сервис Volkswagen в СПб: ТО, диагностика и тюнинг | HP Тюнинг",
+      "description": "Сервис VW в Санкт-Петербурге: ТО и диагностика VCDS, ремонт DSG DQ200/DQ250, чип-тюнинг Tiguan/Golf/Touareg от 20 000 ₽. HP Тюнинг.",
       "keywords": [
-        "чип-тюнинг volkswagen",
-        "прошивка vw спб",
-        "stage 1 tiguan",
-        "тюнинг touareg",
-        "чип passat"
+        "сервис volkswagen спб",
+        "то вольксваген спб",
+        "ремонт dsg vw",
+        "чип тюнинг тигуан",
+        "диагностика vcds vw"
+      ],
+      "h1": "Техническое обслуживание, диагностика и тюнинг Volkswagen в СПб",
+      "heroLead": "Полное обслуживание Volkswagen VAG: диагностика VCDS, ремонт EA288/EA888, прошивка DSG и Simos 18, детейлинг и чип-тюнинг.",
+      "localSeoText": "Обслуживаем Volkswagen по Петербургу: Тигуан, Гольф, Туарег, Пассат. Работаем с гарантией и выдаём акт о выполненных работах.",
+      "shortIntro": "Volkswagen — самый массовый немецкий бренд в России, и это значит: обширная база клиентов, широкий опыт работы с VAG, отработанные процедуры ТО. HP Тюнинг — специализированный сервис для владельцев VW, которые ценят немецкое качество и разумные цены.",
+      "whyUs": [
+        "VCDS и KESSv3 — тот же инструментарий, что у официального дилера VW",
+        "DSG под ключ: DQ200 рывки на холодную, DQ250 пробуксовки, DQ381 перегрев",
+        "Simos 18 и Bosch MG1 — прошиваем безопасно, с лицензированным адаптером",
+        "Бурбл-тюн, launch control, Start/Stop навсегда — через VCDS без риска гарантии",
+        "ТО Volkswagen строго по регламенту: оригинальные масла VW 504/507, фильтры OEM"
       ]
     },
     "typicalProblems": [
@@ -811,37 +1909,200 @@
     "priceFrom": 20000,
     "series": [
       {
-        "slug": "land-cruiser-200",
-        "name": "Toyota Land Cruiser 200",
-        "priceFrom": 30000
+        "slug": "lc200",
+        "name": "Toyota Land Cruiser 200 (2007–2021)",
+        "years": "2007-2021",
+        "priceFrom": 30000,
+        "engines": [
+          {
+            "code": "1VD-FTV (4.5 TT Diesel 235)",
+            "displacement": 4.5,
+            "type": "diesel",
+            "hp": 235,
+            "tuning": {
+              "stage1": {
+                "hp": 295,
+                "nm": 760,
+                "time0_100": 8.4
+              },
+              "stage2": {
+                "hp": 330,
+                "nm": 850,
+                "time0_100": 7.8
+              }
+            },
+            "nm": 615,
+            "time0_100": 9.8
+          },
+          {
+            "code": "1GR-FE (4.0 V6 Petrol 282)",
+            "displacement": 4.0,
+            "type": "gasoline",
+            "hp": 282,
+            "tuning": {
+              "stage1": {
+                "hp": 310,
+                "nm": 415,
+                "time0_100": 8.5
+              },
+              "stage2": {
+                "hp": 340,
+                "nm": 450,
+                "time0_100": 8.0
+              }
+            },
+            "nm": 380,
+            "time0_100": 9.2
+          }
+        ]
       },
       {
-        "slug": "land-cruiser-300",
-        "name": "Toyota Land Cruiser 300",
-        "priceFrom": 35000
+        "slug": "lc300",
+        "name": "Toyota Land Cruiser 300 (2021+)",
+        "years": "2021+",
+        "priceFrom": 35000,
+        "engines": [
+          {
+            "code": "F33A-FTV (3.3 TT Diesel 309)",
+            "displacement": 3.3,
+            "type": "diesel",
+            "hp": 309,
+            "tuning": {
+              "stage1": {
+                "hp": 375,
+                "nm": 830,
+                "time0_100": 6.5
+              },
+              "stage2": {
+                "hp": 420,
+                "nm": 930,
+                "time0_100": 6.0
+              }
+            },
+            "nm": 700,
+            "time0_100": 7.6
+          },
+          {
+            "code": "V35A-FTS (3.5 TT Petrol 415)",
+            "displacement": 3.5,
+            "type": "gasoline-turbo",
+            "hp": 415,
+            "tuning": {
+              "stage1": {
+                "hp": 480,
+                "nm": 780,
+                "time0_100": 5.8
+              },
+              "stage2": {
+                "hp": 530,
+                "nm": 870,
+                "time0_100": 5.3
+              }
+            },
+            "nm": 650,
+            "time0_100": 6.7
+          }
+        ]
       },
       {
-        "slug": "camry",
-        "name": "Toyota Camry",
-        "priceFrom": 20000
+        "slug": "camry-v70",
+        "name": "Toyota Camry V70 (2018+)",
+        "years": "2018+",
+        "priceFrom": 20000,
+        "engines": [
+          {
+            "code": "A25A-FKS (2.5 Petrol 181)",
+            "displacement": 2.5,
+            "type": "gasoline",
+            "hp": 181,
+            "tuning": {
+              "stage1": {
+                "hp": 205,
+                "nm": 265,
+                "time0_100": 7.8
+              }
+            },
+            "nm": 231,
+            "time0_100": 8.5
+          },
+          {
+            "code": "A25A-FXS (2.5 Hybrid 178 sys.)",
+            "displacement": 2.5,
+            "type": "hybrid",
+            "hp": 218,
+            "tuning": {
+              "stage1": {
+                "hp": 218,
+                "nm": 221,
+                "time0_100": 8.3
+              }
+            },
+            "nm": 221,
+            "time0_100": 8.3
+          }
+        ]
       },
       {
-        "slug": "rav4",
-        "name": "Toyota RAV4",
-        "priceFrom": 20000
+        "slug": "rav4-a5",
+        "name": "Toyota RAV4 5 (2018+)",
+        "years": "2018+",
+        "priceFrom": 20000,
+        "engines": [
+          {
+            "code": "M20A-FKS (2.0 Petrol 149)",
+            "displacement": 2.0,
+            "type": "gasoline",
+            "hp": 149,
+            "tuning": {
+              "stage1": {
+                "hp": 168,
+                "nm": 230,
+                "time0_100": 9.6
+              }
+            },
+            "nm": 203,
+            "time0_100": 10.4
+          },
+          {
+            "code": "A25A-FXS (2.5 Hybrid 222 sys.)",
+            "displacement": 2.5,
+            "type": "hybrid",
+            "hp": 222,
+            "tuning": {
+              "stage1": {
+                "hp": 222,
+                "nm": 221,
+                "time0_100": 8.1
+              }
+            },
+            "nm": 221,
+            "time0_100": 8.1
+          }
+        ]
       }
     ],
     "color": "#eb0a1e",
     "tagline": "Надёжность плюс — когда хочется больше",
     "seo": {
-      "title": "Чип-тюнинг Toyota в СПб | LC 200/300/Camry/RAV4 | HP Тюнинг",
-      "description": "Чип-тюнинг Toyota в Санкт-Петербурге: Land Cruiser 200/300, Camry V70, RAV4, Hilux. Прошивка от 20 000 ₽. Диагностика Techstream. +7 (981) 842-81-51",
+      "title": "Сервис Toyota в СПб: ТО, LC 200/300, диагностика | HP Тюнинг",
+      "description": "Сервис Toyota в Санкт-Петербурге: диагностика Techstream, ТО и ремонт LC 200/300, Camry, RAV4, Hilux. Тюнинг и детейлинг от HP Тюнинг.",
       "keywords": [
-        "чип-тюнинг toyota",
-        "прошивка тойота спб",
-        "тюнинг land cruiser 200",
-        "чип camry",
-        "stage 1 rav4"
+        "сервис toyota спб",
+        "то ленд крузер 200 спб",
+        "диагностика тойота techstream",
+        "ремонт lc200",
+        "чип тюнинг тойота"
+      ],
+      "h1": "Обслуживание, диагностика и тюнинг Toyota в Санкт-Петербурге",
+      "heroLead": "Надёжный сервис Toyota: Techstream-диагностика, ТО Land Cruiser 200/300, ремонт дизелей 1VD/F33A, защитные покрытия и оптимизация ЭБУ.",
+      "localSeoText": "Обслуживаем Toyota в Санкт-Петербурге и Ленобласти. Land Cruiser 200/300 принимаем без очереди — у нас отдельный пост для внедорожников.",
+      "shortIntro": "Toyota заслужила репутацию надёжного автомобиля, и задача сервиса — её сохранить. Techstream — единственный инструмент для корректной диагностики и адаптации Toyota. HP Тюнинг использует Techstream японской версии, что открывает расширенный доступ к ECM.",
+      "whyUs": [
+        "Techstream JDM — расширенный доступ к ECM Toyota, недоступный в международной версии",
+        "Land Cruiser 200/300 — ключевая специализация: 1VD-FTV, 1GR-FE, F33A-FTV",
+        "Ремонт форсунок и ТНВД 1VD-FTV без замены в сборе — экономия до 300 000 ₽",
+        "Детейлинг внедорожников: защита порогов, арок и бамперов керамикой и PPF",
+        "Корпоративные заявки на Hilux и Fortuner — Fleet-обслуживание с документацией"
       ]
     },
     "typicalProblems": [
