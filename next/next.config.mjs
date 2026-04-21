@@ -42,20 +42,6 @@ const nextConfig = {
       { source: '/services',                    destination: '/',                            permanent: true },
       { source: '/calculator',                  destination: '/tuning/chip-tuning#chip-calculator', permanent: true },
       // ─────────────────────────────────────────────────────────────────
-
-      // Старый домен с дефисом → правильный
-      {
-        source: '/(.*)',
-        has: [{ type: 'host', value: 'hp-tuning.ru' }],
-        destination: 'https://hptuning.ru/:path*',
-        permanent: true,
-      },
-      {
-        source: '/(.*)',
-        has: [{ type: 'host', value: 'www.hptuning.ru' }],
-        destination: 'https://hptuning.ru/:path*',
-        permanent: true,
-      },
       // Статические страницы старого сайта → новые пути
       { source: '/site', destination: '/', permanent: true },
       { source: '/site/', destination: '/', permanent: true },
