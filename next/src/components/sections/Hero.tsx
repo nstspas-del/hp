@@ -104,7 +104,7 @@ export function Hero() {
           <div className="flex flex-wrap gap-6 md:gap-10">
             {[
               { value: '38+', label: 'марок авто' },
-              { value: 'сотни', label: 'проектов в работе' },
+              { value: 'сотни', label: 'собранных проектов' },
               { value: 'от 4 900 ₽', label: 'ТО под ключ' },
               { value: '10:00–22:00', label: 'без выходных' },
             ].map((s) => (

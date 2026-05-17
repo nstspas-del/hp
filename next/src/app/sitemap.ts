@@ -100,10 +100,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
  }
  }
 
+ // ── Проекты / кейсы ─────────────────────────────────────────────────────
+ // Список синхронизирован с PROJECTS в /projects/[slug]/page.tsx
+ // При росте перевести в projects.json
+ const projectSlugs: { slug: string; date: string }[] = [
+ { slug: 'dodge-challenger-ta-hemi',       date: '2025-11-20' },
+ { slug: 'bmw-x5-g05-chiptuning-stage2',   date: '2025-10-12' },
+ ];
+ const projectPages: MetadataRoute.Sitemap = [
+ { url: `${BASE}/projects`, lastModified: NOW, changeFrequency: 'weekly', priority: 0.8 },
+ ...projectSlugs.map((p) => ({
+ url: `${BASE}/projects/${p.slug}`,
+ lastModified: p.date,
+ changeFrequency: 'monthly' as const,
+ priority: 0.7,
+ })),
+ ];
+
  return [
  ...staticPages,
  ...brandPages,
  ...districtPages,
  ...servicePages,
+ ...projectPages,
  ];
 }

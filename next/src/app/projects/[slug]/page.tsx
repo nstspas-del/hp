@@ -52,6 +52,13 @@ export interface Project {
   /** Видео */
   youtubeId?: string;
   rutubeId?: string;
+  /** Локальное видео (mp4 в /public/videos/) — приоритет над embed */
+  localVideo?: {
+    src: string;
+    poster?: string;
+    /** Соотношение сторон, e.g. 'aspect-[9/16]' (портрет) или 'aspect-video' */
+    aspectClass?: string;
+  };
 
   /** Блок FAQ */
   faq?: { q: string; a: string }[];
@@ -119,6 +126,87 @@ const PROJECTS: Project[] = [
     ],
     services: ['Чип-тюнинг', 'Stage 2', 'BMW'],
     createdAt: '2025-10-12',
+  },
+  {
+    slug: 'dodge-challenger-ta-hemi',
+    brandSlug: 'dodge',
+    brandName: 'Dodge',
+    model: 'Challenger T/A',
+    generation: 'LA',
+    engine: '5.7 HEMI V8',
+    year: 2019,
+    title: 'Dodge Challenger T/A 5.7 HEMI — daily-muscle build',
+    metaDescription:
+      'Кейс HP Тюнинг: Dodge Challenger T/A 5.7 HEMI 2019 — комплексный daily-muscle: '
+      + 'коллекторы Kooks Long Tube, распредвал Texas Speed Stage 2, доработка MDS + Flex Fuel, '
+      + 'выхлоп Ø76 мм, Body Look Hellcat, подсветка XGLOW.',
+    problemStatement:
+      'Клиент обратился с задачей: сделать из стокового Dodge Challenger T/A 5.7 HEMI 2019 года '
+      + 'дейли с характером Hellcat — чтобы машина тянула с низов, звучала как положено V8 '
+      + 'и каждый день ездила по городу без проблем. Не «гаражный мускул на трейлере», а полноценная '
+      + 'повседневная машина, на которой не страшно ехать и в офис, и на трек-день.',
+    diagnosticsResult:
+      'Перед началом — полная диагностика мотора и АКПП через wiTECH, замер компрессии, проверка форсунок и насоса. '
+      + 'Двигатель в исправном состоянии, ресурсы по поршневой и шатунным вкладышам в норме. '
+      + 'Принято решение собирать проект поэтапно: каждый этап — отдельный визит, '
+      + 'чтобы клиент мог жить с машиной, чувствовать изменения и не выпадать из эксплуатации.',
+    worksDone: [
+      'Коллекторы Kooks Long Tube — раскрытие верхов и прирост момента в среднем диапазоне',
+      'Распредвал Texas Speed Stage 2 — агрессивная фаза, характерный muscle-холостой',
+      'Доработка системы катушек MDS (отключение деактивации цилиндров)',
+      'Установка системы Flex Fuel — готовность к работе на смесях вплоть до E85',
+      'Выхлопная трасса Ø 76 мм — единый диаметр от коллекторов до кормы',
+      'Body Look в стиле Hellcat: капот, бамперы, расширители, оптика',
+      'Контурная подсветка XGLOW — динамика днём, шоу-режим ночью',
+      'Калибровка ЭБУ под новое железо и Flex Fuel (E10–E85)',
+      'Дорожные тесты на каждом этапе, адаптация под клиента',
+    ],
+    result:
+      'Получился настоящий daily-muscle: дейли с характером Hellcat, тянет с низов, звучит как V8 должен звучать, '
+      + 'едет каждый день. По внешности — машина-визитка, в потоке узнают сразу. '
+      + 'Главное — клиент получил не «гаражный экспонат», а инструмент: на работу в понедельник, на трек в субботу.',
+    coverImage: '/images/projects/dodge-challenger-ta/02-outdoor-sunset-halo.jpg',
+    gallery: [
+      '/images/projects/dodge-challenger-ta/01-front-ta-stripe.jpg',
+      '/images/projects/dodge-challenger-ta/02-outdoor-sunset-halo.jpg',
+      '/images/projects/dodge-challenger-ta/03-engine-bay-hemi.jpg',
+      '/images/projects/dodge-challenger-ta/04-rear-exhaust-lift.jpg',
+      '/images/projects/dodge-challenger-ta/05-rear-quarter-workshop.jpg',
+    ],
+    localVideo: {
+      src: '/videos/dodge-challenger-ta.mp4',
+      poster: '/images/projects/dodge-challenger-ta/00-video-poster.jpg',
+      aspectClass: 'aspect-[9/16]',
+    },
+    faq: [
+      {
+        q: 'Что такое Flex Fuel и зачем он на HEMI?',
+        a: 'Flex Fuel — это система, которая позволяет двигателю работать на смесях бензина с этанолом вплоть до E85. '
+           + 'Этанол даёт более высокое октановое число и охлаждает заряд, что позволяет агрессивнее настраивать УОЗ и наддув '
+           + '(если он есть). На атмосферном HEMI 5.7 эффект скромнее, чем на турбомоторах, но прирост есть, '
+           + 'плюс мотор живёт стабильнее на агрессивной прошивке.',
+      },
+      {
+        q: 'Сколько времени заняла сборка проекта?',
+        a: 'Машина собиралась поэтапно — несколько визитов растянутых по времени. '
+           + 'Такой подход даёт клиенту возможность не оставаться без машины надолго '
+           + 'и чувствовать каждое изменение по отдельности: сначала железо мотора, потом выхлоп, потом внешность, потом подсветка.',
+      },
+      {
+        q: 'Можно ли с такими доработками ездить каждый день?',
+        a: 'Да, в этом и был смысл проекта. Распредвал Stage 2 даёт характерный muscle-холостой, '
+           + 'но не делает машину неудобной в пробках. Выхлоп 76 мм с правильными резонаторами не «гудит» в круизе. '
+           + 'Flex Fuel позволяет заправляться на любой АЗС.',
+      },
+      {
+        q: 'Делаете ли подобные проекты под других клиентов?',
+        a: 'Да, специализируемся на американских V8 (Dodge, Chrysler, Jeep SRT) и европейских muscle/sport-машинах. '
+           + 'Каждый проект — индивидуальный, под задачи и стиль владельца. '
+           + 'Можем как полный build «под ключ», так и поэтапно — как в этом кейсе.',
+      },
+    ],
+    services: ['Тюнинг мотора', 'Body Look', 'Выхлоп', 'Flex Fuel', 'Подсветка'],
+    createdAt: '2025-11-20',
   },
 ];
 
@@ -303,8 +391,24 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               )}
             </section>
 
-            {/* Видео */}
-            {(project.youtubeId || project.rutubeId) && (
+            {/* Видео — локальный mp4 имеет приоритет над embed */}
+            {project.localVideo ? (
+              <section>
+                <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-4 flex items-center gap-2">
+                  <span className="text-[#39FF14]">▶</span> Видео о работе
+                </h2>
+                <div className={`relative ${project.localVideo.aspectClass ?? 'aspect-video'} max-w-md mx-auto rounded-2xl overflow-hidden border border-white/8 bg-black`}>
+                  <video
+                    src={project.localVideo.src}
+                    poster={project.localVideo.poster}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-contain bg-black"
+                  />
+                </div>
+              </section>
+            ) : (project.youtubeId || project.rutubeId) ? (
               <section>
                 <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-4 flex items-center gap-2">
                   <span className="text-[#39FF14]">▶</span> Видео о работе
@@ -317,7 +421,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                   posterSrc={project.coverImage}
                 />
               </section>
-            )}
+            ) : null}
 
             {/* Галерея */}
             {project.gallery && project.gallery.length > 0 && (

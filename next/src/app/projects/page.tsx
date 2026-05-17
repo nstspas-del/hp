@@ -17,6 +17,17 @@ export const metadata: Metadata = {
 // Временный список проектов — подключить projects.json при росте
 const PROJECTS_PREVIEW = [
   {
+    slug: 'dodge-challenger-ta-hemi',
+    title: 'Dodge Challenger T/A 5.7 HEMI — daily-muscle build',
+    brandName: 'Dodge',
+    model: 'Challenger T/A',
+    services: ['Тюнинг мотора', 'Body Look', 'Выхлоп'],
+    coverImage: '/images/projects/dodge-challenger-ta/02-outdoor-sunset-halo.jpg',
+    result:
+      'Kooks Long Tube, Texas Speed Stage 2, Flex Fuel, выхлоп Ø76 мм, Body Look Hellcat, XGLOW.',
+    createdAt: '2025-11-20',
+  },
+  {
     slug: 'bmw-x5-g05-chiptuning-stage2',
     title: 'BMW X5 G05 — чип-тюнинг Stage 2: 340 → 440 л.с.',
     brandName: 'BMW',
