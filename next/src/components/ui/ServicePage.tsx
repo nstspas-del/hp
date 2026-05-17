@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { CheckCircle, Phone, Clock, ChevronDown } from 'lucide-react';
 import { BookingButton } from './BookingButton';
 import { SERVICE_CONTENT, getCategoryLabel } from '@/lib/services';
+import yandexServicesData from '@/data/yandex-services.json';
 
 interface ServiceItem {
  slug: string;
@@ -21,35 +22,60 @@ export function ServicePage({ catSlug, service }: Props) {
  const content = SERVICE_CONTENT[key];
  const catLabel = getCategoryLabel(catSlug);
 
+ // Сопоставление catSlug → актуальный путь раздела
+ const catPath: Record<string, string> = {
+ 'service': '/service',
+ 'detailing': '/detailing',
+ 'chip-tuning': '/tuning/chip-tuning',
+ };
+ const catUrl = `https://hptuning.ru${catPath[catSlug] ?? '/'}`;
+ const itemUrl = `https://hptuning.ru${catPath[catSlug] ?? ''}/${service.slug}`;
+
  const breadcrumbSchema = {
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
  itemListElement: [
- { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru' },
- { '@type': 'ListItem', position: 2, name: 'Услуги', item: 'https://hptuning.ru/services' },
- { '@type': 'ListItem', position: 3, name: catLabel, item: `https://hptuning.ru/services/${catSlug}` },
- { '@type': 'ListItem', position: 4, name: service.name, item: `https://hptuning.ru/services/${catSlug}/${service.slug}` },
+ { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru/' },
+ { '@type': 'ListItem', position: 2, name: catLabel, item: catUrl },
+ { '@type': 'ListItem', position: 3, name: service.name, item: itemUrl },
  ],
  };
 
- const offerSchema = {
+ // Унифицированные данные с карточкой Яндекс.Бизнес (если slug совпадает)
+ const yandexService = yandexServicesData.services.find((s: { slug: string }) => s.slug === service.slug);
+
+ const offerSchema: Record<string, unknown> = {
  '@context': 'https://schema.org',
  '@type': 'Service',
- name: service.name,
+ name: yandexService?.name ?? service.name,
+ description: yandexService?.longDescription ?? service.shortDescription ?? service.name,
+ serviceType: yandexService?.yandexCategory ?? catLabel,
  provider: {
  '@type': 'AutoRepair',
  name: 'HP Тюнинг',
  url: 'https://hptuning.ru',
  telephone: '+79818428151',
+ address: {
+ '@type': 'PostalAddress',
+ streetAddress: 'Богородская, 3Б',
+ addressLocality: 'Санкт-Петербург',
+ addressCountry: 'RU',
+ },
  },
  offers: {
  '@type': 'Offer',
  price: service.priceFrom,
  priceCurrency: 'RUB',
  priceValidUntil: '2026-12-31',
+ url: itemUrl,
+ availability: 'https://schema.org/InStock',
  },
  areaServed: { '@type': 'City', name: 'Санкт-Петербург' },
+ url: itemUrl,
  };
+ if (yandexService?.image) {
+ offerSchema.image = `https://hptuning.ru${yandexService.image}`;
+ }
 
  return (
  <>

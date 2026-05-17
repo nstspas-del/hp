@@ -57,27 +57,25 @@ export function Hero() {
             </span>
           </div>
 
-          {/* H1 */}
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl leading-none uppercase tracking-tight text-white mb-4">
+          {/* H1 — единый, чистый, без двойного вложения */}
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.95] uppercase tracking-tight text-white mb-5">
+            Автосервис в&nbsp;
             <span className="text-[#39FF14]" style={{ textShadow: '0 0 40px rgba(57,255,20,0.5)' }}>
-              Автосервис в СПб
+              Санкт-Петербурге
             </span>
-            <br />
-            <span className="text-3xl sm:text-4xl md:text-5xl">
-              ТО · Диагностика · Ремонт<br className="hidden sm:block" /> Детейлинг · Тюнинг
+            <span className="block text-zinc-300 text-2xl sm:text-3xl md:text-4xl mt-3 normal-case tracking-normal font-display">
+              ТО, ремонт, шиномонтаж, детейлинг и&nbsp;чип-тюнинг
             </span>
           </h1>
 
-          {/* Подзаголовок */}
-          <p className="text-zinc-300 text-sm md:text-base leading-relaxed mb-2 max-w-xl">
-            Сервис для европейских, японских, корейских и современных китайских автомобилей в Санкт-Петербурге:
-          </p>
-          {/* Марки в HTML — видно Яндексу без JS */}
-          <p className="text-zinc-400 text-xs md:text-sm leading-relaxed mb-7 max-w-xl">
-            BMW, Mercedes-Benz, Audi, Porsche, Toyota, Lexus, Volkswagen, Land Rover,
-            Kia, Hyundai,{' '}
-            <strong className="text-white">Haval, Chery, Geely, Tank, Exeed, Jaecoo</strong>{' '}
-            и другие марки — всё в одном месте, от ТО и диагностики до сложного ремонта и дооснащения.
+          {/* Подзаголовок — короткий, без скриптовой ваты */}
+          <p className="text-zinc-300 text-sm md:text-base leading-relaxed mb-6 max-w-xl">
+            38+ марок — европейские, японские, корейские и&nbsp;китайские.
+            <span className="block mt-1 text-zinc-400 text-xs md:text-sm">
+              BMW, Mercedes-Benz, Audi, Porsche, Toyota, Lexus, Land Rover, Kia, Hyundai,{' '}
+              <strong className="text-white font-semibold">Haval, Chery, Geely, Tank, Exeed</strong>{' '}
+              — всё в одном месте.
+            </span>
           </p>
 
           {/* CTA */}
@@ -97,21 +95,22 @@ export function Hero() {
               +7 (981) 842-81-51
             </a>
           </div>
-          <p className="text-zinc-600 text-xs mb-10">
+          <p className="text-zinc-600 text-xs mb-8">
             Ответим в течение 15 минут · возможна дистанционная консультация
           </p>
 
-          {/* Статистика */}
+          {/* Статистика — без «10+ лет», без «247 отзывов».
+              Замена на честные маркетинговые формулировки. */}
           <div className="flex flex-wrap gap-6 md:gap-10">
             {[
-              { value: '10+', label: 'лет опыта' },
-              { value: '500+', label: 'авто обслужено' },
               { value: '38+', label: 'марок авто' },
-              { value: 'от 4 900 ₽', label: 'ТО' },
+              { value: 'сотни', label: 'проектов в работе' },
+              { value: 'от 4 900 ₽', label: 'ТО под ключ' },
+              { value: '10:00–22:00', label: 'без выходных' },
             ].map((s) => (
               <div key={s.label}>
                 <div
-                  className="text-2xl md:text-3xl font-display font-bold text-[#39FF14]"
+                  className="text-xl md:text-2xl font-display font-bold text-[#39FF14]"
                   style={{ textShadow: '0 0 20px rgba(57,255,20,0.4)' }}
                 >
                   {s.value}
@@ -119,6 +118,19 @@ export function Hero() {
                 <div className="text-zinc-500 text-xs mt-0.5">{s.label}</div>
               </div>
             ))}
+          </div>
+
+          {/* Яндекс.Бизнес — реальный рейтинг (id 99062407907) */}
+          <div className="mt-6">
+            <iframe
+              src="https://yandex.ru/sprav/widget/rating-badge/99062407907?type=rating&theme=dark"
+              width={150}
+              height={50}
+              frameBorder={0}
+              loading="lazy"
+              title="Рейтинг HP Тюнинг в Яндекс.Бизнес"
+              className="block"
+            />
           </div>
         </div>
 
@@ -142,7 +154,7 @@ export function Hero() {
         </div>
         <Link
           href="/marki"
-          className="inline-flex items-center gap-1.5 mt-4 text-xs text-zinc-500 hover:text-[#39FF14] transition-colors"
+          className="inline-flex items-center gap-1.5 mt-4 text-xs text-zinc-500 hover:text-[#A855F7] transition-colors"
           prefetch={false}
         >
           Смотреть все 38 марок →
@@ -154,9 +166,9 @@ export function Hero() {
         <div className="container">
           <div className="grid grid-cols-3 divide-x divide-white/8">
             {[
-              { href: '/tuning/chip-tuning', icon: '⚡', label: 'Тюнинг', sub: 'Чип-тюнинг от 24 000 ₽' },
+              { href: '/service', icon: '🔧', label: 'Автосервис', sub: 'ТО, ремонт, шиномонтаж от 2 500 ₽' },
               { href: '/detailing', icon: '◈', label: 'Детейлинг', sub: 'Керамика, PPF, химчистка' },
-              { href: '/service', icon: '🔧', label: 'Автосервис', sub: 'ТО от 4 900 ₽' },
+              { href: '/tuning/chip-tuning', icon: '⚡', label: 'Чип-тюнинг', sub: 'Stage 1 от 24 000 ₽' },
             ].map((item) => (
               <Link
                 key={item.href}

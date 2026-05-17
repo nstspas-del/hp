@@ -14,21 +14,22 @@ import { BrandStripSection } from '@/components/sections/BrandStripSection';
 import seoData from '@/data/seo.json';
 
 export const metadata: Metadata = {
- title: 'Автосервис в Санкт-Петербурге | ТО, диагностика, ремонт, детейлинг и тюнинг | HP Тюнинг',
- description: 'Автосервис в Санкт-Петербурге: ТО от 4 900 ₽, компьютерная диагностика, ремонт двигателя, коробки, подвески. Детейлинг и чип-тюнинг. BMW, Mercedes, Audi, Haval, Chery, Geely и 38 марок. Богородская 3Б, СПб. ☎ +7 (981) 842-81-51',
- keywords: ['автосервис спб', 'чип тюнинг спб', 'детейлинг спб', 'hp тюнинг', 'тюнинг автомобилей санкт-петербург'],
+ title: 'HP Тюнинг — автосервис в СПб: ТО, ремонт, детейлинг, чип-тюнинг',
+ description: 'Автосервис в Санкт-Петербурге: ТО от 4 900 ₽, диагностика, ремонт, шиномонтаж, детейлинг, чип-тюнинг. BMW, Mercedes, Haval, Chery, Geely и 38+ марок. Богородская 3Б. Ежедневно 10:00–22:00.',
+ keywords: ['автосервис спб', 'то спб', 'ремонт двигателя спб', 'шиномонтаж спб', 'детейлинг спб', 'чип тюнинг спб', 'hp тюнинг'],
  alternates: { canonical: 'https://hptuning.ru/' },
  openGraph: {
- title: 'Автосервис премиум-класса в СПб | HP Тюнинг',
- description: 'ТО, диагностика, ремонт, детейлинг и тюнинг для BMW, Mercedes-Benz, Audi, Porsche, VW, Toyota, Lexus, Land Rover, Haval, Chery, Tank, Geely в Петербурге.',
+ title: 'HP Тюнинг — автосервис в Санкт-Петербурге',
+ description: 'ТО, ремонт, шиномонтаж, детейлинг и чип-тюнинг для BMW, Mercedes, Audi, Porsche, Haval, Chery, Geely и 38+ марок. Богородская 3Б, СПб.',
  url: 'https://hptuning.ru/',
  type: 'website',
  locale: 'ru_RU',
  siteName: 'HP Тюнинг',
- images: [{ url: 'https://hptuning.ru/images/og/home.jpg', width: 1200, height: 630, alt: 'HP Тюнинг — чип-тюнинг, детейлинг и автосервис в СПб' }],
+ images: [{ url: 'https://hptuning.ru/images/og/home.jpg', width: 1200, height: 630, alt: 'HP Тюнинг — автосервис в СПб' }],
  },
 };
 
+// FAQPage — даём Яндексу и Google FAQ-сниппеты
 const faqSchema = {
  '@context': 'https://schema.org',
  '@type': 'FAQPage',
@@ -39,19 +40,13 @@ const faqSchema = {
  })),
 };
 
+// Реальные текстовые отзывы (без AggregateRating — пока отзывов мало).
+// Когда соберётся ≥20 реальных отзывов в Яндекс.Картах, вернём агрегат.
 const reviewsSchema = {
  '@context': 'https://schema.org',
  '@type': 'LocalBusiness',
  '@id': 'https://hptuning.ru/#org',
  name: 'HP Тюнинг',
- privacyPolicy: 'https://hptuning.ru/privacy',
- aggregateRating: {
- '@type': 'AggregateRating',
- ratingValue: '5.0',
- reviewCount: String(seoData.reviews.length),
- bestRating: '5',
- worstRating: '1',
- },
  review: seoData.reviews.map((r) => ({
  '@type': 'Review',
  author: { '@type': 'Person', name: r.name },
@@ -65,6 +60,15 @@ const reviewsSchema = {
  })),
 };
 
+// BreadcrumbList — навигационный путь для главной (single-step)
+const breadcrumbSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://hptuning.ru/' },
+ ],
+};
+
 export default function HomePage() {
  return (
  <>
@@ -75,6 +79,10 @@ export default function HomePage() {
  <script
  type="application/ld+json"
  dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsSchema) }}
+ />
+ <script
+ type="application/ld+json"
+ dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
  />
 
  {/* Герой с BMW X7 */}

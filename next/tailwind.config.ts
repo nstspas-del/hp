@@ -20,6 +20,14 @@ const config: Config = {
           dim: 'rgba(57,255,20,0.4)',
           glow: 'rgba(57,255,20,0.15)',
         },
+        // Точечный premium-акцент: только hover вторички, активный фильтр,
+        // бейджи Premium. Применять не более 5% площади экрана.
+        premium: {
+          DEFAULT: '#A855F7',
+          hover: '#9333EA',
+          dim: 'rgba(168,85,247,0.4)',
+          glow: 'rgba(168,85,247,0.15)',
+        },
         text: {
           DEFAULT: '#fafafa',
           muted: '#a1a1aa',

@@ -30,20 +30,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
  { url: `${BASE}/detailing`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.9 },
  { url: `${BASE}/service`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.8 },
 
- // Страницы сервиса
- { url: `${BASE}/service/brakes`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.7 },
- { url: `${BASE}/service/diagnostics`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.7 },
- { url: `${BASE}/service/electrics`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.6 },
- { url: `${BASE}/service/engine`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.7 },
- { url: `${BASE}/service/suspension`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.7 },
- { url: `${BASE}/service/to`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.7 },
- { url: `${BASE}/service/transmission`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.6 },
-
- // Редиректные /services/* (для crawl — canonical уже указывает на правильный URL)
- { url: `${BASE}/services`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.6 },
- { url: `${BASE}/services/chip-tuning`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.7 },
- { url: `${BASE}/services/detailing`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.7 },
- { url: `${BASE}/services/service`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.6 },
+ // Маркетинг-страницы Яндекс.Бизнес (приоритетные услуги — единые с карточкой)
+ { url: `${BASE}/yandex-services.yml`, lastModified: NOW, changeFrequency: 'daily', priority: 0.3 },
 
  // Юридические
  { url: `${BASE}/privacy`, lastModified: MONTH_AGO, changeFrequency: 'yearly', priority: 0.2 },
@@ -87,44 +75,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
  }));
 
  // ── Услуги категорий (динамические) ──────────────────────────────────────
+ // Только новые пути. Старые /services/* не включаем — на них 301-редирект,
+ // в sitemap они дают «грязный» crawl-граф для Яндекса.
  const servicePages: MetadataRoute.Sitemap = [];
  for (const cat of services.categories) {
  const items = (cat as any).items ?? [];
  for (const item of items) {
- // /tuning/chip-tuning/[service]
+ let url: string | null = null;
  if (cat.slug === 'chip-tuning') {
- servicePages.push({
- url: `${BASE}/tuning/chip-tuning/${item.slug}`,
- lastModified: MONTH_AGO,
- changeFrequency: 'monthly',
- priority: 0.8,
- });
- // Legacy /services/chip-tuning/[service]
- servicePages.push({
- url: `${BASE}/services/chip-tuning/${item.slug}`,
- lastModified: MONTH_AGO,
- changeFrequency: 'monthly',
- priority: 0.5,
- });
+ url = `${BASE}/tuning/chip-tuning/${item.slug}`;
  } else if (cat.slug === 'detailing') {
+ url = `${BASE}/detailing/${item.slug}`;
+ } else if (cat.slug === 'service') {
+ url = `${BASE}/service/${item.slug}`;
+ }
+ if (url) {
  servicePages.push({
- url: `${BASE}/detailing/${item.slug}`,
+ url,
  lastModified: MONTH_AGO,
  changeFrequency: 'monthly',
  priority: 0.8,
- });
- servicePages.push({
- url: `${BASE}/services/detailing/${item.slug}`,
- lastModified: MONTH_AGO,
- changeFrequency: 'monthly',
- priority: 0.5,
- });
- } else if (cat.slug === 'service') {
- servicePages.push({
- url: `${BASE}/services/service/${item.slug}`,
- lastModified: MONTH_AGO,
- changeFrequency: 'monthly',
- priority: 0.6,
  });
  }
  }

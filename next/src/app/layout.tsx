@@ -72,14 +72,11 @@ const localBusinessSchema = {
  },
  hasMap: company.geo.yandexMapUrl,
  areaServed: { '@type': 'City', name: 'Санкт-Петербург' },
- aggregateRating: {
- '@type': 'AggregateRating',
- ratingValue: '4.9',
- bestRating: '5',
- ratingCount: '247',
- },
+ // aggregateRating намеренно не указан: фейковые числа снижают траст в Яндексе.
+ // Реальный рейтинг показываем через виджет Яндекс.Бизнес (id 99062407907) на странице.
  sameAs: [
  'https://t.me/hptuningspb',
+ 'https://yandex.ru/sprav/99062407907',
  'https://yandex.ru/maps/org/99062407907/',
  ],
 };
