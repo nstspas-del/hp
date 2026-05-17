@@ -36,7 +36,7 @@
  "yandexMapUrl": "https://yandex.ru/maps/?pt=30.304163,60.096423&z=17&l=map"
  },
  "workHours": {
- "schedule": "Пн-Вс 10:00–20:00",
+ "schedule": "Пн-Вс 10:00–22:00",
  "days": [
  "Mo",
  "Tu",
@@ -47,7 +47,7 @@
  "Su"
  ],
  "opens": "10:00",
- "closes": "20:00",
+ "closes": "22:00",
  "timezone": "Europe/Moscow"
  },
  "domain": {

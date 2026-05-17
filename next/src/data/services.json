@@ -77,11 +77,19 @@
  "priceFrom": 1500,
  "items": [
  { "slug": "to", "name": "Плановое ТО", "shortDescription": "Замена масла, фильтров, расходников", "priceFrom": 4500, "duration": "1-2 часа" },
+ { "slug": "oil-change", "name": "Замена масла", "shortDescription": "Моторное масло + фильтр на дилерском оборудовании", "priceFrom": 2500, "duration": "30-60 минут",
+ "features": ["Оригинальные масла и фильтры","BMW, Mercedes, Audi, Porsche, VW, Toyota","Китайские марки: Haval, Chery, Geely","Сброс сервисных счётчиков"] },
  { "slug": "diagnostics", "name": "Компьютерная диагностика", "shortDescription": "Считывание ошибок на дилерском оборудовании", "priceFrom": 1500, "duration": "30 минут" },
  { "slug": "brakes", "name": "Тормозная система", "shortDescription": "Замена колодок, дисков, прокачка тормозов", "priceFrom": 3000, "duration": "1-3 часа" },
  { "slug": "suspension", "name": "Подвеска", "shortDescription": "Замена амортизаторов, рычагов, сайлентблоков", "priceFrom": 5000, "duration": "1-2 дня" },
  { "slug": "engine-repair", "name": "Ремонт ДВС", "shortDescription": "Замена цепи ГРМ, капитальный ремонт", "priceFrom": 30000, "duration": "3-10 дней" },
- { "slug": "transmission", "name": "Ремонт АКПП и DSG", "shortDescription": "Диагностика и ремонт коробок передач", "priceFrom": 15000 }
+ { "slug": "transmission", "name": "Ремонт АКПП и DSG", "shortDescription": "Диагностика и ремонт коробок передач", "priceFrom": 15000 },
+ { "slug": "tyre-service", "name": "Шиномонтаж", "shortDescription": "Сезонная переобувка, балансировка, ремонт шин",
+ "priceFrom": 2500, "duration": "30-60 минут",
+ "features": ["Диски R13–R23","Балансировка на станке Hofmann","Сезонное хранение шин (опция)","Ремонт боковых порезов и проколов","Запись онлайн или без очереди"] },
+ { "slug": "retrofit", "name": "Дооснащение (retrofit)", "shortDescription": "Установка опций: CarPlay, Android Auto, камеры, апгрейд медиа",
+ "priceFrom": 8000, "duration": "1-2 дня",
+ "features": ["Apple CarPlay / Android Auto на BMW, Mercedes, Audi","Камеры заднего вида и кругового обзора","Активация скрытых функций через кодирование","Замена штатной мультимедии"] }
  ]
  }
  ]

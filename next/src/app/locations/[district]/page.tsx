@@ -65,7 +65,7 @@ export default function DistrictPage({ params }: { params: { district: string } 
  },
  geo: { '@type': 'GeoCoordinates', latitude: 60.096423, longitude: 30.304163 },
  areaServed: { '@type': 'AdministrativeArea', name: d.name },
- openingHours: 'Mo-Su 10:00-20:00',
+ openingHours: 'Mo-Su 10:00-22:00',
  };
 
  const featuredBrands = brands.filter((b) => b.featured).slice(0, 6);
@@ -101,7 +101,7 @@ export default function DistrictPage({ params }: { params: { district: string } 
  {[
  d.distanceKm && { icon: MapPin, label: `${d.distanceKm} км`, sub: 'от района до нас' },
  d.drivingTimeMin && { icon: Car, label: `~${d.drivingTimeMin} мин`, sub: 'на машине по КАД' },
- { icon: Clock, label: '10:00–20:00', sub: 'пн–вс без выходных' },
+ { icon: Clock, label: '10:00–22:00', sub: 'пн–вс без выходных' },
  { icon: CheckCircle, label: 'Парковка', sub: 'бесплатно, 10+ мест' },
  ].filter(Boolean).map((item, i) => {
  if (!item) return null;

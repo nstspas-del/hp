@@ -267,7 +267,7 @@ export default function ConsentPage() {
             </li>
             <li className="flex gap-3">
               <span className="text-accent shrink-0 font-bold">—</span>
-              <span>Лично по адресу автосервиса в рабочие часы (ежедневно 10:00–20:00)</span>
+              <span>Лично по адресу автосервиса в рабочие часы (ежедневно 10:00–22:00)</span>
             </li>
           </ul>
 

@@ -430,7 +430,7 @@ export function Header() {
 
           <div className="shrink-0 p-4 border-t border-white/8">
             <p className="text-center text-zinc-600 text-xs">
-              +7 (981) 842-81-51 · Богородская, 3Б · 10:00–20:00
+              +7 (981) 842-81-51 · Богородская, 3Б · 10:00–22:00
             </p>
           </div>
         </div>

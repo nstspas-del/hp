@@ -155,7 +155,7 @@ export function ContactsClient() {
  <div className="lg:col-span-3">
  <YandexMap />
  <p className="text-text-subtle text-xs mt-3 text-center">
- Санкт-Петербург, ул. Богородская, 3Б (Порошкино) · 10:00–20:00 ежедневно
+ Санкт-Петербург, ул. Богородская, 3Б (Порошкино) · 10:00–22:00 ежедневно
  </p>
  </div>
  </div>

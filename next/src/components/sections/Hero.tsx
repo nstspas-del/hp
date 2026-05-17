@@ -53,7 +53,7 @@ export function Hero() {
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#39FF14]/10 border border-[#39FF14]/20 mb-5">
             <span className="w-2 h-2 rounded-full bg-[#39FF14] animate-pulse" />
             <span className="text-[#39FF14] text-xs font-bold tracking-widest uppercase">
-              Санкт-Петербург · Богородская 3Б · 10:00–20:00
+              Санкт-Петербург · Богородская 3Б · 10:00–22:00
             </span>
           </div>
 

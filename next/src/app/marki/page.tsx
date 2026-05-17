@@ -87,7 +87,7 @@ export default function MarkiPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
               { icon: <MapPin className="size-4" />, text: 'Богородская 3Б, СПб' },
-              { icon: <Clock className="size-4" />, text: 'Ежедневно 10:00–20:00' },
+              { icon: <Clock className="size-4" />, text: 'Ежедневно 10:00–22:00' },
               { icon: <Shield className="size-4" />, text: 'Гарантия 1 год на работы' },
               { icon: <Star className="size-4" />, text: '4.9 ★ — 247 отзывов' },
             ].map((f) => (

@@ -431,7 +431,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               <a href="tel:+79818428151" className="block text-white font-medium text-sm hover:text-[#39FF14] transition-colors">
                 +7 (981) 842-81-51
               </a>
-              <div className="text-zinc-500 text-xs">Пн–Вс 10:00–20:00</div>
+              <div className="text-zinc-500 text-xs">Пн–Вс 10:00–22:00</div>
               <div className="text-zinc-500 text-xs">Богородская, 3Б, СПб</div>
               <div className="flex items-center gap-1.5 mt-1">
                 <Clock className="size-3 text-[#39FF14]" />

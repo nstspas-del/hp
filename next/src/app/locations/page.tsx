@@ -39,7 +39,7 @@ export default function LocationsPage() {
  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
  {[
  { icon: MapPin, label: 'Богородская, 3Б', sub: 'Порошкино' },
- { icon: Clock, label: 'Пн–Вс 10:00–20:00', sub: 'Без выходных' },
+ { icon: Clock, label: 'Пн–Вс 10:00–22:00', sub: 'Без выходных' },
  { icon: Car, label: 'Бесплатная парковка', sub: 'Вместимость 10+ авто' },
  { icon: ArrowRight, label: '5 мин от КАД', sub: 'Выезд Горской' },
  ].map(({ icon: Icon, label, sub }) => (
