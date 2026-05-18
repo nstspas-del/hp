@@ -38,7 +38,7 @@ export function VideoSection() {
  Telegram-канал
  </a>
  <Link
- href="/works"
+ href="/blog?cat=works"
  className="flex items-center justify-center gap-2 py-3 px-6 rounded-xl border border-border text-text-muted hover:text-text hover:border-white/30 transition-colors text-sm font-medium"
  >
  Смотреть работы

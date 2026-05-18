@@ -72,7 +72,7 @@ export function WorksPreview() {
  </h2>
  </div>
  <Link
- href="/works"
+ href="/blog?cat=works"
  className="hidden sm:flex items-center gap-2 text-sm text-zinc-500 hover:text-[#39FF14] transition-colors"
  >
  Все работы
@@ -116,7 +116,7 @@ export function WorksPreview() {
 
  <div className="text-center mt-8">
  <Link
- href="/works"
+ href="/blog?cat=works"
  className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-white/15 text-zinc-400 hover:border-[#39FF14]/40 hover:text-[#39FF14] transition-colors text-sm font-medium"
  >
  Смотреть все работы
