@@ -7,8 +7,15 @@
       "excerpt": "Kooks Long Tube, Texas Speed Stage 2, Flex Fuel, выхлоп Ø76 мм, Body Look Hellcat, XGLOW.",
       "brand": "Dodge",
       "model": "Challenger T/A",
-      "services": ["Тюнинг мотора", "Body Look", "Выхлоп"],
-      "tags": ["Чип-тюнинг", "Body Look"],
+      "services": [
+        "Тюнинг мотора",
+        "Body Look",
+        "Выхлоп"
+      ],
+      "tags": [
+        "Чип-тюнинг",
+        "Body Look"
+      ],
       "coverImage": "/images/projects/dodge-challenger-ta/02-outdoor-sunset-halo.jpg",
       "date": "2025-11-20",
       "href": "/projects/dodge-challenger-ta-hemi"
@@ -20,13 +27,18 @@
       "excerpt": "Мощность +100 л.с., момент +130 Нм, 0–100 за 4.4 с. ISTA+ диагностика, замена интеркулера.",
       "brand": "BMW",
       "model": "X5 G05",
-      "services": ["Чип-тюнинг", "Stage 2"],
-      "tags": ["Чип-тюнинг", "Stage 2"],
+      "services": [
+        "Чип-тюнинг",
+        "Stage 2"
+      ],
+      "tags": [
+        "Чип-тюнинг",
+        "Stage 2"
+      ],
       "coverImage": "/images/works/10-bmw-x5-neon-workshop.jpg",
       "date": "2025-10-12",
       "href": "/projects/bmw-x5-g05-chiptuning-stage2"
     },
-
     {
       "type": "work",
       "slug": "porsche-macan-s-2022-to-acoustics",
@@ -34,9 +46,16 @@
       "excerpt": "Кейс недели: Porsche Macan S 2022 на плановом ТО + доработка передней акустики. Без записи у дилера, с оригинальными расходниками.",
       "brand": "Porsche",
       "model": "Macan S 2022",
-      "services": ["ТО", "Тюнинг акустики"],
-      "tags": ["Porsche", "ТО", "Акустика"],
-      "coverImage": "/images/works/01-porsche-cayman-pink-lift.jpg",
+      "services": [
+        "ТО",
+        "Тюнинг акустики"
+      ],
+      "tags": [
+        "Porsche",
+        "ТО",
+        "Акустика"
+      ],
+      "coverImage": "/images/projects/porsche-macan-s-helix/03-cockpit-steering.jpg",
       "date": "2025-05-15",
       "href": "/blog/porsche-macan-s-2022-to-acoustics"
     },
@@ -47,9 +66,17 @@
       "excerpt": "Машина приехала в HP Тюнинг под задачу «вернуть лоск премиум-внедорожнику». Полный детейлинг, керамика, обновление салона.",
       "brand": "Land Rover",
       "model": "Range Rover Sport",
-      "services": ["Детейлинг", "Керамика", "Обновление салона"],
-      "tags": ["Range Rover", "Детейлинг", "Керамика"],
-      "coverImage": "/images/works/05-mercedes-gle-coupe-dark-blue.jpg",
+      "services": [
+        "Детейлинг",
+        "Керамика",
+        "Обновление салона"
+      ],
+      "tags": [
+        "Range Rover",
+        "Детейлинг",
+        "Керамика"
+      ],
+      "coverImage": "/images/projects/range-rover-sport-full-complex/02-front-headlight.jpg",
       "date": "2025-04-28",
       "href": "/blog/range-rover-sport-full-detailing"
     },
@@ -60,8 +87,16 @@
       "excerpt": "У нас на подъёмнике — наш daily-muscle проект, Dodge Challenger T/A 5.7 HEMI 2019 года. Машина, которой мы по-настоящему гордимся.",
       "brand": "Dodge",
       "model": "Challenger T/A 5.7 HEMI",
-      "services": ["Чип-тюнинг", "Body Look", "Выхлоп"],
-      "tags": ["Dodge", "Muscle car", "HEMI"],
+      "services": [
+        "Чип-тюнинг",
+        "Body Look",
+        "Выхлоп"
+      ],
+      "tags": [
+        "Dodge",
+        "Muscle car",
+        "HEMI"
+      ],
       "coverImage": "/images/projects/dodge-challenger-ta/02-outdoor-sunset-halo.jpg",
       "date": "2025-04-27",
       "href": "/blog/dodge-challenger-ta-hemi-build"
@@ -73,13 +108,19 @@
       "excerpt": "Кейс недели: убрали приличную вмятину на двери Skoda Kodiaq методом PDR — без покраски, с сохранением заводского ЛКП.",
       "brand": "Skoda",
       "model": "Kodiaq",
-      "services": ["PDR", "Удаление вмятин"],
-      "tags": ["Skoda", "PDR", "Кузовной ремонт"],
+      "services": [
+        "PDR",
+        "Удаление вмятин"
+      ],
+      "tags": [
+        "Skoda",
+        "PDR",
+        "Кузовной ремонт"
+      ],
       "coverImage": "/images/works/15-mercedes-cls-orange-lift.jpg",
       "date": "2025-04-27",
       "href": "/blog/skoda-kodiaq-pdr-vmyatina"
     },
-
     {
       "type": "work",
       "slug": "bmw-m3-f80-stage2",
@@ -87,11 +128,20 @@
       "excerpt": "S55B30: мощность +79 л.с., момент 550 → 680 Нм. Прошивка ISTA, контроль OBD.",
       "brand": "BMW",
       "model": "M3 F80",
-      "services": ["Чип-тюнинг", "Stage 2"],
-      "tags": ["Чип-тюнинг", "Stage 2"],
+      "services": [
+        "Чип-тюнинг",
+        "Stage 2"
+      ],
+      "tags": [
+        "Чип-тюнинг",
+        "Stage 2"
+      ],
       "coverImage": "/images/works/10-bmw-x5-neon-workshop.jpg",
       "date": "2025-09-15",
-      "specs": { "hp": "431 → 510", "nm": "550 → 680" },
+      "specs": {
+        "hp": "431 → 510",
+        "nm": "550 → 680"
+      },
       "href": "/tuning/chip-tuning"
     },
     {
@@ -101,11 +151,20 @@
       "excerpt": "M177DE40: мощность +54 л.с., момент 650 → 750 Нм. XENTRY прошивка, контрольный прогон.",
       "brand": "Mercedes",
       "model": "C63 AMG W205",
-      "services": ["Чип-тюнинг", "Stage 1"],
-      "tags": ["Чип-тюнинг", "Stage 1"],
+      "services": [
+        "Чип-тюнинг",
+        "Stage 1"
+      ],
+      "tags": [
+        "Чип-тюнинг",
+        "Stage 1"
+      ],
       "coverImage": "/images/works/06-mercedes-cls-yellow-amg.jpg",
       "date": "2025-08-20",
-      "specs": { "hp": "476 → 530", "nm": "650 → 750" },
+      "specs": {
+        "hp": "476 → 530",
+        "nm": "650 → 750"
+      },
       "href": "/tuning/chip-tuning"
     },
     {
@@ -115,11 +174,20 @@
       "excerpt": "Прирост 55 л.с., момент 450 → 540 Нм. Отключение сажевого фильтра, контроль через PIWIS.",
       "brand": "Porsche",
       "model": "Cayenne 3.0T",
-      "services": ["Чип-тюнинг", "DPF-off"],
-      "tags": ["Чип-тюнинг", "DPF-off"],
+      "services": [
+        "Чип-тюнинг",
+        "DPF-off"
+      ],
+      "tags": [
+        "Чип-тюнинг",
+        "DPF-off"
+      ],
       "coverImage": "/images/works/01-porsche-cayman-pink-lift.jpg",
       "date": "2025-07-10",
-      "specs": { "hp": "340 → 395", "nm": "450 → 540" },
+      "specs": {
+        "hp": "340 → 395",
+        "nm": "450 → 540"
+      },
       "href": "/tuning/chip-tuning#dpf-egr"
     },
     {
@@ -129,11 +197,20 @@
       "excerpt": "Мощность +80 л.с., момент 800 → 920 Нм. Прошивка через KESS3, без замены железа.",
       "brand": "Audi",
       "model": "RS6 C8",
-      "services": ["Чип-тюнинг", "Stage 1"],
-      "tags": ["Чип-тюнинг", "Stage 1"],
+      "services": [
+        "Чип-тюнинг",
+        "Stage 1"
+      ],
+      "tags": [
+        "Чип-тюнинг",
+        "Stage 1"
+      ],
       "coverImage": "/images/works/subaru-wrx-lift.jpg",
       "date": "2025-06-25",
-      "specs": { "hp": "600 → 680", "nm": "800 → 920" },
+      "specs": {
+        "hp": "600 → 680",
+        "nm": "800 → 920"
+      },
       "href": "/tuning/chip-tuning"
     },
     {
@@ -143,8 +220,14 @@
       "excerpt": "Защитное керамическое покрытие Gyeon Q² на 3 года. Гидрофоб, защита от УФ и реагентов.",
       "brand": "BMW",
       "model": "5er G30 530i",
-      "services": ["Детейлинг", "Керамика 9H"],
-      "tags": ["Детейлинг", "Керамика"],
+      "services": [
+        "Детейлинг",
+        "Керамика 9H"
+      ],
+      "tags": [
+        "Детейлинг",
+        "Керамика"
+      ],
       "coverImage": "/images/works/04-ceramic-coating-application.jpg",
       "date": "2025-05-30",
       "href": "/detailing/ceramic"
@@ -156,11 +239,20 @@
       "excerpt": "Семейный кроссовер с прибавкой 46 л.с. Момент 350 → 430 Нм, плавная характеристика.",
       "brand": "Volvo",
       "model": "XC90 2.0T",
-      "services": ["Чип-тюнинг", "Stage 1"],
-      "tags": ["Чип-тюнинг", "Stage 1"],
+      "services": [
+        "Чип-тюнинг",
+        "Stage 1"
+      ],
+      "tags": [
+        "Чип-тюнинг",
+        "Stage 1"
+      ],
       "coverImage": "/images/works/15-mercedes-cls-orange-lift.jpg",
       "date": "2025-04-15",
-      "specs": { "hp": "249 → 295", "nm": "350 → 430" },
+      "specs": {
+        "hp": "249 → 295",
+        "nm": "350 → 430"
+      },
       "href": "/tuning/chip-tuning"
     },
     {
@@ -170,11 +262,20 @@
       "excerpt": "Дизель +60 л.с. (300 → 360), момент 650 → 780 Нм. Отключение клапана EGR, оф-роуд.",
       "brand": "Land Rover",
       "model": "Defender 3.0D",
-      "services": ["Чип-тюнинг", "EGR-off"],
-      "tags": ["Чип-тюнинг", "EGR-off"],
+      "services": [
+        "Чип-тюнинг",
+        "EGR-off"
+      ],
+      "tags": [
+        "Чип-тюнинг",
+        "EGR-off"
+      ],
       "coverImage": "/images/works/05-mercedes-gle-coupe-dark-blue.jpg",
       "date": "2025-03-20",
-      "specs": { "hp": "300 → 360", "nm": "650 → 780" },
+      "specs": {
+        "hp": "300 → 360",
+        "nm": "650 → 780"
+      },
       "href": "/tuning/chip-tuning#dpf-egr"
     },
     {
@@ -184,8 +285,14 @@
       "excerpt": "Антигравийная плёнка XPEL Ultimate Plus на капот, крылья и зеркала. Защита на 7 лет.",
       "brand": "Mercedes",
       "model": "GLE 400d",
-      "services": ["Детейлинг", "PPF"],
-      "tags": ["Детейлинг", "PPF"],
+      "services": [
+        "Детейлинг",
+        "PPF"
+      ],
+      "tags": [
+        "Детейлинг",
+        "PPF"
+      ],
       "coverImage": "/images/works/19-ppf-film-installation.jpg",
       "date": "2025-02-18",
       "href": "/detailing/ppf-film"
@@ -197,22 +304,35 @@
       "excerpt": "S63B44T3 V8 biturbo. +95 л.с., момент 750 → 900 Нм. Полная диагностика, ISTA+ контроль.",
       "brand": "BMW",
       "model": "X5M F95",
-      "services": ["Чип-тюнинг", "Stage 2"],
-      "tags": ["Чип-тюнинг", "Stage 2"],
+      "services": [
+        "Чип-тюнинг",
+        "Stage 2"
+      ],
+      "tags": [
+        "Чип-тюнинг",
+        "Stage 2"
+      ],
       "coverImage": "/images/works/11-mercedes-s-class-black-front.jpg",
       "date": "2025-01-25",
-      "specs": { "hp": "625 → 720", "nm": "750 → 900" },
+      "specs": {
+        "hp": "625 → 720",
+        "nm": "750 → 900"
+      },
       "href": "/tuning/chip-tuning"
     },
-
     {
       "type": "article",
       "slug": "chip-tuning-stage-1-vs-stage-2",
       "title": "Stage 1 vs Stage 2: что выбрать для ежедневного авто",
       "excerpt": "Разбираем разницу между Stage 1 и Stage 2 простым языком: риски, цены, что нужно для перехода. Опыт 500+ клиентов HP Тюнинг.",
       "brand": "",
-      "services": ["Чип-тюнинг"],
-      "tags": ["Гайд", "Чип-тюнинг"],
+      "services": [
+        "Чип-тюнинг"
+      ],
+      "tags": [
+        "Гайд",
+        "Чип-тюнинг"
+      ],
       "coverImage": "",
       "date": "2025-12-10",
       "readTime": "8 мин",
@@ -224,8 +344,13 @@
       "title": "Керамическое покрытие 9H: всё что нужно знать перед нанесением",
       "excerpt": "Как работает керамика, сколько служит, как за ней ухаживать. Сравниваем с PPF плёнкой и стандартным воском.",
       "brand": "",
-      "services": ["Детейлинг"],
-      "tags": ["Гайд", "Детейлинг"],
+      "services": [
+        "Детейлинг"
+      ],
+      "tags": [
+        "Гайд",
+        "Детейлинг"
+      ],
       "coverImage": "",
       "date": "2025-11-28",
       "readTime": "10 мин",
@@ -237,8 +362,13 @@
       "title": "Чип-тюнинг BMW в СПб: какие серии поддаются прошивке лучше всего",
       "excerpt": "F-серия, G-серия, M-модели — что можно выжать из каждого поколения. Конкретные цифры прироста мощности для популярных BMW.",
       "brand": "BMW",
-      "services": ["Чип-тюнинг"],
-      "tags": ["Гайд", "BMW"],
+      "services": [
+        "Чип-тюнинг"
+      ],
+      "tags": [
+        "Гайд",
+        "BMW"
+      ],
       "coverImage": "",
       "date": "2025-11-15",
       "readTime": "12 мин",
@@ -250,8 +380,13 @@
       "title": "DPF и EGR-off: когда это нужно и как это делается",
       "excerpt": "Разбираем когда оправдано удаление сажевого фильтра и клапана EGR, какие ошибки это устраняет и что ждать после.",
       "brand": "",
-      "services": ["Чип-тюнинг"],
-      "tags": ["Гайд", "Дизель"],
+      "services": [
+        "Чип-тюнинг"
+      ],
+      "tags": [
+        "Гайд",
+        "Дизель"
+      ],
       "coverImage": "",
       "date": "2025-10-30",
       "readTime": "9 мин",
@@ -263,8 +398,13 @@
       "title": "PPF плёнка: что защищает, сколько стоит и как выбрать",
       "excerpt": "Полиуретановая плёнка vs антигравий vs керамика. Где лучше клеить PPF, как долго служит и почему это дорого.",
       "brand": "",
-      "services": ["Детейлинг"],
-      "tags": ["Гайд", "PPF"],
+      "services": [
+        "Детейлинг"
+      ],
+      "tags": [
+        "Гайд",
+        "PPF"
+      ],
       "coverImage": "",
       "date": "2025-10-15",
       "readTime": "7 мин",
@@ -276,8 +416,13 @@
       "title": "Тюнинг Mercedes-Benz AMG: реально ли прошить AMG-двигатель",
       "excerpt": "AMG 2.0, 3.0 biturbo, 4.0 V8 biturbo — разбираем особенности прошивки и почему AMG тюнинг требует опыта.",
       "brand": "Mercedes",
-      "services": ["Чип-тюнинг"],
-      "tags": ["Гайд", "Mercedes"],
+      "services": [
+        "Чип-тюнинг"
+      ],
+      "tags": [
+        "Гайд",
+        "Mercedes"
+      ],
       "coverImage": "",
       "date": "2025-09-20",
       "readTime": "11 мин",

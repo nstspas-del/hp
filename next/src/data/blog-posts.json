@@ -43,11 +43,16 @@
       "type": "work",
       "brand": "Porsche",
       "model": "Macan S 2022",
-      "services": ["ТО", "Тюнинг акустики", "Химчистка салона", "Мойка"],
+      "services": [
+        "ТО",
+        "Тюнинг акустики",
+        "Химчистка салона",
+        "Мойка"
+      ],
       "date": "2025-05-15",
       "datePublished": "2025-05-15T15:59:00+03:00",
-      "heroImage": "/images/works/01-porsche-cayman-pink-lift.jpg",
-      "heroImageAlt": "Porsche Macan S 2022 на ТО и доработке передней акустики в HP Тюнинг СПб",
+      "heroImage": "/images/projects/porsche-macan-s-helix/05-hood-open-garage.jpg",
+      "heroImageAlt": "Porsche Macan S 2022 на ТО и доработке передней акустики Helix B в HP Тюнинг СПб",
       "excerpt": "Macan S приехал к нам на плановое ТО — и попутно с интересной задачей: владелец хотел получить от штатной акустики больше, чем она задумана с завода. Сделали ТО + Helix B с индивидуальными подиумами.",
       "intro": "Приехал к нам Macan S на плановое ТО — и попутно с интересной задачей по передней акустике. Владелец хотел получить от штатной системы больше, чем она задумана с завода: плотнее, объёмнее, с честным низом. На Porsche звук — часть характера, поэтому к таким задачам у нас отдельный подход. Сделали всё в один заезд: машина уехала с обновлённым ТО и звучит на уровне, который этой машине положен.",
       "specs": {
@@ -89,9 +94,31 @@
         }
       ],
       "gallery": [
-        { "src": "/images/works/09-workshop-interior-porsche.jpg", "alt": "Porsche Macan S в боксе HP Тюнинг", "caption": "На посту — в работу" },
-        { "src": "/images/works/08-soundproofing-installation.jpg", "alt": "Установка Helix B на Porsche Macan", "caption": "Helix B + подиумы" },
-        { "src": "/images/works/18-porsche-steering-wheel-cleaning.jpg", "alt": "Химчистка салона Porsche Macan", "caption": "Химчистка салона" }
+        {
+          "src": "/images/projects/porsche-macan-s-helix/01-door-red-interior.jpg",
+          "alt": "Porsche Macan S — красный кожаный салон, открытая водительская дверь",
+          "caption": "Красный кожаный салон Porsche Macan S — водительская сторона перед работами"
+        },
+        {
+          "src": "/images/projects/porsche-macan-s-helix/02-side-door-open.jpg",
+          "alt": "Porsche Macan S — водительский порог с эмблемой Macan S",
+          "caption": "Эмблема Macan S на пороге — премиальный салон в идеальном состоянии"
+        },
+        {
+          "src": "/images/projects/porsche-macan-s-helix/03-cockpit-steering.jpg",
+          "alt": "Кокпит Porsche Macan S — руль, приборная панель, мультимедиа",
+          "caption": "Кокпит Macan S — Helix B встроены в штатные посадочные с индивидуальными подиумами"
+        },
+        {
+          "src": "/images/projects/porsche-macan-s-helix/04-center-console.jpg",
+          "alt": "Центральная консоль Porsche Macan S 2022 — мультимедиа PCM 6.0",
+          "caption": "Центральная консоль PCM 6.0 — звук Helix B настраивали через штатный DSP"
+        },
+        {
+          "src": "/images/projects/porsche-macan-s-helix/05-hood-open-garage.jpg",
+          "alt": "Porsche Macan S на сервисе HP Тюнинг — плановое ТО, открытый капот",
+          "caption": "Macan S на боксе HP Тюнинг — плановое ТО V6 2.9 BiTurbo"
+        }
       ],
       "faq": [
         {
@@ -112,11 +139,27 @@
         }
       ],
       "relatedServices": [
-        { "label": "Записаться на ТО", "href": "/service/to" },
-        { "label": "Шумоизоляция и акустика", "href": "/detailing/sound-isolation" },
-        { "label": "Сервис Porsche", "href": "/brands/porsche" }
+        {
+          "label": "Записаться на ТО",
+          "href": "/service/to"
+        },
+        {
+          "label": "Шумоизоляция и акустика",
+          "href": "/detailing/sound-isolation"
+        },
+        {
+          "label": "Сервис Porsche",
+          "href": "/brands/porsche"
+        }
       ],
-      "tags": ["Porsche", "Macan S", "ТО Porsche", "Helix B", "Тюнинг акустики", "СПб"]
+      "tags": [
+        "Porsche",
+        "Macan S",
+        "ТО Porsche",
+        "Helix B",
+        "Тюнинг акустики",
+        "СПб"
+      ]
     },
     {
       "slug": "range-rover-sport-full-detailing",
@@ -134,11 +177,17 @@
       "type": "work",
       "brand": "Land Rover",
       "model": "Range Rover Sport",
-      "services": ["Полировка", "Керамика", "Химчистка кожи", "Электрика", "Мойка подкапотного"],
+      "services": [
+        "Полировка",
+        "Керамика",
+        "Химчистка кожи",
+        "Электрика",
+        "Мойка подкапотного"
+      ],
       "date": "2025-04-28",
       "datePublished": "2025-04-28T16:38:00+03:00",
-      "heroImage": "/images/works/05-mercedes-gle-coupe-dark-blue.jpg",
-      "heroImageAlt": "Range Rover Sport после полного комплекса работ в HP Тюнинг СПб",
+      "heroImage": "/images/projects/range-rover-sport-full-complex/02-front-headlight.jpg",
+      "heroImageAlt": "Range Rover Sport — полный комплекс работ премиум-внедорожника в HP Тюнинг СПб",
       "excerpt": "Range Rover Sport приехал в HP Тюнинг под задачу «вернуть лоск премиум-внедорожнику»: за плечами активная эксплуатация, кузов и салон требовали внимания. Собрали индивидуальный пакет — полировка, керамика, кожа, электрика.",
       "intro": "Машина приехала в HP Тюнинг под задачу «вернуть лоск премиум-внедорожнику»: за плечами активная эксплуатация, кузов и салон требовали внимания. Собрали под клиента индивидуальный пакет работ — комплекс, который мы делаем именно «на пару часов»: спокойно, поэтапно, с фотофиксацией промежуточных результатов.",
       "specs": {
@@ -191,9 +240,21 @@
         }
       ],
       "gallery": [
-        { "src": "/images/works/04-ceramic-coating-application.jpg", "alt": "Нанесение керамического покрытия на Range Rover Sport", "caption": "Керамика" },
-        { "src": "/images/works/03-mercedes-beige-leather-interior.jpg", "alt": "Химчистка кожаного салона Range Rover", "caption": "Химчистка кожи" },
-        { "src": "/images/works/16-mercedes-gle63-foam-wash.jpg", "alt": "Подготовительная мойка Range Rover", "caption": "Подготовка к полировке" }
+        {
+          "src": "/images/projects/range-rover-sport-full-complex/02-front-headlight.jpg",
+          "alt": "Range Rover Sport — передняя оптика и решётка радиатора после полировки",
+          "caption": "Передняя часть Range Rover Sport после двухэтапной полировки — глубокий чёрный лак"
+        },
+        {
+          "src": "/images/projects/range-rover-sport-full-complex/01-engine-bay.jpg",
+          "alt": "Range Rover Sport — мойка подкапотного пространства под давлением",
+          "caption": "Деликатная мойка подкапотки под давлением — без воды на электронных блоках"
+        },
+        {
+          "src": "/images/projects/range-rover-sport-full-complex/03-interior-cockpit.jpg",
+          "alt": "Range Rover Sport — салон после химчистки и обработки кожи",
+          "caption": "Салон после химчистки с уходом за кожей Oxford — кресла, руль, подлокотники, боковины"
+        }
       ],
       "faq": [
         {
@@ -214,11 +275,27 @@
         }
       ],
       "relatedServices": [
-        { "label": "Заказать керамику", "href": "/detailing/ceramic" },
-        { "label": "Полный детейлинг", "href": "/detailing" },
-        { "label": "Сервис Land Rover", "href": "/brands/land-rover" }
+        {
+          "label": "Заказать керамику",
+          "href": "/detailing/ceramic"
+        },
+        {
+          "label": "Полный детейлинг",
+          "href": "/detailing"
+        },
+        {
+          "label": "Сервис Land Rover",
+          "href": "/brands/land-rover"
+        }
       ],
-      "tags": ["Land Rover", "Range Rover Sport", "Детейлинг", "Керамика", "Colourlock", "СПб"]
+      "tags": [
+        "Land Rover",
+        "Range Rover Sport",
+        "Детейлинг",
+        "Керамика",
+        "Colourlock",
+        "СПб"
+      ]
     },
     {
       "slug": "dodge-challenger-ta-hemi-build",
@@ -236,7 +313,12 @@
       "type": "project",
       "brand": "Dodge",
       "model": "Challenger T/A 5.7 HEMI 2019",
-      "services": ["Чип-тюнинг", "Body Look", "Выхлоп", "Топливная система"],
+      "services": [
+        "Чип-тюнинг",
+        "Body Look",
+        "Выхлоп",
+        "Топливная система"
+      ],
       "date": "2025-04-27",
       "datePublished": "2025-04-27T23:23:00+03:00",
       "heroImage": "/images/projects/dodge-challenger-ta/02-outdoor-sunset-halo.jpg",
@@ -290,11 +372,27 @@
         }
       ],
       "relatedServices": [
-        { "label": "Полный проект Dodge Challenger T/A", "href": "/projects/dodge-challenger-ta-hemi" },
-        { "label": "Чип-тюнинг Stage 2", "href": "/tuning/chip-tuning/stage-2" },
-        { "label": "Все услуги тюнинга", "href": "/tuning" }
+        {
+          "label": "Полный проект Dodge Challenger T/A",
+          "href": "/projects/dodge-challenger-ta-hemi"
+        },
+        {
+          "label": "Чип-тюнинг Stage 2",
+          "href": "/tuning/chip-tuning/stage-2"
+        },
+        {
+          "label": "Все услуги тюнинга",
+          "href": "/tuning"
+        }
       ],
-      "tags": ["Dodge", "Challenger T/A", "HEMI", "Stage 2", "Muscle car", "Flex Fuel"]
+      "tags": [
+        "Dodge",
+        "Challenger T/A",
+        "HEMI",
+        "Stage 2",
+        "Muscle car",
+        "Flex Fuel"
+      ]
     },
     {
       "slug": "skoda-kodiaq-pdr-vmyatina",
@@ -312,7 +410,11 @@
       "type": "work",
       "brand": "Skoda",
       "model": "Kodiaq",
-      "services": ["PDR", "Удаление вмятин", "Кузовной ремонт"],
+      "services": [
+        "PDR",
+        "Удаление вмятин",
+        "Кузовной ремонт"
+      ],
       "date": "2025-04-27",
       "datePublished": "2025-04-27T15:01:00+03:00",
       "heroImage": "/images/blog/cases/skoda-kodiaq-pdr-03.jpg",
@@ -359,9 +461,21 @@
         }
       ],
       "gallery": [
-        { "src": "/images/blog/cases/skoda-kodiaq-pdr-01.jpg", "alt": "PDR Skoda Kodiaq: вмятина на двери, ЛКП не повреждено — идеальный кандидат для PDR", "caption": "До работы: вмятина на двери, ЛКП не повреждено" },
-        { "src": "/images/blog/cases/skoda-kodiaq-pdr-02.jpg", "alt": "PDR Skoda Kodiaq: контроль рельефа по отражающимся линиям перед выправлением металла", "caption": "Контроль зоны по разметке света — этим мастер «читает» рельеф" },
-        { "src": "/images/blog/cases/skoda-kodiaq-pdr-03.jpg", "alt": "PDR Skoda Kodiaq: процесс выправления металла без покраски с использованием светового щита", "caption": "В процессе работы — переносной световой щит даёт PDR-разметку" }
+        {
+          "src": "/images/blog/cases/skoda-kodiaq-pdr-01.jpg",
+          "alt": "PDR Skoda Kodiaq: вмятина на двери, ЛКП не повреждено — идеальный кандидат для PDR",
+          "caption": "До работы: вмятина на двери, ЛКП не повреждено"
+        },
+        {
+          "src": "/images/blog/cases/skoda-kodiaq-pdr-02.jpg",
+          "alt": "PDR Skoda Kodiaq: контроль рельефа по отражающимся линиям перед выправлением металла",
+          "caption": "Контроль зоны по разметке света — этим мастер «читает» рельеф"
+        },
+        {
+          "src": "/images/blog/cases/skoda-kodiaq-pdr-03.jpg",
+          "alt": "PDR Skoda Kodiaq: процесс выправления металла без покраски с использованием светового щита",
+          "caption": "В процессе работы — переносной световой щит даёт PDR-разметку"
+        }
       ],
       "faq": [
         {
@@ -382,11 +496,26 @@
         }
       ],
       "relatedServices": [
-        { "label": "Кузовной ремонт", "href": "/service" },
-        { "label": "Полировка после PDR", "href": "/detailing/polish" },
-        { "label": "Все бренды", "href": "/brands" }
+        {
+          "label": "Кузовной ремонт",
+          "href": "/service"
+        },
+        {
+          "label": "Полировка после PDR",
+          "href": "/detailing/polish"
+        },
+        {
+          "label": "Все бренды",
+          "href": "/brands"
+        }
       ],
-      "tags": ["Skoda", "Kodiaq", "PDR", "Кузовной ремонт", "Удаление вмятин"]
+      "tags": [
+        "Skoda",
+        "Kodiaq",
+        "PDR",
+        "Кузовной ремонт",
+        "Удаление вмятин"
+      ]
     }
   ]
 }
