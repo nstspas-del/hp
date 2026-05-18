@@ -1,176 +1,159 @@
-# 🔄 RESUME PROMPT — hptuning.ru / следующая сессия
+# 🔄 RESUME PROMPT — hptuning.ru (актуально на 2026-05-18)
 
-> **Как пользоваться:** скопируй весь текст ниже и вставь в новый чат с агентом (AI Developer / Claude). Агент сразу подхватит контекст, склонирует репозиторий и продолжит работу с сайтом.
+> **Как использовать:** скопируй блок ниже целиком (от «Привет!» до «Жду команды.») и вставь в новый чат с агентом (Claude / AI Developer). Агент сразу подхватит контекст и продолжит работу без вопросов «а где у нас что».
 
 ---
 
-## 📌 PROMPT (копировать ОТСЮДА)
+## 📌 PROMPT — копировать ОТСЮДА ↓
 
-Привет! Я Настя, владелица автосервиса **HP Tuning** в Санкт-Петербурге. Мы продолжаем большой SEO-rework сайта **hptuning.ru**. Ниже — полное состояние проекта. Подгрузи код из GitHub и поехали дальше.
-
-### 🧑‍💼 Кто я и проект
-- Я: Настя (владелица). Парень — Дима, иногда тоже пишет.
-- Стиль общения: на ты, прямолинейно, без воды, можно с шутками.
-- Бизнес: HP Тюнинг — автосервис, чип-тюнинг, детейлинг, шиномонтаж в СПб.
-- Адрес: Богородская 3Б, СПб. Часы: **10:00–22:00 без выходных**.
-- Телефон: **+7 (981) 842-81-51**.
-- Yandex.Метрика ID: **108614238**.
-- Yandex.Бизнес карточка: **99062407907**.
+Привет! Я Настя (О господин), владелица **HP Тюнинг** (автосервис в СПб). Парень — Дима, иногда тоже пишет. Стиль общения: на ты, прямолинейно, остроумно, можно с шутками, без воды. Продолжаем большой SEO-rework сайта **hptuning.ru**.
 
 ### 🌐 Production
-- **Домен:** https://hptuning.ru
-- **Бренд-сабдомены:** bmw.hptuning.ru, mercedes.hptuning.ru, audi.hptuning.ru, porsche.hptuning.ru, volkswagen.hptuning.ru, toyota.hptuning.ru, lexus.hptuning.ru, landrover.hptuning.ru
-- **Сервер:** Ubuntu 24.04, IP `87.228.63.177`, пользователь `root`
-- **Путь:** `/var/www/hptuning/app/next/`
-- **PM2 процесс:** `hptuning` (порт по умолчанию Next.js)
-- **Nginx:** проксирует на Next.js, добавляет Basic Auth + `X-Robots-Tag: noindex` (пока сайт скрыт от индексации до релиза)
-- **Basic Auth:** логин `hptuning`, пароль `HP75457545`
-- **HTTPS:** Let's Encrypt
 
-### 📦 Репозиторий
-- **GitHub:** `nstspas-del/hp`
-- **Активная ветка:** `seo-rework`
-- **HEAD (последний коммит на момент создания промта):** см. ниже, проверь `git log --oneline -10` после клонирования
-- **Клонировать:**
-  ```bash
-  cd /home/user
-  rm -rf webapp
-  git clone https://github.com/nstspas-del/hp.git webapp
-  cd webapp && git checkout seo-rework
-  cd next && npm install
-  ```
+| Параметр | Значение |
+|---|---|
+| **Домен** | https://hptuning.ru |
+| **Сервер** | Ubuntu, доступ под `root` |
+| **Боевая папка** | `/var/www/hptuning/app/` (git-репа) |
+| **Next.js папка** | `/var/www/hptuning/app/next/` (внутри неё PM2 запускает приложение) |
+| **PM2 процесс** | `hptuning` (порт `127.0.0.1:3000`) |
+| **Nginx** | проксирует `127.0.0.1:3000` → внешний `:443`, добавляет Basic Auth + `X-Robots-Tag: noindex` |
+| **Basic Auth** | логин `hptuning`, пароль `7545` (для curl: `-u hptuning:7545`) |
+| **HTTPS** | Let's Encrypt |
+| **Бренд-сабдомены** | bmw.hptuning.ru, mercedes.hptuning.ru, audi.hptuning.ru, porsche.hptuning.ru, vw.hptuning.ru, toyota.hptuning.ru, lexus.hptuning.ru, landrover.hptuning.ru |
 
-### 🎨 Стек и принципы
-- **Next.js 14.2.35 App Router** + TypeScript + RSC
-- **Tailwind CSS**, framer-motion, lucide-react
-- **next-sitemap** (postbuild) — production использует `next-sitemap.config.js`, **не** `src/app/sitemap.ts` (известная архитектурная проблема — нужно убрать дубль)
-- **Schema.org JSON-LD** на ключевых страницах: Article, FAQPage, BreadcrumbList, LocalBusiness
-- **Бренд-палитра:**
-  - Фон: `#09090b`
-  - Акцент основной (неон-зелёный): `#39FF14`
-  - Акцент премиум (фиолет): `#A855F7`
-- **Шрифты:** font-display (uppercase, tight), обычный — Inter
+⚠️ **ВАЖНО — никаких других путей не существует!** Раньше на сервере было два клона: `/root/Documents/projects/hp/` и `/var/www/hptuning/app/`. **Песочница `/root/Documents/projects/hp/` УДАЛЕНА 2026-05-18.** Деплой ТОЛЬКО в `/var/www/hptuning/app/`.
 
-### 🏗️ Архитектура мульти-доменов
-- `src/middleware.ts` — выставляет хедер `x-brand-slug` по хосту, без rewrite
-- `src/lib/brand-host.ts` — карта `BRAND_SUBDOMAIN_MAP`, функции `getBrandFromHost`, `getBrandUrl`, `getBrandCanonical`
-- `src/app/brands/[brand]/page.tsx` — Server Component, рендерит страницу марки; использует `notFound()` если бренда нет
-- BMW, Mercedes, Audi, Porsche, VW, Toyota, Lexus, Land Rover — все в карте
+### 📦 GitHub
 
-### ✅ Что УЖЕ сделано (ветка seo-rework)
-1. Базовая SEO-инфра: часы 10–22, шиномонтаж в услугах, без обещаний гарантии, медиа-папки
-2. Главная: единый чистый H1, бейдж Yandex.Бизнес, **убран фейковый рейтинг**, YML-фид `/yandex-services.yml`
-3. **Статистика Hero:** `38+ марок`, `457+ собранных проектов`, `от 4 900 ₽ ТО под ключ`, `10:00–22:00 без выходных`
-4. **Полный проект Dodge Challenger T/A 5.7 HEMI** на `/projects/dodge-challenger-ta-hemi`:
-   - 5 фото (номера и надпись "Hard" убраны через nano-banana-pro)
-   - Видео `/videos/dodge-challenger-ta.mp4` (9.9MB, 1126x1280 портрет, H.264+AAC, 17.3s)
-   - Постер `00-video-poster.jpg`
-   - Полный текст: 9 пунктов работ (Kooks Long Tube, Texas Speed Stage 2, MDS + Flex Fuel, 76mm exhaust, Hellcat body look, XGLOW), 4 FAQ
-   - Поле `localVideo` добавлено в Project interface (приоритет над youtube/rutube embed)
-5. Челленджер виден на главной (`ProjectCarsSection`) и на `/projects`
-6. Карточки `drift-bmw-e46-m3` и `daily-vw-golf-r-mk8` (были фейковые) — заменены на реальные Challenger + BMW X5 G05
-7. `DEPLOY-CHALLENGER.md` — инструкция деплоя
+- **Репозиторий:** https://github.com/nstspas-del/hp.git
+- **Рабочая ветка:** `seo-rework` (всё пушим сюда, `main` не трогаем)
+- **Последний коммит на 2026-05-18:** `fe8b0ea` — «feat(blog): реальные фото Porsche Macan S и Range Rover Sport»
 
-### 🚧 Что НЕ сделано (бэклог по приоритету)
-**P0 — клиент ждёт:**
-- [ ] Переработать страницу `/marki/` + мегаменю (сейчас плоский список, надо группы + поиск)
-- [ ] Универсальный шаблон бренд-сабдомена (сейчас контент только у BMW/Mercedes/Audi/Porsche, остальные пустые)
-- [ ] Починить виджет Autodealer (онлайн-запись) — сейчас открывается, но иногда залипает
-- [ ] Лонгформ контент для `SERVICE_CONTENT`: oil-change, tyre-service, retrofit (минимум 800 слов + FAQ + JSON-LD)
+### 🧰 Технологический стек
 
-**P1 — архитектура:**
-- [ ] Удалить дубль `/src/app/services/` (есть устаревшая папка)
-- [ ] Расширить фиолетовый акцент `#A855F7` на бейджи "Премиум"
-- [ ] **Архитектурный фикс:** удалить либо `src/app/sitemap.ts`, либо `next-sitemap.config.js` — сейчас второй перезаписывает первый, из-за этого `/projects/*` не попадает в sitemap.xml
-- [ ] Расширить покрытие schema.org — добавить Service на услуги, AutoRepair на бренды
+- **Next.js 14.2.35** (App Router, RSC, TypeScript)
+- **Tailwind CSS** + **framer-motion** + **lucide-react**
+- **PM2** (под пользователем `root`, ecosystem.config.cjs внутри `next/`)
+- **Nginx** (basic auth через `.htpasswd`)
+- **NO Cloudflare Pages** — это голый VPS
 
-**P2 — релиз:**
-- [ ] Убрать Basic Auth + `X-Robots-Tag: noindex` из nginx-конфига (финальный шаг перед запуском)
-- [ ] Подключить YML-фид к карточке Yandex.Бизнес 99062407907
-- [ ] Сабмит ключевых URL в Yandex.Webmaster
-- [ ] Добавить ещё 2–3 реальных проекта в `/projects` (BMW X5, Mercedes G-class и т.д.)
+### 💰 Формулы ценообразования (важно!)
 
-### 🔑 Ключевые файлы
+| Тип услуги | Формула |
+|---|---|
+| **Чип-тюнинг** | `ceil((Seven_Force_цена × 0.70) / 500) × 500` |
+| **Детейлинг** (PPF, керамика, полировка, химчистка) | `Platinum_Garage × 0.90` округление до ближайших 500 ₽ |
+
+Все цены живут в JSON-файлах в `next/src/data/`. Источники парсинга — в `scraper/`.
+
+### 🚀 Стандартная команда деплоя (после `git push` локально)
+
+```bash
+cd /var/www/hptuning/app && \
+  git fetch origin && git pull origin seo-rework && \
+  cd next && npm ci && npm run build && \
+  chown -R hptuning:hptuning .next public node_modules && \
+  pm2 restart hptuning --update-env && \
+  pm2 flush hptuning && \
+  pm2 logs hptuning --nostream --lines 15
+```
+
+### 🧪 Контрольные curl-ы после деплоя
+
+```bash
+curl -s -o /dev/null -w "Главная: HTTP %{http_code}\n" -u hptuning:7545 https://hptuning.ru/
+curl -s -o /dev/null -w "Macan hero: HTTP %{http_code} | %{size_download} bytes\n" -u hptuning:7545 https://hptuning.ru/images/projects/porsche-macan-s-helix/05-hood-open-garage.jpg
+curl -s -o /dev/null -w "Range Rover hero: HTTP %{http_code} | %{size_download} bytes\n" -u hptuning:7545 https://hptuning.ru/images/projects/range-rover-sport-full-complex/02-front-headlight.jpg
+```
+
+Ожидаемо все три — `HTTP 200`. Размеры фото: 342546 и 115284 байт соответственно.
+
+### ⚙️ PM2 — текущая правильная конфигурация
+
+```bash
+# Если PM2 потеряется или процесс умрёт — пересоздать ровно так:
+pm2 delete hptuning 2>/dev/null
+cd /var/www/hptuning/app/next
+pm2 start npm --name hptuning --cwd /var/www/hptuning/app/next -- start -- -p 3000 -H 127.0.0.1
+pm2 save
+```
+
+**КРИТИЧНО:** `--cwd /var/www/hptuning/app/next` — обязательно. Без него PM2 наследует cwd из текущей сессии bash, и Next.js не найдёт свой `.next/` билд.
+
+### ✅ Что уже сделано (свежие коммиты)
+
+| Коммит | Что |
+|---|---|
+| `fe8b0ea` | 8 реальных фото от заказчика: Porsche Macan S × 5 (кейс акустики Helix B) + Range Rover Sport × 3 (кейс полной детейлинг-комплекс). Обновлены `blog-posts.json` и `blog-entries.json`. |
+| `d70145f` | Кнопка «Рассчитать стоимость» на каждой странице детейлинг-услуги (`/detailing/[service]`), ведёт прямо на нужный таб калькулятора (`/detailing?tab=ppf#detailing-calculator` и т.д.). Реализовано через `useEffect` + `URLSearchParams` в `DetailingCalculator.tsx`. |
+| `08bbce5` | Убраны 308-редиректы webp из `next.config.mjs` — реальные файлы существуют. |
+| `bdba8ed` | Созданы 10 реальных `.webp` файлов через ImageMagick для битых ссылок (BMW M3, BMW 5 ceramic, BMW X5M stage2, Mercedes AMG, Mercedes GLE PPF, Porsche Cayenne, Audi RS6, Volvo XC90, Land Rover Defender, Subaru WRX). |
+| `c7f93d9` | Цены `priceFrom` для 37 брендов в `brands.json` пересчитаны от минимума Stage 1 в `sevenforce-parsed.json` × 0.70 ↑500. |
+| `1af4592` | Все **4306 цен чип-тюнинга** в `sevenforce-parsed.json` пересчитаны × 0.70 ↑500. |
+
+### 🔥 Возможные следующие задачи
+
+- **Skoda Kodiaq PDR** — заменить фото в посте `skoda-kodiaq-pdr-vmyatina` (Настя обещала прислать оригиналы)
+- **Yandex.Бизнес** (карточка `99062407907`) — перенести ещё кейсы с реальными фото
+- **Аудит безопасности:** `npm audit` показывает 2 уязвимости (1 moderate, 1 high) в dev-зависимостях — посмотреть, что чинить безопасно
+- **Снять stage-защиту** перед публичным релизом: убрать basic auth в nginx + убрать `X-Robots-Tag: noindex` + добавить `seo-rework` → `main`
+- **Brand-сабдомены:** проверить, что все 8 (bmw, mercedes, audi, porsche, vw, toyota, lexus, landrover) ведут на правильные страницы каталога
+
+### 🧠 Поведенческие нюансы (важно!)
+
+1. **Не путать пути.** Сегодня (2026-05-18) я весь день деплоил в `/root/Documents/projects/hp/`, а реально PM2 запускался из `/var/www/hptuning/app/next/` — потеряли час. Теперь только **`/var/www/hptuning/app/`**, точка.
+2. **Песочница Claude (`/home/user/webapp/`)** — это для пробных правок и подготовки коммитов. Реальные изменения идут на прод через `git push origin seo-rework` + ручной деплой на сервере.
+3. **Логи PM2 буферизуются** — если что-то не так, всегда `pm2 flush hptuning` после рестарта.
+4. **`next/image` оптимизатор** обходит nginx-редиректы. Если картинка 404 — создавать реальный файл в `public/`, а не редирект.
+5. **`pm2 save` обязателен** после каждого изменения PM2-конфига, иначе после ребута сервера всё разъедется.
+
+### 📁 Структура `next/`
+
 ```
 next/
 ├── src/
-│   ├── middleware.ts                              # x-brand-slug header
-│   ├── lib/
-│   │   ├── brand-host.ts                          # карта сабдоменов
-│   │   └── autodealer.ts                          # openBooking()
+│   ├── app/                          # App Router pages
 │   ├── components/
-│   │   ├── layout/Header.tsx                      # хардкод бренд-ссылок (стр.40-49)
-│   │   ├── sections/Hero.tsx                      # главный экран
-│   │   └── sections/ProjectCarsSection.tsx        # карусель проектов на главной
-│   ├── data/brands.json                           # данные брендов
-│   └── app/
-│       ├── page.tsx                               # главная
-│       ├── brands/[brand]/page.tsx                # страница марки (по сабдомену или /brand/)
-│       ├── projects/page.tsx                      # листинг проектов
-│       ├── projects/[slug]/page.tsx               # дин. страница проекта (Project interface, PROJECTS array)
-│       ├── sitemap.ts                             # ⚠️ перезаписывается next-sitemap (см. P1)
-│       └── service/[slug]/page.tsx                # услуги, SERVICE_CONTENT
+│   │   ├── sections/
+│   │   │   └── DetailingCalculator.tsx  # читает ?tab= из URL
+│   │   └── ui/
+│   │       └── ServicePage.tsx          # кнопка «Рассчитать стоимость»
+│   └── data/
+│       ├── blog-posts.json              # полные тексты постов
+│       ├── blog-entries.json            # списочные карточки для /blog
+│       ├── brands.json                  # 37 брендов с priceFrom
+│       └── sevenforce-parsed.json       # 4306 цен чип-тюнинга
 ├── public/
-│   ├── images/projects/dodge-challenger-ta/       # 5 фото + постер
-│   ├── videos/dodge-challenger-ta.mp4             # 9.9MB
-│   ├── yandex-services.yml                        # YML-фид для Yandex.Бизнес
-│   └── hero-bmw-x7.jpg                            # фон Hero
-├── next.config.mjs                                # CSP, редиректы /site/*.html, security headers
-└── next-sitemap.config.js                         # production sitemap (приоритет над sitemap.ts)
+│   └── images/
+│       ├── works/                       # старые фоновые фото + 10 реальных webp
+│       └── projects/
+│           ├── porsche-macan-s-helix/   # 5 реальных фото Macan
+│           ├── range-rover-sport-full-complex/  # 3 реальных фото Range Rover
+│           └── dodge-challenger-ta/
+├── next.config.mjs
+├── ecosystem.config.cjs
+└── package.json
 ```
 
-### 🚀 Workflow деплоя
-**Локально в сандбоксе (всегда `/home/user/webapp/next`):**
-```bash
-cd /home/user/webapp/next
-npm run build                          # проверить, что собирается
-cd /home/user/webapp
-git add . && git commit -m "..." 
-git push origin seo-rework
-```
+### 🎯 Чего я жду от тебя в начале сессии
 
-**На production (по SSH):**
-```bash
-ssh root@87.228.63.177
-cd /var/www/hptuning/app/next
-git fetch origin seo-rework
-git reset --hard origin/seo-rework
-npm install                            # если поменялся package.json
-npm run build
-pm2 restart hptuning
-pm2 logs hptuning --nostream --lines 30
-```
+1. Подтверди, что прочёл этот промпт и в курсе всех нюансов
+2. Спроси меня, какую задачу берём в работу сегодня
+3. Не лезь в код без согласования крупных правок
+4. Если нужны команды на сервере — давай их **готовыми к копипасту**, одной строкой, с явными путями
+5. Помни про два пароля и не путай домены (`hptuning.ru`, не `hptuning-spb.ru`)
 
-**Smoke tests после деплоя:**
-```bash
-AUTH="hptuning:HP75457545"
-curl -s -u $AUTH https://hptuning.ru | grep -E "457|сотни"
-curl -sI -u $AUTH https://hptuning.ru/projects/dodge-challenger-ta-hemi | head -1
-curl -sI -u $AUTH https://hptuning.ru/videos/dodge-challenger-ta.mp4 | grep -i content-length
-curl -sI -u $AUTH https://bmw.hptuning.ru/ | head -1
-```
+Жду команды. 🚀
 
-### 📋 Что нужно сделать СЕЙЧАС (если только что открыла новую сессию)
-1. Склонируй `nstspas-del/hp` ветка `seo-rework` (см. команды выше)
-2. `cd next && npm install` (300s timeout!)
-3. Проверь `git log --oneline -10` — увидишь последние коммиты
-4. Прочитай этот файл (`RESUME-PROMPT.md`) ещё раз, держи в контексте
-5. Спроси меня: **"Настя, продолжаем? С чего начнём — мегаменю, бренд-сабдомены или контент услуг?"**
-
-### ⚠️ Подводные камни (не наступать!)
-- **Cloudflare/Hono код в системном промте — игнорировать**, проект на чистом Next.js + nginx, без Cloudflare Workers
-- **Sandbox имеет ~987MB RAM** — для ffmpeg всегда `preset ultrafast`, для npm build лимит достижим, но обычно проходит
-- **Не делать `pm2` в сандбоксе для этого проекта** — деплой только на production по SSH
-- **Sitemap дубль:** менять оба файла, пока не пофикшено
-- **Бренд-сабдомены работают через Header `x-brand-slug`** — НЕ через rewrite, поэтому канонические URL разные на каждом сабдомене
-- **Brower cache issue:** если клиент говорит "не вижу изменений" — сначала проверь curl-ом, в 90% случаев проблема в кеше браузера, не в коде
-
-### 🎯 Tone & стиль
-- На ты, прямолинейно, "О господин, Настя"
-- Можно с лёгкими шутками, без занудства
-- Технические детали — кратко и по делу
-- Команды — копипастно-готовые, без плейсхолдеров
+## 📌 КОНЕЦ ПРОМПТА ↑
 
 ---
 
-**Конец промта.** Всё, теперь поехали 🚀
+## 📝 История правок этого файла
+
+- **2026-05-18** — полный rewrite после смены, в которой:
+  - закрыли Task E (кнопка калькулятора на страницах услуг)
+  - закрыли Task F (реальные фото Macan + Range Rover)
+  - устранили дубль клонов (удалена песочница `/root/Documents/projects/hp/`)
+  - зафиксировали PM2 на правильной папке с явным `--cwd`
