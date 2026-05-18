@@ -75,7 +75,8 @@ const localBusinessSchema = {
  // aggregateRating намеренно не указан: фейковые числа снижают траст в Яндексе.
  // Реальный рейтинг показываем через виджет Яндекс.Бизнес (id 99062407907) на странице.
  sameAs: [
- 'https://t.me/hptuningspb',
+ 'https://t.me/hptuningspb',   // личка / связь
+ 'https://t.me/hptunspb',      // канал новостей HP Тюнинг
  'https://yandex.ru/sprav/99062407907',
  'https://yandex.ru/maps/org/99062407907/',
  ],

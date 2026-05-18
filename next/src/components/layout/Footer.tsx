@@ -61,7 +61,12 @@ export function Footer() {
  <a href={company.contacts.telegram.href} target="_blank" rel="noopener noreferrer"
  className="flex items-center gap-2 text-text-muted hover:text-accent transition-colors">
  <Send className="size-4 text-accent shrink-0" />
- {company.contacts.telegram.display}
+ {company.contacts.telegram.display} <span className="text-text-subtle/60 text-xs">— связь</span>
+ </a>
+ <a href="https://t.me/hptunspb" target="_blank" rel="noopener noreferrer"
+ className="flex items-center gap-2 text-text-muted hover:text-accent transition-colors">
+ <Send className="size-4 text-accent shrink-0" />
+ @hptunspb <span className="text-text-subtle/60 text-xs">— канал новостей</span>
  </a>
  <span className="flex items-start gap-2 text-text-muted">
  <MapPin className="size-4 text-accent shrink-0 mt-0.5" />
