@@ -41,6 +41,26 @@ const nextConfig = {
       { source: '/services/chip-tuning',        destination: '/tuning/chip-tuning',         permanent: true },
       { source: '/services',                    destination: '/',                            permanent: true },
       { source: '/calculator',                  destination: '/tuning/chip-tuning#chip-calculator', permanent: true },
+
+      // ── 2025-12 Blog/Works/Projects consolidation ──
+      // /works/* → /blog?cat=works    (старый листинг работ → новая объединённая страница «Блог»)
+      // /projects → /blog?cat=projects (старый листинг проектов → новая объединённая)
+      // /projects/:slug — оставляем как есть (детальные кейсы)
+      { source: '/works',                       destination: '/blog?cat=works',   permanent: true },
+      { source: '/works/:slug',                 destination: '/blog/:slug',       permanent: true },
+      { source: '/projects',                    destination: '/blog?cat=projects', permanent: true },
+
+      // ── 2025-12 Service taxonomy fix ──
+      // Шумоизоляция и тюнинг салона переехали из /tuning/* в /detailing/*
+      { source: '/tuning/sound',     destination: '/detailing/sound-isolation',  permanent: true },
+      { source: '/tuning/interior',  destination: '/detailing/interior-styling', permanent: true },
+      { source: '/tuning/brakes',    destination: '/service/brakes',              permanent: true },
+      { source: '/tuning/exhaust',   destination: '/tuning/chip-tuning',          permanent: true },
+
+      // ── Старые URL детейлинга (поправили опечатки в slug-ах) ──
+      { source: '/detailing/polish',   destination: '/detailing/polishing',    permanent: true },
+      { source: '/detailing/cleaning', destination: '/detailing/dry-cleaning', permanent: true },
+      { source: '/detailing/tinting',  destination: '/detailing',              permanent: true },
       // ─────────────────────────────────────────────────────────────────
       // Статические страницы старого сайта → новые пути
       { source: '/site', destination: '/', permanent: true },
