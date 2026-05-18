@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { Phone, Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { Logo } from '@/components/Logo';
+import { BrandSubdomainBadge } from '@/components/BrandSubdomainBadge';
 import { openBooking } from '@/lib/autodealer';
 
 // ── Навигация ─────────────────────────────────────────────────────────────────
@@ -16,20 +17,25 @@ const NAV_SERVICE = [
   { label: 'Электрика',                href: '/service/electrics',   desc: 'Проводка, датчики, блоки' },
 ];
 
+// ── Тюнинг = только performance ───────────────────────────────────────────────
+// Шумоизоляция и Тюнинг салона перенесены в Детейлинг (категория Comfort)
 const NAV_TUNING = [
-  { label: 'Чип-тюнинг',       href: '/tuning/chip-tuning', desc: 'Прошивка ЭБУ, от 24 000 ₽' },
-  { label: 'Тормозной тюнинг', href: '/tuning/brakes',      desc: 'Brembo, AP Racing' },
-  { label: 'Выхлопная система', href: '/tuning/exhaust',     desc: 'Sport-выхлоп, клапаны' },
-  { label: 'Шумоизоляция',     href: '/tuning/sound',       desc: 'Виброизол, шумка' },
-  { label: 'Тюнинг салона',    href: '/tuning/interior',    desc: 'Карбон, алькантара' },
+  { label: 'Чип-тюнинг Stage 1/2/3', href: '/tuning/chip-tuning', desc: 'Прошивка ЭБУ, от 25 000 ₽' },
+  { label: 'Удаление DPF / EGR',     href: '/tuning/chip-tuning#dpf-egr', desc: 'Программное отключение' },
+  { label: 'AdBlue / Start-Stop',    href: '/tuning/chip-tuning#service-off', desc: 'Отключение системных функций' },
+  { label: 'Калькулятор чип-тюнинга',href: '/tuning/chip-tuning#chip-calculator', desc: 'Узнать цену за 30 сек' },
 ];
 
+// ── Детейлинг ─────────────────────────────────────────────────────────────────
+// 🛡️ Защита, ✨ Уход, 🔇 Комфорт — три категории.
 const NAV_DETAILING = [
-  { label: 'Керамика 9H',  href: '/detailing/ceramic',  desc: 'Gyeon, Ceramic Pro, от 25 000 ₽' },
-  { label: 'PPF плёнка',   href: '/detailing/ppf',      desc: 'XPEL, SunTek — защита кузова' },
-  { label: 'Полировка',    href: '/detailing/polish',   desc: 'Коррекция царапин' },
-  { label: 'Химчистка',    href: '/detailing/cleaning', desc: 'Салон, кожа, ковры, потолок' },
-  { label: 'Тонировка',    href: '/detailing/tinting',  desc: 'LLUMAR, SunTek, съёмная' },
+  { label: '🛡️ Керамика 9H',       href: '/detailing/ceramic',                 desc: 'Gyeon, Ceramic Pro' },
+  { label: '🛡️ PPF плёнка',         href: '/detailing/ppf',                     desc: 'XPEL, SunTek' },
+  { label: '🛡️ Полировка',          href: '/detailing/polishing',               desc: 'Коррекция царапин' },
+  { label: '✨ Химчистка',          href: '/detailing/dry-cleaning',            desc: 'Салон, кожа, ковры' },
+  { label: '✨ Полировка фар',      href: '/detailing/headlights-restoration',  desc: 'Прозрачность как новые' },
+  { label: '🔇 Шумоизоляция',       href: '/detailing/sound-isolation',         desc: 'Виброизол, шумка' },
+  { label: '🔇 Тюнинг салона',      href: '/detailing/interior-styling',        desc: 'Карбон, алькантара, кожа' },
 ];
 
 // Мега-меню марок — сгруппированы по сегментам
@@ -79,7 +85,7 @@ const NAV = [
   { label: 'Марки',      href: '/marki',              type: 'brands' as const },
   { label: 'Тюнинг',    href: '/tuning/chip-tuning', type: 'tuning' as const },
   { label: 'Детейлинг', href: '/detailing',           type: 'detailing' as const },
-  { label: 'Работы',    href: '/works',               type: 'link' as const },
+  { label: 'Блог',      href: '/blog',                type: 'link' as const },
   { label: 'Контакты',  href: '/contacts',            type: 'link' as const },
 ];
 
@@ -196,7 +202,10 @@ export function Header() {
         }`} />
 
         <div className="max-w-[1280px] mx-auto px-5 md:px-10 flex items-center justify-between h-16">
-          <Logo />
+          <div className="flex items-center gap-2">
+            <Logo />
+            <BrandSubdomainBadge />
+          </div>
 
           {/* Десктоп-навигация */}
           <nav className="hidden lg:flex items-center gap-0.5" role="navigation" aria-label="Основное меню">
@@ -279,7 +288,10 @@ export function Header() {
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 z-40 bg-[#09090b] flex flex-col">
           <div className="flex items-center justify-between h-16 px-5 border-b border-white/8 shrink-0">
-            <Logo onClick={() => setMobileOpen(false)} />
+            <div className="flex items-center gap-2">
+              <Logo onClick={() => setMobileOpen(false)} />
+              <BrandSubdomainBadge />
+            </div>
             <button
               className="flex items-center justify-center size-10 rounded-xl bg-white/5 text-zinc-400"
               onClick={() => setMobileOpen(false)}
@@ -420,7 +432,7 @@ export function Header() {
             </div>
 
             {/* Простые ссылки */}
-            {[{ label: 'Работы', href: '/works' }, { label: 'Контакты', href: '/contacts' }].map((item) => (
+            {[{ label: 'Блог', href: '/blog' }, { label: 'Контакты', href: '/contacts' }].map((item) => (
               <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)}
                 className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition-colors">
                 <span className="text-white font-medium text-sm">{item.label}</span>

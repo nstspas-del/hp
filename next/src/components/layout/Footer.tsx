@@ -20,8 +20,8 @@ const LINKS = {
  ],
  info: [
  { label: 'О компании', href: '/about' },
- { label: 'Работы', href: '/works' },
  { label: 'Блог', href: '/blog' },
+ { label: 'Проекты', href: '/blog?cat=projects' },
  { label: 'Отзывы', href: '/reviews' },
  { label: 'Контакты', href: '/contacts' },
  { label: 'Политика конфиденциальности', href: '/privacy' },
