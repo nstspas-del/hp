@@ -1,8 +1,31 @@
 import Link from 'next/link';
-import { CheckCircle, Phone, Clock, ChevronDown } from 'lucide-react';
+import { CheckCircle, Phone, Clock, ChevronDown, Calculator } from 'lucide-react';
 import { BookingButton } from './BookingButton';
 import { SERVICE_CONTENT, getCategoryLabel } from '@/lib/services';
 import yandexServicesData from '@/data/yandex-services.json';
+
+// Сопоставление slug услуги детейлинга → tab в калькуляторе детейлинга
+const DETAILING_CALC_TAB: Record<string, string> = {
+  'ppf': 'ppf',
+  'ceramic': 'ceramic',
+  'ceramics': 'ceramic',
+  'polishing': 'polishing',
+  'polish': 'polishing',
+  'dry-cleaning': 'cleaning',
+  'cleaning': 'cleaning',
+  'chemistry': 'cleaning',
+  // Сопутствующие услуги детейлинга, для которых отдельной вкладки нет —
+  // ведём на полный калькулятор без выбранного таба (откроется первая вкладка PPF):
+  // 'headlights-restoration', 'sound-isolation', 'interior-styling', 'tinting'
+};
+
+// Сопоставление slug услуги тюнинга → якорь на странице чип-тюнинга с калькулятором
+const TUNING_CALC_HASH: Record<string, string> = {
+  'stage-1': '#chip-calculator',
+  'stage-2': '#chip-calculator',
+  'stage-3': '#chip-calculator',
+  'chip-tuning': '#chip-calculator',
+};
 
 interface ServiceItem {
  slug: string;
@@ -21,6 +44,17 @@ export function ServicePage({ catSlug, service }: Props) {
  const key = `${catSlug}/${service.slug}`;
  const content = SERVICE_CONTENT[key];
  const catLabel = getCategoryLabel(catSlug);
+
+ // Ссылка на калькулятор (если есть соответствие для услуги)
+ let calculatorHref: string | null = null;
+ if (catSlug === 'detailing') {
+   const tab = DETAILING_CALC_TAB[service.slug];
+   calculatorHref = tab
+     ? `/detailing?tab=${tab}#detailing-calculator`
+     : `/detailing#detailing-calculator`;
+ } else if (catSlug === 'tuning' || catSlug === 'chip-tuning') {
+   calculatorHref = `/tuning/chip-tuning${TUNING_CALC_HASH[service.slug] ?? '#chip-calculator'}`;
+ }
 
  // Сопоставление catSlug → актуальный путь раздела
  const catPath: Record<string, string> = {
@@ -139,6 +173,16 @@ export function ServicePage({ catSlug, service }: Props) {
  serviceHint={service.name}
  className="btn-primary w-full justify-center mb-3"
  />
+ {calculatorHref && (
+ <Link
+ href={calculatorHref}
+ className="btn-secondary w-full justify-center mb-3"
+ aria-label={`Открыть калькулятор: ${service.name}`}
+ >
+ <Calculator className="size-4" />
+ Рассчитать стоимость
+ </Link>
+ )}
  <a href="tel:+79818428151" className="btn-secondary w-full justify-center">
  <Phone className="size-4" />
  +7 (981) 842-81-51
@@ -190,8 +234,13 @@ export function ServicePage({ catSlug, service }: Props) {
  ЗАПИСАТЬСЯ НА {service.name.toUpperCase()}
  </h2>
  <p className="text-text-muted mb-6">Запишитесь онлайн или позвоните — подберём удобное время.</p>
- <div className="flex flex-col sm:flex-row gap-3 justify-center">
+ <div className="flex flex-col sm:flex-row gap-3 justify-center flex-wrap">
  <BookingButton label="Записаться онлайн" serviceHint={service.name} className="btn-primary text-base px-10 py-4" />
+ {calculatorHref && (
+ <Link href={calculatorHref} className="btn-secondary text-base px-10 py-4">
+ <Calculator className="size-4" /> Рассчитать стоимость
+ </Link>
+ )}
  <a href="tel:+79818428151" className="btn-secondary text-base px-10 py-4">
  <Phone className="size-4" /> +7 (981) 842-81-51
  </a>

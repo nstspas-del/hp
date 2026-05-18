@@ -1,5 +1,5 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Sparkles, Shield, Droplets, Wind, Wrench, ChevronRight } from 'lucide-react';
 import { openBooking } from '@/lib/autodealer';
@@ -326,8 +326,34 @@ const CATEGORIES: { id: CategoryId; label: string; sub: string }[] = [
 // КОМПОНЕНТ
 // ═══════════════════════════════════════════════════════════════════════════
 
+// Map slug услуги (URL хеш или query) → ServiceId калькулятора
+const SERVICE_SLUG_MAP: Record<string, ServiceId> = {
+  ppf: 'ppf',
+  film: 'ppf',
+  ceramic: 'ceramic',
+  ceramics: 'ceramic',
+  polishing: 'polishing',
+  polish: 'polishing',
+  cleaning: 'cleaning',
+  'dry-cleaning': 'cleaning',
+  chemistry: 'cleaning',
+};
+
 export function DetailingCalculator() {
   const [service, setService] = useState<ServiceId>('ppf');
+
+  // Прочитать ?tab=... или #tab=... из URL при первой загрузке клиента,
+  // чтобы со страницы услуги (/detailing/ceramic) можно было сразу
+  // открыть нужную вкладку калькулятора.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const hash = window.location.hash.replace(/^#/, '');
+    const hashParams = new URLSearchParams(hash.includes('=') ? hash : '');
+    const raw = (params.get('tab') || hashParams.get('tab') || hash || '').toLowerCase();
+    const mapped = SERVICE_SLUG_MAP[raw];
+    if (mapped) setService(mapped);
+  }, []);
 
   // PPF state
   const [material, setMaterial] = useState<MaterialId | null>(null);
