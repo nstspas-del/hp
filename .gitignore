@@ -145,3 +145,5 @@ next/_backups/
 next.config.mjs.backup-*
 middleware.ts.backup-*
 *.conf.backup-*
+*.bak075
+*.json.bak*
