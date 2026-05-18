@@ -42,21 +42,9 @@ const nextConfig = {
       { source: '/services',                    destination: '/',                            permanent: true },
       { source: '/calculator',                  destination: '/tuning/chip-tuning#chip-calculator', permanent: true },
 
-      // ── 2026-05 Битые .webp из старого индекса Яндекса/Google ──
-      // На старом сайте картинки кейсов были в .webp с другими именами; они до сих пор
-      // в индексе и боты регулярно стучатся 404. Мапим на реальные существующие jpg.
-      { source: '/images/works/bmw-m3-chip.webp',          destination: '/images/works/10-bmw-x5-neon-workshop.jpg',          permanent: true },
-      { source: '/images/works/bmw-5er-ceramic.webp',      destination: '/images/works/04-ceramic-coating-application.jpg',  permanent: true },
-      { source: '/images/works/bmw-x5m-stage2.webp',       destination: '/images/works/10-bmw-x5-neon-workshop.jpg',          permanent: true },
-      { source: '/images/works/mercedes-amg-stage1.webp',  destination: '/images/works/06-mercedes-cls-yellow-amg.jpg',       permanent: true },
-      { source: '/images/works/mercedes-gle-ppf.webp',     destination: '/images/works/05-mercedes-gle-coupe-dark-blue.jpg',  permanent: true },
-      { source: '/images/works/porsche-cayenne-chip.webp', destination: '/images/works/01-porsche-cayman-pink-lift.jpg',      permanent: true },
-      { source: '/images/works/audi-rs6-stage1.webp',      destination: '/images/works/15-mercedes-cls-orange-lift.jpg',      permanent: true },
-      { source: '/images/works/volvo-xc90-chip.webp',      destination: '/images/works/02-underbody-exhaust-work.jpg',        permanent: true },
-      { source: '/images/works/land-rover-defender-chip.webp', destination: '/images/works/05-mercedes-gle-coupe-dark-blue.jpg', permanent: true },
-      { source: '/images/works/subaru-wrx-chip.webp',      destination: '/images/works/17-subaru-wrx-sti-exhaust.jpg',        permanent: true },
-      // Универсальный fallback: любой .webp в /images/works/ → дефолтное фото
-      { source: '/images/works/:name.webp',                destination: '/images/works/mercedes-amg-orange-lift.jpg',         permanent: true },
+      // ── 2026-05 Битые .webp: реальные файлы созданы в public/images/works/.
+      // Редиректы убраны, чтобы next/image отдавал webp напрямую (200 OK + AVIF/WebP оптимизация).
+      // Файлы созданы из соответствующих jpg через ImageMagick (см. коммит bdba8ed).
 
       // ── 2025-12 Blog/Works/Projects consolidation ──
       // /works/* → /blog?cat=works    (старый листинг работ → новая объединённая страница «Блог»)
