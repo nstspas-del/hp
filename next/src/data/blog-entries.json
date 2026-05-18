@@ -36,7 +36,7 @@
       "model": "M3 F80",
       "services": ["Чип-тюнинг", "Stage 2"],
       "tags": ["Чип-тюнинг", "Stage 2"],
-      "coverImage": "/images/works/bmw-m3-chip.webp",
+      "coverImage": "/images/works/10-bmw-x5-neon-workshop.jpg",
       "date": "2025-09-15",
       "specs": { "hp": "431 → 510", "nm": "550 → 680" },
       "href": "/tuning/chip-tuning"
@@ -50,7 +50,7 @@
       "model": "C63 AMG W205",
       "services": ["Чип-тюнинг", "Stage 1"],
       "tags": ["Чип-тюнинг", "Stage 1"],
-      "coverImage": "/images/works/mercedes-amg-stage1.webp",
+      "coverImage": "/images/works/06-mercedes-cls-yellow-amg.jpg",
       "date": "2025-08-20",
       "specs": { "hp": "476 → 530", "nm": "650 → 750" },
       "href": "/tuning/chip-tuning"
@@ -64,7 +64,7 @@
       "model": "Cayenne 3.0T",
       "services": ["Чип-тюнинг", "DPF-off"],
       "tags": ["Чип-тюнинг", "DPF-off"],
-      "coverImage": "/images/works/porsche-cayenne-chip.webp",
+      "coverImage": "/images/works/01-porsche-cayman-pink-lift.jpg",
       "date": "2025-07-10",
       "specs": { "hp": "340 → 395", "nm": "450 → 540" },
       "href": "/tuning/chip-tuning#dpf-egr"
@@ -78,7 +78,7 @@
       "model": "RS6 C8",
       "services": ["Чип-тюнинг", "Stage 1"],
       "tags": ["Чип-тюнинг", "Stage 1"],
-      "coverImage": "/images/works/audi-rs6-stage1.webp",
+      "coverImage": "/images/works/subaru-wrx-lift.jpg",
       "date": "2025-06-25",
       "specs": { "hp": "600 → 680", "nm": "800 → 920" },
       "href": "/tuning/chip-tuning"
@@ -92,7 +92,7 @@
       "model": "5er G30 530i",
       "services": ["Детейлинг", "Керамика 9H"],
       "tags": ["Детейлинг", "Керамика"],
-      "coverImage": "/images/works/bmw-5er-ceramic.webp",
+      "coverImage": "/images/works/04-ceramic-coating-application.jpg",
       "date": "2025-05-30",
       "href": "/detailing/ceramic"
     },
@@ -105,7 +105,7 @@
       "model": "XC90 2.0T",
       "services": ["Чип-тюнинг", "Stage 1"],
       "tags": ["Чип-тюнинг", "Stage 1"],
-      "coverImage": "/images/works/volvo-xc90-chip.webp",
+      "coverImage": "/images/works/15-mercedes-cls-orange-lift.jpg",
       "date": "2025-04-15",
       "specs": { "hp": "249 → 295", "nm": "350 → 430" },
       "href": "/tuning/chip-tuning"
@@ -119,7 +119,7 @@
       "model": "Defender 3.0D",
       "services": ["Чип-тюнинг", "EGR-off"],
       "tags": ["Чип-тюнинг", "EGR-off"],
-      "coverImage": "/images/works/land-rover-defender-chip.webp",
+      "coverImage": "/images/works/05-mercedes-gle-coupe-dark-blue.jpg",
       "date": "2025-03-20",
       "specs": { "hp": "300 → 360", "nm": "650 → 780" },
       "href": "/tuning/chip-tuning#dpf-egr"
@@ -133,7 +133,7 @@
       "model": "GLE 400d",
       "services": ["Детейлинг", "PPF"],
       "tags": ["Детейлинг", "PPF"],
-      "coverImage": "/images/works/mercedes-gle-ppf.webp",
+      "coverImage": "/images/works/19-ppf-film-installation.jpg",
       "date": "2025-02-18",
       "href": "/detailing/ppf-film"
     },
@@ -146,7 +146,7 @@
       "model": "X5M F95",
       "services": ["Чип-тюнинг", "Stage 2"],
       "tags": ["Чип-тюнинг", "Stage 2"],
-      "coverImage": "/images/works/bmw-x5m-stage2.webp",
+      "coverImage": "/images/works/11-mercedes-s-class-black-front.jpg",
       "date": "2025-01-25",
       "specs": { "hp": "625 → 720", "nm": "750 → 900" },
       "href": "/tuning/chip-tuning"
