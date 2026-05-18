@@ -1,10 +1,11 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Phone } from 'lucide-react';
+import { Phone, Stethoscope, Wrench, Zap, Sparkles } from 'lucide-react';
 import { openBooking } from '@/lib/autodealer';
 
-// Марки сгруппированы по сегментам — все в HTML для Яндекса
+// Марки сгруппированы по сегментам — все в HTML для Яндекса (ТОЛЬКО ДЕСКТОП).
+// На мобиле этот блок скрыт — слишком тяжёлый, есть BrandStripSection ниже.
 const BRAND_GROUPS = [
   {
     label: 'Европейские',
@@ -28,6 +29,43 @@ const BRAND_GROUPS = [
   },
 ];
 
+// 4 ключевых сервисных блока — кликабельные карточки.
+// На мобиле — это ОСНОВНОЙ сценарий движения, на десктопе — нижняя полоска.
+const KEY_SERVICES = [
+  {
+    href: '/service/diagnostics',
+    icon: Stethoscope,
+    label: 'Диагностика',
+    sub: 'Компьютерная, ходовая, развал',
+    accent: '#39FF14',
+    ymGoal: 'hero_diagnostics',
+  },
+  {
+    href: '/service/to',
+    icon: Wrench,
+    label: 'ТО под ключ',
+    sub: 'От 4 900 ₽',
+    accent: '#39FF14',
+    ymGoal: 'hero_to',
+  },
+  {
+    href: '/tuning/chip-tuning',
+    icon: Zap,
+    label: 'Чип-тюнинг',
+    sub: 'Stage 1 / 2 / 3',
+    accent: '#A855F7',
+    ymGoal: 'hero_chiptuning',
+  },
+  {
+    href: '/detailing',
+    icon: Sparkles,
+    label: 'Детейлинг',
+    sub: 'Керамика, PPF, химчистка',
+    accent: '#A855F7',
+    ymGoal: 'hero_detailing',
+  },
+];
+
 export function Hero() {
   return (
     <section className="relative min-h-[100svh] flex flex-col justify-end overflow-hidden">
@@ -46,62 +84,107 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#09090b]/75 via-transparent to-transparent" />
 
       {/* ── Основной контент ── */}
-      <div className="relative container pb-12 md:pb-20 pt-28">
+      <div className="relative container pb-8 md:pb-20 pt-24 md:pt-28">
         <div className="max-w-2xl">
 
           {/* Бейдж */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#39FF14]/10 border border-[#39FF14]/20 mb-5">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#39FF14]/10 border border-[#39FF14]/20 mb-4 md:mb-5">
             <span className="w-2 h-2 rounded-full bg-[#39FF14] animate-pulse" />
-            <span className="text-[#39FF14] text-xs font-bold tracking-widest uppercase">
-              Санкт-Петербург · Богородская 3Б · 10:00–22:00
+            <span className="text-[#39FF14] text-[10px] md:text-xs font-bold tracking-widest uppercase">
+              СПб · Богородская 3Б · 10:00–22:00
             </span>
           </div>
 
           {/* H1 — единый, чистый, без двойного вложения */}
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[0.95] uppercase tracking-tight text-white mb-5">
+          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl leading-[0.95] uppercase tracking-tight text-white mb-4 md:mb-5">
             Автосервис в&nbsp;
             <span className="text-[#39FF14]" style={{ textShadow: '0 0 40px rgba(57,255,20,0.5)' }}>
               Санкт-Петербурге
             </span>
-            <span className="block text-zinc-300 text-2xl sm:text-3xl md:text-4xl mt-3 normal-case tracking-normal font-display">
-              ТО, ремонт, шиномонтаж, детейлинг и&nbsp;чип-тюнинг
+            <span className="block text-zinc-300 text-xl sm:text-3xl md:text-4xl mt-2 md:mt-3 normal-case tracking-normal font-display">
+              ТО, ремонт, чип-тюнинг и&nbsp;детейлинг
             </span>
           </h1>
 
-          {/* Подзаголовок — короткий, без скриптовой ваты */}
-          <p className="text-zinc-300 text-sm md:text-base leading-relaxed mb-6 max-w-xl">
+          {/* Подзаголовок — на мобиле короче, на десктопе с перечислением марок */}
+          <p className="text-zinc-300 text-sm md:text-base leading-relaxed mb-5 md:mb-6 max-w-xl">
             38+ марок — европейские, японские, корейские и&nbsp;китайские.
-            <span className="block mt-1 text-zinc-400 text-xs md:text-sm">
+            <span className="hidden md:block mt-1 text-zinc-400 text-xs md:text-sm">
               BMW, Mercedes-Benz, Audi, Porsche, Toyota, Lexus, Land Rover, Kia, Hyundai,{' '}
               <strong className="text-white font-semibold">Haval, Chery, Geely, Tank, Exeed</strong>{' '}
               — всё в одном месте.
             </span>
           </p>
 
-          {/* CTA */}
-          <div className="flex flex-wrap items-center gap-3 mb-3">
+          {/* ───────── ГЛАВНЫЙ CTA — один, не два ───────── */}
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 mb-3">
             <button
               onClick={() => openBooking()}
-              className="btn-primary text-sm md:text-base px-7 py-3.5 rounded-full font-bold"
+              className="btn-primary text-sm md:text-base px-7 py-3.5 rounded-full font-bold justify-center"
             >
               Записаться в сервис
             </button>
             <a
               href="tel:+79818428151"
-              className="flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/15 text-white font-semibold text-sm md:text-base hover:border-[#39FF14]/50 hover:text-[#39FF14] transition-colors"
+              className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/15 text-white font-semibold text-sm md:text-base hover:border-[#39FF14]/50 hover:text-[#39FF14] transition-colors"
               onClick={() => window.ym?.(108614238, 'reachGoal', 'phone_click')}
             >
               <Phone className="size-4" />
               +7 (981) 842-81-51
             </a>
           </div>
-          <p className="text-zinc-600 text-xs mb-8">
+          <p className="text-zinc-600 text-xs mb-6 md:mb-8">
             Ответим в течение 15 минут · возможна дистанционная консультация
           </p>
 
-          {/* Статистика — без «10+ лет», без «247 отзывов».
-              Замена на честные маркетинговые формулировки. */}
-          <div className="flex flex-wrap gap-6 md:gap-10">
+          {/* ───────── 4 КЛЮЧЕВЫХ СЕРВИСНЫХ БЛОКА ─────────
+              На мобиле — основной сценарий движения, ОЧЕНЬ заметные карточки.
+              На десктопе — выглядят чуть компактнее, но всё равно кликабельные.
+          */}
+          <nav aria-label="Ключевые услуги" className="mb-6 md:mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3">
+              {KEY_SERVICES.map((srv) => {
+                const Icon = srv.icon;
+                return (
+                  <Link
+                    key={srv.href}
+                    href={srv.href}
+                    prefetch={false}
+                    onClick={() => window.ym?.(108614238, 'reachGoal', srv.ymGoal)}
+                    className="group relative flex flex-col items-start gap-2 p-3.5 md:p-4 rounded-2xl bg-[#09090b]/85 backdrop-blur-md border border-white/10 hover:border-[color:var(--srv-accent)] active:scale-[0.98] transition-all min-h-[88px] md:min-h-[100px]"
+                    style={{ '--srv-accent': srv.accent } as React.CSSProperties}
+                  >
+                    <div
+                      className="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-xl shrink-0"
+                      style={{ backgroundColor: `${srv.accent}1A`, boxShadow: `0 0 14px ${srv.accent}30 inset` }}
+                    >
+                      <Icon className="size-4 md:size-5" color={srv.accent} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div
+                        className="text-white text-sm md:text-base font-bold leading-tight group-hover:text-[color:var(--srv-accent)] transition-colors"
+                      >
+                        {srv.label}
+                      </div>
+                      <div className="text-zinc-500 text-[11px] md:text-xs mt-0.5 leading-tight">
+                        {srv.sub}
+                      </div>
+                    </div>
+                    {/* Стрелочка-индикатор справа сверху — для понимания «карточка кликается» */}
+                    <span
+                      className="absolute top-3 right-3 text-zinc-600 group-hover:text-[color:var(--srv-accent)] transition-colors text-sm leading-none"
+                      aria-hidden="true"
+                    >
+                      →
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+          </nav>
+
+          {/* Статистика — компактнее на мобиле */}
+          <div className="flex flex-wrap gap-4 md:gap-10">
             {[
               { value: '38+', label: 'марок авто' },
               { value: '457+', label: 'собранных проектов' },
@@ -110,18 +193,18 @@ export function Hero() {
             ].map((s) => (
               <div key={s.label}>
                 <div
-                  className="text-xl md:text-2xl font-display font-bold text-[#39FF14]"
+                  className="text-base md:text-2xl font-display font-bold text-[#39FF14]"
                   style={{ textShadow: '0 0 20px rgba(57,255,20,0.4)' }}
                 >
                   {s.value}
                 </div>
-                <div className="text-zinc-500 text-xs mt-0.5">{s.label}</div>
+                <div className="text-zinc-500 text-[10px] md:text-xs mt-0.5">{s.label}</div>
               </div>
             ))}
           </div>
 
           {/* Яндекс.Бизнес — реальный рейтинг (id 99062407907) */}
-          <div className="mt-6">
+          <div className="mt-5 md:mt-6">
             <iframe
               src="https://yandex.ru/sprav/widget/rating-badge/99062407907?type=rating&theme=dark"
               width={150}
@@ -134,8 +217,10 @@ export function Hero() {
           </div>
         </div>
 
-        {/* ── Блок марок по сегментам (SEO + навигация) — кликабельный ── */}
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+        {/* ── Блок марок по сегментам (SEO + навигация) — ТОЛЬКО ДЕСКТОП ──
+            На мобиле скрыт, чтобы не перегружать Hero. Есть BrandStripSection ниже.
+        */}
+        <div className="hidden md:grid mt-10 grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
           {BRAND_GROUPS.map((group) => (
             <Link
               key={group.label}
@@ -154,15 +239,17 @@ export function Hero() {
         </div>
         <Link
           href="/marki"
-          className="inline-flex items-center gap-1.5 mt-4 text-xs text-zinc-500 hover:text-[#A855F7] transition-colors"
+          className="hidden md:inline-flex items-center gap-1.5 mt-4 text-xs text-zinc-500 hover:text-[#A855F7] transition-colors"
           prefetch={false}
         >
           Смотреть все 38 марок →
         </Link>
       </div>
 
-      {/* ── Нижние ссылки-направления ── */}
-      <div className="relative border-t border-white/8 bg-[#09090b]/85 backdrop-blur-sm">
+      {/* ── Нижняя полоска направлений (ТОЛЬКО ДЕСКТОП) ──
+          На мобиле этот блок убран — 4 кликабельных карточки выше его заменяют.
+      */}
+      <div className="hidden md:block relative border-t border-white/8 bg-[#09090b]/85 backdrop-blur-sm">
         <div className="container">
           <div className="grid grid-cols-3 divide-x divide-white/8">
             {[

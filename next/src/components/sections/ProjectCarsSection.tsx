@@ -67,7 +67,7 @@ export function ProjectCarsSection() {
             </p>
           </div>
           <Link
-            href="/projects"
+            href="/blog?cat=projects"
             className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-[#39FF14] transition-colors shrink-0"
           >
             Все кейсы
@@ -83,20 +83,22 @@ export function ProjectCarsSection() {
               href={car.href}
               className="group relative rounded-2xl overflow-hidden border border-white/8 hover:border-[#39FF14]/30 transition-colors bg-[#09090b]"
             >
-              {/* Обложка */}
-              <div className="relative aspect-[16/9] overflow-hidden">
+              {/* Обложка — позиция 50% 60% чтобы фары/морда машины не обрезались */}
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
                 <Image
                   src={car.coverImage}
                   alt={car.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  style={{ objectPosition: '50% 60%' }}
                   sizes="(max-width:640px) 100vw, 50vw"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/30 to-transparent" />
+                {/* Лёгкий градиент ТОЛЬКО снизу (был «via-[#09090b]/30» — закрывал центр) */}
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#09090b] to-transparent" />
 
                 {/* Тег */}
-                <span className={`absolute top-4 left-4 px-2.5 py-1 rounded-full text-xs font-semibold border ${car.tagColor}`}>
+                <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-xs font-semibold border backdrop-blur-sm ${car.tagColor}`}>
                   {car.tag}
                 </span>
               </div>

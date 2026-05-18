@@ -91,11 +91,15 @@ export default function HomePage() {
  {/* Полоска брендов → /marki/ */}
  <BrandStripSection />
 
- {/* Что мы делаем — табы без картинок */}
+ {/* Что мы делаем — табы без картинок (скрываем на мобиле, чтобы не перегружать) */}
+ <div className="hidden md:block">
  <ShowcaseSection />
+ </div>
 
- {/* Бренды */}
+ {/* Бренды (на мобиле уже есть BrandStrip выше, второй блок убираем) */}
+ <div className="hidden md:block">
  <BrandsSection />
+ </div>
 
  {/* Работы */}
  <WorksPreview />
@@ -103,8 +107,10 @@ export default function HomePage() {
  {/* Проектные автомобили */}
  <ProjectCarsSection />
 
- {/* Видео RuTube */}
+ {/* Видео RuTube (тяжёлый iframe — только на десктопе) */}
+ <div className="hidden md:block">
  <VideoSection />
+ </div>
 
  {/* Отзывы */}
  <ReviewsSection />

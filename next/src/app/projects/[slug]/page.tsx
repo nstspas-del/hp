@@ -277,8 +277,57 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
 
-      {/* Hero */}
-      <section className="relative h-[45vh] min-h-[320px] flex items-end overflow-hidden">
+      {/* ───────── MOBILE HERO (фото сверху, текст под ним) ─────────
+          На мобиле буквы НЕ закрывают красивые детали фото (фары, линии).
+          Фото получает полную сцену 16/10, без overlay-теней над собой.
+      */}
+      <section className="md:hidden bg-[#09090b]">
+        {project.coverImage && (
+          <div className="relative w-full aspect-[16/10] overflow-hidden">
+            <Image
+              src={project.coverImage}
+              alt={project.title}
+              fill
+              className="object-cover"
+              style={{ objectPosition: '50% 65%' }}
+              priority
+              sizes="100vw"
+            />
+            {/* Лёгкий градиент ТОЛЬКО снизу для бесшовного перехода в чёрный фон */}
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#09090b] to-transparent" />
+          </div>
+        )}
+        <div className="container pt-4 pb-6">
+          {/* Breadcrumb */}
+          <nav className="text-xs text-zinc-500 mb-3 flex items-center flex-wrap gap-1" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-[#39FF14] transition-colors">Главная</Link>
+            <ChevronRight className="size-3" />
+            <Link href="/blog" className="hover:text-[#39FF14] transition-colors">Блог</Link>
+            <ChevronRight className="size-3" />
+            <span className="text-zinc-300 truncate max-w-[180px]">{project.title}</span>
+          </nav>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-1.5 mb-3">
+            {project.services?.map((tag) => (
+              <span key={tag} className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-[#39FF14]/10 text-[#39FF14] border border-[#39FF14]/20">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <h1 className="font-display text-2xl uppercase tracking-tight text-white leading-tight">
+            {project.title}
+          </h1>
+          <p className="text-zinc-400 text-xs mt-2">
+            {project.brandName} {project.model} {project.generation} · {project.engine}
+            {project.year && ` · ${project.year} г.`}
+          </p>
+        </div>
+      </section>
+
+      {/* ───────── DESKTOP HERO (классический overlay с фото на фоне) ───────── */}
+      <section className="hidden md:flex relative h-[45vh] min-h-[320px] items-end overflow-hidden">
         {project.coverImage && (
           <Image
             src={project.coverImage}
@@ -295,7 +344,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <nav className="text-xs text-zinc-500 mb-3 flex items-center flex-wrap gap-1" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-[#39FF14] transition-colors">Главная</Link>
             <ChevronRight className="size-3" />
-            <Link href="/projects" className="hover:text-[#39FF14] transition-colors">Проекты</Link>
+            <Link href="/blog" className="hover:text-[#39FF14] transition-colors">Блог</Link>
             <ChevronRight className="size-3" />
             <span className="text-zinc-300 truncate max-w-[200px]">{project.title}</span>
           </nav>
