@@ -565,6 +565,50 @@ export default async function BrandPage({ params }: { params: { brand: string } 
         </div>
       </section>
 
+      {/* ── Sticky якорь-навигация по разделам бренда ── */}
+      <nav
+        className="sticky top-16 z-30 bg-[#09090b]/90 backdrop-blur-md border-y border-white/8"
+        aria-label={`Разделы ${brand.name}`}
+      >
+        <div className="container flex items-center gap-1 overflow-x-auto py-2 scrollbar-none">
+          <a
+            href="#service"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/5 whitespace-nowrap transition-colors"
+          >
+            <Wrench className="size-3.5 text-amber-400" />
+            Сервис
+          </a>
+          <a
+            href="#tuning"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/5 whitespace-nowrap transition-colors"
+          >
+            <Zap className="size-3.5 text-[#39FF14]" />
+            Чип-тюнинг
+          </a>
+          <a
+            href="#detailing"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/5 whitespace-nowrap transition-colors"
+          >
+            <Sparkles className="size-3.5 text-sky-400" />
+            Детейлинг
+          </a>
+          <a
+            href="#modeli"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/5 whitespace-nowrap transition-colors"
+          >
+            <Award className="size-3.5 text-violet-400" />
+            Модели и цены
+          </a>
+          <a
+            href="#faq"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/5 whitespace-nowrap transition-colors"
+          >
+            <Star className="size-3.5 text-orange-400" />
+            FAQ
+          </a>
+        </div>
+      </nav>
+
       {/* ── Основной контент ── */}
       <div className="container py-12">
 
@@ -578,7 +622,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
               title: 'Диагностика',
               desc: 'Компьютерная и ходовая диагностика',
               price: 'от 1 500 ₽',
-              href: isSubdomain ? `${mainSiteUrl}/service/diagnostics` : '/service/diagnostics',
+              href: '#service',
             },
             {
               icon: Wrench,
@@ -587,7 +631,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
               title: 'Техобслуживание',
               desc: 'ТО, ремонт двигателя и подвески',
               price: 'от 3 500 ₽',
-              href: isSubdomain ? `${mainSiteUrl}/service` : '/service',
+              href: '#service',
             },
             {
               icon: Zap,
@@ -596,7 +640,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
               title: 'Чип-тюнинг',
               desc: 'Stage 1/2/3, EGR/DPF off, АКПП',
               price: `от ${brand.priceFrom.toLocaleString('ru-RU')} ₽`,
-              href: isSubdomain ? `${mainSiteUrl}/tuning/chip-tuning` : '/tuning/chip-tuning',
+              href: '#tuning',
             },
             {
               icon: Sparkles,
@@ -605,7 +649,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
               title: 'Детейлинг',
               desc: 'Керамика 9H, PPF, полировка, химчистка',
               price: 'от 6 000 ₽',
-              href: isSubdomain ? `${mainSiteUrl}/detailing` : '/detailing',
+              href: '#detailing',
             },
           ].map((card) => (
             <a
@@ -630,9 +674,9 @@ export default async function BrandPage({ params }: { params: { brand: string } 
           ))}
         </div>
 
-        {/* Типичные проблемы + Что делаем */}
+        {/* ═══ СЕРВИС: Типичные проблемы + Что делаем ═══ */}
         {brand.typicalProblems && brand.typicalProblems.length > 0 && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-14">
+          <div id="service" className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-14 scroll-mt-32">
             <div className="bg-[#111113] rounded-2xl border border-white/8 p-6">
               <h2 className="flex items-center gap-2 font-display text-xl text-white uppercase tracking-wide mb-5">
                 <AlertTriangle className="size-5 text-amber-400" />
@@ -688,14 +732,49 @@ export default async function BrandPage({ params }: { params: { brand: string } 
           </div>
         )}
 
-        {/* Калькулятор чип-тюнинга */}
-        <div className="mb-14 -mx-4 sm:-mx-6 lg:-mx-8" id="calculator">
+        {/* ═══ ТЮНИНГ: Калькулятор чип-тюнинга ═══ */}
+        <div id="tuning" className="mb-14 -mx-4 sm:-mx-6 lg:-mx-8 scroll-mt-32">
           <ChipTuningCalculator defaultBrandSlug={brandSlug} />
+        </div>
+
+        {/* ═══ ДЕТЕЙЛИНГ: услуги по защите и уходу для бренда ═══ */}
+        <div id="detailing" className="mb-14 scroll-mt-32">
+          <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-2">
+            Детейлинг {brand.name}
+          </h2>
+          <p className="text-zinc-500 text-sm mb-6 max-w-2xl">
+            Защита кузова, керамика 9H, антигравийная плёнка PPF, полировка, химчистка и
+            шумоизоляция — всё под одной крышей.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {[
+              { title: 'Керамика 9H', desc: 'Gyeon / CarPro / Ceramic Pro — 1–5 лет', price: 'от 25 000 ₽', href: isSubdomain ? `${mainSiteUrl}/detailing/ceramic` : '/detailing/ceramic', accent: '#38bdf8' },
+              { title: 'PPF плёнка', desc: 'XPEL / Hexis — антигравийная защита', price: 'от 35 000 ₽', href: isSubdomain ? `${mainSiteUrl}/detailing/ppf-film` : '/detailing/ppf-film', accent: '#a78bfa' },
+              { title: 'Полировка', desc: 'Восстановление лака до глянца', price: 'от 8 000 ₽', href: isSubdomain ? `${mainSiteUrl}/detailing/polishing` : '/detailing/polishing', accent: '#39FF14' },
+              { title: 'Химчистка салона', desc: 'Глубокая, с экстрактором', price: 'от 6 000 ₽', href: isSubdomain ? `${mainSiteUrl}/detailing/dry-cleaning` : '/detailing/dry-cleaning', accent: '#fbbf24' },
+              { title: 'Тонировка', desc: 'Llumar, ATR — все ГОСТ-нормы', price: 'от 4 500 ₽', href: isSubdomain ? `${mainSiteUrl}/detailing` : '/detailing', accent: '#f472b6' },
+              { title: 'Шумоизоляция', desc: 'StP / Comfortmat / Шумофф', price: 'от 35 000 ₽', href: isSubdomain ? `${mainSiteUrl}/detailing/sound-isolation` : '/detailing/sound-isolation', accent: '#94a3b8' },
+            ].map((card) => (
+              <a
+                key={card.title}
+                href={card.href}
+                className="bg-[#111113] rounded-xl border border-white/8 p-4 flex items-center justify-between gap-3 hover:border-[#39FF14]/30 transition-colors"
+              >
+                <div className="min-w-0">
+                  <div className="text-white text-sm font-semibold">{card.title}</div>
+                  <div className="text-zinc-500 text-xs mt-0.5 truncate">{card.desc}</div>
+                </div>
+                <div className="text-sm font-bold shrink-0" style={{ color: card.accent }}>
+                  {card.price}
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Модельный ряд */}
         {brand.series && brand.series.length > 0 && (
-          <div className="mb-14" id="modeli">
+          <div className="mb-14 scroll-mt-32" id="modeli">
             <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-6">
               Модели {brand.name} — цены на чип-тюнинг
             </h2>
@@ -725,7 +804,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
 
         {/* FAQ */}
         {faqItems.length > 0 && (
-          <div className="mb-14" id="faq">
+          <div className="mb-14 scroll-mt-32" id="faq">
             <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-6">
               Частые вопросы о чип-тюнинге {brand.name}
             </h2>
