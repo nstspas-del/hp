@@ -1,0 +1,12 @@
+{
+  "tuning_formula_raw": "Seven_Force_price * 0.70",
+  "tuning_rounding_rule": "round up to nearest 500 RUB",
+  "tuning_formula_final": "ceil((Seven_Force_price * 0.70)/500)*500",
+  "detailing_formula_raw": "Platinum_Garage_price * 0.95",
+  "detailing_rounding_rule": "round up to nearest 500 RUB",
+  "detailing_formula_final": "ceil((Platinum_Garage_price * 0.95)/500)*500",
+  "notes": [
+    "Use manual override for premium, rare, high-risk, or labor-intensive jobs",
+    "Prefer showing prices as 'от' when final cost depends on inspection or configuration"
+  ]
+}

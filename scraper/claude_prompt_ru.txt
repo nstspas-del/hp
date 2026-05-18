@@ -1,0 +1,57 @@
+Задача: собрать полный датасет по всем маркам чип-тюнинга Seven Force и подготовить таблицу для прайса HP Tuning.
+
+Исходная база:
+1) Основной раздел: https://sevenforce.ru/chip-tuning/
+2) Список брендов уже подготовлен в файле sevenforce_brands.json
+3) Известная структура URL:
+   /chip-tuning/{brand}/
+   /chip-tuning/{brand}/{model}/
+   /chip-tuning/{brand}/{model}/{year}/
+   /chip-tuning/{brand}/{model}/{year}/{engine}/
+
+Что нужно собрать по каждой конечной странице двигателя:
+- brand
+- model
+- generation_or_year
+- engine_name
+- displacement_cc
+- stock_hp
+- stock_nm
+- tuned_hp_stage1
+- tuned_nm_stage1
+- tuned_hp_stage2
+- tuned_nm_stage2
+- tuned_hp_stage3
+- tuned_nm_stage3
+- zero_to_100_before
+- zero_to_100_stage1
+- zero_to_100_stage2
+- zero_to_100_stage3
+- stage1_price
+- stage2_price
+- stage3_price
+- extra_options
+- source_url
+
+Правила расчета для HP Tuning:
+- tuning_formula_raw = Seven_Force_price * 0.70
+- tuning_formula_final = ceil((Seven_Force_price * 0.70)/500)*500
+- показывать как HP Tuning price rounded
+
+Приоритет марок: собрать все, но в отдельный флаг high_priority выделить:
+BMW, Mercedes, Audi, Porsche, Toyota, Lexus, Volkswagen, Land Rover, Haval, Chery, Geely, Tank, EXEED, Changan, GAC, Hyundai, Kia, Genesis
+
+Что нужно выдать:
+1) CSV и JSON с полным датасетом
+2) Отдельный CSV high_priority_only
+3) Список проблемных URL, где данные не распарсились
+4) Отдельную сводку по диапазонам цен Stage 1/2/3 по каждой марке
+5) Таблицу для импорта в HP Tuning с колонками:
+   brand, model, generation_or_year, engine_name, stage1_price_hp, stage2_price_hp, stage3_price_hp, source_url
+
+Важно:
+- Не ограничивайся только UI калькулятором.
+- Используй обход статических URL-веток.
+- Если на странице нет Stage 2 или Stage 3, оставляй поле пустым.
+- Если цена или разгон не указаны явно, не выдумывай.
+- Сохраняй исходный URL как source_url.
