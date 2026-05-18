@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import brands from '@/data/brands.json';
 import districts from '@/data/districts.json';
 import services from '@/data/services.json';
+import blogPosts from '@/data/blog-posts.json';
 import { BRAND_SUBDOMAIN_MAP, getBrandUrl } from '@/lib/brand-host';
 
 const BASE = 'https://hptuning.ru';
@@ -116,11 +117,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
  priority: 0.8,
  }));
 
+ // ── Детальные страницы блога /blog/[slug] (Яндекс.Бизнес кейсы и др.) ──
+ // Источник правды — data/blog-posts.json (там же лежит контент и метатеги)
+ const blogPostPages: MetadataRoute.Sitemap = (blogPosts.posts ?? []).map((p: any) => ({
+ url: `${BASE}/blog/${p.slug}`,
+ lastModified: p.datePublished ?? p.date ?? MONTH_AGO,
+ changeFrequency: 'monthly' as const,
+ priority: 0.75,
+ }));
+
  return [
  ...staticPages,
  ...brandPages,
  ...districtPages,
  ...servicePages,
  ...projectPages,
+ ...blogPostPages,
  ];
 }

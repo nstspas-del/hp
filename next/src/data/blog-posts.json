@@ -1,0 +1,262 @@
+{
+  "_schema": {
+    "_comment": "Полноценные detail-страницы блога. Каждый пост рендерится на /blog/<slug>",
+    "fields": {
+      "slug": "URL-сегмент: /blog/<slug>",
+      "title": "H1 страницы — должен включать марку + услугу + СПб для SEO",
+      "metaTitle": "<title> для head — 50-60 символов, ключевые слова в начале",
+      "metaDescription": "meta description — 140-160 символов, призыв к действию",
+      "keywords": "массив ключевых фраз для метатега keywords",
+      "type": "work | project | article — определяет бейдж и фильтр",
+      "brand": "Бренд (BMW, Mercedes, Porsche...) — для фильтра и Schema.org",
+      "model": "Модель + поколение (X5 G05, Macan S 2022...)",
+      "services": "массив услуг — для тегов и фильтра",
+      "date": "ISO дата публикации (2025-05-15)",
+      "datePublished": "ISO datetime для Schema.org Article",
+      "heroImage": "/images/blog/<slug>/01-hero.jpg — главное фото 16:9",
+      "heroImageAlt": "alt-текст для SEO (марка + услуга + СПб)",
+      "excerpt": "Короткое описание для карточки в /blog (1-2 предложения)",
+      "intro": "Вводный абзац статьи (3-5 предложений) — что было, что сделали, результат",
+      "specs": "характеристики работы: model, year, engine, услуга, срок, цена",
+      "sections": "массив секций { heading, content[] }",
+      "gallery": "массив фото { src, alt, caption }",
+      "testimonial": "отзыв клиента { text, author } — опционально",
+      "faq": "массив { q, a } — для FAQPage Schema.org",
+      "relatedServices": "массив ссылок на услуги для блока 'Заказать такое же'",
+      "tags": "теги для SEO"
+    }
+  },
+  "posts": [
+    {
+      "slug": "porsche-macan-s-2022-to-acoustics",
+      "title": "Porsche Macan S 2022 — плановое ТО и доработка передней акустики",
+      "metaTitle": "Porsche Macan S 2022 — ТО и тюнинг акустики | HP Тюнинг СПб",
+      "metaDescription": "Кейс HP Тюнинг: плановое ТО Porsche Macan S 2022 + доработка передней акустики. Богородская 3Б, СПб. Без записи у дилера — 22 000 ₽ вместо 42 000 ₽.",
+      "keywords": ["porsche macan s то спб", "тюнинг акустики porsche", "сервис porsche макан спб", "доработка акустики macan"],
+      "type": "work",
+      "brand": "Porsche",
+      "model": "Macan S 2022",
+      "services": ["ТО", "Тюнинг акустики"],
+      "date": "2025-05-15",
+      "datePublished": "2025-05-15T12:59:00+03:00",
+      "heroImage": "/images/works/01-porsche-cayman-pink-lift.jpg",
+      "heroImageAlt": "Porsche Macan S 2022 на ТО и доработке акустики в HP Тюнинг СПб",
+      "excerpt": "TODO: Заменить на полный текст из Яндекс.Бизнеса. Кейс недели — Porsche Macan S 2022, ТО + доработка передней акустики.",
+      "intro": "TODO_PLACEHOLDER_INTRO — Сюда вставить полный вводный абзац из Яндекс.Бизнеса. Что было, какая задача, что сделали, результат. 3-5 предложений с конкретикой.",
+      "specs": {
+        "Авто": "Porsche Macan S",
+        "Год": "2022",
+        "Двигатель": "TODO_PLACEHOLDER — V6 2.9 BiTurbo 354 л.с.?",
+        "Услуги": "ТО + доработка передней акустики",
+        "Срок работ": "TODO_PLACEHOLDER — 1 день?",
+        "Стоимость": "TODO_PLACEHOLDER"
+      },
+      "sections": [
+        {
+          "heading": "Что входило в ТО",
+          "content": [
+            "TODO_PLACEHOLDER: Список работ по ТО — масло, фильтры, диагностика. Указать конкретные материалы (Pakelo, Motul и т.д.) и пробег."
+          ]
+        },
+        {
+          "heading": "Доработка передней акустики",
+          "content": [
+            "TODO_PLACEHOLDER: Что именно делали с акустикой — замена динамиков, шумоизоляция дверей, установка усилителя? Какие комплектующие использовали?"
+          ]
+        },
+        {
+          "heading": "Результат",
+          "content": [
+            "TODO_PLACEHOLDER: Что получил клиент. Объективные цифры или субъективные ощущения по звуку."
+          ]
+        }
+      ],
+      "gallery": [
+        { "src": "/images/blog/porsche-macan-s-2022-to-acoustics/01.jpg", "alt": "TODO: Porsche Macan на подъёмнике", "caption": "TODO: подпись" },
+        { "src": "/images/blog/porsche-macan-s-2022-to-acoustics/02.jpg", "alt": "TODO: Установка акустики Porsche Macan", "caption": "TODO: подпись" }
+      ],
+      "faq": [
+        {
+          "q": "Сколько стоит ТО Porsche Macan S в HP Тюнинг?",
+          "a": "TODO_PLACEHOLDER: Указать вилку цен. Например: ТО Macan S — от 22 000 ₽ с оригинальными расходниками, против ~42 000 ₽ у официального дилера."
+        },
+        {
+          "q": "Какие масла используете для Porsche Macan?",
+          "a": "TODO_PLACEHOLDER: Описать какие масла (Pakelo, Motul, Mobil 1) и почему."
+        }
+      ],
+      "relatedServices": [
+        { "label": "Записаться на ТО", "href": "/service/to" },
+        { "label": "Шумоизоляция авто", "href": "/detailing/sound-isolation" },
+        { "label": "Сервис Porsche", "href": "/brands/porsche" }
+      ],
+      "tags": ["Porsche", "Macan S", "ТО", "Тюнинг акустики"]
+    },
+    {
+      "slug": "range-rover-sport-full-detailing",
+      "title": "Range Rover Sport — полный комплекс: вернули лоск премиум-внедорожнику",
+      "metaTitle": "Range Rover Sport — детейлинг и полный комплекс | HP Тюнинг СПб",
+      "metaDescription": "Кейс HP Тюнинг: Range Rover Sport на полном комплексе работ — детейлинг, керамика, ТО, обновление салона. СПб, Богородская 3Б.",
+      "keywords": ["детейлинг range rover спб", "сервис range rover sport", "керамика range rover", "полный комплекс рейндж ровер"],
+      "type": "work",
+      "brand": "Land Rover",
+      "model": "Range Rover Sport",
+      "services": ["Детейлинг", "Керамика", "ТО"],
+      "date": "2025-04-28",
+      "datePublished": "2025-04-28T13:38:00+03:00",
+      "heroImage": "/images/works/05-mercedes-gle-coupe-dark-blue.jpg",
+      "heroImageAlt": "Range Rover Sport после полного комплекса работ в HP Тюнинг СПб",
+      "excerpt": "TODO: Заменить на текст из Яндекс. Range Rover Sport на полном комплексе — детейлинг, керамика, обновление салона.",
+      "intro": "TODO_PLACEHOLDER_INTRO — Полный вводный абзац: какая машина, какая задача, почему 'полный комплекс', что в него вошло.",
+      "specs": {
+        "Авто": "Range Rover Sport",
+        "Год": "TODO_PLACEHOLDER",
+        "Двигатель": "TODO_PLACEHOLDER",
+        "Услуги": "Детейлинг + керамика + обновление салона",
+        "Срок работ": "TODO_PLACEHOLDER",
+        "Стоимость": "TODO_PLACEHOLDER"
+      },
+      "sections": [
+        {
+          "heading": "Что входило в полный комплекс",
+          "content": [
+            "TODO_PLACEHOLDER: Подробно — детейлинг кузова, керамика 9H (бренд?), химчистка салона, ТО, диагностика."
+          ]
+        },
+        {
+          "heading": "Восстановление кожи и пластика",
+          "content": [
+            "TODO_PLACEHOLDER: Питание кожи, чистка пластика, восстановление цвета."
+          ]
+        },
+        {
+          "heading": "Защита кузова",
+          "content": [
+            "TODO_PLACEHOLDER: Какая керамика (Gyeon? CarPro? Ceramic Pro?). Срок защиты."
+          ]
+        }
+      ],
+      "gallery": [
+        { "src": "/images/blog/range-rover-sport-full-detailing/01.jpg", "alt": "TODO: Range Rover Sport до работ", "caption": "До" },
+        { "src": "/images/blog/range-rover-sport-full-detailing/02.jpg", "alt": "TODO: Range Rover после детейлинга", "caption": "После" }
+      ],
+      "faq": [
+        {
+          "q": "Сколько стоит полный комплекс детейлинга для Range Rover?",
+          "a": "TODO_PLACEHOLDER: Указать вилку цен от XX 000 ₽ — что входит."
+        },
+        {
+          "q": "Сколько держится керамика на премиум-внедорожнике?",
+          "a": "TODO_PLACEHOLDER: Указать срок 2-5 лет в зависимости от продукта."
+        }
+      ],
+      "relatedServices": [
+        { "label": "Заказать керамику", "href": "/detailing/ceramic" },
+        { "label": "Полный детейлинг", "href": "/detailing" },
+        { "label": "Сервис Land Rover", "href": "/brands/land-rover" }
+      ],
+      "tags": ["Land Rover", "Range Rover", "Детейлинг", "Керамика"]
+    },
+    {
+      "slug": "dodge-challenger-ta-hemi-build",
+      "title": "Гость недели: Dodge Challenger T/A 5.7 HEMI — наш daily-muscle проект",
+      "metaTitle": "Dodge Challenger T/A 5.7 HEMI — проект HP Тюнинг СПб",
+      "metaDescription": "Dodge Challenger T/A 5.7 HEMI 2019 — наш собственный daily-muscle проект. Kooks Long Tube, Stage 2, Body Look Hellcat. HP Тюнинг, Богородская 3Б.",
+      "keywords": ["dodge challenger тюнинг спб", "muscle car спб", "hemi прошивка", "челленджер t/a hellcat кузов"],
+      "type": "project",
+      "brand": "Dodge",
+      "model": "Challenger T/A 5.7 HEMI 2019",
+      "services": ["Чип-тюнинг", "Body Look", "Выхлоп"],
+      "date": "2025-04-27",
+      "datePublished": "2025-04-27T20:23:00+03:00",
+      "heroImage": "/images/projects/dodge-challenger-ta/02-outdoor-sunset-halo.jpg",
+      "heroImageAlt": "Dodge Challenger T/A 5.7 HEMI — проект HP Тюнинг СПб",
+      "excerpt": "TODO: Текст из Яндекс. У нас на подъёмнике — наш daily-muscle проект, Dodge Challenger T/A 5.7 HEMI 2019.",
+      "intro": "TODO_PLACEHOLDER_INTRO — Почему 'гость недели', чем гордимся, что уникального.",
+      "specs": {
+        "Авто": "Dodge Challenger T/A",
+        "Год": "2019",
+        "Двигатель": "5.7 HEMI V8",
+        "Услуги": "Kooks Long Tube · Texas Speed Stage 2 · Flex Fuel · Body Look Hellcat",
+        "Полная версия": "/projects/dodge-challenger-ta-hemi"
+      },
+      "sections": [
+        {
+          "heading": "Что мы сделали с этим Челленджером",
+          "content": [
+            "TODO_PLACEHOLDER: Краткое описание главных доработок. Эта запись — анонс/превью, полный проект-кейс живёт на /projects/dodge-challenger-ta-hemi."
+          ]
+        }
+      ],
+      "gallery": [],
+      "faq": [],
+      "relatedServices": [
+        { "label": "Полный проект Dodge Challenger T/A", "href": "/projects/dodge-challenger-ta-hemi" },
+        { "label": "Чип-тюнинг авто", "href": "/tuning/chip-tuning" }
+      ],
+      "tags": ["Dodge", "Challenger", "HEMI", "Muscle car"]
+    },
+    {
+      "slug": "skoda-kodiaq-pdr-vmyatina",
+      "title": "Skoda Kodiaq — удаление вмятины на двери без покраски (PDR)",
+      "metaTitle": "Skoda Kodiaq — удаление вмятины без покраски PDR | HP Тюнинг СПб",
+      "metaDescription": "Кейс HP Тюнинг: убрали вмятину на двери Skoda Kodiaq без покраски методом PDR. Сохранили заводское ЛКП. Богородская 3Б, СПб.",
+      "keywords": ["pdr спб", "удаление вмятин без покраски спб", "skoda kodiaq ремонт", "pdr skoda"],
+      "type": "work",
+      "brand": "Skoda",
+      "model": "Kodiaq",
+      "services": ["PDR", "Удаление вмятин"],
+      "date": "2025-04-27",
+      "datePublished": "2025-04-27T12:01:00+03:00",
+      "heroImage": "/images/works/15-mercedes-cls-orange-lift.jpg",
+      "heroImageAlt": "Skoda Kodiaq — удаление вмятины методом PDR в HP Тюнинг СПб",
+      "excerpt": "TODO: Из Яндекса. На прошлой неделе к нам приехала Skoda Kodiaq с приличной вмятиной на двери.",
+      "intro": "TODO_PLACEHOLDER_INTRO — Что было — большая вмятина, что нужно — без покраски сохранить ЛКП, как делали и результат.",
+      "specs": {
+        "Авто": "Skoda Kodiaq",
+        "Услуга": "PDR — удаление вмятины без покраски",
+        "Срок работ": "TODO_PLACEHOLDER",
+        "Стоимость": "TODO_PLACEHOLDER"
+      },
+      "sections": [
+        {
+          "heading": "Что такое PDR и почему мы выбрали этот метод",
+          "content": [
+            "TODO_PLACEHOLDER: PDR = Paintless Dent Repair, удаление вмятин специальными крючками изнутри детали без вскрытия краски. Сохраняет заводское ЛКП и историю авто (не отображается на проверке толщиномером)."
+          ]
+        },
+        {
+          "heading": "Как делали",
+          "content": [
+            "TODO_PLACEHOLDER: Описать процесс работы — снятие обшивки, нагрев, выдавливание крючками, проверка."
+          ]
+        },
+        {
+          "heading": "Результат",
+          "content": [
+            "TODO_PLACEHOLDER: Вмятина ушла, ЛКП цело, проверка толщиномером — без следов."
+          ]
+        }
+      ],
+      "gallery": [
+        { "src": "/images/blog/skoda-kodiaq-pdr-vmyatina/01.jpg", "alt": "TODO: вмятина до PDR", "caption": "До PDR" },
+        { "src": "/images/blog/skoda-kodiaq-pdr-vmyatina/02.jpg", "alt": "TODO: после PDR", "caption": "После PDR" }
+      ],
+      "faq": [
+        {
+          "q": "Сколько стоит PDR в СПб для Skoda Kodiaq?",
+          "a": "TODO_PLACEHOLDER: Цена от XX ₽ за вмятину диаметром до 5 см, зависит от глубины и доступа."
+        },
+        {
+          "q": "Когда PDR не подходит?",
+          "a": "TODO_PLACEHOLDER: Если ЛКП уже повреждено, на ребре жёсткости, на дисковых зонах кузова — нужна классическая рихтовка."
+        }
+      ],
+      "relatedServices": [
+        { "label": "Кузовной ремонт", "href": "/service" },
+        { "label": "Сервис Skoda", "href": "/brands" }
+      ],
+      "tags": ["Skoda", "Kodiaq", "PDR", "Кузовной ремонт"]
+    }
+  ]
+}

@@ -29,6 +29,59 @@
 
     {
       "type": "work",
+      "slug": "porsche-macan-s-2022-to-acoustics",
+      "title": "Porsche Macan S 2022 — плановое ТО и доработка передней акустики",
+      "excerpt": "Кейс недели: Porsche Macan S 2022 на плановом ТО + доработка передней акустики. Без записи у дилера, с оригинальными расходниками.",
+      "brand": "Porsche",
+      "model": "Macan S 2022",
+      "services": ["ТО", "Тюнинг акустики"],
+      "tags": ["Porsche", "ТО", "Акустика"],
+      "coverImage": "/images/works/01-porsche-cayman-pink-lift.jpg",
+      "date": "2025-05-15",
+      "href": "/blog/porsche-macan-s-2022-to-acoustics"
+    },
+    {
+      "type": "work",
+      "slug": "range-rover-sport-full-detailing",
+      "title": "Range Rover Sport — полный комплекс работ премиум-внедорожнику",
+      "excerpt": "Машина приехала в HP Тюнинг под задачу «вернуть лоск премиум-внедорожнику». Полный детейлинг, керамика, обновление салона.",
+      "brand": "Land Rover",
+      "model": "Range Rover Sport",
+      "services": ["Детейлинг", "Керамика", "Обновление салона"],
+      "tags": ["Range Rover", "Детейлинг", "Керамика"],
+      "coverImage": "/images/works/05-mercedes-gle-coupe-dark-blue.jpg",
+      "date": "2025-04-28",
+      "href": "/blog/range-rover-sport-full-detailing"
+    },
+    {
+      "type": "project",
+      "slug": "dodge-challenger-ta-hemi-build",
+      "title": "Гость недели: Dodge Challenger T/A 5.7 HEMI — наш daily-muscle",
+      "excerpt": "У нас на подъёмнике — наш daily-muscle проект, Dodge Challenger T/A 5.7 HEMI 2019 года. Машина, которой мы по-настоящему гордимся.",
+      "brand": "Dodge",
+      "model": "Challenger T/A 5.7 HEMI",
+      "services": ["Чип-тюнинг", "Body Look", "Выхлоп"],
+      "tags": ["Dodge", "Muscle car", "HEMI"],
+      "coverImage": "/images/projects/dodge-challenger-ta/02-outdoor-sunset-halo.jpg",
+      "date": "2025-04-27",
+      "href": "/blog/dodge-challenger-ta-hemi-build"
+    },
+    {
+      "type": "work",
+      "slug": "skoda-kodiaq-pdr-vmyatina",
+      "title": "Skoda Kodiaq — удаление вмятины на двери без покраски (PDR)",
+      "excerpt": "Кейс недели: убрали приличную вмятину на двери Skoda Kodiaq методом PDR — без покраски, с сохранением заводского ЛКП.",
+      "brand": "Skoda",
+      "model": "Kodiaq",
+      "services": ["PDR", "Удаление вмятин"],
+      "tags": ["Skoda", "PDR", "Кузовной ремонт"],
+      "coverImage": "/images/works/15-mercedes-cls-orange-lift.jpg",
+      "date": "2025-04-27",
+      "href": "/blog/skoda-kodiaq-pdr-vmyatina"
+    },
+
+    {
+      "type": "work",
       "slug": "bmw-m3-f80-stage2",
       "title": "BMW M3 F80 — Stage 2: 431 → 510 л.с.",
       "excerpt": "S55B30: мощность +79 л.с., момент 550 → 680 Нм. Прошивка ISTA, контроль OBD.",
