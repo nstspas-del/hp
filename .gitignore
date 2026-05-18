@@ -147,3 +147,10 @@ middleware.ts.backup-*
 *.conf.backup-*
 *.bak075
 *.json.bak*
+
+# Brands.json backup
+next/src/data/brands.json.bak
+
+# Updated scraper kit
+scraper/sevenforce_data_kit_updated.zip
+scraper/updated_kit/
