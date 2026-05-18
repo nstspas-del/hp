@@ -6,13 +6,13 @@ import { ChipCalculatorNew } from '@/components/sections/ChipCalculatorNew';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
- title: 'Чип-тюнинг и тюнинг ЭБУ в СПб — от 15 000 ₽ | HP Тюнинг',
- description: 'Профессиональный чип-тюнинг и прошивка ЭБУ в Санкт-Петербурге: от 15 000 ₽ для японских и китайских марок, от 24 000 ₽ для премиума. BMW, Mercedes, Audi, Haval, Chery, Tank, Geely. Alientech KESS3.',
- keywords: ['чип тюнинг спб', 'прошивка эбу спб', 'тюнинг haval спб', 'чип тюнинг chery', 'тюнинг geely', 'прошивка tank', 'чип тюнинг bmw спб', 'alientech kess3'],
+ title: 'Чип-тюнинг и прошивка ЭБУ BMW, Mercedes, Audi в СПб — Stage 1 от 24 000 ₽ | HP Тюнинг',
+ description: 'Чип-тюнинг и прошивка ЭБУ в Санкт-Петербурге: Stage 1 от 24 000 ₽ для BMW, Mercedes, Audi, Porsche; от 15 000 ₽ для Haval, Chery, Tank, Geely. Alientech KESS3, гарантия 12 мес, откат к стоку бесплатно.',
+ keywords: ['чип тюнинг спб', 'прошивка эбу спб', 'чип тюнинг bmw спб', 'чип тюнинг mercedes спб', 'чип тюнинг audi спб', 'тюнинг haval спб', 'чип тюнинг chery', 'тюнинг geely', 'прошивка tank', 'stage 1 spb', 'alientech kess3'],
  alternates: { canonical: 'https://hptuning.ru/tuning/chip-tuning' },
  openGraph: {
- title: 'Чип-тюнинг и тюнинг ЭБУ в Санкт-Петербурге | HP Тюнинг',
- description: 'Прошивка ЭБУ от 15 000 ₽. BMW, Mercedes, Audi, Porsche, Haval, Chery, Tank, Geely и 30+ марок. Alientech KESS3.',
+ title: 'Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге | HP Тюнинг',
+ description: 'Прошивка ЭБУ Stage 1 от 24 000 ₽ (премиум) / от 15 000 ₽ (японцы и китайцы). BMW, Mercedes, Audi, Porsche, Haval, Chery, Tank, Geely и 30+ марок. Alientech KESS3.',
  url: 'https://hptuning.ru/tuning/chip-tuning',
  type: 'website',
  locale: 'ru_RU',

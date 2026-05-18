@@ -6,13 +6,13 @@ import { Settings, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react'
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
- title: 'ТО BMW, Mercedes, Audi в СПб — от 3 000 ₽ по регламенту | HP Тюнинг',
- description: 'Техническое обслуживание автомобилей в Санкт-Петербурге от 3 000 ₽. Замена масла, фильтров, свечей, жидкостей по регламенту производителя. BMW, Mercedes, Audi, Porsche, Land Rover. Фиксированные цены.',
+ title: 'ТО BMW, Mercedes, Audi, Haval, Chery в СПб — от 4 900 ₽ | HP Тюнинг',
+ description: 'Техобслуживание в СПб по заводскому регламенту. Китайские марки от 4 900 ₽, японские от 5 500 ₽, BMW/Mercedes/Audi от 6 500 ₽. Замена масла, фильтров, диагностика. Богородская 3Б.',
  keywords: ['то бмв спб', 'техническое обслуживание мерседес спб', 'то ауди спб', 'замена масла спб', 'то по регламенту петербург'],
  alternates: { canonical: 'https://hptuning.ru/service/to' },
  openGraph: {
  title: 'ТО BMW, Mercedes, Audi в СПб по регламенту | HP Тюнинг',
- description: 'ТО от 3 000 ₽: замена масла, фильтров, жидкостей. BMW, Mercedes, Audi, Porsche, Land Rover. Санкт-Петербург.',
+ description: 'ТО от 4 900 ₽ по заводскому регламенту. BMW, Mercedes, Audi, Porsche, Land Rover, Haval, Chery, Geely. Санкт-Петербург, Богородская 3Б.',
  url: 'https://hptuning.ru/service/to',
  type: 'website',
  locale: 'ru_RU',
@@ -21,12 +21,14 @@ export const metadata: Metadata = {
  },
 };
 
+// Цены выровнены с главной, seo.json/faqCommon и калькулятором.
 const PRICES = [
- { class: 'Малый класс (A/B)', oil: '3 000', full: '5 500' },
- { class: 'Средний класс (C/E)', oil: '4 500', full: '7 500' },
- { class: 'Бизнес-класс (E/S/7/A8)', oil: '5 500', full: '9 500' },
- { class: 'Внедорожник (X5/GLE/Q7)', oil: '5 000', full: '9 000' },
- { class: 'Суперкар (Porsche/AMG/M)', oil: '7 000', full: '14 000' },
+ { class: 'Китайские (Haval, Chery, Geely, Tank)', oil: '4 900', full: '7 900' },
+ { class: 'Японские (Toyota, Mazda, Subaru)', oil: '5 500', full: '8 900' },
+ { class: 'Корейские (Kia, Hyundai, Genesis)', oil: '5 500', full: '8 900' },
+ { class: 'Европа (BMW, Mercedes, Audi 3/4/5)', oil: '6 500', full: '11 500' },
+ { class: 'Внедорожники (X5/GLE/Q7/RR)', oil: '7 500', full: '13 500' },
+ { class: 'M/AMG/RS/AMG/S/911', oil: '9 500', full: '16 500' },
 ];
 
 const WORKS = [
@@ -51,7 +53,7 @@ const STEPS = [
 
 const FAQ = [
  { q: 'Как часто нужно делать ТО?', a: 'По регламенту — каждые 10 000–15 000 км или раз в год. Для немецких премиум-авто рекомендуем каждые 10 000 км.' },
- { q: 'Сколько стоит ТО для BMW?', a: 'Замена масла для BMW 5-й серии — от 4 500 ₽. Полное ТО с заменой всех фильтров — от 7 500 ₽.' },
+ { q: 'Сколько стоит ТО для BMW?', a: 'Замена масла + фильтры для BMW 3/5-й серии — от 6 500 ₽. Полное ТО с полной диагностикой — от 11 500 ₽. Для внедорожников (X5/X7) — от 13 500 ₽.' },
  { q: 'Используете ли вы оригинальное масло?', a: 'Да, работаем с Castrol, Liqui Moly, Mobil 1, Shell — только допущенные производителем марки для вашего мотора.' },
  { q: 'Сколько времени займёт ТО?', a: 'Базовое ТО (масло + фильтры) — 1–2 часа. Полное с диагностикой — 2–4 часа.' },
  { q: 'Можно ли сделать ТО без записи?', a: 'Желательно записаться заранее — тогда мастер и запчасти будут готовы. Без записи берём при наличии свободного бокса.' },
@@ -77,7 +79,7 @@ const serviceSchema = {
  offers: {
  '@type': 'Offer',
  priceCurrency: 'RUB',
- price: '3000',
+ price: '4900',
  availability: 'https://schema.org/InStock',
  },
  areaServed: {
@@ -133,7 +135,7 @@ export default function ToPage() {
  <aside>
  <div className="card sticky top-24">
  <div className="text-[#39FF14] font-semibold text-xs uppercase tracking-wider mb-2">Стоимость</div>
- <div className="font-display text-4xl text-text mb-1">от 3 000 ₽</div>
+ <div className="font-display text-4xl text-text mb-1">от 4 900 ₽</div>
  <div className="flex items-center gap-2 text-text-subtle text-sm mb-5">
  <Clock className="size-3.5" />
  1–4 часа

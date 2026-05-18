@@ -6,10 +6,14 @@ import { ArrowRight } from 'lucide-react';
 import brands from '@/data/brands.json';
 import seoData from '@/data/seo.json';
 
+// ── /brands — премиум-хаб 13 брендов (не каннибализирует /marki, у которой 38+ марок) ──
+// /marki = широкий хаб всех марок (38+, с фильтрами, для запроса «марки автомобилей»)
+// /brands = премиум-выборка 13 брендов с глубокой специализацией (для запроса «тюнинг bmw mercedes audi»)
+// Чтобы не конкурировали по одному запросу — title и H1 у них разные.
 export const metadata: Metadata = {
- title: 'Чип-тюнинг и детейлинг для BMW, Mercedes, Audi, Porsche, Land Rover в СПб | HP Тюнинг',
- description: 'Специализируемся на 13 премиальных брендах: BMW, Mercedes-Benz, Audi, Porsche, Lexus, Land Rover, Volvo, VW, Jaguar, Genesis, Toyota, KIA, Nissan. Чип-тюнинг и детейлинг в СПб.',
- keywords: ['чип тюнинг бренды спб', 'тюнинг bmw mercedes audi', 'автосервис премиум спб'],
+ title: 'Премиум-бренды: BMW, Mercedes, Audi, Porsche, Land Rover в СПб | HP Тюнинг',
+ description: 'Глубокая специализация на 13 премиум-марках в СПб: BMW (ISTA), Mercedes (XENTRY), Audi (ODIS), Porsche (PIWIS), Land Rover (JLR SDD). Тюнинг, детейлинг, ремонт. Богородская 3Б.',
+ keywords: ['тюнинг bmw mercedes audi спб', 'премиум автосервис спб', 'porsche service spb', 'land rover сервис спб'],
  alternates: { canonical: 'https://hptuning.ru/brands' },
  openGraph: {
  title: 'Чип-тюнинг и детейлинг 32+ марок в СПб | HP Тюнинг',
@@ -45,10 +49,14 @@ export default function BrandsPage() {
  {/* Breadcrumb */}
  <Breadcrumbs items={[{ label: "Бренды" }]} />
 
- <h1 className="section-title mb-4">{seoData.pages.brands.h1}</h1>
- <p className="section-subtitle mb-12">{seoData.pages.brands.description}</p>
+ <h1 className="section-title mb-4">Премиум-бренды HP Тюнинг</h1>
+ <p className="section-subtitle mb-4">
+ Глубокая специализация на 13 премиум-марках: дилерское оборудование (ISTA, XENTRY, ODIS, PIWIS, JLR SDD),
+ опыт 10+ лет, лицензированный Alientech KESS3. Полный список 38+ марок &mdash;{' '}
+ <Link href="/marki" className="text-accent hover:underline">на странице /marki</Link>.
+ </p>
 
- <h2 className="font-display text-2xl text-accent uppercase tracking-wider mb-6">Премиум бренды</h2>
+ <h2 className="font-display text-2xl text-accent uppercase tracking-wider mb-6">Премиум-бренды</h2>
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
  {featured.map((brand) => (
  <Link key={brand.slug} href={`/brands/${brand.slug}`}

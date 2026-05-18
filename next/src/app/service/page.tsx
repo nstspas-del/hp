@@ -6,13 +6,13 @@ import { Wrench, ChevronRight, CheckCircle, Phone, Gauge, Zap, Settings, Disc, C
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
- title: 'Автосервис BMW, Mercedes, Audi в СПб — ТО от 3 000 ₽ | HP Тюнинг',
- description: 'Автосервис премиум-класса в Санкт-Петербурге: ТО от 3 000 ₽, диагностика от 1 500 ₽, ремонт двигателя, тормозов, подвески, АКПП. BMW, Mercedes, Audi, Porsche, Land Rover, Lexus.',
+ title: 'Автосервис BMW, Mercedes, Audi, Haval, Chery в СПб — ТО от 4 900 ₽ | HP Тюнинг',
+ description: 'Автосервис премиум-класса в Санкт-Петербурге: ТО от 4 900 ₽ (китайцы) / от 6 500 ₽ (BMW/Mercedes/Audi), диагностика от 2 500 ₽, ремонт двигателя, тормозов, подвески, АКПП. BMW, Mercedes, Audi, Porsche, Land Rover, Lexus, Haval, Chery, Geely.',
  keywords: ['автосервис спб', 'то бмв спб', 'ремонт мерседес спб', 'автосервис премиум петербург', 'диагностика авто спб'],
  alternates: { canonical: 'https://hptuning.ru/service' },
  openGraph: {
  title: 'Автосервис BMW, Mercedes, Audi в СПб | HP Тюнинг',
- description: 'ТО от 3 000 ₽, диагностика от 1 500 ₽, ремонт двигателя, тормозов, подвески, АКПП. Санкт-Петербург.',
+ description: 'ТО от 4 900 ₽, диагностика от 2 500 ₽, ремонт двигателя, тормозов, подвески, АКПП. Санкт-Петербург, Богородская 3Б.',
  url: 'https://hptuning.ru/service',
  type: 'website',
  locale: 'ru_RU',
@@ -27,7 +27,7 @@ const SERVICES = [
  slug: 'to',
  title: 'Техническое обслуживание',
  desc: 'Замена масла, фильтров, жидкостей, свечей по регламенту. Фиксированные цены.',
- price: 'от 3 000 ₽',
+ price: 'от 4 900 ₽',
  time: '2–4 ч',
  color: 'text-[#39FF14]',
  bg: 'bg-[#39FF14]/10',
@@ -38,7 +38,7 @@ const SERVICES = [
  slug: 'diagnostics',
  title: 'Компьютерная диагностика',
  desc: 'Считываем ошибки ЭБУ, определяем причину неисправности. Заключение с расшифровкой.',
- price: 'от 1 500 ₽',
+ price: 'от 2 500 ₽',
  time: '1–2 ч',
  color: 'text-blue-400',
  bg: 'bg-blue-500/10',

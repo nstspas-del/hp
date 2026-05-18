@@ -89,7 +89,7 @@ export default function MarkiPage() {
               { icon: <MapPin className="size-4" />, text: 'Богородская 3Б, СПб' },
               { icon: <Clock className="size-4" />, text: 'Ежедневно 10:00–22:00' },
               { icon: <Shield className="size-4" />, text: 'Гарантия 1 год на работы' },
-              { icon: <Star className="size-4" />, text: '4.9 ★ — 247 отзывов' },
+              { icon: <Star className="size-4" />, text: '9+ лет опыта · 500+ авто' },
             ].map((f) => (
               <div key={f.text} className="flex items-center gap-2 rounded-xl bg-white/3 border border-white/8 px-3 py-2.5">
                 <span className="text-[#39FF14] shrink-0">{f.icon}</span>
