@@ -17,8 +17,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
  { url: `${BASE}/about`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.7 },
  { url: `${BASE}/contacts`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.8 },
  { url: `${BASE}/reviews`, lastModified: NOW, changeFrequency: 'weekly', priority: 0.8 },
- { url: `${BASE}/works`, lastModified: NOW, changeFrequency: 'weekly', priority: 0.7 },
- { url: `${BASE}/blog`, lastModified: NOW, changeFrequency: 'weekly', priority: 0.7 },
+ { url: `${BASE}/blog`, lastModified: NOW, changeFrequency: 'weekly', priority: 0.8 },
+ { url: `${BASE}/blog?cat=projects`, lastModified: NOW, changeFrequency: 'weekly', priority: 0.7 },
+ { url: `${BASE}/blog?cat=works`, lastModified: NOW, changeFrequency: 'weekly', priority: 0.7 },
+ { url: `${BASE}/blog?cat=articles`, lastModified: NOW, changeFrequency: 'weekly', priority: 0.7 },
  { url: `${BASE}/video`, lastModified: NOW, changeFrequency: 'weekly', priority: 0.6 },
  { url: `${BASE}/calculator`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.8 },
  { url: `${BASE}/brands`, lastModified: MONTH_AGO, changeFrequency: 'monthly', priority: 0.9 },
@@ -100,22 +102,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
  }
  }
 
- // ── Проекты / кейсы ─────────────────────────────────────────────────────
- // Список синхронизирован с PROJECTS в /projects/[slug]/page.tsx
- // При росте перевести в projects.json
+ // ── Проекты / кейсы (детальные страницы остаются на /projects/[slug]) ──
+ // /projects listing редиректит на /blog?cat=projects → не включаем
+ // При росте проектов синхронизировать с blog-entries.json
  const projectSlugs: { slug: string; date: string }[] = [
  { slug: 'dodge-challenger-ta-hemi',       date: '2025-11-20' },
  { slug: 'bmw-x5-g05-chiptuning-stage2',   date: '2025-10-12' },
  ];
- const projectPages: MetadataRoute.Sitemap = [
- { url: `${BASE}/projects`, lastModified: NOW, changeFrequency: 'weekly', priority: 0.8 },
- ...projectSlugs.map((p) => ({
+ const projectPages: MetadataRoute.Sitemap = projectSlugs.map((p) => ({
  url: `${BASE}/projects/${p.slug}`,
  lastModified: p.date,
  changeFrequency: 'monthly' as const,
- priority: 0.7,
- })),
- ];
+ priority: 0.8,
+ }));
 
  return [
  ...staticPages,
