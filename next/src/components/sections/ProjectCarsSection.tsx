@@ -35,18 +35,7 @@ const PROJECT_CARS: ProjectCar[] = [
     coverImage: '/images/projects/dodge-challenger-ta/02-outdoor-sunset-halo.jpg',
     href: '/projects/dodge-challenger-ta-hemi',
   },
-  {
-    slug: 'bmw-x5-g05-chiptuning-stage2',
-    tag: 'Chip-tuning',
-    tagColor: 'bg-[#39FF14]/20 text-[#39FF14] border-[#39FF14]/30',
-    title: 'BMW X5 G05 — чип-тюнинг Stage 2',
-    subtitle: 'B58B30 340 → 440 л.с., 0–100 за 4.4 с, ISTA+ диагностика',
-    engine: 'B58B30 3.0',
-    power: '440 л.с.',
-    services: ['Чип-тюнинг', 'Stage 2', 'BMW'],
-    coverImage: '/images/works/10-bmw-x5-neon-workshop.jpg',
-    href: '/projects/bmw-x5-g05-chiptuning-stage2',
-  },
+  // BMW X5 G05 удалён 2026-05-19 — фейковый кейс без реальных фото
 ];
 
 export function ProjectCarsSection() {

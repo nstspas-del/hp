@@ -108,7 +108,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
  // При росте проектов синхронизировать с blog-entries.json
  const projectSlugs: { slug: string; date: string }[] = [
  { slug: 'dodge-challenger-ta-hemi',       date: '2025-11-20' },
- { slug: 'bmw-x5-g05-chiptuning-stage2',   date: '2025-10-12' },
  ];
  const projectPages: MetadataRoute.Sitemap = projectSlugs.map((p) => ({
  url: `${BASE}/projects/${p.slug}`,
