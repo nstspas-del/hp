@@ -61,6 +61,32 @@ const nextConfig = {
       { source: '/tuning/brakes',    destination: '/service/brakes',              permanent: true },
       { source: '/tuning/exhaust',   destination: '/tuning/chip-tuning',          permanent: true },
 
+      // ── 2026-05 Расширение каталога: ребрендинг старых slug-ов в SEO-формат ──
+      // Старые слуги остаются работать (страницы есть), но также добавлены SEO-варианты
+      // на длинных русских транслит-URL для лучшей индексации в Яндексе.
+      // Длинные → короткие (если кто-то поставил длинную ссылку — ведём на канон)
+      { source: '/service/zamena-masla-spb',              destination: '/service/oil-change',                permanent: true },
+      { source: '/service/kapitalnyi-remont-dvs-spb',     destination: '/service/engine-overhaul',           permanent: true },
+      { source: '/service/remont-gbts-spb',               destination: '/service/cylinder-head-repair',      permanent: true },
+      { source: '/service/zamena-grm-spb',                destination: '/service/timing-belt-replacement',   permanent: true },
+      { source: '/service/raskoksovka-dvigatelya-spb',    destination: '/service/decarbonization',           permanent: true },
+      { source: '/service/endoskopiya-dvigatelya-spb',    destination: '/service/engine-endoscopy',          permanent: true },
+      { source: '/service/chistka-forsunok-spb',          destination: '/service/injector-cleaning',         permanent: true },
+      { source: '/service/remont-turbiny-spb',            destination: '/service/turbocharger-repair',       permanent: true },
+      { source: '/service/remont-sistemy-ohlazhdeniya-spb', destination: '/service/cooling-system-repair',   permanent: true },
+      { source: '/service/remont-akpp-spb',               destination: '/service/akpp-repair',               permanent: true },
+      { source: '/service/remont-dsg-spb',                destination: '/service/dsg-repair',                permanent: true },
+      { source: '/service/remont-stsepleniya-spb',        destination: '/service/clutch-repair',             permanent: true },
+      { source: '/service/remont-hodovoy-spb',            destination: '/service/chassis-repair',            permanent: true },
+      { source: '/service/shod-razval-spb',               destination: '/service/wheel-alignment',           permanent: true },
+      { source: '/service/remont-rulevoy-reyki-spb',      destination: '/service/steering-rack-repair',      permanent: true },
+      { source: '/service/avto-elektrik-spb',             destination: '/service/auto-electrician',          permanent: true },
+      { source: '/service/zapravka-konditsionera-spb',    destination: '/service/ac-recharge-repair',        permanent: true },
+      { source: '/service/remont-startera-generatora-spb', destination: '/service/starter-generator-repair', permanent: true },
+      { source: '/service/udalenie-katalizatora-spb',     destination: '/service/catalyst-removal',          permanent: true },
+      { source: '/service/remont-vyhlopnoy-sistemy-spb',  destination: '/service/exhaust-repair',            permanent: true },
+      { source: '/service/polirovka-far-spb',             destination: '/service/headlight-restoration',     permanent: true },
+
       // ── Старые URL детейлинга (поправили опечатки в slug-ах) ──
       { source: '/detailing/polish',   destination: '/detailing/polishing',    permanent: true },
       { source: '/detailing/cleaning', destination: '/detailing/dry-cleaning', permanent: true },
