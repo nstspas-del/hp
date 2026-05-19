@@ -4,6 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Wrench, ChevronRight, CheckCircle, Phone, Gauge, Zap, Settings, Disc, Car, Cpu } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
+import { ServiceCatalog } from '@/components/sections/ServiceCatalog';
 
 export const metadata: Metadata = {
  title: 'Автосервис BMW, Mercedes, Audi, Haval, Chery в СПб — ТО от 4 900 ₽ | HP Тюнинг',
@@ -232,6 +233,9 @@ export default function ServicePage() {
  </div>
  </div>
  </section>
+
+ {/* ── Полный каталог 30 услуг с фильтрами ── */}
+ <ServiceCatalog />
 
  {/* ── Карусель брендов ── */}
  <section className="py-16 container">

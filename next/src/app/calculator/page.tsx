@@ -1,9 +1,10 @@
 export const dynamic = 'force-static';
 import type { Metadata } from 'next'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
-import { PriceCalculator } from '@/components/ui/PriceCalculator'
+import { SevenForceCalculator } from '@/components/sections/SevenForceCalculator'
 import Link from 'next/link'
 import calcData from '@/data/calculator.json'
+import tuningCatalog from '@/data/tuning-catalog.json'
 
 export const metadata: Metadata = {
  title: 'Калькулятор чип-тюнинга — рассчитайте цену онлайн | HP Тюнинг СПб',
@@ -92,15 +93,18 @@ function buildFaqSchema() {
 }
 
 export default function CalculatorPage() {
- const totalBrands = calcData.brands.length
- const totalModels = calcData.brands.reduce((acc, b) => acc + b.models.length, 0)
- const totalVariants = calcData.brands.reduce(
- (acc, b) => acc + b.models.reduce((a2, m) => a2 + m.variants.length, 0),
+ // Статистика по новому каталогу Seven Force (4 уровня: brand → line → gen → engine)
+ const cat = tuningCatalog as { brands: Array<{ l: Array<{ g: Array<{ e: Array<{ s1?: (number | null)[] }> }> }> }> }
+ const totalBrands = cat.brands.length
+ const totalModels = cat.brands.reduce((acc, b) => acc + b.l.length, 0)
+ const totalVariants = cat.brands.reduce(
+ (acc, b) => acc + b.l.reduce((a2, L) => a2 + L.g.reduce((a3, G) => a3 + G.e.length, 0), 0),
  0
  )
- const minPrice = Math.min(
- ...calcData.brands.flatMap((b) => b.models.flatMap((m) => m.variants.map((v) => v.our_price)))
+ const allStage1Prices = cat.brands.flatMap((b) =>
+ b.l.flatMap((L) => L.g.flatMap((G) => G.e.map((E) => E.s1?.[4]).filter((p): p is number => typeof p === 'number')))
  )
+ const minPrice = allStage1Prices.length ? Math.min(...allStage1Prices) : 15000
 
  return (
  <>
@@ -166,8 +170,10 @@ export default function CalculatorPage() {
  </div>
  </section>
 
- {/* Калькулятор */}
- <PriceCalculator />
+ {/* Калькулятор Seven Force UX */}
+ <section className="container pb-16">
+ <SevenForceCalculator />
+ </section>
 
  {/* Таблица цен по маркам — SEO-контент */}
  <section className="section bg-bg">

@@ -2,7 +2,7 @@ export const dynamic = 'force-static';
 import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Zap, CheckCircle, Phone, TrendingUp, Shield, RotateCcw, Award } from 'lucide-react';
-import { ChipCalculatorNew } from '@/components/sections/ChipCalculatorNew';
+import { SevenForceCalculator } from '@/components/sections/SevenForceCalculator';
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
@@ -148,7 +148,7 @@ export default function ChipTuningPage() {
  </section>
 
  {/* ── Калькулятор ── */}
- <ChipCalculatorNew />
+ <SevenForceCalculator />
 
  {/* ── Индивидуальный подход ── */}
  <section className="py-16 container">
