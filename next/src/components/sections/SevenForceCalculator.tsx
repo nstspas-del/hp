@@ -40,7 +40,10 @@ const DATA = catalog as unknown as {
   brands: Brand[];
   options: Option[];
 };
-const BRANDS: Brand[] = DATA.brands;
+// Бренды — по алфавиту (ru-локаль, регистронезависимо)
+const BRANDS: Brand[] = [...DATA.brands].sort((a, b) =>
+  a.n.localeCompare(b.n, 'ru', { sensitivity: 'base' })
+);
 const OPTIONS: Option[] = DATA.options;
 
 type StageKey = 's1' | 's2' | 's3';
@@ -137,13 +140,16 @@ export function SevenForceCalculator({ defaultBrandSlug }: { defaultBrandSlug?: 
 
   // Текущий stage-объект
   const currentStage: StageArr | undefined = engine?.[stage];
-  const stagePrice = currentStage?.[4] ?? null;
+  // ВАЖНО: для Stage 3 характеристики и цена НЕ показываем — всегда «по запросу»
+  const isStage3 = stage === 's3';
+  const stagePrice = isStage3 ? null : (currentStage?.[4] ?? null);
 
   // Доступные опции для двигателя — индексы в OPTIONS[]
   const engineOptionIds = engine?.o ?? [];
 
-  // Итоговая цена с опциями
+  // Итоговая цена с опциями (для Stage 3 — null → «по запросу»)
   const totalPrice = useMemo(() => {
+    if (isStage3) return null;
     if (stagePrice == null) return null;
     let sum = stagePrice;
     checkedExtras.forEach((idx) => {
@@ -151,12 +157,22 @@ export function SevenForceCalculator({ defaultBrandSlug }: { defaultBrandSlug?: 
       if (opt?.p) sum += opt.p;
     });
     return sum;
-  }, [stagePrice, checkedExtras]);
+  }, [isStage3, stagePrice, checkedExtras]);
 
-  // Какие stage доступны для текущего двигателя
+  // Какие stage доступны для текущего двигателя.
+  // Stage 3 теперь считаем доступным всегда, если в данных есть ЛЮБОЕ значение,
+  // даже без цены (s3 присутствует) — раз показываем «по запросу», цена не обязательна.
   const availableStages: StageKey[] = useMemo(() => {
     if (!engine) return ['s1', 's2', 's3'];
-    return (['s1', 's2', 's3'] as StageKey[]).filter((s) => engine[s] && engine[s]![4] != null);
+    return (['s1', 's2', 's3'] as StageKey[]).filter((s) => {
+      const arr = engine[s];
+      if (!arr) return false;
+      if (s === 's3') {
+        // Stage 3 доступен, если есть хоть какие-то данные (хотя мы их и не покажем)
+        return arr.some((v) => v != null);
+      }
+      return arr[4] != null;
+    });
   }, [engine]);
 
   // Если выбранный stage недоступен для двигателя — переключаемся
@@ -322,36 +338,46 @@ export function SevenForceCalculator({ defaultBrandSlug }: { defaultBrandSlug?: 
                   <tr className="border-b border-border/50">
                     <td className="py-3 px-2 text-text-muted">Мощность, л.с.</td>
                     <td className="text-center py-3 px-2 text-text">{fmt(engine.st[0])}</td>
-                    <td className="text-center py-3 px-2 text-text font-semibold">{fmt(currentStage?.[0])}</td>
-                    <td className={`text-right py-3 px-2 font-semibold ${diffClass(engine.st[0], currentStage?.[0])}`}>
-                      {diff(engine.st[0], currentStage?.[0], ' л.с.')}
+                    <td className="text-center py-3 px-2 text-text font-semibold">
+                      {isStage3 ? <span className="text-text-subtle italic">по запросу</span> : fmt(currentStage?.[0])}
+                    </td>
+                    <td className={`text-right py-3 px-2 font-semibold ${isStage3 ? 'text-text-subtle' : diffClass(engine.st[0], currentStage?.[0])}`}>
+                      {isStage3 ? <span className="italic">по запросу</span> : diff(engine.st[0], currentStage?.[0], ' л.с.')}
                     </td>
                   </tr>
                   <tr className="border-b border-border/50">
                     <td className="py-3 px-2 text-text-muted">Крутящий момент, Н·м</td>
                     <td className="text-center py-3 px-2 text-text">{fmt(engine.st[1])}</td>
-                    <td className="text-center py-3 px-2 text-text font-semibold">{fmt(currentStage?.[1])}</td>
-                    <td className={`text-right py-3 px-2 font-semibold ${diffClass(engine.st[1], currentStage?.[1])}`}>
-                      {diff(engine.st[1], currentStage?.[1], ' Н·м')}
+                    <td className="text-center py-3 px-2 text-text font-semibold">
+                      {isStage3 ? <span className="text-text-subtle italic">по запросу</span> : fmt(currentStage?.[1])}
+                    </td>
+                    <td className={`text-right py-3 px-2 font-semibold ${isStage3 ? 'text-text-subtle' : diffClass(engine.st[1], currentStage?.[1])}`}>
+                      {isStage3 ? <span className="italic">по запросу</span> : diff(engine.st[1], currentStage?.[1], ' Н·м')}
                     </td>
                   </tr>
-                  {(engine.st[2] != null || currentStage?.[2] != null) && (
+                  {(engine.st[2] != null || (!isStage3 && currentStage?.[2] != null)) && (
                     <tr className="border-b border-border/50">
                       <td className="py-3 px-2 text-text-muted">Макс. скорость, км/ч</td>
                       <td className="text-center py-3 px-2 text-text">{fmt(engine.st[2])}</td>
-                      <td className="text-center py-3 px-2 text-text font-semibold">{fmt(currentStage?.[2])}</td>
-                      <td className={`text-right py-3 px-2 font-semibold ${diffClass(engine.st[2], currentStage?.[2])}`}>
-                        {diff(engine.st[2], currentStage?.[2], ' км/ч')}
+                      <td className="text-center py-3 px-2 text-text font-semibold">
+                        {isStage3 ? <span className="text-text-subtle italic">по запросу</span> : fmt(currentStage?.[2])}
+                      </td>
+                      <td className={`text-right py-3 px-2 font-semibold ${isStage3 ? 'text-text-subtle' : diffClass(engine.st[2], currentStage?.[2])}`}>
+                        {isStage3 ? <span className="italic">по запросу</span> : diff(engine.st[2], currentStage?.[2], ' км/ч')}
                       </td>
                     </tr>
                   )}
-                  {(engine.st[3] != null || currentStage?.[3] != null) && (
+                  {(engine.st[3] != null || (!isStage3 && currentStage?.[3] != null)) && (
                     <tr>
                       <td className="py-3 px-2 text-text-muted">Разгон 0–100 км/ч, сек</td>
                       <td className="text-center py-3 px-2 text-text">{fmt(engine.st[3])}</td>
-                      <td className="text-center py-3 px-2 text-text font-semibold">{fmt(currentStage?.[3])}</td>
-                      <td className={`text-right py-3 px-2 font-semibold ${diffClass(engine.st[3], currentStage?.[3], true)}`}>
-                        {currentStage?.[3] != null && engine.st[3] != null
+                      <td className="text-center py-3 px-2 text-text font-semibold">
+                        {isStage3 ? <span className="text-text-subtle italic">по запросу</span> : fmt(currentStage?.[3])}
+                      </td>
+                      <td className={`text-right py-3 px-2 font-semibold ${isStage3 ? 'text-text-subtle' : diffClass(engine.st[3], currentStage?.[3], true)}`}>
+                        {isStage3
+                          ? <span className="italic">по запросу</span>
+                          : currentStage?.[3] != null && engine.st[3] != null
                           ? `${currentStage[3]! - engine.st[3]! > 0 ? '+' : ''}${(currentStage[3]! - engine.st[3]!).toFixed(1)} сек`
                           : '—'}
                       </td>
@@ -368,13 +394,15 @@ export function SevenForceCalculator({ defaultBrandSlug }: { defaultBrandSlug?: 
               <div>
                 <div className="text-white/80 text-xs uppercase tracking-wider mb-1">
                   Стоимость {stage === 's1' ? 'Stage 1' : stage === 's2' ? 'Stage 2' : 'Stage 3'}
-                  {checkedExtras.size > 0 && ` + ${checkedExtras.size} опц.`}
+                  {!isStage3 && checkedExtras.size > 0 && ` + ${checkedExtras.size} опц.`}
                 </div>
                 <div className="font-display text-3xl md:text-4xl text-white font-bold tracking-tight">
-                  {fmtPrice(totalPrice)}
+                  {isStage3 || totalPrice == null ? 'По запросу' : fmtPrice(totalPrice)}
                 </div>
                 <div className="text-white/70 text-xs mt-1">
-                  Гарантия 12 мес · Откат к стоку бесплатно · Alientech KESS3
+                  {isStage3
+                    ? 'Stage 3 — индивидуальная сборка, цена и характеристики после диагностики'
+                    : 'Гарантия 12 мес · Откат к стоку бесплатно · Alientech KESS3'}
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-2 shrink-0">
@@ -395,8 +423,8 @@ export function SevenForceCalculator({ defaultBrandSlug }: { defaultBrandSlug?: 
             </div>
           </div>
 
-          {/* Дополнительные опции */}
-          {engineOptionIds.length > 0 && (
+          {/* Дополнительные опции — на Stage 3 не показываем (всё по запросу) */}
+          {!isStage3 && engineOptionIds.length > 0 && (
             <div className="border-t border-border">
               <button
                 onClick={() => setExtrasOpen((v) => !v)}
