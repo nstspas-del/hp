@@ -16,7 +16,6 @@
     "lucide-react": "^1.8.0",
     "next": "14.2.35",
     "next-sitemap": "^4.2.3",
-    "nodemailer": "^6.10.1",
     "react": "^18",
     "react-dom": "^18",
     "sharp": "^0.34.5"
@@ -24,7 +23,6 @@
   "devDependencies": {
     "@netlify/plugin-nextjs": "^5.15.9",
     "@types/node": "^20",
-    "@types/nodemailer": "^6.4.23",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "postcss": "^8",
