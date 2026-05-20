@@ -40,10 +40,30 @@ const DATA = catalog as unknown as {
   brands: Brand[];
   options: Option[];
 };
-// Бренды — по алфавиту (ru-локаль, регистронезависимо)
-const BRANDS: Brand[] = [...DATA.brands].sort((a, b) =>
-  a.n.localeCompare(b.n, 'ru', { sensitivity: 'base' })
-);
+
+// Natural-sort: «A3» < «A4» < «A11», «3 серия» < «5 серия» < «X5» и т.д.
+// numeric:true — числа внутри строк сравниваются по значению, а не лексикографически.
+const naturalCompare = (a: string, b: string) =>
+  a.localeCompare(b, 'ru', { numeric: true, sensitivity: 'base' });
+
+// Бренды — по алфавиту, плюс сортируем вглубь: линейки → поколения → двигатели.
+const BRANDS: Brand[] = [...DATA.brands]
+  .map((b) => ({
+    ...b,
+    l: [...b.l]
+      .map((L) => ({
+        ...L,
+        g: [...L.g]
+          .map((G) => ({
+            ...G,
+            e: [...G.e].sort((x, y) => naturalCompare(x.n, y.n)),
+          }))
+          .sort((x, y) => naturalCompare(x.n, y.n)),
+      }))
+      .sort((x, y) => naturalCompare(x.n, y.n)),
+  }))
+  .sort((a, b) => naturalCompare(a.n, b.n));
+
 const OPTIONS: Option[] = DATA.options;
 
 type StageKey = 's1' | 's2' | 's3';
