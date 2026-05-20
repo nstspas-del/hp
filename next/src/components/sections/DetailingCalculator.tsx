@@ -3,6 +3,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Sparkles, Shield, Droplets, Wind, Wrench, ChevronRight } from 'lucide-react';
 import { openBooking } from '@/lib/autodealer';
+import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer';
 
 /**
  * Калькулятор детейлинга — полный комплект услуг 1:1 по структуре Platinum Garage.
@@ -966,9 +967,13 @@ export function DetailingCalculator() {
                   </div>
                 ))}
               </div>
+
+              {/* Юр-дисклеймер: цены ориентировочные, не оферта (ст. 437 ГК РФ) */}
+              <PriceDisclaimer className="mt-3" />
             </div>
           </div>
         </div>
+        <PriceDisclaimer className="mx-auto max-w-3xl mt-6" />
       </div>
     </section>
   );

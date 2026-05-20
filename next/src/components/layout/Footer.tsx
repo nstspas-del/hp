@@ -26,6 +26,7 @@ const LINKS = {
  { label: 'Контакты', href: '/contacts' },
  { label: 'Политика конфиденциальности', href: '/privacy' },
  { label: 'Согласие ПДн', href: '/consent' },
+ { label: 'Файлы cookie', href: '/cookies' },
  ],
 };
 
@@ -137,6 +138,20 @@ export function Footer() {
  <Link href="/cookies" target="_blank" rel="noopener noreferrer" className="hover:text-text-muted transition-colors">Cookie</Link>
  </div>
  </div>
+
+ {/* Юр-дисклеймер: «не является публичной офертой» — закрывает риск претензий по ст. 437 ГК РФ */}
+ <p className="text-text-subtle/70 text-[11px] leading-snug max-w-4xl">
+ Информация о ценах, сроках и составе работ носит ознакомительный характер и{' '}
+ <span className="text-text-subtle">не является публичной офертой</span> (ст.&nbsp;437 ГК&nbsp;РФ).
+ Окончательная стоимость и сроки определяются мастером после диагностики автомобиля
+ и согласования объёма работ с клиентом.
+ </p>
+ {/* Юр-дисклеймер: цены носят ознакомительный характер, не оферта (ст. 437 ГК РФ) */}
+ <p className="text-text-subtle/70 leading-relaxed max-w-4xl">
+ Информация на сайте носит ознакомительный характер и не является публичной офертой
+ (ст.&nbsp;437 ГК&nbsp;РФ). Указанные цены «от» — ориентировочные; окончательная стоимость
+ работ определяется после диагностики автомобиля и фиксируется в наряд-заказе.
+ </p>
  {/* Разработка сайта — как у КатАвто */}
  <div className="flex flex-col md:flex-row justify-between items-center gap-2 pt-2 border-t border-border/40">
  <p className="text-text-subtle/60">

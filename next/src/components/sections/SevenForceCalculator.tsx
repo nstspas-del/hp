@@ -5,6 +5,7 @@ import { ChevronDown, Phone, Gauge, Zap, TrendingUp, Search, Plus, Check } from 
 import catalog from '@/data/tuning-catalog.json';
 import { openBooking } from '@/lib/autodealer';
 import Stage3LeadForm from '@/components/ui/Stage3LeadForm';
+import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer';
 
 // ─── Типы (соответствуют schema из _meta) ────────────────────────────────────
 type StageArr = [
@@ -455,6 +456,28 @@ export function SevenForceCalculator({ defaultBrandSlug }: { defaultBrandSlug?: 
                 }}
               />
             )}
+
+            {/* Юр-дисклеймер: цены ориентировочные, не оферта (ст. 437 ГК РФ).
+                Делаем поверх красного фона — цвет белый/полупрозрачный. */}
+            <div className="mt-4 pt-3 border-t border-white/15">
+              <div className="flex items-start gap-2 text-white/70 text-[11px] leading-snug">
+                <svg
+                  className="size-3.5 shrink-0 mt-px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 16v-4M12 8h.01" />
+                </svg>
+                <span>
+                  Расчёт ориентировочный. Точная стоимость работ определяется после
+                  диагностики автомобиля и не является публичной офертой (ст.&nbsp;437 ГК&nbsp;РФ).
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Дополнительные опции — на Stage 3 не показываем (всё по запросу) */}
@@ -554,6 +577,8 @@ export function SevenForceCalculator({ defaultBrandSlug }: { defaultBrandSlug?: 
           </p>
         </div>
       )}
+
+      <PriceDisclaimer className="mt-6" />
     </div>
   );
 }

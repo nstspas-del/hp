@@ -10,6 +10,7 @@ import {
 // Данные взяты из публичного источника прайсов, названия источника не публикуем
 import sfData from '@/data/sevenforce-parsed.json';
 import { openBooking } from '@/lib/autodealer';
+import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer';
 
 // ─── Типы ─────────────────────────────────────────────────────────────────────
 
@@ -727,6 +728,9 @@ export function ChipCalculatorNew() {
           background: rgba(57, 255, 20, 0.4);
         }
       `}</style>
+      <div className="container mt-6">
+        <PriceDisclaimer className="mx-auto max-w-3xl" />
+      </div>
     </section>
   );
 }

@@ -32,6 +32,7 @@ type Status = 'idle' | 'sending' | 'ok' | 'fail';
 export function Stage3LeadForm({ context }: Props) {
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
+  const [consent, setConsent] = useState(false); // явное согласие на обработку ПДн
   const [honeypot, setHoneypot] = useState(''); // ловушка для ботов
   const [status, setStatus] = useState<Status>('idle');
   const [errorMsg, setErrorMsg] = useState('');
@@ -39,6 +40,12 @@ export function Stage3LeadForm({ context }: Props) {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (status === 'sending') return;
+
+    if (!consent) {
+      setErrorMsg('Подтвердите согласие на обработку персональных данных');
+      setStatus('fail');
+      return;
+    }
 
     const digits = phone.replace(/\D/g, '');
     if (digits.length < 10) {
@@ -153,7 +160,7 @@ export function Stage3LeadForm({ context }: Props) {
         />
         <button
           type="submit"
-          disabled={status === 'sending'}
+          disabled={status === 'sending' || !consent}
           className="bg-black/85 hover:bg-black text-white rounded-xl px-5 py-3 text-sm font-bold uppercase tracking-wider transition-colors disabled:opacity-60 flex items-center justify-center gap-2 whitespace-nowrap"
         >
           {status === 'sending' ? (
@@ -178,14 +185,39 @@ export function Stage3LeadForm({ context }: Props) {
         </div>
       )}
 
-      {/* Микро-согласие */}
-      <div className="mt-2 text-white/65 text-[11px] leading-snug">
-        Нажимая «Отправить», вы соглашаетесь с{' '}
-        <a href="/consent" target="_blank" className="underline hover:text-white">
-          обработкой персональных данных
-        </a>
-        .
-      </div>
+      {/* Явный чекбокс согласия на обработку ПДн (152-ФЗ) */}
+      <label className="mt-3 flex items-start gap-2 text-white/85 text-[11px] leading-snug cursor-pointer select-none">
+        <input
+          type="checkbox"
+          name="stage3_consent"
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
+          disabled={status === 'sending'}
+          required
+          className="mt-0.5 size-3.5 shrink-0 accent-white cursor-pointer"
+        />
+        <span>
+          Согласен на{' '}
+          <a
+            href="/consent"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-white"
+          >
+            обработку персональных данных
+          </a>{' '}
+          и ознакомлен с{' '}
+          <a
+            href="/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-white"
+          >
+            политикой конфиденциальности
+          </a>
+          .
+        </span>
+      </label>
     </form>
   );
 }

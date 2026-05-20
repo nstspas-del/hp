@@ -55,7 +55,7 @@ export default function CookiesPage() {
  <Breadcrumbs items={[{ label: "Политика cookie" }]} />
 
  <h1 className="section-title mb-4">Политика использования cookie</h1>
- <p className="text-text-subtle text-sm mb-10">Последнее обновление: январь 2025 г.</p>
+ <p className="text-text-subtle text-sm mb-10">Последнее обновление: 20 мая 2026 г.</p>
 
  <div className="prose-hp">
  <section className="mb-10">

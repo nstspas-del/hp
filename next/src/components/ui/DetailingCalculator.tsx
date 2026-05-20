@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react';
 import { Sparkles, ChevronDown, CheckCircle, ArrowRight, Clock } from 'lucide-react';
 import { openBooking } from '@/lib/autodealer';
 import data from '@/data/detailing-calculator.json';
+import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer';
 
 type Category = (typeof data.categories)[number];
 type Service = (typeof data.services)[number];
@@ -203,6 +204,7 @@ export function DetailingCalculator() {
  ↑ Сначала выберите тип автомобиля
  </div>
  )}
+ <PriceDisclaimer className="mx-auto max-w-3xl mt-6" />
  </div>
  </div>
  </section>

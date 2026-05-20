@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import chipData from '@/data/chip-engines.json';
 import { openBooking } from '@/lib/autodealer';
+import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer';
 
 // ─── Типы ────────────────────────────────────────────────────────────────────
 
@@ -574,6 +575,7 @@ export function ChipCalculator() {
  </div>
  )}
  </div>
+ <PriceDisclaimer className="mx-auto max-w-3xl" />
  </div>
  </section>
  );

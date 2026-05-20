@@ -33,7 +33,7 @@ export default function ConsentPage() {
 
       <h1 className="section-title mb-4">Согласие на обработку персональных данных</h1>
       <p className="text-text-subtle text-sm mb-10">
-        Последнее обновление: 18 апреля 2026 г.
+        Последнее обновление: 20 мая 2026 г.
       </p>
 
       <div className="prose-hp">

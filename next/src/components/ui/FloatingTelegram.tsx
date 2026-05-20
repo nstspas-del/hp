@@ -10,19 +10,71 @@
  *
  * Поэтому ставим простую CSS-only кнопку-ссылку:
  *   - Грузится мгновенно, нет внешних запросов до клика.
- *   - При клике открывается t.me/<username> — это работает и в РФ без VPN,
- *     и под любым VPN (домен t.me не заблокирован).
+ *   - При клике открывается t.me/<username>?text=<префилл> — Telegram автозаполнит
+ *     первое сообщение контекстом текущей страницы (бренд, страница услуги, etc.).
  *   - Есть подсказка-тултип и пульсация для привлечения внимания.
  *
- * Цель в Метрике (`telegram_click`) можно повесить позже на data-атрибут.
+ * Цель в Метрике (`telegram_click`) повешена через data-event='telegram_click'.
  */
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import company from '@/data/company.json';
+
+/**
+ * Строит префилл-сообщение по текущему пути.
+ * Не пытаемся быть «умнее» чем надо — простые правила на основе URL.
+ */
+function buildPrefill(pathname: string): string {
+  // Чип-тюнинг и калькулятор
+  if (pathname.startsWith('/tuning/chip-tuning') || pathname.startsWith('/calculator')) {
+    return 'Здравствуйте! Интересует чип-тюнинг. Хочу рассчитать стоимость для своего авто.';
+  }
+  if (pathname.startsWith('/tuning')) {
+    return 'Здравствуйте! Интересует тюнинг. Можете подсказать по моему авто?';
+  }
+
+  // Детейлинг
+  if (pathname.startsWith('/detailing')) {
+    return 'Здравствуйте! Интересует детейлинг (полировка / керамика / PPF).';
+  }
+
+  // Сервис и диагностика
+  if (pathname.startsWith('/service/diagnostics')) {
+    return 'Здравствуйте! Нужна диагностика автомобиля. Когда можно записаться?';
+  }
+  if (pathname.startsWith('/service')) {
+    return 'Здравствуйте! Интересует обслуживание автомобиля.';
+  }
+
+  // Бренды (страница конкретной марки)
+  const brandMatch = pathname.match(/^\/(?:brands|marki)\/([a-z0-9-]+)/i);
+  if (brandMatch) {
+    const brand = brandMatch[1].replace(/-/g, ' ');
+    return `Здравствуйте! Интересует обслуживание/тюнинг ${brand.toUpperCase()}.`;
+  }
+
+  // Блог / проекты / отзывы — пользователь читает контент, контекста меньше
+  if (pathname.startsWith('/blog') || pathname.startsWith('/projects')) {
+    return 'Здравствуйте! Прочитал у вас на сайте, есть вопрос.';
+  }
+
+  // Дефолт: главная и всё остальное
+  return 'Здравствуйте! Интересуют ваши услуги, можете подсказать?';
+}
+
+/**
+ * Извлекает username из href вида https://t.me/hptuningspb или t.me/hptuningspb
+ */
+function extractUsername(href: string): string {
+  const m = href.match(/t\.me\/([a-z0-9_]+)/i);
+  return m ? m[1] : 'hptuningspb';
+}
 
 export function FloatingTelegram() {
   const [showTip, setShowTip] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname() || '/';
 
   // Показываем тултип единожды через 3 секунды после загрузки и через 15 сек прячем
   useEffect(() => {
@@ -36,6 +88,12 @@ export function FloatingTelegram() {
   }, []);
 
   if (!mounted) return null;
+
+  // Собираем deeplink с префиллом. На мобильном Telegram-приложение откроется
+  // с уже подставленным текстом, на десктопе — t.me-страница покажет «Send Message».
+  const username = extractUsername(company.contacts.telegram.href);
+  const prefill = buildPrefill(pathname);
+  const tgHref = `https://t.me/${username}?text=${encodeURIComponent(prefill)}`;
 
   return (
     <div className="fixed bottom-5 right-5 z-50 print:hidden">
@@ -68,9 +126,9 @@ export function FloatingTelegram() {
         </div>
       )}
 
-      {/* Сама кнопка */}
+      {/* Сама кнопка — с deeplink-префиллом по контексту страницы */}
       <a
-        href={company.contacts.telegram.href}
+        href={tgHref}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Написать в Telegram"

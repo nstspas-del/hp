@@ -3,6 +3,7 @@ import { useState, useMemo, useEffect, useCallback } from 'react';
 import { Calculator, ChevronDown, Zap, CheckCircle, ArrowRight, RefreshCw, ExternalLink } from 'lucide-react';
 import { openBooking } from '@/lib/autodealer';
 import calcData from '@/data/calculator.json';
+import { PriceDisclaimer } from './PriceDisclaimer';
 
 interface Variant {
  id: string;
@@ -258,6 +259,7 @@ export function PriceCalculator() {
  </div>
  )}
  </div>
+ <PriceDisclaimer className="mx-auto max-w-3xl mt-6" />
  </div>
  </div>
  </section>
