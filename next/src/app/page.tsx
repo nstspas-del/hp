@@ -11,6 +11,7 @@ import { ReviewsSection } from '@/components/sections/ReviewsSection';
 import { VideoSection } from '@/components/sections/VideoSection';
 import { ProjectCarsSection } from '@/components/sections/ProjectCarsSection';
 import { BrandStripSection } from '@/components/sections/BrandStripSection';
+import { SocialProof } from '@/components/sections/SocialProof';
 import seoData from '@/data/seo.json';
 
 export const metadata: Metadata = {
@@ -100,6 +101,9 @@ export default function HomePage() {
  <div className="hidden md:block">
  <BrandsSection />
  </div>
+
+ {/* Социальные доказательства после ребрендинга 2026 */}
+ <SocialProof />
 
  {/* Работы */}
  <WorksPreview />

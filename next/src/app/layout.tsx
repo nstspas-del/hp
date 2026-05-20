@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { CookieBanner } from '@/components/layout/CookieBanner';
 import { YandexMetrika } from '@/components/analytics/YandexMetrika';
 import { AutoDealerWidget } from '@/components/analytics/AutoDealerWidget';
+import { FloatingTelegram } from '@/components/ui/FloatingTelegram';
 import company from '@/data/company.json';
 import seoData from '@/data/seo.json';
 
@@ -114,6 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
  <main className="flex-1 pt-16">{children}</main>
  <Footer />
  <CookieBanner />
+ <FloatingTelegram />
  </body>
  </html>
  );

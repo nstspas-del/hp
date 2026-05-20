@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { ChevronDown, Phone, Gauge, Zap, TrendingUp, Search, Plus, Check } from 'lucide-react';
 import catalog from '@/data/tuning-catalog.json';
 import { openBooking } from '@/lib/autodealer';
+import Stage3LeadForm from '@/components/ui/Stage3LeadForm';
 
 // ─── Типы (соответствуют schema из _meta) ────────────────────────────────────
 type StageArr = [
@@ -441,6 +442,19 @@ export function SevenForceCalculator({ defaultBrandSlug }: { defaultBrandSlug?: 
                 </a>
               </div>
             </div>
+
+            {/* Stage 3 — inline-форма заявки, чтобы клиент не уходил из контекста */}
+            {isStage3 && (
+              <Stage3LeadForm
+                context={{
+                  brand: brand?.n,
+                  line: line?.n,
+                  generation: gen?.n,
+                  engine: engine.n,
+                  stage: 'Stage 3',
+                }}
+              />
+            )}
           </div>
 
           {/* Дополнительные опции — на Stage 3 не показываем (всё по запросу) */}
