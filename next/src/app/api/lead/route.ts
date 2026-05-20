@@ -77,8 +77,13 @@ function escapeHtml(s: string): string {
 
 // --- Канал 1: Email через UniSender Go HTTP API -----------------------------
 
+// UniSender Go endpoint. По умолчанию go2 — современные аккаунты живут именно
+// там (адресная строка кабинета — go2.unisender.ru). Старые проекты могут быть
+// на go1; в этом случае API вернёт "User with id 'XXX' not found". Если такое
+// случится — переключим на go1 в одной строке или вынесем в ENV.
 const UNISENDER_GO_ENDPOINT =
-  'https://go1.unisender.ru/ru/transactional/api/v1/email/send.json';
+  process.env.UNISENDER_GO_ENDPOINT ||
+  'https://go2.unisender.ru/ru/transactional/api/v1/email/send.json';
 
 function buildEmailHtml(data: LeadData): string {
   const ctxRows = Object.entries(data.ctx)
