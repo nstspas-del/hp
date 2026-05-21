@@ -1,8 +1,7 @@
 export const dynamic = 'force-static';
 import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import Link from 'next/link';
-import { Settings, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
+import { Settings, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer';
 
@@ -152,9 +151,9 @@ export default function ToPage() {
  </section>
 
  {/* Прайс */}
- <section className="py-16 bg-[#111113]">
+ <section className="py-12 md:py-16 bg-[#111113]">
  <div className="container">
- <h2 className="font-display text-3xl text-text uppercase tracking-wider mb-8">ЦЕНЫ НА ТО</h2>
+ <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-8">ЦЕНЫ НА ТО</h2>
  <div className="overflow-x-auto">
  <table className="w-full">
  <thead>
@@ -180,8 +179,8 @@ export default function ToPage() {
  </section>
 
  {/* Этапы */}
- <section className="py-16 container">
- <h2 className="font-display text-3xl text-text uppercase tracking-wider mb-8">КАК МЫ РАБОТАЕМ</h2>
+ <section className="py-12 md:py-16 container">
+ <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-8">КАК МЫ РАБОТАЕМ</h2>
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
  {STEPS.map((s) => (
  <div key={s.step} className="card">
@@ -194,9 +193,9 @@ export default function ToPage() {
  </section>
 
  {/* FAQ */}
- <section className="py-16 bg-[#111113]">
+ <section className="py-12 md:py-16 bg-[#111113]">
  <div className="container max-w-3xl">
- <h2 className="font-display text-3xl text-text uppercase tracking-wider mb-8">ЧАСТЫЕ ВОПРОСЫ</h2>
+ <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-8">ЧАСТЫЕ ВОПРОСЫ</h2>
  <div className="flex flex-col gap-4">
  {FAQ.map((item, i) => (
  <details key={i} className="card group">
@@ -212,9 +211,9 @@ export default function ToPage() {
  </section>
 
  {/* CTA */}
- <section className="py-16 container">
+ <section className="py-12 md:py-16 container">
  <div className="card border-[#39FF14]/20 text-center p-10 glow-box">
- <h2 className="font-display text-3xl text-text uppercase tracking-wider mb-3">ЗАПИСАТЬСЯ НА ТО</h2>
+ <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">ЗАПИСАТЬСЯ НА ТО</h2>
  <p className="text-text-muted mb-6">Ответим в течение 15 минут — подберём удобное время.</p>
  <div className="flex flex-col sm:flex-row gap-3 justify-center">
  <BookingButton label="Записаться онлайн" className="btn-primary text-base px-10 py-4" />

@@ -5,6 +5,7 @@ import { SevenForceCalculator } from '@/components/sections/SevenForceCalculator
 import Link from 'next/link'
 import calcData from '@/data/calculator.json'
 import tuningCatalog from '@/data/tuning-catalog.json'
+import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer'
 
 export const metadata: Metadata = {
  title: 'Калькулятор чип-тюнинга — рассчитайте цену онлайн | HP Тюнинг СПб',
@@ -235,6 +236,7 @@ export default function CalculatorPage() {
  </tbody>
  </table>
  </div>
+ <div className="mt-4"><PriceDisclaimer /></div>
  </div>
  </section>
 

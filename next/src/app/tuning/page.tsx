@@ -4,6 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { ArrowRight, Zap, Shield, Volume2, Wind, CheckCircle } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
+import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer';
 
 export const metadata: Metadata = {
  title: 'Тюнинг автомобилей в СПб — чип-тюнинг Stage 1/2/3 | HP Тюнинг',
@@ -26,7 +27,7 @@ const SERVICES = [
  icon: Zap,
  title: 'Чип-тюнинг',
  sub: 'Stage 1 / 2 / 3',
- desc: 'Перепрошивка ЭБУ для роста мощности до +40% и момента до +50%. , откат к стоку в любой момент.',
+ desc: 'Перепрошивка ЭБУ для роста мощности до +40% и момента до +50%. Гарантия 12 мес, откат к стоку в любой момент.',
  href: '/tuning/chip-tuning',
  from: '24 000 ₽',
  badge: 'Хит',
@@ -72,7 +73,7 @@ const WHY = [
  { val: '10+', label: 'лет на рынке' },
  { val: '500+', label: 'авто прошито' },
  { val: '30+', label: 'марок' },
- { val: '500+', label: 'авто прошито' },
+ { val: '12 мес', label: 'гарантия' },
 ];
 
 const EQUIPMENT = ['Alientech KESSv3', 'Dimsport MyGenius', 'CMD Flash', 'MPPS v22', 'WinOLS 4'];
@@ -168,6 +169,7 @@ export default function TuningPage() {
  );
  })}
  </div>
+ <div className="mt-6 max-w-2xl mx-auto"><PriceDisclaimer /></div>
  </div>
  </section>
 
@@ -187,7 +189,7 @@ export default function TuningPage() {
  'Индивидуальные калибровки для каждого авто',
  'Оригинальные прошивки сохраняем перед работой',
  'Откат к стоку в любой момент',
- 'на двигатель',
+ 'Гарантия 12 месяцев на работы',
  ].map((item) => (
  <li key={item} className="flex items-center gap-3 text-zinc-400 text-sm">
  <CheckCircle className="size-4 text-[#39FF14] shrink-0" />

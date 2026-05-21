@@ -200,7 +200,7 @@ export default function ServicePage() {
  </section>
 
  {/* ── 7 карточек услуг ── */}
- <section className="py-16 bg-[#111113]">
+ <section className="py-12 md:py-16 bg-[#111113]">
  <div className="container">
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">ВИДЫ РАБОТ</h2>
  <p className="text-text-muted mb-10">Полный спектр обслуживания и ремонта для вашего автомобиля</p>
@@ -238,7 +238,7 @@ export default function ServicePage() {
  <ServiceCatalog />
 
  {/* ── Карусель брендов ── */}
- <section className="py-16 container">
+ <section className="py-12 md:py-16 container">
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">
  ПОДДЕРЖИВАЕМЫЕ МАРКИ
  </h2>
@@ -257,7 +257,7 @@ export default function ServicePage() {
  </section>
 
  {/* ── Преимущества ── */}
- <section className="py-16 bg-[#111113]">
+ <section className="py-12 md:py-16 bg-[#111113]">
  <div className="container">
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-10">
  ПОЧЕМУ ВЫБИРАЮТ НАС
@@ -275,7 +275,7 @@ export default function ServicePage() {
  </section>
 
  {/* ── Отзывы ── */}
- <section className="py-16 container">
+ <section className="py-12 md:py-16 container">
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-10">ОТЗЫВЫ КЛИЕНТОВ</h2>
  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
  {REVIEWS.map((r, i) => (
@@ -296,7 +296,7 @@ export default function ServicePage() {
  </section>
 
  {/* ── FAQ ── */}
- <section className="py-16 bg-[#111113]">
+ <section className="py-12 md:py-16 bg-[#111113]">
  <div className="container max-w-3xl">
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-10">ЧАСТЫЕ ВОПРОСЫ</h2>
  <div className="flex flex-col gap-4">
@@ -314,7 +314,7 @@ export default function ServicePage() {
  </section>
 
  {/* ── CTA ── */}
- <section className="py-16 container">
+ <section className="py-12 md:py-16 container">
  <div className="card border-[#39FF14]/20 text-center p-10 glow-box">
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">
  ЗАПИСАТЬСЯ НА СЕРВИС

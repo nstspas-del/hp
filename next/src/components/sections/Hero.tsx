@@ -5,7 +5,7 @@ import { Phone, Stethoscope, Wrench, Zap, Sparkles } from 'lucide-react';
 import { openBooking } from '@/lib/autodealer';
 
 // Марки сгруппированы по сегментам — все в HTML для Яндекса (ТОЛЬКО ДЕСКТОП).
-// На мобиле этот блок скрыт — слишком тяжёлый, есть BrandStripSection ниже.
+// На мобиле этот блок скрыт — слишком тяжёлый, есть BrandsSection ниже.
 const BRAND_GROUPS = [
   {
     label: 'Европейские',
@@ -218,7 +218,7 @@ export function Hero() {
         </div>
 
         {/* ── Блок марок по сегментам (SEO + навигация) — ТОЛЬКО ДЕСКТОП ──
-            На мобиле скрыт, чтобы не перегружать Hero. Есть BrandStripSection ниже.
+            На мобиле скрыт, чтобы не перегружать Hero. Есть BrandsSection ниже.
         */}
         <div className="hidden md:grid mt-10 grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
           {BRAND_GROUPS.map((group) => (

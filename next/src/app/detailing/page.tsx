@@ -2,9 +2,10 @@ export const dynamic = 'force-static';
 import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
-import { Sparkles, ChevronRight, CheckCircle, Phone, Shield, Award, Star, Layers, Volume2, Armchair, Droplets, Eye } from 'lucide-react';
+import { Sparkles, ChevronRight, CheckCircle, Phone, Shield, Star, Layers, Volume2, Armchair, Droplets, Eye } from 'lucide-react';
 import { DetailingCalculator } from '@/components/sections/DetailingCalculator';
 import { BookingButton } from '@/components/ui/BookingButton';
+import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer';
 
 export const metadata: Metadata = {
  title: 'Детейлинг в СПб — керамика 9H, PPF XPEL, полировка | HP Тюнинг',
@@ -285,11 +286,12 @@ export default function DetailingPage() {
          </div>
        </div>
      ))}
+     <div className="mt-8 max-w-2xl mx-auto"><PriceDisclaimer /></div>
    </div>
  </section>
 
  {/* ── Калькулятор детейлинга ── */}
- <section id="detailing-calculator" className="py-16 container">
+ <section id="detailing-calculator" className="py-12 md:py-16 container">
  <div className="text-center mb-10">
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">
  КАЛЬКУЛЯТОР ДЕТЕЙЛИНГА
@@ -300,7 +302,7 @@ export default function DetailingPage() {
  </section>
 
  {/* ── Материалы ── */}
- <section className="py-16 bg-[#111113]">
+ <section className="py-12 md:py-16 bg-[#111113]">
  <div className="container">
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">
  СЕРТИФИЦИРОВАННЫЕ МАТЕРИАЛЫ
@@ -318,7 +320,7 @@ export default function DetailingPage() {
  </section>
 
  {/* ── Процесс ── */}
- <section className="py-16 container">
+ <section className="py-12 md:py-16 container">
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-10">
  КАК МЫ РАБОТАЕМ
  </h2>
@@ -334,7 +336,7 @@ export default function DetailingPage() {
  </section>
 
  {/* ── FAQ ── */}
- <section className="py-16 bg-[#111113]">
+ <section className="py-12 md:py-16 bg-[#111113]">
  <div className="container max-w-3xl">
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-10">
  ЧАСТЫЕ ВОПРОСЫ
@@ -354,7 +356,7 @@ export default function DetailingPage() {
  </section>
 
  {/* ── CTA ── */}
- <section className="py-16 container">
+ <section className="py-12 md:py-16 container">
  <div className="card border-[#39FF14]/20 text-center p-10 glow-box">
  <div className="w-16 h-16 rounded-2xl bg-[#39FF14]/10 flex items-center justify-center mx-auto mb-6">
  <Sparkles className="size-8 text-[#39FF14]" />

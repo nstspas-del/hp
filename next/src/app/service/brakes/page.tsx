@@ -1,8 +1,7 @@
 export const dynamic = 'force-static';
 import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import Link from 'next/link';
-import { Disc, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
+import { Disc, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
 import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer';
 
@@ -39,6 +38,13 @@ const WORKS = [
  'Замена тормозного цилиндра',
  'Прокачка тормозной системы',
  'Замена тормозной жидкости',
+];
+
+const STEPS = [
+ { step: '01', title: 'Диагностика', desc: 'Проверяем толщину колодок, состояние дисков, шлангов, уровень и качество тормозной жидкости.' },
+ { step: '02', title: 'Согласование', desc: 'Показываем фото износа, объясняем что нужно менять сейчас, а что подождёт ТО.' },
+ { step: '03', title: 'Работы', desc: 'Замена колодок и дисков, ремонт суппортов, прокачка системы, очистка направляющих.' },
+ { step: '04', title: 'Тест', desc: 'Тест-драйв с проверкой эффективности торможения и отсутствия биений и шумов.' },
 ];
 
 const FAQ = [
@@ -135,9 +141,9 @@ export default function Page() {
  </div>
  </section>
 
- <section className="py-16 bg-[#111113]">
+ <section className="py-12 md:py-16 bg-[#111113]">
  <div className="container">
- <h2 className="font-display text-3xl text-text uppercase tracking-wider mb-8">ЦЕНЫ</h2>
+ <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-8">ЦЕНЫ</h2>
  <div className="overflow-x-auto">
  <table className="w-full max-w-2xl">
  <thead>
@@ -162,8 +168,21 @@ export default function Page() {
  </div>
  </section>
 
- <section className="py-16 container max-w-3xl">
- <h2 className="font-display text-3xl text-text uppercase tracking-wider mb-8">ЧАСТЫЕ ВОПРОСЫ</h2>
+ <section className="py-12 md:py-16 container">
+ <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-8">КАК МЫ РАБОТАЕМ</h2>
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+ {STEPS.map((s) => (
+ <div key={s.step} className="card">
+ <div className="font-display text-3xl text-orange-400/30 mb-3">{s.step}</div>
+ <h3 className="font-semibold text-text mb-2">{s.title}</h3>
+ <p className="text-text-subtle text-sm leading-relaxed">{s.desc}</p>
+ </div>
+ ))}
+ </div>
+ </section>
+
+ <section className="py-12 md:py-16 container max-w-3xl">
+ <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-8">ЧАСТЫЕ ВОПРОСЫ</h2>
  <div className="flex flex-col gap-4">
  {FAQ.map((item, i) => (
  <details key={i} className="card group">
@@ -177,9 +196,9 @@ export default function Page() {
  </div>
  </section>
 
- <section className="py-16 bg-[#111113] container">
+ <section className="py-12 md:py-16 bg-[#111113] container">
  <div className="card text-center p-10">
- <h2 className="font-display text-3xl text-text uppercase tracking-wider mb-3">ЗАПИСАТЬСЯ НА СЕРВИС</h2>
+ <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">ЗАПИСАТЬСЯ НА СЕРВИС</h2>
  <p className="text-text-muted mb-6">Ответим в течение 15 минут.</p>
  <div className="flex flex-col sm:flex-row gap-3 justify-center">
  <BookingButton label="Записаться онлайн" className="btn-primary text-base px-10 py-4" />

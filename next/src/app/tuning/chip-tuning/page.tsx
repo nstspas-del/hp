@@ -151,7 +151,7 @@ export default function ChipTuningPage() {
  <SevenForceCalculator />
 
  {/* ── Индивидуальный подход ── */}
- <section className="py-16 container">
+ <section className="py-12 md:py-16 container">
  <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
  <div>
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-4">
@@ -202,7 +202,7 @@ export default function ChipTuningPage() {
  </section>
 
  {/* ── Таблица прироста ── */}
- <section className="py-16 bg-[#111113]">
+ <section className="py-12 md:py-16 bg-[#111113]">
  <div className="container">
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">
  ПРИМЕРЫ ПРИРОСТА МОЩНОСТИ
@@ -235,7 +235,7 @@ export default function ChipTuningPage() {
  </section>
 
  {/* ── Почему HP Тюнинг ── */}
- <section className="py-16 container">
+ <section className="py-12 md:py-16 container">
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-10">
  ПОЧЕМУ HP ТЮНИНГ
  </h2>
@@ -253,7 +253,7 @@ export default function ChipTuningPage() {
  </section>
 
  {/* ── FAQ ── */}
- <section className="py-16 bg-[#111113]">
+ <section className="py-12 md:py-16 bg-[#111113]">
  <div className="container max-w-3xl">
  <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-10">
  ЧАСТЫЕ ВОПРОСЫ
@@ -273,7 +273,7 @@ export default function ChipTuningPage() {
  </section>
 
  {/* ── CTA ── */}
- <section className="py-16 container">
+ <section className="py-12 md:py-16 container">
  <div className="card border-[#39FF14]/20 text-center p-10 glow-box">
  <div className="w-16 h-16 rounded-2xl bg-[#39FF14]/10 flex items-center justify-center mx-auto mb-6">
  <Zap className="size-8 text-[#39FF14]" />
