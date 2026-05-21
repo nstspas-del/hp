@@ -46,7 +46,7 @@ const FACTS = [
 
 export function SocialProof() {
   return (
-    <section className="container py-16 md:py-20">
+    <section className="container py-12 md:py-16">
       {/* Заголовок секции */}
       <div className="max-w-3xl mb-10 md:mb-14">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent-dim text-accent text-xs font-semibold uppercase tracking-wider mb-4">

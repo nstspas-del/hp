@@ -86,43 +86,45 @@ export default function HomePage() {
  dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
  />
 
- {/* Герой с BMW X7 */}
+ {/* 1. Герой с BMW X7 — внутри уже есть 4 ключевые карточки услуг (Диагностика/ТО/Чип/Детейлинг) */}
  <Hero />
 
- {/* Полоска брендов → /marki/ */}
+ {/* 2. Тонкая полоска брендов (текст-навигация → /marki/) */}
  <BrandStripSection />
 
- {/* Что мы делаем — табы без картинок (скрываем на мобиле, чтобы не перегружать) */}
- <div className="hidden md:block">
- <ShowcaseSection />
- </div>
-
- {/* Бренды (на мобиле уже есть BrandStrip выше, второй блок убираем) */}
+ {/* 3. Наши марки — крупные кликабельные кнопки с цветными акцентами.
+        Подняли ВЫШЕ услуг: пользователь чаще ищет «делаете ли мою марку?»,
+        и это быстрый ответ + переход на брендовую страницу. */}
  <div className="hidden md:block">
  <BrandsSection />
  </div>
 
- {/* Социальные доказательства после ребрендинга 2026 */}
+ {/* 4. Социальные доказательства — почему нам доверяют. */}
  <SocialProof />
 
- {/* Работы */}
+ {/* 5. Что мы делаем — раскрытие услуг (один блок, табы с фото). */}
+ <div className="hidden md:block">
+ <ShowcaseSection />
+ </div>
+
+ {/* 6. Работы */}
  <WorksPreview />
 
- {/* Проектные автомобили */}
+ {/* 7. Проектные автомобили */}
  <ProjectCarsSection />
 
- {/* Видео RuTube (тяжёлый iframe — только на десктопе) */}
+ {/* 8. Видео RuTube (тяжёлый iframe — только на десктопе) */}
  <div className="hidden md:block">
  <VideoSection />
  </div>
 
- {/* Отзывы */}
+ {/* 9. Отзывы */}
  <ReviewsSection />
 
- {/* FAQ */}
+ {/* 10. FAQ */}
  <FaqSection />
 
- {/* CTA */}
+ {/* 11. CTA */}
  <CtaSection />
  </>
  );

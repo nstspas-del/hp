@@ -57,7 +57,7 @@ function getBrandHref(slug: string): string {
 
 export function BrandsSection() {
  return (
- <section className="py-16 md:py-20 bg-[#09090b]">
+ <section className="py-12 md:py-16 bg-[#09090b]">
  <div className="container">
  <motion.div
  className="mb-10"

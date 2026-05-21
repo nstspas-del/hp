@@ -246,34 +246,10 @@ export function Hero() {
         </Link>
       </div>
 
-      {/* ── Нижняя полоска направлений (ТОЛЬКО ДЕСКТОП) ──
-          На мобиле этот блок убран — 4 кликабельных карточки выше его заменяют.
-      */}
-      <div className="hidden md:block relative border-t border-white/8 bg-[#09090b]/85 backdrop-blur-sm">
-        <div className="container">
-          <div className="grid grid-cols-3 divide-x divide-white/8">
-            {[
-              { href: '/service', icon: '🔧', label: 'Автосервис', sub: 'ТО, ремонт, шиномонтаж от 2 500 ₽' },
-              { href: '/detailing', icon: '◈', label: 'Детейлинг', sub: 'Керамика, PPF, химчистка' },
-              { href: '/tuning/chip-tuning', icon: '⚡', label: 'Чип-тюнинг', sub: 'Stage 1 от 24 000 ₽' },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group flex items-center gap-2 md:gap-3 px-3 md:px-8 py-4 md:py-5 hover:bg-white/3 transition-colors"
-              >
-                <span className="text-lg md:text-2xl">{item.icon}</span>
-                <div className="min-w-0">
-                  <div className="text-white text-xs md:text-base font-semibold group-hover:text-[#39FF14] transition-colors truncate">
-                    {item.label}
-                  </div>
-                  <div className="text-zinc-600 text-xs truncate hidden sm:block">{item.sub}</div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/* ── Нижняя полоска направлений УБРАНА (Phase F — visual redesign).
+          Причина: дублировала 4 карточки KEY_SERVICES выше — пользователь
+          видел три блока услуг подряд (карточки в Hero + эта полоска + ShowcaseSection).
+          4-х карточек KEY_SERVICES в Hero достаточно как entry-point. */}
     </section>
   );
 }

@@ -40,7 +40,7 @@ const PROJECT_CARS: ProjectCar[] = [
 
 export function ProjectCarsSection() {
   return (
-    <section className="py-20 bg-[#111113]">
+    <section className="py-12 md:py-16 bg-[#111113]">
       <div className="container">
         {/* Заголовок */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">

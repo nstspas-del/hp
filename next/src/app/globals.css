@@ -110,7 +110,9 @@
   }
 
   .section {
-    @apply py-16 md:py-24;
+    /* Phase F (visual redesign): ужали с py-16/24 до py-12/16,
+       чтобы убрать пустоту между секциями. */
+    @apply py-12 md:py-16;
   }
 
   .section-title {
