@@ -7,7 +7,7 @@ import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
  title: 'Чип-тюнинг и прошивка ЭБУ BMW, Mercedes, Audi в СПб — Stage 1 от 24 000 ₽ | HP Тюнинг',
- description: 'Чип-тюнинг и прошивка ЭБУ в Санкт-Петербурге: Stage 1 от 24 000 ₽ для BMW, Mercedes, Audi, Porsche; от 15 000 ₽ для Haval, Chery, Tank, Geely. Alientech KESS3, гарантия 12 мес, откат к стоку бесплатно.',
+ description: 'Чип-тюнинг и прошивка ЭБУ в Санкт-Петербурге: Stage 1 от 24 000 ₽ для BMW, Mercedes, Audi, Porsche; от 15 000 ₽ для Haval, Chery, Tank, Geely. Alientech KESS3, бесплатный откат к стоку.',
  keywords: ['чип тюнинг спб', 'прошивка эбу спб', 'чип тюнинг bmw спб', 'чип тюнинг mercedes спб', 'чип тюнинг audi спб', 'тюнинг haval спб', 'чип тюнинг chery', 'тюнинг geely', 'прошивка tank', 'stage 1 spb', 'alientech kess3'],
  alternates: { canonical: 'https://hptuning.ru/tuning/chip-tuning' },
  openGraph: {
@@ -53,7 +53,7 @@ const GAINS = [
 
 const WHY = [
  { icon: Award, title: 'Alientech KESS3', desc: 'Официальное оборудование Alientech — лицензированные чтение/запись через OBD, Bootloader, BDM.' },
- { icon: Shield, title: 'Гарантия 12 месяцев', desc: 'Откат к стоку в любой момент. Файл оригинальной прошивки хранится у нас вечно.' },
+ { icon: Shield, title: 'Файл стока навсегда', desc: 'Оригинальная прошивка ЭБУ хранится у нас вечно — откат к стоку возможен в любой момент.' },
  { icon: TrendingUp, title: '10 лет опыта', desc: 'Более 500 автомобилей, 30+ марок. Специализация на немецком и британском премиуме.' },
  { icon: RotateCcw, title: 'Откат к стоку', desc: 'Бесплатный откат к заводской прошивке в любое время — перед ТО, продажей или гарантийным случаем.' },
 ];

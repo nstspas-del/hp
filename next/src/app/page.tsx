@@ -1,14 +1,11 @@
 export const dynamic = 'force-static';
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
-import { ShowcaseSection } from '@/components/ShowcaseSection';
-
 import { BrandsSection } from '@/components/sections/BrandsSection';
 import { WorksPreview } from '@/components/sections/WorksPreview';
 import { FaqSection } from '@/components/sections/FaqSection';
 import { CtaSection } from '@/components/sections/CtaSection';
 import { ReviewsSection } from '@/components/sections/ReviewsSection';
-import { VideoSection } from '@/components/sections/VideoSection';
 import { ProjectCarsSection } from '@/components/sections/ProjectCarsSection';
 import { SocialProof } from '@/components/sections/SocialProof';
 import seoData from '@/data/seo.json';
@@ -95,29 +92,19 @@ export default function HomePage() {
  {/* 3. Социальные доказательства — почему нам доверяют. */}
  <SocialProof />
 
- {/* 4. Что мы делаем — раскрытие услуг (табы с фото, только десктоп). */}
- <div className="hidden md:block">
- <ShowcaseSection />
- </div>
-
- {/* 5. Работы */}
+ {/* 4. Работы */}
  <WorksPreview />
 
- {/* 6. Проектные автомобили */}
+ {/* 5. Проектные автомобили */}
  <ProjectCarsSection />
 
- {/* 7. Видео RuTube (тяжёлый iframe — только на десктопе) */}
- <div className="hidden md:block">
- <VideoSection />
- </div>
-
- {/* 8. Отзывы */}
+ {/* 6. Отзывы */}
  <ReviewsSection />
 
- {/* 9. FAQ */}
+ {/* 7. FAQ */}
  <FaqSection />
 
- {/* 10. CTA */}
+ {/* 8. CTA */}
  <CtaSection />
  </>
  );

@@ -246,10 +246,7 @@ export function Hero() {
         </Link>
       </div>
 
-      {/* ── Нижняя полоска направлений УБРАНА (Phase F — visual redesign).
-          Причина: дублировала 4 карточки KEY_SERVICES выше — пользователь
-          видел три блока услуг подряд (карточки в Hero + эта полоска + ShowcaseSection).
-          4-х карточек KEY_SERVICES в Hero достаточно как entry-point. */}
+      {/* 4-х карточек KEY_SERVICES в Hero достаточно как entry-point. */}
     </section>
   );
 }

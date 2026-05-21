@@ -27,7 +27,7 @@ const SERVICES = [
  icon: Zap,
  title: 'Чип-тюнинг',
  sub: 'Stage 1 / 2 / 3',
- desc: 'Перепрошивка ЭБУ для роста мощности до +40% и момента до +50%. Гарантия 12 мес, откат к стоку в любой момент.',
+ desc: 'Перепрошивка ЭБУ для роста мощности до +40% и момента до +50%. Бесплатный откат к стоку в любой момент.',
  href: '/tuning/chip-tuning',
  from: '24 000 ₽',
  badge: 'Хит',
@@ -73,10 +73,29 @@ const WHY = [
  { val: '10+', label: 'лет на рынке' },
  { val: '500+', label: 'авто прошито' },
  { val: '30+', label: 'марок' },
- { val: '12 мес', label: 'гарантия' },
+ { val: 'Откат', label: 'к стоку бесплатно' },
 ];
 
-const EQUIPMENT = ['Alientech KESSv3', 'Dimsport MyGenius', 'CMD Flash', 'MPPS v22', 'WinOLS 4'];
+// Диагностическое оборудование — только то, что реально используется для чтения/записи ЭБУ
+// и профильной диагностики по премиум-маркам.
+const EQUIPMENT = [
+  {
+    name: 'Alientech KESS3',
+    desc: 'Профессиональный программатор ЭБУ. Чтение/запись через OBD, Bootloader, BDM для всех современных премиум-эБУ.',
+  },
+  {
+    name: 'AUTEL MaxiSYS MS919',
+    desc: 'Топовый сканер с поддержкой всех протоколов BMW, Mercedes, Audi, Porsche, Land Rover, японских и китайских марок.',
+  },
+  {
+    name: 'Bosch KTS 590',
+    desc: 'Официальный дилерский сканер. Считывает живые данные с всех ЭБУ и видит скрытые параметры, как у дилера.',
+  },
+  {
+    name: 'Launch X-431 PRO5',
+    desc: 'Универсальный сканер для быстрой диагностики и адаптации блоков после ремонта — весь асиатский сегмент без исключений.',
+  },
+];
 
 export default function TuningPage() {
  return (
@@ -173,26 +192,27 @@ export default function TuningPage() {
  </div>
  </section>
 
- {/* ── Оборудование ── */}
+ {/* ── Диагностическое оборудование ── */}
  <section className="section bg-[#111113]">
  <div className="container">
- <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
- <div>
- <span className="badge mb-4">Профессиональный инструмент</span>
- <h2 className="section-title text-4xl mb-4">РАБОТАЕМ<br />НА ЛУЧШЕМ<br />ОБОРУДОВАНИИ</h2>
+ <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+ <div className="lg:sticky lg:top-24">
+ <span className="badge mb-4">Диагностическое оборудование</span>
+ <h2 className="section-title text-4xl mb-4">ЧИТАЕМ ЭБУ<br />КАК ДИЛЕР</h2>
  <p className="text-zinc-500 leading-relaxed mb-6">
- Используем только сертифицированное оборудование ведущих европейских производителей.
- Каждый файл прошивки разрабатывается индивидуально под параметры конкретного автомобиля.
+ Профессиональные сканеры и программаторы для премиум-марок. Видим скрытые параметры,
+ которые не показывают универсальные ELM-сканеры, и работаем с протоколами Bootloader и BDM —
+ теми же, что использует официальный сервис.
  </p>
  <ul className="flex flex-col gap-3">
  {[
  'Индивидуальные калибровки для каждого авто',
- 'Оригинальные прошивки сохраняем перед работой',
- 'Откат к стоку в любой момент',
- 'Гарантия 12 месяцев на работы',
+ 'Сохраняем оригинальный файл ЭБУ перед работой',
+ 'Бесплатный откат к стоку в любой момент',
+ 'Полный отчёт по диагностике клиенту на руки',
  ].map((item) => (
- <li key={item} className="flex items-center gap-3 text-zinc-400 text-sm">
- <CheckCircle className="size-4 text-[#39FF14] shrink-0" />
+ <li key={item} className="flex items-start gap-3 text-zinc-400 text-sm">
+ <CheckCircle className="size-4 text-[#39FF14] shrink-0 mt-0.5" />
  {item}
  </li>
  ))}
@@ -200,9 +220,15 @@ export default function TuningPage() {
  </div>
  <div className="grid grid-cols-1 gap-3">
  {EQUIPMENT.map((eq) => (
- <div key={eq} className="flex items-center gap-4 bg-[#09090b] border border-white/8 rounded-xl px-5 py-4">
+ <div
+ key={eq.name}
+ className="bg-[#09090b] border border-white/8 hover:border-[#39FF14]/30 transition-colors rounded-xl px-5 py-5"
+ >
+ <div className="flex items-center gap-3 mb-2">
  <div className="w-2 h-2 rounded-full bg-[#39FF14] shrink-0" />
- <span className="text-white font-semibold">{eq}</span>
+ <span className="font-display text-lg text-white">{eq.name}</span>
+ </div>
+ <p className="text-zinc-500 text-sm leading-relaxed pl-5">{eq.desc}</p>
  </div>
  ))}
  </div>
