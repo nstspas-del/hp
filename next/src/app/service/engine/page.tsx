@@ -4,6 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Gauge, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
+import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer';
 
 export const metadata: Metadata = {
  title: 'Ремонт двигателя BMW, Mercedes, Audi в СПб | HP Тюнинг',
@@ -168,6 +169,7 @@ export default function EnginePage() {
  </tbody>
  </table>
  </div>
+ <div className="mt-4 max-w-2xl"><PriceDisclaimer /></div>
  </div>
  </section>
 

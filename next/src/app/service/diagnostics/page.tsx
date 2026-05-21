@@ -4,6 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Cpu, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
+import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer';
 
 export const metadata: Metadata = {
  title: 'Компьютерная диагностика авто в СПб — от 1 500 ₽ | HP Тюнинг',
@@ -160,6 +161,7 @@ export default function DiagnosticsPage() {
  </tbody>
  </table>
  </div>
+ <div className="mt-4 max-w-2xl"><PriceDisclaimer /></div>
  <p className="text-text-subtle text-xs mt-3">Стоимость диагностики засчитывается при ремонте.</p>
  </div>
  </section>

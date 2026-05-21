@@ -4,6 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Settings, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
+import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer';
 
 export const metadata: Metadata = {
  title: 'ТО BMW, Mercedes, Audi, Haval, Chery в СПб — от 4 900 ₽ | HP Тюнинг',
@@ -174,6 +175,7 @@ export default function ToPage() {
  </tbody>
  </table>
  </div>
+ <div className="mt-4 max-w-2xl"><PriceDisclaimer /></div>
  </div>
  </section>
 

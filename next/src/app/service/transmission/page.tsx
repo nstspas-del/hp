@@ -4,6 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { Settings, ChevronRight, CheckCircle, Phone, Clock } from 'lucide-react';
 import { BookingButton } from '@/components/ui/BookingButton';
+import { PriceDisclaimer } from '@/components/ui/PriceDisclaimer';
 
 export const metadata: Metadata = {
  title: 'Ремонт АКПП, DSG, МКПП в СПб — BMW, Mercedes, Audi | HP Тюнинг',
@@ -38,6 +39,13 @@ const WORKS = [
  'Замена гидротрансформатора',
  'Ремонт DSG/PDK',
  'Обслуживание вариатора (CVT)',
+];
+
+const STEPS = [
+ { step: '01', title: 'Диагностика', desc: 'Считываем ошибки мехатроника, проверяем давление масла, оцениваем состояние сцепления и гидроблока.' },
+ { step: '02', title: 'Дефектовка', desc: 'Сливаем масло, осматриваем поддон на стружку, делаем заключение по необходимым работам.' },
+ { step: '03', title: 'Ремонт', desc: 'Замена масла и фильтра, ремонт мехатроника, гидроблока, гидротрансформатора, замена сцепления DSG.' },
+ { step: '04', title: 'Адаптация и тест', desc: 'Программная адаптация коробки после ремонта, тест-драйв с проверкой всех режимов и переключений.' },
 ];
 
 const FAQ = [
@@ -157,6 +165,20 @@ export default function Page() {
  </tbody>
  </table>
  </div>
+ <div className="mt-4 max-w-2xl"><PriceDisclaimer /></div>
+ </div>
+ </section>
+
+ <section className="py-16 container">
+ <h2 className="font-display text-3xl text-text uppercase tracking-wider mb-8">КАК МЫ РАБОТАЕМ</h2>
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+ {STEPS.map((s) => (
+ <div key={s.step} className="card">
+ <div className="font-display text-3xl text-yellow-400/30 mb-3">{s.step}</div>
+ <h3 className="font-semibold text-text mb-2">{s.title}</h3>
+ <p className="text-text-subtle text-sm leading-relaxed">{s.desc}</p>
+ </div>
+ ))}
  </div>
  </section>
 
