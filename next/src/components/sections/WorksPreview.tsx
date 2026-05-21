@@ -57,17 +57,17 @@ const WORKS = [
 
 export function WorksPreview() {
  return (
- <section className="py-12 md:py-16 bg-[#0c0c0e]">
+ <section className="py-10 md:py-14 bg-[#0c0c0e]">
  <div className="container">
  <motion.div
- className="flex items-end justify-between mb-10"
+ className="flex items-end justify-between mb-6 md:mb-8"
  initial={{ opacity: 0, y: 20 }}
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true }}
  >
  <div>
- <span className="badge mb-3">Наши работы</span>
- <h2 className="font-display text-4xl md:text-5xl uppercase tracking-wide text-white">
+ <span className="badge mb-2">Наши работы</span>
+ <h2 className="font-display text-3xl md:text-4xl uppercase tracking-wide text-white">
  Портфолио
  </h2>
  </div>

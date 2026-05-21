@@ -46,17 +46,17 @@ const FACTS = [
 
 export function SocialProof() {
   return (
-    <section className="container py-12 md:py-16">
+    <section className="container py-10 md:py-14 border-t border-white/5">
       {/* Заголовок секции */}
-      <div className="max-w-3xl mb-10 md:mb-14">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent-dim text-accent text-xs font-semibold uppercase tracking-wider mb-4">
+      <div className="max-w-3xl mb-6 md:mb-8">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent-dim text-accent text-xs font-semibold uppercase tracking-wider mb-3">
           <Sparkles className="size-3.5" />
           После ребрендинга 2026
         </div>
-        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-text uppercase tracking-tight mb-4">
+        <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-tight mb-3">
           Почему нам доверяют <span className="text-accent">премиум-авто</span>
         </h2>
-        <p className="text-text-muted text-base md:text-lg leading-relaxed">
+        <p className="text-text-muted text-sm md:text-base leading-relaxed">
           Мы не стартап. Это новое лицо проверенной команды, у которой за плечами тысячи прошитых
           двигателей, своя мастерская и понятная гарантия.
         </p>
@@ -92,7 +92,7 @@ export function SocialProof() {
       </div>
 
       {/* Финальная плашка с цифрами */}
-      <div className="mt-10 md:mt-14 card p-6 md:p-8 bg-gradient-to-r from-card via-card to-bg-card border-accent-dim">
+      <div className="mt-6 md:mt-10 card p-6 md:p-8 bg-gradient-to-r from-card via-card to-bg-card border-accent-dim">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <Stat value="1 500+" label="авто за 5 лет" />
           <Stat value="44" label="марки в каталоге" />

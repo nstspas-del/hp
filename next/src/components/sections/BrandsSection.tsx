@@ -57,25 +57,25 @@ function getBrandHref(slug: string): string {
 
 export function BrandsSection() {
  return (
- <section className="py-12 md:py-16 bg-[#09090b]">
+ <section className="py-10 md:py-14 bg-[#09090b]">
  <div className="container">
  <motion.div
- className="mb-10"
+ className="mb-6 md:mb-8"
  initial={{ opacity: 0, y: 20 }}
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true }}
  >
- <span className="badge mb-3">{brandsData.length} марок</span>
- <h2 className="font-display text-4xl md:text-5xl uppercase tracking-wide text-white">
+ <span className="badge mb-2">{brandsData.length} марок</span>
+ <h2 className="font-display text-3xl md:text-4xl uppercase tracking-wide text-white">
  Наши марки
  </h2>
- <p className="text-zinc-500 text-base mt-3 max-w-lg">
- Весь премиальный и средний сегмент — от Ferrari до Renault. Специализированное ПО для каждой марки.
+ <p className="text-zinc-500 text-sm md:text-base mt-2 max-w-lg">
+ Премиум и средний сегмент — от Ferrari до Renault. Специализированное ПО для каждой марки.
  </p>
  </motion.div>
 
  {/* Кнопки марок — с цветной подсветкой при ховере */}
- <div className="flex flex-wrap gap-2.5 mb-10">
+ <div className="flex flex-wrap gap-2 md:gap-2.5 mb-6 md:mb-8">
  {brandsData.map((brand, i) => {
  const color = BRAND_COLORS[brand.slug] ?? '#39FF14';
  const href = getBrandHref(brand.slug);
@@ -91,7 +91,7 @@ export function BrandsSection() {
  <a
  href={href}
  {...(isExternal ? {} : {})}
- className="brand-btn group relative inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl border border-white/10 bg-[#111113] text-zinc-300 font-semibold text-sm transition-all duration-200 hover:text-white hover:border-transparent hover:shadow-lg"
+ className="brand-btn group relative inline-flex items-center gap-2 md:gap-2.5 px-3.5 py-2 md:px-5 md:py-3 rounded-xl md:rounded-2xl border border-white/10 bg-[#111113] text-zinc-300 font-semibold text-xs md:text-sm transition-all duration-200 hover:text-white hover:border-transparent hover:shadow-lg"
  style={{
  '--brand-color': color,
  } as React.CSSProperties}

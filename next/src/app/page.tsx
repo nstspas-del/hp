@@ -10,7 +10,6 @@ import { CtaSection } from '@/components/sections/CtaSection';
 import { ReviewsSection } from '@/components/sections/ReviewsSection';
 import { VideoSection } from '@/components/sections/VideoSection';
 import { ProjectCarsSection } from '@/components/sections/ProjectCarsSection';
-import { BrandStripSection } from '@/components/sections/BrandStripSection';
 import { SocialProof } from '@/components/sections/SocialProof';
 import seoData from '@/data/seo.json';
 
@@ -86,45 +85,40 @@ export default function HomePage() {
  dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
  />
 
- {/* 1. Герой с BMW X7 — внутри уже есть 4 ключевые карточки услуг (Диагностика/ТО/Чип/Детейлинг) */}
+ {/* 1. Hero с BMW X7 — внутри 4 карточки услуг (Диагностика/ТО/Чип/Детейлинг). */}
  <Hero />
 
- {/* 2. Тонкая полоска брендов (текст-навигация → /marki/) */}
- <BrandStripSection />
-
- {/* 3. Наши марки — крупные кликабельные кнопки с цветными акцентами.
-        Подняли ВЫШЕ услуг: пользователь чаще ищет «делаете ли мою марку?»,
-        и это быстрый ответ + переход на брендовую страницу. */}
- <div className="hidden md:block">
+ {/* 2. Наши марки — единственный блок брендов на странице.
+        BrandStripSection удалён (дублировал этот блок). Виден и на мобиле,
+        и на десктопе: «делаете ли вы мою марку?» — быстрый ответ. */}
  <BrandsSection />
- </div>
 
- {/* 4. Социальные доказательства — почему нам доверяют. */}
+ {/* 3. Социальные доказательства — почему нам доверяют. */}
  <SocialProof />
 
- {/* 5. Что мы делаем — раскрытие услуг (один блок, табы с фото). */}
+ {/* 4. Что мы делаем — раскрытие услуг (табы с фото, только десктоп). */}
  <div className="hidden md:block">
  <ShowcaseSection />
  </div>
 
- {/* 6. Работы */}
+ {/* 5. Работы */}
  <WorksPreview />
 
- {/* 7. Проектные автомобили */}
+ {/* 6. Проектные автомобили */}
  <ProjectCarsSection />
 
- {/* 8. Видео RuTube (тяжёлый iframe — только на десктопе) */}
+ {/* 7. Видео RuTube (тяжёлый iframe — только на десктопе) */}
  <div className="hidden md:block">
  <VideoSection />
  </div>
 
- {/* 9. Отзывы */}
+ {/* 8. Отзывы */}
  <ReviewsSection />
 
- {/* 10. FAQ */}
+ {/* 9. FAQ */}
  <FaqSection />
 
- {/* 11. CTA */}
+ {/* 10. CTA */}
  <CtaSection />
  </>
  );
