@@ -5,7 +5,7 @@ import { Send, Eye, Wifi, Coffee } from 'lucide-react';
 
 export function VideoSection() {
  return (
- <section className="section" id="videos">
+ <section className="section border-t border-white/5" id="videos">
  <div className="container">
  <motion.div
  className="rounded-2xl border border-border bg-bg-elevated overflow-hidden"

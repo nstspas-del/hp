@@ -57,7 +57,7 @@ const WORKS = [
 
 export function WorksPreview() {
  return (
- <section className="py-10 md:py-14 bg-[#0c0c0e]">
+ <section className="py-10 md:py-14 bg-[#0c0c0e] border-t border-white/5">
  <div className="container">
  <motion.div
  className="flex items-end justify-between mb-6 md:mb-8"

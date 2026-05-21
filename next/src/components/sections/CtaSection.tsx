@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export function CtaSection() {
  return (
- <section className="section bg-bg-elevated">
+ <section className="section bg-bg-elevated border-t border-white/5">
  <div className="container">
  <motion.div
  className="relative rounded-3xl overflow-hidden border border-accent-dim p-10 md:p-16 text-center glow-box"

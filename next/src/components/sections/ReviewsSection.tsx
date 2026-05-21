@@ -41,7 +41,7 @@ export function ReviewsSection() {
  const reviews = seoData.reviews;
 
  return (
- <section className="section bg-bg-elevated" id="reviews">
+ <section className="section bg-bg-elevated border-t border-white/5" id="reviews">
  <div className="container">
  {/* Заголовок */}
  <motion.div

@@ -29,7 +29,7 @@ export function ShowcaseSection() {
  const tab = TABS[activeTab];
 
  return (
- <section className="section bg-background">
+ <section className="section bg-background border-t border-white/5">
  <div className="container">
  {/* Заголовок */}
  <div className="text-center mb-10">

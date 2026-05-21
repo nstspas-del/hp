@@ -8,7 +8,7 @@ export function FaqSection() {
  const [open, setOpen] = useState<number | null>(0);
 
  return (
- <section className="section">
+ <section className="section border-t border-white/5">
  <div className="container">
  <motion.div
  className="text-center mb-12"
