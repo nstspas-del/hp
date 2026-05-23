@@ -229,7 +229,7 @@ export default function CalculatorPage() {
            <span className="badge mb-4">
              Онлайн-калькулятор
            </span>
-           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-text leading-tight mb-6">
+           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-text leading-tight mb-6">
              СТОИМОСТЬ<br />
              <span className="text-accent glow-accent">ЧИП-ТЮНИНГА</span>
            </h1>

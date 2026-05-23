@@ -146,7 +146,7 @@ export default function ChipTuningPage() {
  <Zap className="size-3.5" />
  Alientech KESS3 · Лицензия
  </span>
- <h1 className="section-title text-4xl md:text-5xl lg:text-6xl mb-6">
+ <h1 className="section-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6">
  ЧИП-ТЮНИНГ<br />
  <span className="text-[#39FF14]">STAGE 1 / 2 / 3</span><br />
  В САНКТ-ПЕТЕРБУРГЕ
