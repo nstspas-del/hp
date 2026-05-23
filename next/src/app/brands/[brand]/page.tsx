@@ -19,7 +19,7 @@ import { notFound } from 'next/navigation';
 import { CheckCircle, AlertTriangle, Phone, Zap, Sparkles, Wrench, Shield, Clock, Award, Star } from 'lucide-react';
 import brands from '@/data/brands.json';
 import { BookingButton } from '@/components/ui/BookingButton';
-import { ChipTuningCalculator } from '@/components/ui/ChipTuningCalculator';
+import { SevenForceCalculator } from '@/components/sections/SevenForceCalculator';
 import {
   getBrandFromHeaders,
   getBrandFromHost,
@@ -969,9 +969,12 @@ export default async function BrandPage({ params }: { params: { brand: string } 
           </div>
         )}
 
-        {/* ═══ ТЮНИНГ: Калькулятор чип-тюнинга ═══ */}
-        <div id="tuning" className="mb-14 -mx-4 sm:-mx-6 lg:-mx-8 scroll-mt-32">
-          <ChipTuningCalculator defaultBrandSlug={brandSlug} />
+        {/* ═══ ТЮНИНГ: Калькулятор чип-тюнинга ═══
+            Используем SevenForceCalculator (тот же, что на /tuning/chip-tuning) —
+            это правильный калькулятор с реальными данными из tuning-catalog.json (2993 двигателя).
+            Он предвыбирает марку автоматически через defaultBrandSlug. */}
+        <div id="tuning" className="mb-14 scroll-mt-32">
+          <SevenForceCalculator defaultBrandSlug={brandSlug} />
         </div>
 
         {/* ═══ ДЕТЕЙЛИНГ: услуги по защите и уходу для бренда ═══ */}

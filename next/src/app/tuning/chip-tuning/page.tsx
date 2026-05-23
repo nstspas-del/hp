@@ -182,7 +182,11 @@ export default function ChipTuningPage() {
  </section>
 
  {/* ── Калькулятор ── */}
- <SevenForceCalculator />
+ {/* id="chip-calculator" + scroll-mt-32 — чтобы кнопка «Рассчитать стоимость»
+     и пункт меню «Калькулятор чип-тюнинга» реально скроллили сюда (мимо sticky-хедера). */}
+ <section id="chip-calculator" className="scroll-mt-32">
+   <SevenForceCalculator />
+ </section>
 
  {/* ── Индивидуальный подход ── */}
  <section className="py-12 md:py-16 container">
