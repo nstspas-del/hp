@@ -6,7 +6,8 @@
 /* CSS-переменные для обратной совместимости (без Google CDN) */
 :root {
   --font-inter: 'Inter', system-ui, sans-serif;
-  --font-oswald: 'Bebas Neue', 'Oswald', Impact, sans-serif;
+  /* Oswald первым — у него есть кириллица. Bebas Neue только латиница (fallback). */
+  --font-oswald: 'Oswald', 'Bebas Neue', Impact, sans-serif;
 }
 @font-face {
   font-family: 'Inter';
@@ -52,12 +53,47 @@
   font-style: normal;
   font-display: swap;
 }
+/* ─── Oswald (display): полностью покрывает кириллицу и латиницу ─── */
+/* Раньше стоял Bebas Neue, но у него НЕТ кириллицы — H1/H2 на русском
+   падали на Impact-фолбэк и выглядели «непонятно». */
+@font-face {
+  font-family: 'Oswald';
+  src: url('/fonts/oswald-cyrillic-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Oswald';
+  src: url('/fonts/oswald-latin-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Oswald';
+  src: url('/fonts/oswald-cyrillic-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Oswald';
+  src: url('/fonts/oswald-latin-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Bebas Neue оставляем для обратной совместимости — fallback цепочка ниже */
 @font-face {
   font-family: 'Bebas Neue';
   src: url('/fonts/bebas-neue-400.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0000-00FF;
 }
 
 /* ─── Base ─── */
@@ -116,12 +152,30 @@
   }
 
   .section-title {
-    @apply font-display text-4xl md:text-5xl lg:text-6xl text-text uppercase tracking-wider mb-4;
+    /* Мобильная версия: начинаем с 3xl, чтобы длинные кириллические заголовки
+       типа «БЛОГ HP ТЮНИНГ» не вылазили за границы и не делали горизонтальный скролл. */
+    @apply font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-text uppercase tracking-wider mb-4 leading-tight;
   }
 
   .section-subtitle {
     @apply text-text-muted text-base md:text-lg max-w-2xl;
   }
+}
+
+/* ─── Глобальная защита от горизонтального скролла на мобиле ─── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+/* Изображения и видео никогда не вылазят за контейнер */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+/* Очень длинные слова (URL, англ. термины в кириллице) переносятся */
+h1, h2, h3, p {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* ─── Neon glow effect ─── */

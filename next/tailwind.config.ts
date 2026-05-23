@@ -41,7 +41,8 @@ const config: Config = {
       fontFamily: {
         // Шрифты подключены через @font-face в globals.css (self-hosted, no Google CDN)
         sans:    ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Bebas Neue', 'Oswald', 'Impact', 'sans-serif'],
+        // Oswald — поддерживает кириллицу. Bebas Neue только латиница (fallback для англ. заголовков).
+        display: ['Oswald', 'Bebas Neue', 'Impact', 'sans-serif'],
       },
       boxShadow: {
         'glow-accent': '0 0 20px rgba(57,255,20,0.5), 0 0 40px rgba(57,255,20,0.2)',

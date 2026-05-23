@@ -62,27 +62,6 @@
       "href": "/blog/range-rover-sport-full-detailing"
     },
     {
-      "type": "project",
-      "slug": "dodge-challenger-ta-hemi-build",
-      "title": "Гость недели: Dodge Challenger T/A 5.7 HEMI — наш daily-muscle",
-      "excerpt": "У нас на подъёмнике — наш daily-muscle проект, Dodge Challenger T/A 5.7 HEMI 2019 года. Машина, которой мы по-настоящему гордимся.",
-      "brand": "Dodge",
-      "model": "Challenger T/A 5.7 HEMI",
-      "services": [
-        "Чип-тюнинг",
-        "Body Look",
-        "Выхлоп"
-      ],
-      "tags": [
-        "Dodge",
-        "Muscle car",
-        "HEMI"
-      ],
-      "coverImage": "/images/projects/dodge-challenger-ta/02-outdoor-sunset-halo.jpg",
-      "date": "2025-04-27",
-      "href": "/blog/dodge-challenger-ta-hemi-build"
-    },
-    {
       "type": "work",
       "slug": "skoda-kodiaq-pdr-vmyatina",
       "title": "Skoda Kodiaq — удаление вмятины на двери без покраски (PDR)",

@@ -272,27 +272,32 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* ───────── DESKTOP HERO (классический overlay с фото на фоне) ───────── */}
-      <section className="hidden md:flex relative h-[45vh] min-h-[320px] items-end overflow-hidden">
+      {/* ───────── DESKTOP HERO — фото сверху видимое, текст в нижней «полке» ───────── */}
+      <section className="hidden md:block relative bg-[#09090b]">
+        {/* Фото — целиком видно, без перекрытия текстом */}
         {project.coverImage && (
-          <Image
-            src={project.coverImage}
-            alt={project.title}
-            fill
-            className="object-cover object-center"
-            priority
-            sizes="100vw"
-          />
+          <div className="relative w-full h-[55vh] min-h-[420px] max-h-[640px] overflow-hidden">
+            <Image
+              src={project.coverImage}
+              alt={project.title}
+              fill
+              className="object-cover object-center"
+              priority
+              sizes="100vw"
+            />
+            {/* Лёгкий градиент только у самого низа — для плавного перехода в чёрную полку */}
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#09090b] to-transparent pointer-events-none" />
+          </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/60 to-black/10" />
-        <div className="relative container pb-8">
+        {/* Текстовая «полка» под фото — машину видно полностью, заголовок ниже */}
+        <div className="container pt-6 pb-10">
           {/* Breadcrumb */}
           <nav className="text-xs text-zinc-500 mb-3 flex items-center flex-wrap gap-1" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-[#39FF14] transition-colors">Главная</Link>
             <ChevronRight className="size-3" />
             <Link href="/blog" className="hover:text-[#39FF14] transition-colors">Блог</Link>
             <ChevronRight className="size-3" />
-            <span className="text-zinc-300 truncate max-w-[200px]">{project.title}</span>
+            <span className="text-zinc-300 truncate max-w-[260px]">{project.title}</span>
           </nav>
 
           {/* Tags */}
