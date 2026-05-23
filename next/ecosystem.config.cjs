@@ -3,7 +3,7 @@ module.exports = {
     name: 'hptuning',
     script: 'npx',
     args: 'next start -p 3000',
-    cwd: '/home/user/hp-repo/next',
+    cwd: '/home/user/webapp/next',
     env: { NODE_ENV: 'production', PORT: 3000 },
     watch: false,
     instances: 1,

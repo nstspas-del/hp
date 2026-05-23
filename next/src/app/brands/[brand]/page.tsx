@@ -134,6 +134,64 @@ const BRAND_GALLERY: Record<string, Array<{ src: string; alt: string }>> = {
   ],
 };
 
+/**
+ * BRAND_LANDING_INTRO — уникальный вводный лид для бренд-страниц.
+ * Делает страницу /brands/<brand> (и субдомен brand.hptuning.ru) полноценным лендингом,
+ * а не «универсальным шаблоном». Заполняем только для приоритетных брендов.
+ */
+const BRAND_LANDING_INTRO: Record<string, { kicker: string; body: string }> = {
+  mercedes: {
+    kicker: 'Сервис Mercedes-Benz в Санкт-Петербурге — без официального дилера',
+    body:
+      'HP Тюнинг — независимый сервис премиального уровня для Mercedes-Benz в СПб. Мы работаем со всем модельным рядом: '
+      + 'от компактных CLA и GLA до S-Class, GLE/GLS, G-Class и линейки AMG. Делаем плановое ТО без переплаты дилеру, '
+      + 'обслуживаем АКПП 9G-Tronic и 7G-Tronic, диагностируем M256/M276/M278/M177 по живой телеметрии (XENTRY), '
+      + 'строим AMG-проекты (выхлоп, downpipe, чип-тюнинг Stage 1/2), занимаемся детейлингом и реставрацией кожи салона. '
+      + 'Pavel Sh. в отзыве на Яндекс.Картах прямо сравнил наши цены с дилерскими: на CLA — 22 vs 42 тыс. за ТО.',
+  },
+};
+
+/**
+ * BRAND_LANDING_USP — уникальные смысловые блоки «почему мы».
+ * Не «4 общие плашки», а 4 конкретных причины именно по этому бренду.
+ */
+const BRAND_LANDING_USP: Record<string, Array<{ title: string; body: string; icon: string }>> = {
+  mercedes: [
+    {
+      icon: '🔬',
+      title: 'XENTRY-уровень диагностики',
+      body:
+        'Работаем с протоколами XENTRY/DAS — не «универсальный сканер с али», а полный доступ к ЭБУ Mercedes. '
+        + 'Читаем живую телеметрию в движении, видим реальное состояние M276/M278/M177, '
+        + 'делаем кодирование и адаптацию по протоколу завода.',
+    },
+    {
+      icon: '⚙️',
+      title: 'АКПП 7G/9G-Tronic — без замены «по гарантии»',
+      body:
+        'Mercedes 7G-Tronic (722.9) и 9G-Tronic (725.0) — наша специализация. '
+        + 'Замена масла с фильтром-картриджем (оригинал), адаптация гидроблока, '
+        + 'ремонт мехатроника при необходимости. Без дилерского «коробка под замену».',
+    },
+    {
+      icon: '🛠️',
+      title: 'AMG-проекты под ключ',
+      body:
+        'Downpipe без сажевого, выхлоп Akrapovič/Capristo, чип-тюнинг Stage 1/2 на C63/E63/GLE63/G63. '
+        + 'Замер на стенде Bosch Mainline FLA 203, контроль AFR/наддува по логам, '
+        + 'индивидуальная калибровка под топливо клиента.',
+    },
+    {
+      icon: '🧴',
+      title: 'Премиум-масла с допуском MB',
+      body:
+        'Mobil 1 ESP 5W-30 (MB 229.51/.52), Pakelo Global Multi PAO (MB 229.5), TWS 10W-60 для AMG. '
+        + 'Не «бочка из дилерского склада», а масло с подтверждённым допуском под конкретный мотор. '
+        + 'Своё масло клиента с актуальным допуском — заливаем без вопросов.',
+    },
+  ],
+};
+
 /* ── Маппинг фото брендов ── */
 const BRAND_PHOTOS: Record<string, string> = {
   bmw:        '/images/works/10-bmw-x5-neon-workshop.jpg',
@@ -571,6 +629,8 @@ export default async function BrandPage({ params }: { params: { brand: string } 
   const brandQuote = BRAND_QUOTE[brandSlug] ?? BRAND_QUOTE[brand.slug] ?? null;
   const brandOils  = BRAND_OILS[brandSlug]  ?? BRAND_OILS[brand.slug]  ?? [];
   const brandGallery = BRAND_GALLERY[brandSlug] ?? BRAND_GALLERY[brand.slug] ?? [];
+  const landingIntro = BRAND_LANDING_INTRO[brandSlug] ?? BRAND_LANDING_INTRO[brand.slug] ?? null;
+  const landingUsp   = BRAND_LANDING_USP[brandSlug]   ?? BRAND_LANDING_USP[brand.slug]   ?? [];
 
   // JSON-LD schemas
   const breadcrumbSchema = {
@@ -864,6 +924,44 @@ export default async function BrandPage({ params }: { params: { brand: string } 
           </div>
         )}
 
+        {/* ═══ Уникальный intro-лид бренд-лендинга ═══ */}
+        {landingIntro && (
+          <div className="mb-14">
+            <div className="relative bg-gradient-to-br from-[#111113] via-[#0c0c0e] to-[#111113] border border-white/8 rounded-2xl p-6 md:p-8">
+              <div className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-[#39FF14] text-black text-[10px] font-bold uppercase tracking-widest">
+                {brand.name} в HP Тюнинг
+              </div>
+              <h2 className="font-display text-2xl md:text-3xl text-white uppercase tracking-wide mb-4">
+                {landingIntro.kicker}
+              </h2>
+              <p className="text-zinc-300 text-base md:text-lg leading-relaxed">
+                {landingIntro.body}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* ═══ Уникальные USP-блоки бренд-лендинга ═══ */}
+        {landingUsp.length > 0 && (
+          <div className="mb-14">
+            <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-6">
+              4 причины выбрать HP Тюнинг для {brand.name}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {landingUsp.map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-[#111113] rounded-2xl border border-white/8 p-6 flex flex-col gap-3 hover:border-[#39FF14]/40 transition-colors"
+                >
+                  <div className="text-3xl">{item.icon}</div>
+                  <div className="text-white font-semibold text-lg">{item.title}</div>
+                  <div className="text-zinc-400 text-sm leading-relaxed">{item.body}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Trust блоки */}
         {trustItems.length > 0 && (
           <div className="mb-14">
@@ -915,12 +1013,9 @@ export default async function BrandPage({ params }: { params: { brand: string } 
         {/* ═══ Премиум-масла под бренд ═══ */}
         {brandOils.length > 0 && (
           <div className="mb-14">
-            <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-2">
+            <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-6">
               Какое масло заливаем в {brand.name}
             </h2>
-            <p className="text-zinc-500 text-sm mb-6 max-w-3xl">
-              Без компромиссов: только заводские допуски бренда. Если у вас есть своё масло с актуальным допуском — принесите, зальём ваше.
-            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {brandOils.map((oil, i) => (
                 <div
