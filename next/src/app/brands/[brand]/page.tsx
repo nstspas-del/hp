@@ -20,6 +20,8 @@ import { CheckCircle, AlertTriangle, Phone, Zap, Sparkles, Wrench, Shield, Clock
 import brands from '@/data/brands.json';
 import { BookingButton } from '@/components/ui/BookingButton';
 import { SevenForceCalculator } from '@/components/sections/SevenForceCalculator';
+import { YandexReviewsWidget } from '@/components/sections/YandexReviewsWidget';
+import { BrandReviews } from '@/components/sections/BrandReviews';
 import {
   getBrandFromHeaders,
   getBrandFromHost,
@@ -65,16 +67,18 @@ const BRAND_H1_FULL: Record<string, { lead: string; accent: string }> = {
 };
 
 /**
- * BRAND_QUOTE — цитата реального клиента (отзыв из Яндекс.Карт).
- * Усиливает E-E-A-T: имя, факт, площадка-источник.
+ * BRAND_QUOTE — устаревший блок ручных цитат.
+ * Больше НЕ используется — теперь отзывы подтягиваются как есть из Яндекс.Карт
+ * через компонент <BrandReviews> и seo.json.
+ * Закомментировано как dead-code на случай отката.
  */
-const BRAND_QUOTE: Record<string, { author: string; text: string; source: string; sourceUrl?: string }> = {
-  mercedes: {
-    author: 'Павел Ш.',
-    text:   'Делал ТО на CLA у дилера — выставили счёт 42 000 ₽. В HP Тюнинг сделали тот же объём работ за 22 000 ₽ с оригинальными расходниками. Документы и гарантия — на руках, никаких сюрпризов.',
-    source: 'Отзыв из Яндекс.Карт',
-  },
-};
+// const BRAND_QUOTE: Record<string, { author: string; text: string; source: string; sourceUrl?: string }> = {
+//   mercedes: {
+//     author: 'Павел Ш.',
+//     text:   'Делал ТО на CLA у дилера — выставили счёт 42 000 ₽. В HP Тюнинг сделали тот же объём работ за 22 000 ₽ с оригинальными расходниками. Документы и гарантия — на руках, никаких сюрпризов.',
+//     source: 'Отзыв из Яндекс.Карт',
+//   },
+// };
 
 /**
  * BRAND_OILS — премиум-масла, которые мы реально используем для бренда.
@@ -147,7 +151,7 @@ const BRAND_LANDING_INTRO: Record<string, { kicker: string; body: string }> = {
       + 'от компактных CLA и GLA до S-Class, GLE/GLS, G-Class и линейки AMG. Делаем плановое ТО без переплаты дилеру, '
       + 'обслуживаем АКПП 9G-Tronic и 7G-Tronic, диагностируем M256/M276/M278/M177 по живой телеметрии (XENTRY), '
       + 'строим AMG-проекты (выхлоп, downpipe, чип-тюнинг Stage 1/2), занимаемся детейлингом и реставрацией кожи салона. '
-      + 'Pavel Sh. в отзыве на Яндекс.Картах прямо сравнил наши цены с дилерскими: на CLA — 22 vs 42 тыс. за ТО.',
+      + 'Реальные отзывы клиентов с Яндекс.Карт — в блоке ниже.',
   },
 };
 
@@ -626,7 +630,8 @@ export default async function BrandPage({ params }: { params: { brand: string } 
   // FAQ данные
   const faqItems = BRAND_FAQ[brandSlug] ?? BRAND_FAQ[brand.slug] ?? [];
   const trustItems = BRAND_TRUST[brandSlug] ?? BRAND_TRUST[brand.slug] ?? [];
-  const brandQuote = BRAND_QUOTE[brandSlug] ?? BRAND_QUOTE[brand.slug] ?? null;
+  // brandQuote больше не используется в рендере — отзывы подтягиваем через <BrandReviews>
+  // из seo.json (Яндекс.Карт). BRAND_QUOTE сохранён как dead-code на случай возврата.
   const brandOils  = BRAND_OILS[brandSlug]  ?? BRAND_OILS[brand.slug]  ?? [];
   const brandGallery = BRAND_GALLERY[brandSlug] ?? BRAND_GALLERY[brand.slug] ?? [];
   const landingIntro = BRAND_LANDING_INTRO[brandSlug] ?? BRAND_LANDING_INTRO[brand.slug] ?? null;
@@ -891,7 +896,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
         {brand.typicalProblems && brand.typicalProblems.length > 0 && (
           <div id="service" className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-14 scroll-mt-32">
             <div className="bg-[#111113] rounded-2xl border border-white/8 p-6">
-              <h2 className="flex items-center gap-2 font-display text-xl text-white uppercase tracking-wide mb-5">
+              <h2 className="flex items-center gap-2 font-display text-xl md:text-2xl text-white mb-5" style={{ letterSpacing: '-0.015em', fontWeight: 700 }}>
                 <AlertTriangle className="size-5 text-amber-400" />
                 Типичные проблемы {brand.name}
               </h2>
@@ -907,7 +912,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
 
             {brand.whatWeDo && (
               <div className="bg-[#111113] rounded-2xl border border-white/8 p-6">
-                <h2 className="flex items-center gap-2 font-display text-xl text-white uppercase tracking-wide mb-5">
+                <h2 className="flex items-center gap-2 font-display text-xl md:text-2xl text-white mb-5" style={{ letterSpacing: '-0.015em', fontWeight: 700 }}>
                   <CheckCircle className="size-5 text-[#39FF14]" />
                   Что мы делаем
                 </h2>
@@ -931,7 +936,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
               <div className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-[#39FF14] text-black text-[10px] font-bold uppercase tracking-widest">
                 {brand.name} в HP Тюнинг
               </div>
-              <h2 className="font-display text-2xl md:text-3xl text-white uppercase tracking-wide mb-4">
+              <h2 className="font-display text-2xl md:text-3xl text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
                 {landingIntro.kicker}
               </h2>
               <p className="text-zinc-300 text-base md:text-lg leading-relaxed">
@@ -944,7 +949,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
         {/* ═══ Уникальные USP-блоки бренд-лендинга ═══ */}
         {landingUsp.length > 0 && (
           <div className="mb-14">
-            <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-6">
+            <h2 className="font-display text-2xl md:text-3xl text-white mb-6" style={{ letterSpacing: '-0.02em' }}>
               4 причины выбрать HP Тюнинг для {brand.name}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -962,10 +967,11 @@ export default async function BrandPage({ params }: { params: { brand: string } 
           </div>
         )}
 
-        {/* Trust блоки */}
-        {trustItems.length > 0 && (
+        {/* Trust блоки — НЕ показываем для брендов, у которых уже есть BRAND_LANDING_USP.
+            USP-блоки — расширенная версия Trust, дублирование = перегрузка страницы. */}
+        {trustItems.length > 0 && landingUsp.length === 0 && (
           <div className="mb-14">
-            <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-6">
+            <h2 className="font-display text-2xl md:text-3xl text-white mb-6" style={{ letterSpacing: '-0.02em' }}>
               Почему выбирают HP Тюнинг для {brand.name}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -983,37 +989,15 @@ export default async function BrandPage({ params }: { params: { brand: string } 
           </div>
         )}
 
-        {/* ═══ Цитата клиента (E-E-A-T) ═══ */}
-        {brandQuote && (
-          <div className="mb-14">
-            <figure className="relative bg-gradient-to-br from-[#39FF14]/10 via-[#111113] to-[#111113] border border-[#39FF14]/25 rounded-2xl p-6 md:p-8">
-              <div className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-[#39FF14] text-black text-[10px] font-bold uppercase tracking-widest">
-                Отзыв клиента
-              </div>
-              <blockquote className="text-zinc-200 text-lg md:text-xl leading-relaxed italic">
-                «{brandQuote.text}»
-              </blockquote>
-              <figcaption className="mt-4 flex flex-wrap items-center gap-3 text-sm">
-                <span className="text-white font-semibold">{brandQuote.author}</span>
-                <span className="text-zinc-500">·</span>
-                <span className="text-zinc-400">{brandQuote.source}</span>
-                <a
-                  href="https://yandex.ru/maps/org/hp_tyuning/132878862810/reviews/"
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  className="ml-auto text-[#39FF14] hover:underline text-xs font-medium"
-                >
-                  Все отзывы в Яндекс →
-                </a>
-              </figcaption>
-            </figure>
-          </div>
-        )}
+        {/* ═══ Отзывы клиентов по бренду — из Яндекс.Карт ═══
+            Подтягивается из seo.json, фильтруется по brandSlug.
+            Если по бренду нет реальных отзывов — блок не рендерится. */}
+        <BrandReviews brandSlug={brandSlug} brandName={brand.name} />
 
         {/* ═══ Премиум-масла под бренд ═══ */}
         {brandOils.length > 0 && (
           <div className="mb-14">
-            <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-6">
+            <h2 className="font-display text-2xl md:text-3xl text-white mb-6" style={{ letterSpacing: '-0.02em' }}>
               Какое масло заливаем в {brand.name}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -1039,7 +1023,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
         {/* ═══ Галерея реальных работ ═══ */}
         {brandGallery.length > 0 && (
           <div className="mb-14">
-            <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-2">
+            <h2 className="font-display text-2xl md:text-3xl text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
               {brand.name} на нашем подъёмнике
             </h2>
             <p className="text-zinc-500 text-sm mb-6 max-w-2xl">
@@ -1074,7 +1058,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
 
         {/* ═══ ДЕТЕЙЛИНГ: услуги по защите и уходу для бренда ═══ */}
         <div id="detailing" className="mb-14 scroll-mt-32">
-          <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-2">
+          <h2 className="font-display text-2xl md:text-3xl text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
             Детейлинг {brand.name}
           </h2>
           <p className="text-zinc-500 text-sm mb-6 max-w-2xl">
@@ -1110,7 +1094,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
         {/* Модельный ряд */}
         {brand.series && brand.series.length > 0 && (
           <div className="mb-14 scroll-mt-32" id="modeli">
-            <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-6">
+            <h2 className="font-display text-2xl md:text-3xl text-white mb-6" style={{ letterSpacing: '-0.02em' }}>
               Модели {brand.name} — цены на чип-тюнинг
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -1137,11 +1121,20 @@ export default async function BrandPage({ params }: { params: { brand: string } 
           </div>
         )}
 
+        {/* ═══ Реальные отзывы с Яндекс.Карт (виджет — без нашей перегрузки) ═══ */}
+        <div className="mb-14 -mx-5 md:-mx-10">
+          <YandexReviewsWidget
+            orgId="99062407907"
+            title={`Отзывы клиентов HP Тюнинг — ${brand.name} и другие бренды`}
+            height={520}
+          />
+        </div>
+
         {/* FAQ */}
         {faqItems.length > 0 && (
           <div className="mb-14 scroll-mt-32" id="faq">
-            <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-6">
-              Частые вопросы о чип-тюнинге {brand.name}
+            <h2 className="font-display text-2xl md:text-3xl text-white mb-6" style={{ letterSpacing: '-0.02em' }}>
+              Частые вопросы о {brand.name}
             </h2>
             <div className="space-y-3">
               {faqItems.map((item, i) => (
@@ -1165,7 +1158,7 @@ export default async function BrandPage({ params }: { params: { brand: string } 
         {/* CTA — дистанционная консультация */}
         <div className="rounded-2xl bg-gradient-to-r from-[#39FF14]/10 to-transparent border border-[#39FF14]/20 p-8">
           <div className="max-w-2xl">
-            <h3 className="font-display text-3xl text-white uppercase tracking-wide mb-3">
+            <h3 className="font-display text-2xl md:text-3xl text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
               Бесплатная консультация по {brand.name}
             </h3>
             <p className="text-zinc-400 text-base mb-6 leading-relaxed">

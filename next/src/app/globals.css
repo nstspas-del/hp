@@ -2,13 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Self-hosted fonts ─── */
-/* CSS-переменные для обратной совместимости (без Google CDN) */
+/* ─── Self-hosted fonts (no external CDN — Россия без VPN) ───
+ *
+ * Типографика 2026: Manrope для display + Inter для текста.
+ *
+ * Почему Manrope:
+ *   • Современная геометрическая антиква (используется Aviasales, Тинькофф, Я.Бизнес)
+ *   • Полная поддержка кириллицы (включая Ё, ў, ҳ)
+ *   • Веса 400/600/700/800 — этого достаточно для всей системы
+ *   • Хорошо читается и на дисплее, и в крупных H1
+ *   • Лицензия SIL Open Font License (свободная)
+ *
+ * Почему ушли с Oswald:
+ *   • Oswald — узкий condensed, на больших H1 выглядел вытянутым/тяжёлым
+ *     («странность» в типографике, на которую жаловалась клиент)
+ *   • Не вписывался в современный premium auto-tech дизайн-язык
+ *
+ * Все файлы лежат в /public/fonts/ — открываются из РФ без VPN.
+ * ─────────────────────────────────────────────────────────────── */
 :root {
-  --font-inter: 'Inter', system-ui, sans-serif;
-  /* Oswald первым — у него есть кириллица. Bebas Neue только латиница (fallback). */
-  --font-oswald: 'Oswald', 'Bebas Neue', Impact, sans-serif;
+  --font-sans:    'Manrope', 'Inter', system-ui, sans-serif;
+  --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
+  /* Обратная совместимость со старыми ссылками на переменные */
+  --font-inter:   'Inter', system-ui, sans-serif;
+  --font-oswald:  'Manrope', 'Inter', system-ui, sans-serif;
 }
+
+/* ─── Manrope (основной шрифт всей системы) ─── */
+/* Кириллица — отдельный файл (~7 КБ), грузится только если нужна */
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope-cyrillic-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope-latin-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope-cyrillic-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope-latin-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope-cyrillic-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope-latin-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope-cyrillic-800.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/manrope-latin-800.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Inter (резервный для текстовых блоков) ─── */
 @font-face {
   font-family: 'Inter';
   src: url('/fonts/inter-cyrillic-400.woff2') format('woff2');
@@ -21,13 +104,6 @@
   font-family: 'Inter';
   src: url('/fonts/inter-400.woff2') format('woff2');
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Inter';
-  src: url('/fonts/inter-500.woff2') format('woff2');
-  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
@@ -53,59 +129,60 @@
   font-style: normal;
   font-display: swap;
 }
-/* ─── Oswald (display): полностью покрывает кириллицу и латиницу ─── */
-/* Раньше стоял Bebas Neue, но у него НЕТ кириллицы — H1/H2 на русском
-   падали на Impact-фолбэк и выглядели «непонятно». */
+
+/* ─── Oswald-алиас (для старого кода, ссылающегося на font-family: 'Oswald') ─── */
+/* Перенаправляем на Manrope — никаких физических файлов Oswald больше не загружается. */
 @font-face {
   font-family: 'Oswald';
-  src: url('/fonts/oswald-cyrillic-500.woff2') format('woff2');
+  src: url('/fonts/manrope-cyrillic-700.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 @font-face {
   font-family: 'Oswald';
-  src: url('/fonts/oswald-latin-500.woff2') format('woff2');
+  src: url('/fonts/manrope-latin-700.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Oswald';
-  src: url('/fonts/oswald-cyrillic-700.woff2') format('woff2');
+  src: url('/fonts/manrope-cyrillic-800.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 @font-face {
   font-family: 'Oswald';
-  src: url('/fonts/oswald-latin-700.woff2') format('woff2');
+  src: url('/fonts/manrope-latin-800.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}
-/* Bebas Neue оставляем для обратной совместимости — fallback цепочка ниже */
-@font-face {
-  font-family: 'Bebas Neue';
-  src: url('/fonts/bebas-neue-400.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0000-00FF;
 }
 
 /* ─── Base ─── */
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* OpenType features Manrope: лигатуры + улучшенная кириллица */
+    font-feature-settings: 'ss01' on, 'cv11' on, 'calt' on;
   }
   body {
     @apply bg-bg text-text font-sans antialiased;
+    /* Чуть плотнее межбуквенное расстояние для body — Manrope так читается лучше */
+    letter-spacing: -0.005em;
   }
+  /* Display-заголовки. БЕЗ агрессивного uppercase+tracking-wider —
+     Manrope в 800-весе выглядит современно сам по себе. Уменьшаем tracking,
+     чтобы убрать ощущение «вытянутости» (главная жалоба на старый Oswald). */
   h1, h2, h3 {
-    @apply font-display tracking-wider;
+    @apply font-display;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    line-height: 1.05;
   }
   a {
     @apply transition-colors;
@@ -152,13 +229,16 @@
   }
 
   .section-title {
-    /* Мобильная версия: начинаем с 3xl, чтобы длинные кириллические заголовки
-       типа «БЛОГ HP ТЮНИНГ» не вылазили за границы и не делали горизонтальный скролл. */
-    @apply font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-text uppercase tracking-wider mb-4 leading-tight;
+    /* Manrope 800 + плотный tracking + НЕТ uppercase.
+       Современная подача: «Калькулятор стоимости» вместо «КАЛЬКУЛЯТОР СТОИМОСТИ».
+       Если в JSX где-то остался uppercase — он перекроет это (это нормально для бейджей). */
+    @apply font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-text mb-4 leading-[1.05];
+    letter-spacing: -0.025em;
+    font-weight: 800;
   }
 
   .section-subtitle {
-    @apply text-text-muted text-base md:text-lg max-w-2xl;
+    @apply text-text-muted text-base md:text-lg max-w-2xl leading-relaxed;
   }
 }
 
@@ -185,4 +265,39 @@ h1, h2, h3, p {
 
 .glow-box {
   box-shadow: 0 0 20px rgba(57, 255, 20, 0.15), inset 0 0 20px rgba(57, 255, 20, 0.05);
+}
+
+/* ─── Глобальная типографическая нормализация ──────────────────
+ *
+ * В шаблоне исторически много мест с `font-display uppercase tracking-wider/widest`.
+ * Это был стиль под Oswald-condensed — для Manrope такая комбинация плохо читается
+ * на крупных заголовках («рассыпается»). Переопределяем:
+ *
+ *  • font-display БЕЗ маленького text-xs — снимаем uppercase и tracking-wider,
+ *    ставим tight letter-spacing (Manrope так выглядит профессионально).
+ *  • font-display С text-xs/text-[10px] — НЕ трогаем (это бейджи,
+ *    у них uppercase нужен для контраста).
+ * ──────────────────────────────────────────────────────────── */
+
+/* H1/H2/H3/H4 с font-display и любым крупным размером — снимаем uppercase + ослабляем tracking */
+.font-display.text-sm,
+.font-display.text-base,
+.font-display.text-lg,
+.font-display.text-xl,
+.font-display.text-2xl,
+.font-display.text-3xl,
+.font-display.text-4xl,
+.font-display.text-5xl,
+.font-display.text-6xl,
+.font-display.text-7xl,
+h1.font-display,
+h2.font-display,
+h3.font-display {
+  text-transform: none !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Заголовки section-title и подобные — тоже без uppercase */
+.section-title {
+  text-transform: none !important;
 }

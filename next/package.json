@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource/bebas-neue": "^5.2.7",
     "@fontsource/inter": "^5.2.8",
+    "@fontsource/manrope": "^5.2.8",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.8.0",
     "next": "14.2.35",
