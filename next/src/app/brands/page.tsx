@@ -6,8 +6,8 @@ import { ArrowRight } from 'lucide-react';
 import brands from '@/data/brands.json';
 import seoData from '@/data/seo.json';
 
-// ── /brands — премиум-хаб 13 брендов (не каннибализирует /marki, у которой 38+ марок) ──
-// /marki = широкий хаб всех марок (38+, с фильтрами, для запроса «марки автомобилей»)
+// ── /brands — премиум-хаб 13 брендов (не каннибализирует /marki, у которой 14 ключевых марок) ──
+// /marki = хаб 14 ключевых марок по четырём категориям
 // /brands = премиум-выборка 13 брендов с глубокой специализацией (для запроса «тюнинг bmw mercedes audi»)
 // Чтобы не конкурировали по одному запросу — title и H1 у них разные.
 export const metadata: Metadata = {
@@ -52,7 +52,7 @@ export default function BrandsPage() {
  <h1 className="section-title mb-4">Премиум-бренды HP Тюнинг</h1>
  <p className="section-subtitle mb-4">
  Глубокая специализация на 13 премиум-марках: дилерское оборудование (ISTA, XENTRY, ODIS, PIWIS, JLR SDD),
- опыт 10+ лет, лицензированный Alientech KESS3. Полный список 38+ марок &mdash;{' '}
+ опыт с 2019 года, лицензированный Alientech KESS3. Полный список ключевых марок &mdash;{' '}
  <Link href="/marki" className="text-accent hover:underline">на странице /marki</Link>.
  </p>
 

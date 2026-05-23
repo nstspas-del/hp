@@ -8,16 +8,17 @@ import { CtaSection } from '@/components/sections/CtaSection';
 import { ReviewsSection } from '@/components/sections/ReviewsSection';
 import { ProjectCarsSection } from '@/components/sections/ProjectCarsSection';
 import { SocialProof } from '@/components/sections/SocialProof';
+import { WorkshopVideo } from '@/components/sections/WorkshopVideo';
 import seoData from '@/data/seo.json';
 
 export const metadata: Metadata = {
  title: 'HP Тюнинг — автосервис в СПб: ТО, ремонт, детейлинг, чип-тюнинг',
- description: 'Автосервис в Санкт-Петербурге: ТО от 4 900 ₽, диагностика, ремонт, шиномонтаж, детейлинг, чип-тюнинг. Mercedes-Benz, BMW, Porsche, Audi, Haval, Chery, Geely и 38+ марок. Богородская 3Б. Ежедневно 10:00–22:00.',
+ description: 'Автосервис в Санкт-Петербурге: ТО от 4 900 ₽, диагностика, ремонт, шиномонтаж, детейлинг, чип-тюнинг. BMW, Mercedes-Benz, Audi, Porsche, Land Rover, Toyota, Lexus, Kia, Hyundai, Haval, Chery, Geely, Tank, Exeed. Богородская 3Б. Ежедневно 10:00–22:00.',
  keywords: ['автосервис спб', 'mercedes сервис спб', 'bmw сервис спб', 'то спб', 'ремонт двигателя спб', 'шиномонтаж спб', 'детейлинг спб', 'чип тюнинг спб', 'hp тюнинг'],
  alternates: { canonical: 'https://hptuning.ru/' },
  openGraph: {
  title: 'HP Тюнинг — автосервис в Санкт-Петербурге',
- description: 'ТО, ремонт, шиномонтаж, детейлинг и чип-тюнинг для Mercedes-Benz, BMW, Porsche, Audi, Haval, Chery, Geely и 38+ марок. Богородская 3Б, СПб.',
+ description: 'ТО, ремонт, шиномонтаж, детейлинг и чип-тюнинг для 14 ключевых марок: BMW, Mercedes, Audi, Porsche, Land Rover, Toyota, Lexus, Kia, Hyundai, Haval, Chery, Geely, Tank, Exeed. Богородская 3Б, СПб.',
  url: 'https://hptuning.ru/',
  type: 'website',
  locale: 'ru_RU',
@@ -89,7 +90,10 @@ export default function HomePage() {
         Виден и на мобиле, и на десктопе: «делаете ли вы мою марку?» — быстрый ответ. */}
  <BrandsSection />
 
- {/* 3. Социальные доказательства — почему нам доверяют. */}
+ {/* 3. Видео мастерской — показываем бокс, фотозону Hot Wheels и клиентскую зону. */}
+ <WorkshopVideo />
+
+ {/* 4. Социальные доказательства — почему нам доверяют. */}
  <SocialProof />
 
  {/* 4. Работы */}

@@ -4,28 +4,28 @@ import Link from 'next/link';
 import { Phone, Stethoscope, Wrench, Zap, Sparkles } from 'lucide-react';
 import { openBooking } from '@/lib/autodealer';
 
-// Марки сгруппированы по сегментам — все в HTML для Яндекса (ТОЛЬКО ДЕСКТОП).
-// На мобиле этот блок скрыт — слишком тяжёлый, есть BrandsSection ниже.
+// 14 ключевых марок, сгруппированы по сегментам — все в HTML для Яндекса.
+// На мобиле этот блок скрыт — слишком тяжёлый; есть BrandsSection ниже.
 const BRAND_GROUPS = [
   {
     label: 'Европейские',
     tab: 'european',
-    brands: ['BMW', 'Mercedes-Benz', 'Audi', 'Porsche', 'VW', 'Land Rover', 'Volvo', 'MINI'],
+    brands: ['BMW', 'Mercedes-Benz', 'Audi', 'Porsche', 'Land Rover'],
   },
   {
     label: 'Японские',
     tab: 'japanese',
-    brands: ['Toyota', 'Lexus', 'Mazda', 'Nissan', 'Subaru', 'Honda', 'Infiniti'],
+    brands: ['Toyota', 'Lexus'],
   },
   {
     label: 'Корейские',
-    tab: 'japanese',
-    brands: ['Kia', 'Hyundai', 'Genesis'],
+    tab: 'korean',
+    brands: ['Kia', 'Hyundai'],
   },
   {
     label: 'Китайские',
     tab: 'chinese',
-    brands: ['Haval', 'Chery', 'Geely', 'Tank', 'Exeed', 'Jaecoo', 'Omoda', 'Changan', 'Jetour'],
+    brands: ['Haval', 'Chery', 'Geely', 'Tank', 'Exeed'],
   },
 ];
 
@@ -108,9 +108,9 @@ export function Hero() {
 
           {/* Подзаголовок — на мобиле короче, на десктопе с перечислением марок */}
           <p className="text-zinc-300 text-sm md:text-base leading-relaxed mb-5 md:mb-6 max-w-xl">
-            38+ марок — европейские, японские, корейские и&nbsp;китайские.
+            14 ключевых марок — европейские, японские, корейские и&nbsp;китайские.
             <span className="hidden md:block mt-1 text-zinc-400 text-xs md:text-sm">
-              BMW, Mercedes-Benz, Audi, Porsche, Toyota, Lexus, Land Rover, Kia, Hyundai,{' '}
+              BMW, Mercedes-Benz, Audi, Porsche, Land&nbsp;Rover, Toyota, Lexus, Kia, Hyundai,{' '}
               <strong className="text-white font-semibold">Haval, Chery, Geely, Tank, Exeed</strong>{' '}
               — всё в одном месте.
             </span>
@@ -186,7 +186,7 @@ export function Hero() {
           {/* Статистика — компактнее на мобиле */}
           <div className="flex flex-wrap gap-4 md:gap-10">
             {[
-              { value: '38+', label: 'марок авто' },
+              { value: '14', label: 'ключевых марок' },
               { value: '457+', label: 'собранных проектов' },
               { value: 'от 4 900 ₽', label: 'ТО под ключ' },
               { value: '10:00–22:00', label: 'без выходных' },
@@ -242,7 +242,7 @@ export function Hero() {
           className="hidden md:inline-flex items-center gap-1.5 mt-4 text-xs text-zinc-500 hover:text-[#A855F7] transition-colors"
           prefetch={false}
         >
-          Смотреть все 38 марок →
+          Открыть страницу марок →
         </Link>
       </div>
 

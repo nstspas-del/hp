@@ -11,12 +11,12 @@ const LINKS = {
  { label: 'Диагностика', href: '/service/diagnostics' },
  ],
  brands: [
- { label: 'BMW',           href: 'https://bmw.hptuning.ru' },
- { label: 'Mercedes-Benz', href: 'https://mercedes.hptuning.ru' },
- { label: 'Audi',          href: 'https://audi.hptuning.ru' },
- { label: 'Porsche',       href: 'https://porsche.hptuning.ru' },
- { label: 'Lexus',         href: 'https://lexus.hptuning.ru' },
- { label: 'Land Rover',    href: 'https://landrover.hptuning.ru' },
+ { label: 'BMW',           href: '/brands/bmw' },
+ { label: 'Mercedes-Benz', href: '/brands/mercedes' },
+ { label: 'Audi',          href: '/brands/audi' },
+ { label: 'Porsche',       href: '/brands/porsche' },
+ { label: 'Land Rover',    href: '/brands/landrover' },
+ { label: 'Haval',         href: '/brands/haval' },
  ],
  info: [
  { label: 'О компании', href: '/about' },

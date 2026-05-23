@@ -1,7 +1,8 @@
 export const dynamic = 'force-static';
 /**
  * /marki/ — HP Тюнинг СПб
- * Хаб всех брендов с фильтрами, поиском и коммерческими факторами для Яндекса.
+ * Хаб 14 ключевых марок, сгруппированных по 4 категориям:
+ * Европейские / Японские / Корейские / Китайские. Без 38-марочной простыни.
  * Canonical: https://hptuning.ru/marki/
  */
 import type { Metadata } from 'next';
@@ -10,17 +11,17 @@ import { ChevronRight, MessageCircle, Phone, MapPin, Clock, Shield, Star } from 
 import { BookingButton } from '@/components/ui/BookingButton';
 import { MarkiClient } from './MarkiClient';
 import {
-  SPECIALIZATION,
+  EUROPEAN_BRANDS,
+  JAPANESE_BRANDS,
+  KOREAN_BRANDS,
   CHINESE_BRANDS,
-  JAPANESE_KOREAN,
-  EUROPEAN_OTHER,
   ALL_BRANDS_DATA,
 } from '@/data/brands-marki';
 
 export const metadata: Metadata = {
   title: 'Марки автомобилей — ТО, диагностика, ремонт в СПб | HP Тюнинг',
   description:
-    'Автосервис в Санкт-Петербурге для 38+ марок: BMW, Mercedes-Benz, Audi, Porsche, Toyota, Lexus, Haval, Chery, Geely, Tank, Kia, Hyundai и других. ТО, диагностика, ремонт, детейлинг, тюнинг. Богородская 3Б. ☎ +7 (981) 842-81-51',
+    'Автосервис в Санкт-Петербурге для 14 ключевых марок: BMW, Mercedes-Benz, Audi, Porsche, Land Rover, Toyota, Lexus, Kia, Hyundai, Haval, Chery, Geely, Tank, Exeed. ТО, диагностика, ремонт, детейлинг, чип-тюнинг. Богородская 3Б. ☎ +7 (981) 842-81-51',
   keywords: [
     'автосервис спб марки',
     'сервис haval спб',
@@ -28,7 +29,6 @@ export const metadata: Metadata = {
     'сервис geely спб',
     'сервис китайских автомобилей спб',
     'то bmw mercedes audi спб',
-    'автосервис 38 марок санкт-петербург',
     'ремонт японских автомобилей спб',
     'сервис корейских автомобилей спб',
   ],
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Марки автомобилей — HP Тюнинг Санкт-Петербург',
     description:
-      'Европейские, японские, корейские и современные китайские автомобили — ТО, диагностика, ремонт, детейлинг и тюнинг в одном месте. 38+ марок, Богородская 3Б.',
+      'Европейские, японские, корейские и современные китайские автомобили — ТО, диагностика, ремонт, детейлинг и чип-тюнинг в одном месте. 14 ключевых марок, Богородская 3Б.',
     url: 'https://hptuning.ru/marki/',
     type: 'website',
     locale: 'ru_RU',
@@ -50,7 +50,7 @@ const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Марки автомобилей — HP Тюнинг СПб',
-  description: 'Полный список брендов, с которыми работает HP Тюнинг в Санкт-Петербурге',
+  description: 'Список 14 ключевых марок, с которыми работает HP Тюнинг в Санкт-Петербурге',
   numberOfItems: ALL_BRANDS_DATA.length,
   itemListElement: ALL_BRANDS_DATA.map((b, i) => ({ '@type': 'ListItem', position: i + 1, name: b.name })),
 };
@@ -73,14 +73,14 @@ export default function MarkiPage() {
             <span className="text-zinc-300">Марки</span>
           </nav>
 
-          <h1 className="font-display text-4xl md:text-5xl uppercase tracking-tight text-white mb-4">
+          <h1 className="font-display text-4xl md:text-5xl tracking-tight text-white mb-4">
             Марки автомобилей{' '}
             <span className="text-[#39FF14]">в Санкт-Петербурге</span>
           </h1>
           <p className="text-zinc-400 text-base leading-relaxed max-w-2xl mb-8">
-            ТО, диагностика, ремонт, детейлинг и тюнинг — для европейских, японских,
-            корейских и современных китайских автомобилей. 38+ марок в одном месте,
-            без беготни между сервисами.
+            ТО, диагностика, ремонт, детейлинг и чип-тюнинг — для европейских,
+            японских, корейских и современных китайских автомобилей.
+            14 ключевых марок в одном месте, без беготни между сервисами.
           </p>
 
           {/* Коммерческие факторы */}
@@ -89,7 +89,7 @@ export default function MarkiPage() {
               { icon: <MapPin className="size-4" />, text: 'Богородская 3Б, СПб' },
               { icon: <Clock className="size-4" />, text: 'Ежедневно 10:00–22:00' },
               { icon: <Shield className="size-4" />, text: 'Гарантия 1 год на работы' },
-              { icon: <Star className="size-4" />, text: '9+ лет опыта · 500+ авто' },
+              { icon: <Star className="size-4" />, text: '7+ лет опыта · 1 500+ авто' },
             ].map((f) => (
               <div key={f.text} className="flex items-center gap-2 rounded-xl bg-white/3 border border-white/8 px-3 py-2.5">
                 <span className="text-[#39FF14] shrink-0">{f.icon}</span>
@@ -102,10 +102,10 @@ export default function MarkiPage() {
 
       {/* Интерактивная часть: фильтры + поиск + карточки (client) */}
       <MarkiClient
-        specialization={SPECIALIZATION}
+        european={EUROPEAN_BRANDS}
+        japanese={JAPANESE_BRANDS}
+        korean={KOREAN_BRANDS}
         chinese={CHINESE_BRANDS}
-        japaneseKorean={JAPANESE_KOREAN}
-        european={EUROPEAN_OTHER}
       />
 
       {/* CTA — статический HTML */}
@@ -114,7 +114,7 @@ export default function MarkiPage() {
         className="container py-16"
       >
         <div className="rounded-2xl border border-[#39FF14]/20 bg-gradient-to-br from-[#39FF14]/5 to-transparent p-8 md:p-12 text-center">
-          <h2 className="font-display text-2xl md:text-3xl text-white uppercase tracking-wide mb-3">
+          <h2 className="font-display text-2xl md:text-3xl text-white tracking-tight mb-3">
             Не нашли свою марку?
           </h2>
           <p className="text-zinc-400 text-base max-w-lg mx-auto mb-2 leading-relaxed">

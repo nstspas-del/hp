@@ -38,44 +38,40 @@ const NAV_DETAILING = [
   { label: '🔇 Тюнинг салона',      href: '/detailing/interior-styling',        desc: 'Карбон, алькантара, кожа' },
 ];
 
-// Мега-меню марок — сгруппированы по сегментам
+// Мега-меню марок — 14 ключевых, сгруппированы по сегментам.
+// Ссылки — внутренние (/brands/{slug}), не субдомены: всё открывается
+// мгновенно через next/link prefetch, без перезагрузки и без риска сломаться.
 const BRANDS_MEGA = [
   {
-    group: 'Специализация',
+    group: 'Европейские',
     color: 'text-[#39FF14]',
     brands: [
-      { label: 'BMW',          href: 'https://bmw.hptuning.ru',        logo: '/images/brands/bmw.svg' },
-      { label: 'Mercedes-Benz',href: 'https://mercedes.hptuning.ru',   logo: '/images/brands/mercedes.svg' },
-      { label: 'Audi',         href: 'https://audi.hptuning.ru',       logo: '/images/brands/audi.svg' },
-      { label: 'Porsche',      href: 'https://porsche.hptuning.ru',    logo: '/images/brands/porsche.svg' },
-      { label: 'Volkswagen',   href: 'https://volkswagen.hptuning.ru', logo: '/images/brands/volkswagen.svg' },
-      { label: 'Toyota',       href: 'https://toyota.hptuning.ru',     logo: '/images/brands/toyota.svg' },
-      { label: 'Lexus',        href: 'https://lexus.hptuning.ru',      logo: '/images/brands/lexus.svg' },
-      { label: 'Land Rover',   href: 'https://landrover.hptuning.ru',  logo: '/images/brands/land-rover.svg' },
-    ],
-  },
-  {
-    group: 'Китайские',
-    color: 'text-zinc-400',
-    brands: [
-      { label: 'Haval',   href: '/marki', logo: '/images/brands/haval.svg' },
-      { label: 'Chery',   href: '/marki', logo: '/images/brands/chery.svg' },
-      { label: 'Geely',   href: '/marki', logo: '/images/brands/geely.svg' },
-      { label: 'Tank',    href: '/marki', logo: '/images/brands/tank.svg' },
-      { label: 'Exeed',   href: '/marki', logo: '/images/brands/exeed.svg' },
-      { label: 'Jaecoo',  href: '/marki', logo: '/images/brands/jaecoo.svg' },
+      { label: 'BMW',          href: '/brands/bmw',       logo: '/images/brands/bmw.svg' },
+      { label: 'Mercedes-Benz',href: '/brands/mercedes',  logo: '/images/brands/mercedes.svg' },
+      { label: 'Audi',         href: '/brands/audi',      logo: '/images/brands/audi.svg' },
+      { label: 'Porsche',      href: '/brands/porsche',   logo: '/images/brands/porsche.svg' },
+      { label: 'Land Rover',   href: '/brands/landrover', logo: '/images/brands/land-rover.svg' },
     ],
   },
   {
     group: 'Японские / Корейские',
     color: 'text-zinc-400',
     brands: [
-      { label: 'Kia',      href: '/marki', logo: '/images/brands/kia.svg' },
-      { label: 'Hyundai',  href: '/marki', logo: '/images/brands/hyundai.svg' },
-      { label: 'Mazda',    href: '/marki', logo: '/images/brands/mazda.svg' },
-      { label: 'Nissan',   href: '/marki', logo: '/images/brands/nissan.svg' },
-      { label: 'Subaru',   href: '/marki', logo: '/images/brands/subaru.svg' },
-      { label: 'Honda',    href: '/marki', logo: '/images/brands/honda.svg' },
+      { label: 'Toyota',   href: '/brands/toyota',   logo: '/images/brands/toyota.svg' },
+      { label: 'Lexus',    href: '/brands/lexus',    logo: '/images/brands/lexus.svg' },
+      { label: 'Kia',      href: '/brands/kia',      logo: '/images/brands/kia.svg' },
+      { label: 'Hyundai',  href: '/brands/hyundai',  logo: '/images/brands/hyundai.svg' },
+    ],
+  },
+  {
+    group: 'Китайские',
+    color: 'text-zinc-400',
+    brands: [
+      { label: 'Haval',   href: '/brands/haval', logo: '/images/brands/haval.svg' },
+      { label: 'Chery',   href: '/brands/chery', logo: '/images/brands/chery.svg' },
+      { label: 'Geely',   href: '/brands/geely', logo: '/images/brands/geely.svg' },
+      { label: 'Tank',    href: '/brands/tank',  logo: '/images/brands/tank.svg' },
+      { label: 'Exeed',   href: '/brands/exeed', logo: '/images/brands/exeed.svg' },
     ],
   },
 ];
@@ -153,14 +149,14 @@ function BrandsMegaMenu({ onClose }: { onClose: () => void }) {
       </div>
       {/* Все марки */}
       <div className="mt-5 pt-4 border-t border-white/8 flex items-center justify-between gap-3">
-        <span className="text-zinc-500 text-xs">Работаем с 38+ марками в СПб</span>
+        <span className="text-zinc-500 text-xs">14 ключевых марок — всё в одном месте</span>
         <Link
           href="/marki"
           prefetch={false}
           onClick={onClose}
           className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#39FF14]/10 border border-[#39FF14]/20 text-xs text-[#39FF14] font-bold hover:bg-[#39FF14]/20 transition-colors"
         >
-          Смотреть все 38 марок <ChevronRight className="size-3" />
+          Смотреть все марки <ChevronRight className="size-3" />
         </Link>
       </div>
     </div>
@@ -381,7 +377,7 @@ export function Header() {
                   <Link href="/marki" prefetch={false} onClick={() => setMobileOpen(false)}
                     className="flex items-center gap-2 px-4 py-2.5 rounded-xl hover:bg-white/5 mt-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#39FF14]/50 shrink-0" />
-                    <span className="text-sm text-[#39FF14]">Смотреть все 38 марок →</span>
+                    <span className="text-sm text-[#39FF14]">Смотреть все марки →</span>
                   </Link>
                 </div>
               )}

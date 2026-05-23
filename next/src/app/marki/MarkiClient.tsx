@@ -8,22 +8,21 @@ import type { BrandData } from '@/data/brands-marki';
 type Brand = BrandData;
 
 type Props = {
-  specialization: Brand[];
-  chinese: Brand[];
-  japaneseKorean: Brand[];
   european: Brand[];
+  japanese: Brand[];
+  korean: Brand[];
+  chinese: Brand[];
 };
 
 const TABS = [
-  { id: 'all',       label: 'Все' },
-  { id: 'spec',      label: 'Специализация' },
-  { id: 'chinese',   label: 'Китайские' },
-  { id: 'japanese',  label: 'Японские / Корейские' },
-  { id: 'european',  label: 'Европейские' },
+  { id: 'all',      label: 'Все' },
+  { id: 'european', label: 'Европейские' },
+  { id: 'japanese', label: 'Японские' },
+  { id: 'korean',   label: 'Корейские' },
+  { id: 'chinese',  label: 'Китайские' },
 ];
 
 function BrandCard({ brand }: { brand: Brand }) {
-  const isExternal = brand.href?.startsWith('http');
   const inner = (
     <>
       <div className="w-full h-12 flex items-center justify-center mb-3 rounded-lg bg-white/4 overflow-hidden">
@@ -51,17 +50,16 @@ function BrandCard({ brand }: { brand: Brand }) {
   const cls = 'rounded-xl border border-white/8 bg-[#111113] p-4 hover:border-[#39FF14]/30 transition-colors flex flex-col';
 
   if (!brand.href) return <div className={cls}>{inner}</div>;
-  if (isExternal) return <a href={brand.href} className={cls} rel="noopener noreferrer">{inner}</a>;
   return <Link href={brand.href} prefetch={false} className={cls}>{inner}</Link>;
 }
 
-export function MarkiClient({ specialization, chinese, japaneseKorean, european }: Props) {
+export function MarkiClient({ european, japanese, korean, chinese }: Props) {
   const [activeTab, setActiveTab] = useState('all');
   const [query, setQuery] = useState('');
 
   const allBrands = useMemo(
-    () => [...specialization, ...chinese, ...japaneseKorean, ...european],
-    [specialization, chinese, japaneseKorean, european]
+    () => [...european, ...japanese, ...korean, ...chinese],
+    [european, japanese, korean, chinese]
   );
 
   const filtered = useMemo(() => {
@@ -72,12 +70,11 @@ export function MarkiClient({ specialization, chinese, japaneseKorean, european 
     return list;
   }, [allBrands, activeTab, query]);
 
-  // Sections for grouped display (only when no search query and tab = all)
   const sections = [
-    { key: 'spec',     title: 'Наша специализация',           sub: 'Инструмент, прошивки и экспертиза заточены под эти марки', brands: specialization },
-    { key: 'chinese',  title: 'Современные китайские бренды', sub: 'Haval, Chery, Geely, Tank и другие — уже значительная доля рынка СПб', brands: chinese },
-    { key: 'japanese', title: 'Японские и корейские',         sub: 'Kia, Hyundai, Mazda, Nissan, Subaru — постоянные клиенты', brands: japaneseKorean },
-    { key: 'european', title: 'Другие европейские',           sub: 'Volvo, Škoda, Ford, Renault, MINI, Opel — вторичный рынок', brands: european },
+    { key: 'european', title: 'Европейские',  sub: 'BMW, Mercedes-Benz, Audi, Porsche, Land Rover — наша глубокая специализация', brands: european },
+    { key: 'japanese', title: 'Японские',     sub: 'Toyota и Lexus — ресурс и надёжность, Techstream-диагностика',                  brands: japanese },
+    { key: 'korean',   title: 'Корейские',    sub: 'Kia и Hyundai — массовый сегмент, ТО по регламенту',                            brands: korean },
+    { key: 'chinese',  title: 'Китайские',    sub: 'Haval, Chery, Geely, Tank, Exeed — актуальный рынок 2025–2026',                 brands: chinese },
   ];
 
   const showGrouped = activeTab === 'all' && !query;
@@ -87,7 +84,6 @@ export function MarkiClient({ specialization, chinese, japaneseKorean, european 
 
       {/* ── Поиск + Фильтры ── */}
       <div className="flex flex-col gap-4">
-        {/* Поиск */}
         <div className="relative max-w-sm">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-zinc-500 pointer-events-none" />
           <input
@@ -99,7 +95,6 @@ export function MarkiClient({ specialization, chinese, japaneseKorean, european 
           />
         </div>
 
-        {/* Табы */}
         <div className="flex flex-wrap gap-2">
           {TABS.map((tab) => (
             <button
@@ -120,26 +115,22 @@ export function MarkiClient({ specialization, chinese, japaneseKorean, european 
       {/* ── Контент ── */}
       {showGrouped ? (
         /* Сгруппированный вид */
-        <div className="space-y-16">
+        <div className="space-y-12">
           {sections.map((section) => (
             <section key={section.key} aria-label={section.title}>
-              <div className="mb-6">
+              <div className="mb-5">
                 <button
                   onClick={() => setActiveTab(section.key)}
-                  className="text-[#39FF14] text-xs font-semibold uppercase tracking-widest mb-2 hover:underline"
+                  className="text-[#39FF14] text-xs font-semibold uppercase tracking-widest mb-1.5 hover:underline"
                 >
-                  {section.key === 'spec' ? 'Глубокая экспертиза' : section.key === 'chinese' ? 'Актуальный рынок 2025–2026' : section.key === 'japanese' ? 'Надёжность и ресурс' : 'Вторичный рынок'}
+                  {section.brands.length} {section.brands.length === 1 ? 'марка' : section.brands.length < 5 ? 'марки' : 'марок'}
                 </button>
-                <h2 className="font-display text-2xl md:text-3xl text-white uppercase tracking-wide mb-1">
+                <h2 className="font-display text-2xl md:text-3xl text-white tracking-tight mb-1">
                   {section.title}
                 </h2>
                 <p className="text-zinc-500 text-sm max-w-xl">{section.sub}</p>
               </div>
-              <div className={`grid gap-4 ${
-                section.key === 'chinese'
-                  ? 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'
-                  : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4'
-              }`}>
+              <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 {section.brands.map((b) => <BrandCard key={b.slug} brand={b} />)}
               </div>
             </section>
