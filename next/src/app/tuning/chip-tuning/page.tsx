@@ -6,9 +6,19 @@ import { SevenForceCalculator } from '@/components/sections/SevenForceCalculator
 import { BookingButton } from '@/components/ui/BookingButton';
 
 export const metadata: Metadata = {
- title: 'Чип-тюнинг и прошивка ЭБУ BMW, Mercedes, Audi в СПб — Stage 1 от 24 000 ₽ | HP Тюнинг',
- description: 'Чип-тюнинг и прошивка ЭБУ в Санкт-Петербурге: Stage 1 от 24 000 ₽ для BMW, Mercedes, Audi, Porsche; от 15 000 ₽ для Haval, Chery, Tank, Geely. Alientech KESS3, бесплатный откат к стоку.',
- keywords: ['чип тюнинг спб', 'прошивка эбу спб', 'чип тюнинг bmw спб', 'чип тюнинг mercedes спб', 'чип тюнинг audi спб', 'тюнинг haval спб', 'чип тюнинг chery', 'тюнинг geely', 'прошивка tank', 'stage 1 spb', 'alientech kess3'],
+ title: 'Чип-тюнинг и прошивка ЭБУ в СПб — Stage 1 / 2 / 3, EGR / DPF / AdBlue off | HP Тюнинг',
+ description: 'Чип-тюнинг и прошивка ЭБУ в Санкт-Петербурге: Stage 1 от 24 000 ₽ для BMW, Mercedes, Audi, Porsche; от 15 000 ₽ для Haval, Chery, Tank, Geely. EGR off, DPF off, AdBlue off. Alientech KESS3 / Dimsport / CMD, бесплатный откат к стоку.',
+ keywords: [
+   'чип тюнинг спб', 'чип тюнинг санкт-петербург', 'чип тюнинг цена спб',
+   'прошивка эбу спб', 'прошивка эбу цена спб', 'прошивка эбу санкт-петербург',
+   'чип тюнинг bmw спб', 'чип тюнинг mercedes спб', 'чип тюнинг audi спб', 'чип тюнинг porsche спб',
+   'тюнинг haval спб', 'чип тюнинг chery', 'тюнинг geely', 'прошивка tank',
+   'stage 1 spb', 'stage 2 spb', 'stage 3 spb', 'stage 1 цена', 'stage 2 цена',
+   'удаление егр спб', 'удаление егр цена', 'отключение егр спб',
+   'удаление сажевого фильтра спб', 'dpf off спб', 'удаление dpf цена',
+   'отключение adblue спб', 'adblue off цена', 'удаление мочевины спб',
+   'alientech kess3', 'прошивка дизеля спб',
+ ],
  alternates: { canonical: 'https://hptuning.ru/tuning/chip-tuning' },
  openGraph: {
  title: 'Чип-тюнинг Stage 1/2/3 в Санкт-Петербурге | HP Тюнинг',
@@ -24,20 +34,43 @@ export const metadata: Metadata = {
 const serviceSchema = {
  '@context': 'https://schema.org',
  '@type': 'Service',
- name: 'Чип-тюнинг автомобилей',
+ name: 'Чип-тюнинг автомобилей и прошивка ЭБУ',
  provider: {
  '@type': 'AutoRepair',
  name: 'HP Тюнинг',
  url: 'https://hptuning.ru',
  telephone: '+79818428151',
- address: { '@type': 'PostalAddress', addressLocality: 'Санкт-Петербург', streetAddress: 'ул. Богородская, 3Б' },
+ address: { '@type': 'PostalAddress', addressLocality: 'Санкт-Петербург', streetAddress: 'Богородская, 3Б' },
  },
  offers: [
  { '@type': 'Offer', name: 'Stage 1', price: 24000, priceCurrency: 'RUB' },
  { '@type': 'Offer', name: 'Stage 2', price: 39000, priceCurrency: 'RUB' },
  { '@type': 'Offer', name: 'Stage 3', price: 95000, priceCurrency: 'RUB' },
+ { '@type': 'Offer', name: 'EGR off', price: 8000, priceCurrency: 'RUB' },
+ { '@type': 'Offer', name: 'DPF off', price: 12000, priceCurrency: 'RUB' },
+ { '@type': 'Offer', name: 'AdBlue off', price: 10000, priceCurrency: 'RUB' },
  ],
  areaServed: { '@type': 'City', name: 'Санкт-Петербург' },
+};
+
+// FAQPage schema под длинный хвост — критично для Яндекса
+const faqSchema = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ { '@type': 'Question', name: 'Сколько стоит прошивка ЭБУ в СПб?', acceptedAnswer: { '@type': 'Answer', text: 'Прошивка ЭБУ в Санкт-Петербурге — от 15 000 ₽ для китайских/японских марок, от 24 000 ₽ для немецкого и британского премиума. Stage 2 — от 39 000 ₽. Stage 3 — индивидуально, от 95 000 ₽.' } },
+ { '@type': 'Question', name: 'Прошивка ЭБУ и чип-тюнинг — это одно и то же?', acceptedAnswer: { '@type': 'Answer', text: 'Да, это синонимы. Современный «чип-тюнинг» — это программная перепрошивка блока управления двигателем (ЭБУ) через диагностический разъём OBD или через Bootloader. Никаких чипов физически не паяем — это технология 1990-х.' } },
+ { '@type': 'Question', name: 'Что такое Stage 1, Stage 2, Stage 3?', acceptedAnswer: { '@type': 'Answer', text: 'Stage 1 — только программная оптимизация на стоковом железе. Stage 2 — программа под установленные доработки (выпуск, downpipe, увеличенный интеркулер). Stage 3 — серьёзные железные доработки (турбина, форсунки, топливный насос) + калибровка.' } },
+ { '@type': 'Question', name: 'Сколько стоит удаление EGR в СПб?', acceptedAnswer: { '@type': 'Answer', text: 'Удаление EGR (программное отключение клапана рециркуляции отработавших газов) — от 8 000 ₽. При совместном заказе с Stage 1 — со скидкой комплексом. Время работы — 1–2 часа.' } },
+ { '@type': 'Question', name: 'Сколько стоит удаление сажевого фильтра (DPF off)?', acceptedAnswer: { '@type': 'Answer', text: 'DPF off (программное отключение сажевого фильтра) — от 12 000 ₽. Включает удаление контроля DPF из прошивки + рекомендация по механическому удалению/прошивке. Время работы — 2–3 часа.' } },
+ { '@type': 'Question', name: 'Можно ли отключить AdBlue (мочевину) в Санкт-Петербурге?', acceptedAnswer: { '@type': 'Answer', text: 'Да, AdBlue off — от 10 000 ₽. Полное программное отключение системы SCR без необходимости заправки мочевиной. Подходит для Mercedes, BMW, Audi, VW, Land Rover дизельных моделей.' } },
+ { '@type': 'Question', name: 'Безопасен ли чип-тюнинг для двигателя?', acceptedAnswer: { '@type': 'Answer', text: 'Да, если выполнен профессионально. Stage 1 работает в безопасных пределах мощности двигателя — все параметры (давление, температура, детонация) остаются в штатных рамках. Stage 2/3 требует исправного железа и согласованной доработки.' } },
+ { '@type': 'Question', name: 'Можно ли вернуть стоковую прошивку обратно?', acceptedAnswer: { '@type': 'Answer', text: 'Да, всегда. Перед работой делаем полный бэкап заводского ПО и храним его бессрочно. Возврат к стоку занимает 30 минут и бесплатен для наших клиентов навсегда.' } },
+ { '@type': 'Question', name: 'Слетит ли гарантия после чип-тюнинга?', acceptedAnswer: { '@type': 'Answer', text: 'На современных авто (BMW, Mercedes, Audi, Porsche) ОД может определить факт изменения ПО. Поэтому если машина на гарантии — рекомендуем делать чип после её окончания. Перед обращением к ОД мы можем вернуть стоковую прошивку.' } },
+ { '@type': 'Question', name: 'Сколько по времени делается чип-тюнинг?', acceptedAnswer: { '@type': 'Answer', text: 'Stage 1 — 2–3 часа. Stage 2 — 1 рабочий день с замером на стенде. Stage 3 — индивидуально, обычно 2–5 дней. EGR / DPF / AdBlue off — 1–3 часа на работу.' } },
+ { '@type': 'Question', name: 'Какое оборудование вы используете для прошивки?', acceptedAnswer: { '@type': 'Answer', text: 'Лицензионное Alientech KESS3 (OBD/Boot/BDM), Dimsport New Trasdata, CMD Flash. Для диагностики — AUTEL MaxiSYS MS919, Bosch KTS 590, Launch X-431 PRO5. Для дилерских протоколов BMW — ISTA+, для Mercedes — XENTRY.' } },
+ { '@type': 'Question', name: 'Снизится ли расход топлива после тюнинга?', acceptedAnswer: { '@type': 'Answer', text: 'В спокойном режиме — да, на 5–15%. Оптимизация впрыска и зажигания повышает КПД двигателя. При активной езде расход, конечно, увеличится — больше мощности требует больше топлива.' } },
+ ],
 };
 
 
@@ -93,6 +126,7 @@ export default function ChipTuningPage() {
  return (
  <>
 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
  {/* ── Hero ── */}
  <section className="relative pt-28 pb-16 overflow-hidden">
@@ -174,7 +208,7 @@ export default function ChipTuningPage() {
  'Читаем оригинальную прошивку — не шьём «с нуля»',
  'Сохраняем файл оригинала навсегда — откат бесплатно',
  'Тест-драйв с инженером после каждой работы',
- 'Гарантия 12 месяцев на любую прошивку',
+ 'Откат к стоку — в любой момент, бесплатно',
  ].map((item, i) => (
  <li key={i} className="flex items-start gap-3 text-text-subtle text-sm">
  <CheckCircle className="size-4 text-[#39FF14] shrink-0 mt-0.5" />
@@ -231,6 +265,196 @@ export default function ChipTuningPage() {
  </table>
  </div>
  <p className="text-text-subtle text-xs mt-4">* Данные усреднённые, точный результат зависит от состояния автомобиля</p>
+ </div>
+ </section>
+
+ {/* ── 🆕 БЛОК: ПРОШИВКА ЭБУ — ЦЕНЫ И СРОКИ (закрывает запрос "прошивка эбу спб цена") ── */}
+ <section id="proshivka-ebu" className="py-12 md:py-16 container">
+ <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">
+ ПРОШИВКА ЭБУ В СПБ — <span className="text-[#39FF14]">ЦЕНА И СРОКИ</span>
+ </h2>
+ <p className="text-text-muted text-base leading-relaxed mb-8 max-w-3xl">
+ Прошивка ЭБУ — это перепрограммирование блока управления двигателем без его физической замены.
+ В народе называется «чип-тюнингом», но никаких чипов мы не паяем — современная прошивка идёт через
+ диагностический разъём OBD или через Bootloader/BDM на оборудовании Alientech KESS3 и Dimsport.
+ Ниже — точные цены и сроки по типам работ.
+ </p>
+ <div className="overflow-x-auto">
+ <table className="w-full text-sm">
+ <thead>
+ <tr className="border-b border-border">
+ <th className="text-left py-3 px-4 text-text-subtle font-medium">Тип работы</th>
+ <th className="text-left py-3 px-4 text-text-subtle font-medium">Описание</th>
+ <th className="text-right py-3 px-4 text-[#39FF14] font-medium">Цена</th>
+ <th className="text-right py-3 px-4 text-text-subtle font-medium">Срок</th>
+ </tr>
+ </thead>
+ <tbody>
+ {[
+ { type: 'Stage 1', desc: 'Программная оптимизация на стоковом железе', price: 'от 24 000 ₽', time: '2–3 часа' },
+ { type: 'Stage 1 китайцы/японцы', desc: 'Haval, Chery, Geely, Tank, Toyota, Lexus', price: 'от 15 000 ₽', time: '2–3 часа' },
+ { type: 'Stage 2', desc: 'Программа под установленные доработки (выпуск, downpipe)', price: 'от 39 000 ₽', time: '1 день' },
+ { type: 'Stage 3', desc: 'Серьёзные железные доработки + калибровка', price: 'от 95 000 ₽', time: '2–5 дней' },
+ { type: 'EGR off', desc: 'Программное отключение клапана EGR', price: 'от 8 000 ₽', time: '1–2 часа' },
+ { type: 'DPF off', desc: 'Программное отключение сажевого фильтра', price: 'от 12 000 ₽', time: '2–3 часа' },
+ { type: 'AdBlue off', desc: 'Отключение системы мочевины SCR', price: 'от 10 000 ₽', time: '1–2 часа' },
+ { type: 'Возврат к стоку', desc: 'Откат к заводской прошивке (для наших клиентов)', price: 'бесплатно', time: '30 минут' },
+ ].map((row) => (
+ <tr key={row.type} className="border-b border-border/50 hover:bg-white/5 transition-colors">
+ <td className="py-3 px-4 text-text font-medium">{row.type}</td>
+ <td className="py-3 px-4 text-text-muted">{row.desc}</td>
+ <td className="py-3 px-4 text-right text-[#39FF14] font-semibold whitespace-nowrap">{row.price}</td>
+ <td className="py-3 px-4 text-right text-text-subtle whitespace-nowrap">{row.time}</td>
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ <p className="text-text-subtle text-xs mt-4">
+ Точная цена зависит от марки, модели, поколения двигателя и типа ЭБУ. Используйте калькулятор
+ выше для расчёта по конкретному авто или позвоните +7&nbsp;(981)&nbsp;842-81-51.
+ </p>
+ </section>
+
+ {/* ── 🆕 БЛОК: STAGE 1 vs STAGE 2 vs STAGE 3 ── */}
+ <section className="py-12 md:py-16 bg-[#111113]">
+ <div className="container">
+ <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">
+ STAGE 1 vs STAGE 2 vs <span className="text-[#39FF14]">STAGE 3</span>
+ </h2>
+ <p className="text-text-muted text-base leading-relaxed mb-8 max-w-3xl">
+ Главное отличие — в наличии или отсутствии «железных» доработок. Чем выше Stage, тем больше
+ механических изменений требует машина. Сравните, какой этап подходит вам.
+ </p>
+ <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+ {[
+ {
+ stage: 'Stage 1',
+ color: '#39FF14',
+ price: 'от 24 000 ₽',
+ power: '+15–25% мощности',
+ desc: 'Только программная оптимизация. Железо остаётся стоковым. Безопасный запас прочности двигателя сохраняется. Откат к стоку — бесплатно навсегда.',
+ forWhom: 'Daily-режим, ровный отклик, экономия топлива в спокойной езде. Подходит 90% клиентов.',
+ needs: ['Исправное состояние двигателя', 'Качественное топливо (АИ-95/98)', 'Регулярное ТО'],
+ },
+ {
+ stage: 'Stage 2',
+ color: '#A855F7',
+ price: 'от 39 000 ₽',
+ power: '+30–45% мощности',
+ desc: 'Прошивка под установленные доработки: спортивный выпуск, downpipe, увеличенный интеркулер. Калибровка ECU под конкретное железо и замер на стенде.',
+ forWhom: 'Активная езда, трек-дни, выезды на гоночные сессии. Машина становится заметно быстрее.',
+ needs: ['Свободный выпуск / downpipe', 'Усиленный интеркулер', 'Спортивный воздушный фильтр'],
+ },
+ {
+ stage: 'Stage 3',
+ color: '#3B82F6',
+ price: 'от 95 000 ₽',
+ power: '+60–100% мощности',
+ desc: 'Серьёзные железные доработки: турбина увеличенного размера, форсунки, топливный насос, валы. Полный пересмотр калибровки с настройкой на диностенде.',
+ forWhom: 'Спорт-проекты, dragster, time-attack. Подбираем индивидуально, не массовая услуга.',
+ needs: ['Увеличенная турбина', 'Форсунки/ТНВД повышенной производительности', 'Усиленное сцепление/АКПП'],
+ },
+ ].map((s) => (
+ <div key={s.stage} className="card" style={{ borderColor: `${s.color}40` }}>
+ <div className="font-display text-2xl mb-2" style={{ color: s.color }}>{s.stage}</div>
+ <div className="text-text-subtle text-sm mb-1">{s.price}</div>
+ <div className="text-text font-semibold text-lg mb-4">{s.power}</div>
+ <p className="text-text-muted text-sm mb-4 leading-relaxed">{s.desc}</p>
+ <div className="text-text-subtle text-xs uppercase tracking-wider mb-2">Для кого</div>
+ <p className="text-text-muted text-sm mb-4 leading-relaxed">{s.forWhom}</p>
+ <div className="text-text-subtle text-xs uppercase tracking-wider mb-2">Требования</div>
+ <ul className="text-text-muted text-sm space-y-1.5">
+ {s.needs.map((n) => (
+ <li key={n} className="flex items-start gap-2">
+ <CheckCircle className="size-3.5 shrink-0 mt-0.5" style={{ color: s.color }} />
+ <span>{n}</span>
+ </li>
+ ))}
+ </ul>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ {/* ── 🆕 БЛОК: EGR / DPF / ADBLUE OFF (якоря под низкочастотные запросы) ── */}
+ <section className="py-12 md:py-16 container">
+ <h2 className="font-display text-3xl md:text-4xl text-text uppercase tracking-wider mb-3">
+ УДАЛЕНИЕ <span className="text-[#39FF14]">EGR · DPF · ADBLUE</span>
+ </h2>
+ <p className="text-text-muted text-base leading-relaxed mb-8 max-w-3xl">
+ Программное отключение проблемных систем дизельных двигателей. Все работы — только программные,
+ без вмешательства в кузов и без сварки. При комплексном заказе со Stage 1 — скидка.
+ </p>
+ <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+ {/* EGR */}
+ <div id="egr" className="card scroll-mt-24">
+ <div className="font-display text-2xl text-[#39FF14] mb-2">EGR off</div>
+ <div className="text-text-subtle text-sm mb-1">от 8 000 ₽ · 1–2 часа</div>
+ <h3 className="sr-only">Удаление EGR в СПб — цена и описание</h3>
+ <p className="text-text-muted text-sm mb-3 leading-relaxed">
+ EGR (Exhaust Gas Recirculation) — клапан рециркуляции отработавших газов. Со временем
+ закоксовывается, тянет за собой потерю мощности, дымление, ошибку Check Engine.
+ </p>
+ <p className="text-text-muted text-sm mb-3 leading-relaxed">
+ <strong className="text-text">Что делаем:</strong> убираем команду открытия клапана из прошивки ЭБУ
+ + механическая заглушка (опционально). Машина перестаёт «душиться» собственными газами,
+ двигатель работает чище.
+ </p>
+ <p className="text-text-muted text-sm leading-relaxed">
+ <strong className="text-text">Подходит для:</strong> Mercedes (OM651, OM642, OM656), BMW
+ (N47, N57, B47, B57), Audi/VW (TDI 2.0, 3.0), Land Rover (TDV6, TDV8), Porsche Cayenne Diesel.
+ </p>
+ </div>
+
+ {/* DPF */}
+ <div id="dpf" className="card scroll-mt-24">
+ <div className="font-display text-2xl text-[#39FF14] mb-2">DPF off</div>
+ <div className="text-text-subtle text-sm mb-1">от 12 000 ₽ · 2–3 часа</div>
+ <h3 className="sr-only">Удаление сажевого фильтра DPF в СПб — цена и описание</h3>
+ <p className="text-text-muted text-sm mb-3 leading-relaxed">
+ DPF (Diesel Particulate Filter) — сажевый фильтр. На больших пробегах забивается,
+ запускает бесконечные «прожиги», заливает масло соляркой, машина теряет тягу.
+ </p>
+ <p className="text-text-muted text-sm mb-3 leading-relaxed">
+ <strong className="text-text">Что делаем:</strong> программно отключаем контроль DPF в прошивке +
+ рекомендации по механическому удалению/прошивке. Лямбды, NOx-сенсоры остаются на месте,
+ ошибок не будет.
+ </p>
+ <p className="text-text-muted text-sm leading-relaxed">
+ <strong className="text-text">Подходит для:</strong> всех современных дизелей Mercedes,
+ BMW, Audi, VW, Porsche, Land Rover, Volvo с забитым/неисправным сажевым фильтром.
+ </p>
+ </div>
+
+ {/* AdBlue */}
+ <div id="adblue" className="card scroll-mt-24">
+ <div className="font-display text-2xl text-[#39FF14] mb-2">AdBlue off</div>
+ <div className="text-text-subtle text-sm mb-1">от 10 000 ₽ · 1–2 часа</div>
+ <h3 className="sr-only">Отключение AdBlue (мочевины SCR) в СПб — цена и описание</h3>
+ <p className="text-text-muted text-sm mb-3 leading-relaxed">
+ AdBlue / SCR — система впрыска мочевины для снижения выбросов NOx. Сейчас в России мочевину
+ трудно достать, форсунки и насосы выходят из строя, машина включает обратный отсчёт
+ «1000 км до блокировки запуска».
+ </p>
+ <p className="text-text-muted text-sm mb-3 leading-relaxed">
+ <strong className="text-text">Что делаем:</strong> полное программное отключение системы SCR.
+ Машина больше не требует мочевины, никаких ошибок и блокировок запуска.
+ </p>
+ <p className="text-text-muted text-sm leading-relaxed">
+ <strong className="text-text">Подходит для:</strong> Mercedes (BlueTEC), BMW (BluePerformance),
+ Audi/VW TDI (Euro 6), Land Rover SDV6/SDV8, Volvo D5/D4.
+ </p>
+ </div>
+ </div>
+ <div className="mt-8 p-6 rounded-2xl border border-[#39FF14]/20 bg-[#39FF14]/5">
+ <p className="text-text leading-relaxed">
+ <strong className="text-[#39FF14]">💡 Комплексное предложение:</strong>{' '}
+ Stage 1 + EGR off + DPF off для дизельного авто — со скидкой <strong>от 45 000 ₽</strong>{' '}
+ за всё (обычно 44 000 + работы). Идеально для Mercedes E/GLE-Class, BMW X5/X3 30d, Audi A6/Q7 TDI,
+ Land Rover Discovery / RR Sport TDV6.
+ </p>
  </div>
  </section>
 
