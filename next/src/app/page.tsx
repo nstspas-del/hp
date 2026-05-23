@@ -12,12 +12,12 @@ import seoData from '@/data/seo.json';
 
 export const metadata: Metadata = {
  title: 'HP Тюнинг — автосервис в СПб: ТО, ремонт, детейлинг, чип-тюнинг',
- description: 'Автосервис в Санкт-Петербурге: ТО от 4 900 ₽, диагностика, ремонт, шиномонтаж, детейлинг, чип-тюнинг. BMW, Mercedes, Haval, Chery, Geely и 38+ марок. Богородская 3Б. Ежедневно 10:00–22:00.',
- keywords: ['автосервис спб', 'то спб', 'ремонт двигателя спб', 'шиномонтаж спб', 'детейлинг спб', 'чип тюнинг спб', 'hp тюнинг'],
+ description: 'Автосервис в Санкт-Петербурге: ТО от 4 900 ₽, диагностика, ремонт, шиномонтаж, детейлинг, чип-тюнинг. Mercedes-Benz, BMW, Porsche, Audi, Haval, Chery, Geely и 38+ марок. Богородская 3Б. Ежедневно 10:00–22:00.',
+ keywords: ['автосервис спб', 'mercedes сервис спб', 'bmw сервис спб', 'то спб', 'ремонт двигателя спб', 'шиномонтаж спб', 'детейлинг спб', 'чип тюнинг спб', 'hp тюнинг'],
  alternates: { canonical: 'https://hptuning.ru/' },
  openGraph: {
  title: 'HP Тюнинг — автосервис в Санкт-Петербурге',
- description: 'ТО, ремонт, шиномонтаж, детейлинг и чип-тюнинг для BMW, Mercedes, Audi, Porsche, Haval, Chery, Geely и 38+ марок. Богородская 3Б, СПб.',
+ description: 'ТО, ремонт, шиномонтаж, детейлинг и чип-тюнинг для Mercedes-Benz, BMW, Porsche, Audi, Haval, Chery, Geely и 38+ марок. Богородская 3Б, СПб.',
  url: 'https://hptuning.ru/',
  type: 'website',
  locale: 'ru_RU',

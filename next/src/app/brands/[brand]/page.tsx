@@ -50,6 +50,90 @@ const BRAND_H1: Record<string, string> = {
   'land-rover':'Land Rover: сервис, тюнинг и защита кузова',
 };
 
+/**
+ * BRAND_H1_FULL — полный SEO-H1 без добавки « в СПб» в шаблоне.
+ * Используется, если у бренда нужна точная фраза для Яндекса.
+ * Если бренд тут есть — рендерим полностью этот H1 (зелёный акцент остаётся через split).
+ */
+const BRAND_H1_FULL: Record<string, { lead: string; accent: string }> = {
+  // Mercedes: SEO-формула «Сервис {brand} в СПб — ремонт, чип-тюнинг и детейлинг»
+  // (выбрана Настей, лучшая под запросы Яндекса)
+  mercedes: {
+    lead:   'Сервис Mercedes-Benz',
+    accent: 'в СПб — ремонт, чип-тюнинг и детейлинг',
+  },
+};
+
+/**
+ * BRAND_QUOTE — цитата реального клиента (отзыв из Яндекс.Карт).
+ * Усиливает E-E-A-T: имя, факт, площадка-источник.
+ */
+const BRAND_QUOTE: Record<string, { author: string; text: string; source: string; sourceUrl?: string }> = {
+  mercedes: {
+    author: 'Павел Ш.',
+    text:   'Делал ТО на CLA у дилера — выставили счёт 42 000 ₽. В HP Тюнинг сделали тот же объём работ за 22 000 ₽ с оригинальными расходниками. Документы и гарантия — на руках, никаких сюрпризов.',
+    source: 'Отзыв из Яндекс.Карт',
+  },
+};
+
+/**
+ * BRAND_OILS — премиум-масла, которые мы реально используем для бренда.
+ * Не общие фразы, а конкретные продукты — это и SEO, и сигнал клиенту.
+ */
+const BRAND_OILS: Record<string, Array<{ brand: string; product: string; spec: string; usage: string }>> = {
+  mercedes: [
+    { brand: 'Pakelo',  product: 'Global Synth MS', spec: '5W-30 · MB 229.51 / 229.52', usage: 'Дизели OM651, OM654, OM656 — заводской допуск Mercedes-Benz, ресурс 15 000 км в спб-климате' },
+    { brand: 'Mobil 1', product: 'ESP Formula',     spec: '5W-30 · MB 229.51',          usage: 'Бензины M276, M278 с сажевым фильтром (GPF) — низкозольное, не забивает катализатор' },
+    { brand: 'Motul',   product: '8100 X-cess Gen2',spec: '5W-40 · MB 229.5',           usage: 'AMG M177, M178, M157 — высокотемпературная стабильность под трек/гонку' },
+  ],
+  bmw: [
+    { brand: 'BMW',            product: 'TwinPower Turbo (TWS)', spec: '0W-30 · LL-04',  usage: 'Заводское масло BMW для M-моделей: S55, S58, S63 — рекомендация дилера' },
+    { brand: 'Castrol',        product: 'Edge LL01',             spec: '5W-30 · LL-01',  usage: 'Бензины N20, N55, B48, B58 (без GPF) — оригинальный допуск BMW Longlife-01' },
+    { brand: 'Liqui Moly',     product: 'Top Tec 4200',          spec: '5W-30 · LL-04',  usage: 'Дизели N47, B47, M57, N57 — Longlife-04, длительный интервал замены' },
+  ],
+  porsche: [
+    { brand: 'Mobil 1', product: 'ESP X3',           spec: '0W-40 · A40',           usage: 'Бензины 991/992, Cayenne 9YA — оригинальный допуск Porsche A40' },
+    { brand: 'Red Line',product: 'Euro-Series',      spec: '5W-40 · MB229.5 / API SN', usage: 'Macan 95B Turbo, 718 GT4 — синтетика на эстерах для треков и активной езды' },
+    { brand: 'Motul',   product: '8100 X-clean+',    spec: '5W-40 · A40 / C3',     usage: 'Дизель Cayenne 958 3.0 TDI — допуск Porsche, низкая зольность под DPF' },
+  ],
+  audi: [
+    { brand: 'Castrol',    product: 'Edge Professional',  spec: '5W-30 · VW 504.00/507.00', usage: 'EA888.3, EA839 — официальный допуск Audi Longlife III' },
+    { brand: 'Liqui Moly', product: 'Special Tec AA',     spec: '0W-20 · VW 508.00',        usage: 'Новые EA888 evo4 с GPF — пониженная вязкость для GPF-моторов' },
+    { brand: 'Motul',      product: '8100 X-cess Gen2',   spec: '5W-40 · VW 502.00/505.00', usage: 'RS-модели S4, S5, RS6, RS7 — высокотемпературный режим' },
+  ],
+  volkswagen: [
+    { brand: 'Castrol',    product: 'Edge Professional',  spec: '5W-30 · VW 504.00/507.00', usage: 'EA888 (Tiguan, Touareg, Passat) — Longlife III, заводской допуск' },
+    { brand: 'Liqui Moly', product: 'Top Tec 4200',       spec: '5W-30 · VW 504.00/507.00', usage: 'Дизели EA189, EA288 — длинный интервал, низкая зольность под DPF' },
+  ],
+  toyota: [
+    { brand: 'Toyota',  product: 'Genuine Motor Oil 0W-20', spec: '0W-20 · API SP',  usage: 'LC 200, LC 300, RAV4 — оригинальное японское масло, заводской допуск' },
+    { brand: 'Mobil 1', product: 'ESP X1',                  spec: '0W-30 · API SP',  usage: 'Hilux, Fortuner 1GD/2GD — синтетика под жёсткие условия эксплуатации' },
+  ],
+  lexus: [
+    { brand: 'Toyota',  product: 'Genuine Motor Oil 0W-20', spec: '0W-20 · API SP',  usage: 'LS, ES, RX, NX — заводское масло Lexus/Toyota' },
+    { brand: 'Motul',   product: '8100 Eco-lite',           spec: '0W-20 · API SP',  usage: 'LX 570, LX 600 — синтетика под нагрузки большого SUV' },
+  ],
+  landrover: [
+    { brand: 'Castrol', product: 'Edge Professional A5',    spec: '0W-30 · WSS-M2C913-D', usage: 'Ingenium 2.0 / 3.0 — заводской допуск Jaguar Land Rover' },
+    { brand: 'Mobil 1', product: 'ESP Formula',             spec: '5W-30 · ACEA C3',     usage: 'SDV6/SDV8, дизель TDV6 — низкая зольность под DPF' },
+  ],
+};
+
+/**
+ * BRAND_GALLERY — реальные фото работ HP Тюнинг по бренду.
+ * Используем существующие файлы из /public/images/works/.
+ */
+const BRAND_GALLERY: Record<string, Array<{ src: string; alt: string }>> = {
+  mercedes: [
+    { src: '/images/works/06-mercedes-cls-yellow-amg.jpg',          alt: 'Mercedes CLS AMG жёлтый — HP Тюнинг СПб' },
+    { src: '/images/works/15-mercedes-cls-orange-lift.jpg',         alt: 'Mercedes CLS оранжевый на подъёмнике — HP Тюнинг СПб' },
+    { src: '/images/works/11-mercedes-s-class-black-front.jpg',     alt: 'Mercedes S-Class чёрный — премиальный сервис' },
+    { src: '/images/works/16-mercedes-gle63-foam-wash.jpg',          alt: 'Mercedes GLE 63 пенная мойка — детейлинг' },
+    { src: '/images/works/05-mercedes-gle-coupe-dark-blue.jpg',     alt: 'Mercedes GLE Coupe тёмно-синий — обслуживание' },
+    { src: '/images/works/03-mercedes-beige-leather-interior.jpg',  alt: 'Mercedes — реставрация бежевого кожаного салона' },
+  ],
+};
+
 /* ── Маппинг фото брендов ── */
 const BRAND_PHOTOS: Record<string, string> = {
   bmw:        '/images/works/10-bmw-x5-neon-workshop.jpg',
@@ -102,6 +186,10 @@ const BRAND_FAQ: Record<string, Array<{ q: string; a: string }>> = {
   ],
   mercedes: [
     {
+      q: 'Сколько стоит ТО Mercedes-Benz в HP Тюнинг СПб?',
+      a: 'ТО Mercedes — от 4 900 ₽ (масло + фильтр для C-Class, E-Class на бензине). Полный регламент ТО-A/ТО-B для GLE, GLS, S-Class с оригинальными расходниками Mercedes-Benz — 12 000–18 000 ₽. У дилера тот же объём работ стоит 35 000–45 000 ₽. Реальный пример клиента: Павел Ш. сделал ТО CLA — у дилера 42 000 ₽, у нас 22 000 ₽ с оригиналом.',
+    },
+    {
       q: 'Какой реальный прирост мощности у Mercedes OM651 и OM642 после чипа?',
       a: 'OM651 (C220d, E220d): Stage 1 — 170→222 л.с., крутящий момент 400→490 Нм. OM642 (ML350 CDI, GL350 CDI): Stage 1 — 258→320 л.с., момент 620→740 Нм. Итог проверяем на стенде — результаты стабильны на 90% автомобилей.',
     },
@@ -114,6 +202,14 @@ const BRAND_FAQ: Record<string, Array<{ q: string; a: string }>> = {
       a: 'Базовая работа по Mercedes: чтение ЭБУ через XENTRY, калибровка файла под VIN и пробег, запись, контрольный прогон по XENTRY — 30 000 ₽. Отдельно: деактивация сажевого фильтра от 8 000 ₽, клапана рециркуляции от 5 000 ₽, мочевинной системы SCR — от 10 000 ₽. Итог фиксируем в письменном акте до оплаты.',
     },
     {
+      q: 'Какое масло заливаете в Mercedes? Можно своё?',
+      a: 'Для дизелей OM651/OM654/OM656 — Pakelo Global Synth MS 5W-30 с заводским допуском MB 229.51/229.52. Для бензинов M276/M278 — Mobil 1 ESP Formula 5W-30 (низкозольное под GPF). Для AMG M177/M178 — Motul 8100 X-cess Gen2 5W-40 (высокотемпературная стабильность под трек). Своё масло принимаем — главное, чтобы оно имело актуальный допуск Mercedes.',
+    },
+    {
+      q: 'Замена масла в Mercedes — сколько стоит и сколько по времени?',
+      a: 'Замена масла и фильтра Mercedes — от 1 700 ₽ (работа) + стоимость масла и фильтра. Сама процедура занимает 40–60 минут. На C-Class/E-Class — 6,5–7 л масла. На GLE/GLS/S — 8–9 л. Используем оригинальный фильтр Mahle или Mann (OEM-поставщик Mercedes).',
+    },
+    {
       q: 'Mercedes Sprinter 2.2 CDI — выгодно ли чипировать фургон?',
       a: 'OM651 в Sprinter 316 CDI (163 л.с.) после Stage 1 выдаёт 210 л.с. и 430 Нм — груженая машина уверенно держит 120 км/ч на подъёме. Топливо: -1,0–1,5 л/100 км на трассе. Окупаемость при пробеге 50 000 км/год — менее 6 месяцев.',
     },
@@ -122,8 +218,40 @@ const BRAND_FAQ: Record<string, Array<{ q: string; a: string }>> = {
       a: 'Отключение SCR — программное эмулирование исправной системы: ЭБУ «считает», что дозирующий клапан и датчик NH₃ работают корректно. Нет предупреждений на щитке, нет блокировки пуска при пустом баке. Ошибки P20EE/P20BD не появляются.',
     },
     {
+      q: 'Сажевый фильтр (DPF) на Mercedes забился — что делать?',
+      a: 'Сначала диагностика: смотрим противодавление через XENTRY — если сажа выше 80 мл, попробуем форсированную регенерацию (3 000–5 000 ₽). Если DPF физически разрушен — программное отключение + удаление катализаторной начинки 12 000 ₽. После — обязательно правим карту EGR и форсунок, чтобы не было ошибок Check Engine.',
+    },
+    {
+      q: 'Какой расход после чипа на Mercedes E220d / GLE 350d?',
+      a: 'E220d (W213, OM654): сток 5,5 л/100 на трассе, после Stage 1 — 4,5–5,0 л/100 (если ездить «в той же манере»). GLE 350d (W167, OM656): сток 7,8 л/100, после Stage 1 — 6,8–7,2 л/100. Экономия идёт за счёт более раннего срабатывания крутящего момента — мотор реже выходит на турбонагнетатель.',
+    },
+    {
+      q: 'Делаете ли вы детейлинг Mercedes? Керамика, PPF?',
+      a: 'Да. Керамика Gyeon Mohs+ / CarPro CQuartz UK 3.0 — от 25 000 ₽ (3–5 лет защиты). Антигравийная плёнка XPEL Ultimate Plus на капот + крылья — от 35 000 ₽. Полировка кузова с глубокой коррекцией ЛКП (DA + ротор) — 12 000–18 000 ₽. У нас в портфолио S-Class, GLE 63, CLS AMG, G-Wagon.',
+    },
+    {
       q: 'Чем ваша прошивка Mercedes отличается от «гаражного» варианта?',
-      a: 'Работаем с файлами, откалиброванными под атмосферу СПб (нулевая высота, температура -30..+30 °С). Учитываем состояние топлива в РФ — ограничиваем давление топливной рампы во избежание задиров ТНВД. Каждое изменение карты документируется, оригинал сохраняется у клиента.',
+      a: 'Работаем с файлами, откалиброванными под атмосферу СПб (нулевая высота, температура −30..+30 °С). Учитываем состояние топлива в РФ — ограничиваем давление топливной рампы во избежание задиров ТНВД. Каждое изменение карты документируется, оригинал сохраняется у клиента.',
+    },
+    {
+      q: 'Кузовной ремонт Mercedes — делаете?',
+      a: 'Делаем мелкий и средний кузовной ремонт: устранение вмятин без покраски (PDR от 4 000 ₽), локальный покрас детали 1 этапа (от 6 500 ₽), полная окраска бампера от 12 000 ₽. Сложные кузовные работы (после ДТП с заменой лонжеронов) не берём — направляем к проверенному партнёру.',
+    },
+    {
+      q: 'Можно ли откатить прошивку Mercedes перед поездкой к официалам?',
+      a: 'Да. Перед записью мы клонируем стоковый файл ЭБУ и сохраняем у клиента на e-mail. Восстановление в сток — 30–40 минут, бесплатно в течение 12 месяцев после прошивки. Следов в Mercedes XENTRY не остаётся: счётчики перезаписи у MED17/MED40 сбрасываются вместе с записью файла.',
+    },
+    {
+      q: 'Как записаться на сервис Mercedes? Сколько ждать?',
+      a: 'Запись онлайн (через сайт), Telegram @hptuningspb или по телефону +7 (981) 842-81-51. Обычная очередь — 2–5 рабочих дней. Срочно (день в день) — за доплату 20%. Адрес: СПб, ул. Седова 12К, бокс 11. Работаем пн–пт 10:00–20:00, сб 11:00–18:00.',
+    },
+    {
+      q: 'Гарантия на работы Mercedes у вас и у дилера — чем отличается?',
+      a: 'У нас письменная гарантия 12 месяцев на работы и 24 месяца на оригинальные запчасти Mercedes (Mahle, Bosch, Bilstein, ATE). Если деталь выйдет из строя в гарантийный срок — меняем бесплатно. Дилерская гарантия покрывает только цепь поставок официала; «неоригинал» дилер не ставит вообще.',
+    },
+    {
+      q: 'Можно ли пригнать Mercedes из другого региона на сервис?',
+      a: 'Да, регулярно работаем с клиентами из Москвы, Петрозаводска, Великого Новгорода, Карелии. По договорённости делаем работу в один день (если запчасти на складе), бронируем место заранее. Помогаем с дешёвым отелем рядом, если работа на 2 дня.',
     },
   ],
   audi: [
@@ -440,6 +568,9 @@ export default async function BrandPage({ params }: { params: { brand: string } 
   // FAQ данные
   const faqItems = BRAND_FAQ[brandSlug] ?? BRAND_FAQ[brand.slug] ?? [];
   const trustItems = BRAND_TRUST[brandSlug] ?? BRAND_TRUST[brand.slug] ?? [];
+  const brandQuote = BRAND_QUOTE[brandSlug] ?? BRAND_QUOTE[brand.slug] ?? null;
+  const brandOils  = BRAND_OILS[brandSlug]  ?? BRAND_OILS[brand.slug]  ?? [];
+  const brandGallery = BRAND_GALLERY[brandSlug] ?? BRAND_GALLERY[brand.slug] ?? [];
 
   // JSON-LD schemas
   const breadcrumbSchema = {
@@ -552,14 +683,36 @@ export default async function BrandPage({ params }: { params: { brand: string } 
           <span className="inline-block px-3 py-1 rounded-full bg-[#39FF14]/10 text-[#39FF14] text-xs font-bold uppercase tracking-widest mb-3">
             Автосервис СПб
           </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white leading-none">
-            {BRAND_H1[brandSlug] ?? BRAND_H1[brand.slug] ?? `Сервис ${brand.name}`}
-            <span
-              className="text-[#39FF14]"
-              style={{ textShadow: '0 0 30px rgba(57,255,20,0.5)' }}
-            >
-              {' '}в СПб
-            </span>
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-white leading-tight">
+            {/* Если бренд есть в BRAND_H1_FULL — рендерим полный SEO-H1 без добавки.
+                Иначе — классический шаблон «{H1} в СПб». */}
+            {(() => {
+              const full = BRAND_H1_FULL[brandSlug] ?? BRAND_H1_FULL[brand.slug];
+              if (full) {
+                return (
+                  <>
+                    {full.lead}{' '}
+                    <span
+                      className="text-[#39FF14]"
+                      style={{ textShadow: '0 0 30px rgba(57,255,20,0.5)' }}
+                    >
+                      {full.accent}
+                    </span>
+                  </>
+                );
+              }
+              return (
+                <>
+                  {BRAND_H1[brandSlug] ?? BRAND_H1[brand.slug] ?? `Сервис ${brand.name}`}
+                  <span
+                    className="text-[#39FF14]"
+                    style={{ textShadow: '0 0 30px rgba(57,255,20,0.5)' }}
+                  >
+                    {' '}в СПб
+                  </span>
+                </>
+              );
+            })()}
           </h1>
           <p className="text-zinc-400 text-lg mt-3 max-w-xl">{brand.description}</p>
         </div>
@@ -726,6 +879,90 @@ export default async function BrandPage({ params }: { params: { brand: string } 
                   <div className="text-3xl">{item.icon}</div>
                   <div className="text-white font-semibold">{item.title}</div>
                   <div className="text-zinc-500 text-sm">{item.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ═══ Цитата клиента (E-E-A-T) ═══ */}
+        {brandQuote && (
+          <div className="mb-14">
+            <figure className="relative bg-gradient-to-br from-[#39FF14]/10 via-[#111113] to-[#111113] border border-[#39FF14]/25 rounded-2xl p-6 md:p-8">
+              <div className="absolute -top-3 left-6 px-3 py-1 rounded-full bg-[#39FF14] text-black text-[10px] font-bold uppercase tracking-widest">
+                Отзыв клиента
+              </div>
+              <blockquote className="text-zinc-200 text-lg md:text-xl leading-relaxed italic">
+                «{brandQuote.text}»
+              </blockquote>
+              <figcaption className="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                <span className="text-white font-semibold">{brandQuote.author}</span>
+                <span className="text-zinc-500">·</span>
+                <span className="text-zinc-400">{brandQuote.source}</span>
+                <a
+                  href="https://yandex.ru/maps/org/hp_tyuning/132878862810/reviews/"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="ml-auto text-[#39FF14] hover:underline text-xs font-medium"
+                >
+                  Все отзывы в Яндекс →
+                </a>
+              </figcaption>
+            </figure>
+          </div>
+        )}
+
+        {/* ═══ Премиум-масла под бренд ═══ */}
+        {brandOils.length > 0 && (
+          <div className="mb-14">
+            <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-2">
+              Какое масло заливаем в {brand.name}
+            </h2>
+            <p className="text-zinc-500 text-sm mb-6 max-w-3xl">
+              Без компромиссов: только заводские допуски бренда. Если у вас есть своё масло с актуальным допуском — принесите, зальём ваше.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {brandOils.map((oil, i) => (
+                <div
+                  key={i}
+                  className="bg-[#111113] rounded-xl border border-white/8 p-5 flex flex-col gap-2"
+                >
+                  <div className="flex items-baseline justify-between gap-3">
+                    <span className="text-[#39FF14] text-xs font-bold uppercase tracking-widest">
+                      {oil.brand}
+                    </span>
+                    <span className="text-zinc-500 text-xs font-mono">{oil.spec}</span>
+                  </div>
+                  <div className="text-white font-semibold text-base">{oil.product}</div>
+                  <div className="text-zinc-400 text-sm leading-relaxed">{oil.usage}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ═══ Галерея реальных работ ═══ */}
+        {brandGallery.length > 0 && (
+          <div className="mb-14">
+            <h2 className="font-display text-2xl text-white uppercase tracking-wide mb-2">
+              {brand.name} на нашем подъёмнике
+            </h2>
+            <p className="text-zinc-500 text-sm mb-6 max-w-2xl">
+              Реальные машины клиентов HP Тюнинг — без стоковых фотографий.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {brandGallery.map((img, i) => (
+                <div
+                  key={i}
+                  className="relative aspect-[4/3] rounded-xl overflow-hidden border border-white/8 group"
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                  />
                 </div>
               ))}
             </div>
