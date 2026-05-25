@@ -22,10 +22,24 @@
  * ─────────────────────────────────────────────────────────────── */
 :root {
   --font-sans:    'Manrope', 'Inter', system-ui, sans-serif;
-  --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-display: 'Bebas Neue', 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-body:    'Manrope', 'Inter', system-ui, sans-serif;
   /* Обратная совместимость со старыми ссылками на переменные */
   --font-inter:   'Inter', system-ui, sans-serif;
-  --font-oswald:  'Manrope', 'Inter', system-ui, sans-serif;
+  --font-oswald:  'Bebas Neue', 'Manrope', 'Inter', system-ui, sans-serif;
+}
+
+/* ─── Bebas Neue (спортивный display-шрифт для H1/H2 и витрин)
+ * Узкий гоночный sans-serif, идеально для автомобильной тематики.
+ * Поддерживает только латиницу — для кириллических заголовков
+ * автоматически подменяется на Manrope-800 (фолбэк ниже). */
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/fonts/bebas-neue-400.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0152-0153, U+2000-206F, U+2070-209F;
 }
 
 /* ─── Manrope (основной шрифт всей системы) ─── */

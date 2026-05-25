@@ -1,19 +1,45 @@
+'use client';
 /**
- * Секция социальных доказательств. Серверный компонент.
+ * Социальные доказательства — Bento-grid (taste-skill §9).
  *
- * Задача — сразу показать клиенту экспертизу, оборудование и атмосферу
- * мастерской. Без обещаний «гарантия N месяцев» и без отсылок к ребрендингу.
+ * Вместо унылой сетки 3×2 одинаковых карточек — асимметричный bento:
+ *   ┌─────────────────────────┬───────────┐
+ *   │  ALIENTECH (1 хайлайт)  │  CPU      │
+ *   │      2 кол × 1 ряд       │  диагн.   │
+ *   ├──────────┬──────────────┴───────────┤
+ *   │ ОТКАТ    │ КОМАНДА (1 col × 1 row)  │
+ *   ├──────────┼──────────────────────────┤
+ *   │ БОКС     │ ЦЕНЫ (1 col × 1 row)     │
+ *   └──────────┴──────────────────────────┘
+ * (на md+ — bento; на мобиле — стек single-column)
  *
- * Никаких внешних запросов и виджетов → работает в России без VPN.
+ * Принципы taste-skill:
+ *   • DESIGN_VARIANCE = 7 (асимметрия 2fr 1fr)
+ *   • MOTION_INTENSITY = 6 (whileInView + staggerChildren + spring)
+ *   • Tinted shadows: тень в цвет акцента, а не пустая чёрная
+ *   • Inner border для glassmorphism: rgba(255,255,255,0.06)
+ *   • Никаких эмодзи в коде
  */
 
 import { ShieldCheck, Award, Clock, Wrench, Users, Cpu } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-const FACTS = [
+type Fact = {
+  icon: typeof Award;
+  title: string;
+  body: string;
+  /** Размер карточки в bento (на md+) */
+  span?: 'wide' | 'tall' | 'normal';
+  /** Особо акцентная карта — зелёная заливка */
+  accent?: boolean;
+};
+
+const FACTS: Fact[] = [
   {
     icon: Award,
     title: 'Оборудование Alientech KESS3',
-    body: 'Работаем на Alientech KESS3 — это эталонный программатор для чип-тюнинга премиум-марок (BMW, Mercedes, Porsche, Audi, Land Rover). Корректные карты, безопасные прошивки, оригинальный файл сохраняем перед каждой работой.',
+    body: 'Работаем на Alientech KESS3 — эталонный программатор для чип-тюнинга премиум-марок (BMW, Mercedes, Porsche, Audi, Land Rover). Корректные карты, безопасные прошивки, оригинальный файл ЭБУ сохраняем перед каждой работой.',
+    span: 'wide',
     accent: true,
   },
   {
@@ -23,68 +49,120 @@ const FACTS = [
   },
   {
     icon: ShieldCheck,
-    title: 'Откат к стоку в любой момент',
-    body: 'Перед каждой прошивкой сохраняем оригинальный файл ЭБУ. Перед ТО у дилера или продажей — бесплатно возвращаем заводскую версию.',
+    title: 'Откат к стоку',
+    body: 'Перед каждой прошивкой сохраняем оригинальный файл. Перед ТО у дилера — бесплатно вернём заводскую версию.',
   },
   {
     icon: Clock,
-    title: 'Работаем с 2019 года',
-    body: 'Команда с 2019-го: премиум-сегмент — Porsche, BMW M, AMG, Range Rover — и современный массовый рынок (Haval, Chery, Geely, Tank, Exeed).',
+    title: 'Команда с 2019',
+    body: 'Премиум — Porsche, BMW M, AMG, Range Rover, и современные массовые — Haval, Chery, Geely, Tank, Exeed.',
   },
   {
     icon: Wrench,
-    title: 'Уютный бокс в Порошкино',
-    body: 'Своя мастерская на ул. Богородская, 3Б — арендуем, но обустроили под себя: дизайнерский пол, два подъёмника, отдельная клиентская зона с диваном и кофе. Большой баннер Hot Wheels Legends UK — фотозона, где снимаем каждый клиентский автомобиль.',
+    title: 'Бокс в Порошкино',
+    body: 'Своя мастерская на Богородской, 3Б — два подъёмника, дизайнерский пол, клиентская зона с диваном и кофе. Большой баннер Hot Wheels Legends UK — фотозона, где снимаем каждый клиентский автомобиль.',
+    span: 'wide',
   },
   {
     icon: Users,
-    title: 'Прозрачные цены на все услуги',
-    body: 'Калькулятор на сайте показывает стоимость ТО, диагностики, ремонта подвески и тормозов, чип-тюнинга и детейлинга (керамика, PPF, химчистка). Без «накруток в процессе» и «доплат на выходе» — фиксируем смету заранее.',
+    title: 'Прозрачные цены',
+    body: 'Калькулятор на сайте показывает стоимость ТО, диагностики, ремонта, чип-тюнинга и детейлинга. Без «накруток в процессе».',
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring' as const, stiffness: 90, damping: 18 },
+  },
+};
+
 export function SocialProof() {
   return (
-    <section className="container py-10 md:py-14 border-t border-white/5">
-      {/* Заголовок секции */}
-      <div className="max-w-3xl mb-6 md:mb-8">
-        <h2 className="font-display text-3xl md:text-4xl text-text tracking-tight mb-3">
-          Почему нам доверяют <span className="text-accent">премиум-авто</span>
-        </h2>
-        <p className="text-text-muted text-sm md:text-base leading-relaxed">
-          Команда с экспертизой по премиум-сегменту, дилерское диагностическое оборудование,
-          уютная мастерская в Порошкино и честное ценообразование.
+    <section className="container py-12 md:py-20 border-t border-white/5">
+      {/* Заголовок секции — асимметричный, не центрированный */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 md:mb-12 items-end">
+        <div className="md:col-span-2">
+          <span className="badge mb-3 inline-block">Почему доверяют</span>
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.02]">
+            Команда, оборудование
+            <br />
+            и&nbsp;<span className="text-[#39FF14]" style={{ textShadow: '0 0 30px rgba(57,255,20,0.4)' }}>честная цена</span>
+          </h2>
+        </div>
+        <p className="text-zinc-400 text-sm md:text-base leading-relaxed md:pb-2">
+          Премиум-экспертиза, дилерское диагностическое оборудование, уютная мастерская
+          в&nbsp;Порошкино и&nbsp;прозрачное ценообразование без&nbsp;«доплат на&nbsp;выходе».
         </p>
       </div>
 
-      {/* Сетка фактов */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+      {/* BENTO GRID — асимметричная сетка 3 колонки на md+ */}
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-80px' }}
+        variants={{ show: { transition: { staggerChildren: 0.07 } } }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 auto-rows-min"
+      >
         {FACTS.map((f, i) => {
           const Icon = f.icon;
+          const isWide = f.span === 'wide';
           return (
-            <article
+            <motion.article
               key={i}
+              variants={cardVariants}
               className={[
-                'card p-6 transition-all hover:border-accent-dim',
-                f.accent ? 'border-accent-dim bg-accent/5' : '',
+                'group relative overflow-hidden rounded-3xl p-6 md:p-7 transition-all duration-300',
+                'border',
+                f.accent
+                  ? 'bg-gradient-to-br from-[#39FF14]/[0.08] to-[#39FF14]/[0.02] border-[#39FF14]/30'
+                  : 'bg-[#111113] border-white/8 hover:border-white/15',
+                isWide ? 'md:col-span-2' : '',
               ].join(' ')}
+              style={
+                f.accent
+                  ? { boxShadow: '0 20px 60px -20px rgba(57,255,20,0.15)' }
+                  : undefined
+              }
             >
+              {/* Иконка */}
               <div
                 className={[
-                  'size-12 rounded-xl flex items-center justify-center mb-4',
-                  f.accent ? 'bg-accent text-black' : 'bg-accent/10 text-accent',
+                  'inline-flex items-center justify-center size-12 md:size-14 rounded-2xl mb-5 shrink-0 transition-transform group-hover:scale-105',
+                  f.accent
+                    ? 'bg-[#39FF14] text-black'
+                    : 'bg-white/[0.06] text-[#39FF14] border border-white/[0.06]',
                 ].join(' ')}
               >
-                <Icon className="size-6" strokeWidth={2} />
+                <Icon className="size-6" strokeWidth={1.8} />
               </div>
-              <h3 className="font-display text-lg text-text tracking-tight mb-2">
+
+              <h3
+                className={[
+                  'font-display text-xl md:text-2xl tracking-tight mb-2.5 leading-[1.15]',
+                  f.accent ? 'text-white' : 'text-white',
+                ].join(' ')}
+              >
                 {f.title}
               </h3>
-              <p className="text-text-muted text-sm leading-relaxed">{f.body}</p>
-            </article>
+              <p className="text-zinc-400 text-sm md:text-base leading-relaxed">
+                {f.body}
+              </p>
+
+              {/* Inner border (taste-skill glassmorphism refraction) */}
+              <div
+                className="pointer-events-none absolute inset-0 rounded-3xl"
+                style={{
+                  boxShadow:
+                    'inset 0 1px 0 rgba(255,255,255,0.06), inset 0 0 0 1px rgba(255,255,255,0.02)',
+                }}
+              />
+            </motion.article>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 }

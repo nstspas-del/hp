@@ -1,6 +1,7 @@
 export const dynamic = 'force-static';
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
+import { BrandsMarquee } from '@/components/sections/BrandsMarquee';
 import { BrandsSection } from '@/components/sections/BrandsSection';
 import { WorksPreview } from '@/components/sections/WorksPreview';
 import { FaqSection } from '@/components/sections/FaqSection';
@@ -86,8 +87,12 @@ export default function HomePage() {
  {/* 1. Hero с BMW X7 — внутри 4 карточки услуг (Диагностика/ТО/Чип/Детейлинг). */}
  <Hero />
 
- {/* 2. Наши марки — единственный блок брендов на странице.
-        Виден и на мобиле, и на десктопе: «делаете ли вы мою марку?» — быстрый ответ. */}
+ {/* 1.5. Kinetic Marquee — бесконечная лента всех марок, сразу после Hero.
+        Cinematic wow-эффект (taste-skill §8 Typography & Text — Kinetic Marquee). */}
+ <BrandsMarquee />
+
+ {/* 2. Наши марки — детальная сетка по группам (Европа/Япония/Корея/Китай).
+        Marquee показал «что есть», сетка позволяет выбрать конкретное. */}
  <BrandsSection />
 
  {/* 3. Видео мастерской — показываем бокс, фотозону Hot Wheels и клиентскую зону. */}

@@ -1,7 +1,9 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Phone, Stethoscope, Wrench, Zap, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Phone, Stethoscope, Wrench, Zap, Sparkles, Send } from 'lucide-react';
+import { MagneticButton } from '@/components/ui/MagneticButton';
 
 // 14 ключевых марок, сгруппированы по сегментам — все в HTML для Яндекса.
 // На мобиле этот блок скрыт — слишком тяжёлый; есть BrandsSection ниже.
@@ -67,7 +69,7 @@ const KEY_SERVICES = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-[88svh] md:min-h-[92svh] flex flex-col justify-end overflow-hidden">
+    <section className="relative min-h-[88dvh] md:min-h-[92dvh] flex flex-col justify-end overflow-hidden">
 
       {/* ── Фон ── */}
       <Image
@@ -113,26 +115,34 @@ export function Hero() {
             месте на&nbsp;Богородской&nbsp;3Б.
           </p>
 
-          {/* ───────── ГЛАВНЫЙ CTA — звонок, без "записаться в сервис" ───────── */}
-          <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 mb-2">
-            <a
+          {/* ───────── ГЛАВНЫЙ CTA — звонок + Telegram, с magnetic-эффектом ───────── */}
+          <motion.div
+            className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 mb-2"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: 'spring', stiffness: 90, damping: 18, delay: 0.3 }}
+          >
+            <MagneticButton
               href="tel:+79818428151"
-              className="btn-primary text-base md:text-lg px-7 py-4 rounded-full font-bold justify-center gap-2"
+              strength={0.3}
               onClick={() => window.ym?.(108614238, 'reachGoal', 'phone_click')}
+              className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-[#39FF14] text-black font-bold text-base md:text-lg hover:bg-[#2ee00f] transition-colors"
             >
               <Phone className="size-5" />
               +7 (981) 842-81-51
-            </a>
-            <a
+            </MagneticButton>
+            <MagneticButton
               href="https://t.me/hptunspb"
+              strength={0.25}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => window.ym?.(108614238, 'reachGoal', 'telegram_click')}
-              className="flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-white/15 text-white font-semibold text-base hover:border-[#39FF14]/50 hover:text-[#39FF14] transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-white/15 text-white font-semibold text-base hover:border-[#39FF14]/50 hover:text-[#39FF14] transition-colors"
             >
+              <Send className="size-5" />
               Написать в Telegram
-            </a>
-          </div>
+            </MagneticButton>
+          </motion.div>
           <p className="text-zinc-500 text-sm mb-5 md:mb-7">
             Ответим в течение 15 минут · возможна дистанционная консультация
           </p>
@@ -184,25 +194,36 @@ export function Hero() {
             </div>
           </nav>
 
-          {/* Статистика — крупнее, читаемее */}
-          <div className="flex flex-wrap gap-5 md:gap-10">
+          {/* Статистика — крупнее, tabular-nums (цифры выравниваются по сетке) */}
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={{ show: { transition: { staggerChildren: 0.08, delayChildren: 0.55 } } }}
+            className="flex flex-wrap gap-5 md:gap-10"
+          >
             {[
               { value: '14', label: 'ключевых марок' },
               { value: '457+', label: 'собранных проектов' },
               { value: 'от 4 900 ₽', label: 'ТО под ключ' },
               { value: '10:00–22:00', label: 'без выходных' },
             ].map((s) => (
-              <div key={s.label}>
+              <motion.div
+                key={s.label}
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 120, damping: 18 } },
+                }}
+              >
                 <div
-                  className="text-xl md:text-3xl font-display font-bold text-[#39FF14]"
+                  className="text-xl md:text-3xl font-display font-bold text-[#39FF14] tabular-nums"
                   style={{ textShadow: '0 0 20px rgba(57,255,20,0.4)' }}
                 >
                   {s.value}
                 </div>
                 <div className="text-zinc-400 text-xs md:text-sm mt-1">{s.label}</div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Яндекс.Бизнес — реальный рейтинг (id 99062407907) */}
           <div className="mt-5 md:mt-6">

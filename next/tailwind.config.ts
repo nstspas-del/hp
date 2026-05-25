@@ -40,10 +40,12 @@ const config: Config = {
       },
       fontFamily: {
         // Шрифты подключены через @font-face в globals.css (self-hosted, no Google CDN).
-        // Манроп — основной шрифт всей системы (текст + display).
-        // Inter — фолбэк, на случай если Manrope не загрузился.
+        // sans — для текста (Manrope, отлично читается, поддерживает кириллицу).
+        // display — для крупных заголовков (Bebas Neue — спортивный гоночный sans).
+        //           Bebas Neue только латиница → автоматический фолбэк на Manrope для кириллицы.
         sans:    ['Manrope', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Manrope', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Bebas Neue"', 'Manrope', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        racing:  ['"Bebas Neue"', 'Manrope', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         'glow-accent': '0 0 20px rgba(57,255,20,0.5), 0 0 40px rgba(57,255,20,0.2)',
