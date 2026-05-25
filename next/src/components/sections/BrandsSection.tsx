@@ -3,6 +3,15 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
+/* ВАЖНО: для самих бренд-кнопок используем обычный <a>, а не <Link>.
+ * Причина: next/link навешивает onClick, который перехватывает событие
+ * для client-side navigation. Если пользователь кликает ДО того, как
+ * React успел гидратироваться (бывает на медленном 3G/мобиле), onClick
+ * срабатывает и делает preventDefault — клик «съедается», навигация
+ * не происходит. С обычным <a> такого не бывает: даже без JS ссылка
+ * работает. Prefetch нам тут не нужен — все эти страницы открываются
+ * редко по сравнению с самой главной. */
+
 /* ─────────────────────────────────────────────────────────────────────────
  *  Главная — секция «Наши марки»
  *  
@@ -91,11 +100,11 @@ export function BrandsSection() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.25, delay: i * 0.04 }}
                     >
-                      <Link
+                      <a
                         href={`/brands/${brand.slug}`}
-                        prefetch={false}
                         className="brand-btn group relative inline-flex items-center gap-2 md:gap-2.5 px-3.5 py-2 md:px-5 md:py-3 rounded-xl md:rounded-2xl border border-white/10 bg-[#111113] text-zinc-300 font-semibold text-xs md:text-sm transition-all duration-200 hover:text-white hover:border-transparent hover:shadow-lg"
                         style={{ '--brand-color': brand.color } as React.CSSProperties}
+                        aria-label={`${brand.name} — сервис в СПб`}
                       >
                         <span
                           className="w-2 h-2 rounded-full shrink-0 transition-all duration-200 group-hover:scale-125 group-hover:shadow-[0_0_8px_currentColor]"
@@ -109,7 +118,7 @@ export function BrandsSection() {
                             border: `1px solid ${brand.color}40`,
                           }}
                         />
-                      </Link>
+                      </a>
                     </motion.div>
                   ))}
                 </div>
