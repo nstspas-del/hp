@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from 'react';
 import { Phone, Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { Logo } from '@/components/Logo';
 import { BrandSubdomainBadge } from '@/components/BrandSubdomainBadge';
-import { openBooking } from '@/lib/autodealer';
 
 // ── Навигация ─────────────────────────────────────────────────────────────────
 const NAV_SERVICE = [
@@ -81,6 +80,7 @@ const NAV = [
   { label: 'Марки',      href: '/marki',              type: 'brands' as const },
   { label: 'Тюнинг',    href: '/tuning/chip-tuning', type: 'tuning' as const },
   { label: 'Детейлинг', href: '/detailing',           type: 'detailing' as const },
+  { label: 'Практикумы', href: '/praktikum',         type: 'link' as const },
   { label: 'Блог',      href: '/blog',                type: 'link' as const },
   { label: 'Контакты',  href: '/contacts',            type: 'link' as const },
 ];
@@ -253,9 +253,15 @@ export function Header() {
               <Phone className="size-4" />
               <span className="hidden xl:inline font-medium">+7 (981) 842-81-51</span>
             </a>
-            <button onClick={() => openBooking()} className="btn-primary text-xs px-5 py-2.5 rounded-xl">
-              Записаться
-            </button>
+            <a
+              href="https://t.me/hptunspb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary text-xs px-5 py-2.5 rounded-xl"
+              onClick={() => window.ym?.(108614238, 'reachGoal', 'header_telegram_click')}
+            >
+              Telegram
+            </a>
           </div>
 
           {/* Мобильный бургер */}
@@ -299,19 +305,22 @@ export function Header() {
 
           <div className="flex-1 overflow-y-auto p-4 space-y-1 pb-28">
             <div className="grid grid-cols-2 gap-2 mb-5">
-              <button
-                onClick={() => { openBooking(); setMobileOpen(false); }}
-                className="btn-primary py-3 text-sm justify-center rounded-xl"
-              >
-                Записаться
-              </button>
               <a
                 href="tel:+79818428151"
-                className="flex items-center justify-center gap-2 py-3 text-sm bg-white/5 text-[#39FF14] rounded-xl font-medium"
-                onClick={() => setMobileOpen(false)}
+                className="btn-primary flex items-center justify-center gap-2 py-3 text-sm rounded-xl"
+                onClick={() => { setMobileOpen(false); window.ym?.(108614238, 'reachGoal', 'mobile_phone_click'); }}
               >
                 <Phone className="size-4" />
                 Позвонить
+              </a>
+              <a
+                href="https://t.me/hptunspb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 py-3 text-sm bg-white/5 text-[#39FF14] rounded-xl font-medium"
+                onClick={() => { setMobileOpen(false); window.ym?.(108614238, 'reachGoal', 'mobile_telegram_click'); }}
+              >
+                Telegram
               </a>
             </div>
 
@@ -444,21 +453,25 @@ export function Header() {
         </div>
       )}
 
-      {/* Мобильный sticky CTA */}
+      {/* Мобильный sticky CTA — звонок + Telegram (без "Записаться") */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-[#09090b]/95 backdrop-blur-md border-t border-white/8 p-3 safe-area-pb">
         <div className="flex gap-2">
-          <button
-            onClick={() => openBooking()}
-            className="btn-primary flex-1 py-3 text-sm justify-center rounded-xl"
-          >
-            Записаться
-          </button>
           <a
             href="tel:+79818428151"
-            className="flex items-center justify-center size-12 rounded-xl bg-white/5 text-[#39FF14] shrink-0"
-            onClick={() => window.ym?.(108614238, 'reachGoal', 'phone_click')}
+            className="btn-primary flex items-center justify-center gap-2 flex-1 py-3 text-sm rounded-xl"
+            onClick={() => window.ym?.(108614238, 'reachGoal', 'sticky_phone_click')}
           >
-            <Phone className="size-5" />
+            <Phone className="size-4" />
+            Позвонить
+          </a>
+          <a
+            href="https://t.me/hptunspb"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 flex-1 py-3 text-sm rounded-xl bg-white/5 text-[#39FF14] font-semibold"
+            onClick={() => window.ym?.(108614238, 'reachGoal', 'sticky_telegram_click')}
+          >
+            Telegram
           </a>
         </div>
       </div>

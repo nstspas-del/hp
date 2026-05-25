@@ -20,6 +20,7 @@ const LINKS = {
  ],
  info: [
  { label: 'О компании', href: '/about' },
+ { label: 'Практикумы', href: '/praktikum' },
  { label: 'Блог', href: '/blog' },
  { label: 'Проекты', href: '/blog?cat=projects' },
  { label: 'Отзывы', href: '/reviews' },
