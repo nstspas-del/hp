@@ -1,0 +1,20 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /privacy
+Disallow: /cookies
+Disallow: /api/
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Disallow: /privacy
+Disallow: /cookies
+Disallow: /api/
+Crawl-delay: 2
+
+# Host
+Host: https://hptuning.ru
+
+# Sitemaps
+Sitemap: https://hptuning.ru/sitemap.xml

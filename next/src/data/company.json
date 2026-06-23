@@ -1,0 +1,103 @@
+{
+ "name": "HP Тюнинг",
+ "legalName": "Индивидуальный предприниматель Шпрыгин Павел Александрович",
+ "legalNameShort": "ИП Шпрыгин П.А.",
+ "inn": "780108349816",
+ "ogrnip": "325470400051616",
+ "kpp": null,
+ "contacts": {
+ "phone": {
+ "display": "+7 (981) 842-81-51",
+ "href": "tel:+79818428151",
+ "raw": "+79818428151"
+ },
+ "telegram": {
+ "display": "@hptuningspb",
+ "href": "https://t.me/hptuningspb"
+ },
+ "email": {
+ "display": "hptuningspb@yandex.ru",
+ "href": "mailto:hptuningspb@yandex.ru"
+ }
+ },
+ "address": {
+ "country": "Россия",
+ "region": "Санкт-Петербург",
+ "locality": "Порошкино",
+ "street": "Богородская",
+ "building": "3Б",
+ "postalCode": "188660",
+ "full": "Россия, Санкт-Петербург, Порошкино, ул. Богородская, 3Б",
+ "short": "Богородская, 3Б, Порошкино"
+ },
+ "geo": {
+ "latitude": 60.096423,
+ "longitude": 30.304163,
+ "yandexMapUrl": "https://yandex.ru/maps/?pt=30.304163,60.096423&z=17&l=map"
+ },
+ "workHours": {
+ "schedule": "Пн-Вс 10:00–20:00",
+ "days": [
+ "Mo",
+ "Tu",
+ "We",
+ "Th",
+ "Fr",
+ "Sa",
+ "Su"
+ ],
+ "opens": "10:00",
+ "closes": "20:00",
+ "timezone": "Europe/Moscow"
+ },
+ "domain": {
+ "primary": "hptuning.ru",
+ "url": "https://hptuning.ru"
+ },
+ "autodealer": {
+ "key": "107eb24c04be7f0ef6676d5aa84dc46132fb7e6bdb6ac10b8adcf74e6e8633dd",
+ "scriptSrc": "https://online.autodealer.ru/widget/app.js"
+ },
+ "yandexMetrika": {
+ "counterId": 108614238,
+ "note": "Yandex.Metrika counter ID HP Тюнинг",
+ "goals": [
+ {
+ "id": "booking_open",
+ "label": "Клик по кнопке Записаться",
+ "priority": "secondary"
+ },
+ {
+ "id": "autodealer_open",
+ "label": "Виджет открылся",
+ "priority": "secondary"
+ },
+ {
+ "id": "autodealer_submit",
+ "label": "Нажата отправка в виджете",
+ "priority": "secondary"
+ },
+ {
+ "id": "booking_success",
+ "label": "Заявка отправлена успешно",
+ "priority": "primary"
+ },
+ {
+ "id": "autodealer_close",
+ "label": "Виджет закрыт без записи",
+ "priority": "anti"
+ },
+ {
+ "id": "phone_click",
+ "label": "Клик по телефону",
+ "priority": "secondary"
+ },
+ {
+ "id": "contact_form_submit",
+ "label": "Отправка формы /contacts",
+ "priority": "primary"
+ }
+ ]
+ },
+ "priceRange": "₽₽₽"
+}

@@ -1,0 +1,80 @@
+# ╔══════════════════════════════════════════════════════════╗
+# ║   HP ТЮНИНГ — Netlify конфиг для Next.js (папка next/)  ║
+# ╚══════════════════════════════════════════════════════════╝
+
+[build]
+  # Базовая директория — папка с Next.js проектом
+  base    = "next"
+  # Команда сборки
+  command = "npm run build"
+  # Папка с результатом сборки (Next.js → .next)
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_VERSION  = "10"
+  # Переменные окружения (задать в Netlify UI → Site settings → Environment variables):
+  # NEXT_PUBLIC_YM_COUNTER_ID     = 108614238
+  # NEXT_PUBLIC_YANDEX_VERIFICATION = <код_верификации>
+  # NEXT_PUBLIC_SITE_URL          = https://hptuning.ru
+
+# ── Next.js plugin — обязателен для SSR/ISR ──────────────────────────────────
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# ── Заголовки безопасности + CSP ─────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options            = "SAMEORIGIN"
+    X-Content-Type-Options     = "nosniff"
+    X-XSS-Protection           = "1; mode=block"
+    Referrer-Policy            = "strict-origin-when-cross-origin"
+    Strict-Transport-Security  = "max-age=63072000; includeSubDomains; preload"
+    # ISR Cache-Control для CDN Netlify (s-maxage=3600 — 1 ч ISR)
+    Cache-Control              = "public, max-age=0, must-revalidate, s-maxage=3600"
+    # Content Security Policy — явно разрешаем все используемые сторонние домены
+    Content-Security-Policy    = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://mc.yandex.ru https://online.autodealer.ru https://api-maps.yandex.ru https://yandex.ru https://cdn.tailwindcss.com; connect-src 'self' https://mc.yandex.ru https://online.autodealer.ru https://api-maps.yandex.ru https://yandex.ru; img-src 'self' data: https: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; frame-src https://yandex.ru; object-src 'none';"
+
+# ── Статика — длинный кэш ────────────────────────────────────────────────────
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ── Redirects ─────────────────────────────────────────────────────────────────
+# 301 — старые HTML-страницы из site/ на новые Next.js маршруты
+[[redirects]]
+  from   = "/site/index.html"
+  to     = "/"
+  status = 301
+
+[[redirects]]
+  from   = "/site/privacy.html"
+  to     = "/privacy"
+  status = 301
+
+[[redirects]]
+  from   = "/site/cookies.html"
+  to     = "/cookies"
+  status = 301
+
+[[redirects]]
+  from   = "/site/contacts.html"
+  to     = "/contacts"
+  status = 301
+
+[[redirects]]
+  from   = "/site/consent.html"
+  to     = "/consent"
+  status = 301
